@@ -44,7 +44,7 @@ const Footer = () => {
           <div>
             <h4 className="mb-8 text-sm font-display font-black uppercase tracking-[0.2em] text-white">Our Services</h4>
             <ul className="space-y-4">
-              {["Bespoke Booths", "MO.PO Systems", "QuickBuild", "Mall Activations", "Office Interiors"].map((item) => (
+              {["Custom Solutions", "EX.PO Systems", "Display Standrad", "Mall Activations", "Office Interiors"].map((item) => (
                 <li key={item}>
                   <Link href="#" className="group flex items-center text-white font-bold transition-colors hover:text-[var(--primary)]">
                     <span className="h-[1px] w-0 bg-[var(--primary)] transition-all group-hover:w-4 group-hover:mr-2" />
