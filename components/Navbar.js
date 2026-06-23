@@ -19,10 +19,12 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Solutions", href: "#solutions" },
-    { name: "Bespoke", href: "#bespoke" },
-    { name: "MO.PO", href: "#mopo" },
-    { name: "QuickBuild", href: "#quickbuild" },
+    { name: "Custom Solutions", href: "#solutions" },
+    { name: "Modular Solutions", href: "#solutions" },
+    // { name: "Bespoke", href: "#bespoke" },
+    { name: "EX.PO", href: "#mopo" },
+    // { name: "QuickBuild", href: "#quickbuild" },
+    { name: "Display Standrad", href: "#quickbuild" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -30,19 +32,19 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-white/90 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.05)] backdrop-blur-xl"
-          : "bg-transparent py-6"
+          ? "bg-[#000000] py-0 shadow-[0_10px_40px_rgba(0,0,0,0.05)] backdrop-blur-xl"
+          : "bg-[#000000] py-0"
       }`}
     >
       <div className="site-shell flex justify-between items-center">
         <Link href="/" className="relative z-50 flex items-center gap-3">
           <Image
-            src="/logo.png"
+            src="/logo1.png"
             alt="Expo Digital Group"
-            width={140}
-            height={48}
+            width={100}
+            height={100}
             priority
-            className="h-10 md:h-12 w-auto object-contain"
+            className=" w-auto object-contain"
           />
         </Link>
 
@@ -52,7 +54,7 @@ const Navbar = () => {
             <Link
               key={link.name}
               href={link.href}
-              className="group relative text-sm font-bold uppercase tracking-widest text-zinc-900 transition-colors hover:text-[var(--primary)]"
+              className="group relative text-sm font-bold uppercase tracking-widest text-white transition-colors hover:text-[var(--primary)]"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[var(--primary)] transition-all group-hover:w-full" />
@@ -60,7 +62,7 @@ const Navbar = () => {
           ))}
           <Link
             href="#contact"
-            className="group relative flex items-center gap-2 overflow-hidden rounded-full bg-zinc-900 px-7 py-3 text-sm font-black uppercase tracking-tighter text-white transition-all hover:bg-[var(--primary)] hover:text-black"
+            className="group relative flex items-center gap-2 overflow-hidden rounded-full bg-[var(--primary)] px-7 py-3 text-sm font-black uppercase tracking-tighter text-white transition-all hover:bg-[var(--primary)] hover:text-black"
           >
             <span className="relative z-10">Get Quote</span>
             <ArrowRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" />

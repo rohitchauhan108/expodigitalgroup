@@ -52,10 +52,10 @@ function FAQCard({ faq }) {
 
 export default function Home() {
   const stats = [
-    { label: "Years Experience", value: "10+" },
-    { label: "Successful Projects", value: "350+" },
-    { label: "Events & Exhibitions", value: "400+" },
-    { label: "Satisfied Clients", value: "300+" },
+    { label: "Years Experience", value: "18+" },
+    { label: "Successful Projects", value: "2200+" },
+    { label: "Events & Exhibitions", value: "500+" },
+    { label: "Satisfied Clients", value: "50+" },
   ];
 
   // Dynamically generate your 22 client logo paths from public/client-logo/
@@ -68,7 +68,7 @@ export default function Home() {
     },
     {
       title: "Our Vision",
-      text: "To transform your original concepts into majestic, functional environments—boosting global brand visibility to completely unmatched levels across the region.",
+      text: "To transform your original concepts into majestic, functional environments—boosting global brand visibility to completely unmatched levels across city and across venue the region.",
     },
     {
       title: "Our Values",
@@ -154,18 +154,18 @@ export default function Home() {
   const marqueeItems = [
     "Bespoke Exhibition Booths", 
     "MO.PO Sustainable Stands", 
-    "Mall Activations", 
+    "Promotional & Mall Activations", 
     "Commercial Showroom Interiors", 
     "Furniture & AV Rentals", 
     "Turnkey Event Fabrication"
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#EAF4E1]">
       <Navbar />
       
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden bg-[linear-gradient(180deg,#fff_0%,#fffaf4_100%)] pt-32 pb-24 md:pt-40 md:pb-32">
+      <section className="relative overflow-hidden bg-[#EAF4E1] pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="site-shell">
           <motion.div 
             className="mx-auto max-w-4xl text-center"
@@ -174,7 +174,7 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
-              Premium Exhibition Stand Builders • Dubai, UAE
+              Premium Exhibition Stand Builders • UAE,USA,Oman,India,
             </p>
             <h1 className="mb-8 text-5xl font-display font-bold tracking-tight text-zinc-950 md:text-7xl lg:text-8xl">
               We Bring Your Dream <span className="gradient-text">Project To Life</span>.
@@ -195,7 +195,7 @@ export default function Home() {
       </section>
 
       {/* 2. Infinite Services Marquee Section */}
-      <section className="bg-zinc-50 border-b border-zinc-200 py-8 overflow-hidden">
+      <section className="border-b border-zinc-200 py-8 overflow-hidden">
         <motion.div 
           className="w-full relative flex [mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)]"
           initial={{ opacity: 0 }}
@@ -250,7 +250,7 @@ export default function Home() {
       </section>
 
       {/* 5. Advanced About Section */}
-      <section className="relative bg-white py-24 md:py-32 overflow-hidden" id="about">
+      <section className="relative py-24 md:py-32 overflow-hidden" id="about">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
         <div className="site-shell relative z-10">
           <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
@@ -319,7 +319,7 @@ export default function Home() {
       </section>
 
       {/* 6. Why Expo Digital Section */}
-      <section className="bg-[linear-gradient(180deg,#fff_0%,#fffaf4_100%)] py-24">
+      <section className="py-24">
         <div className="site-shell">
           <motion.div className="mb-14 max-w-3xl" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">Why Choose Us</p>
@@ -347,7 +347,7 @@ export default function Home() {
       </section>
 
       {/* 7. Core Services Section */}
-      <section className="bg-zinc-50 border-y border-zinc-200 py-24" id="services">
+      <section className="border-y border-zinc-200 py-24" id="services">
         <div className="site-shell">
           <motion.div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between" {...fadeUp}>
             <div className="max-w-2xl">
@@ -380,7 +380,7 @@ export default function Home() {
       </section>
 
       {/* 8. Workflow Process Section */}
-      <section className="border-t border-zinc-200 bg-[linear-gradient(180deg,#fff_0%,#fffaf4_100%)] py-24">
+      <section className="border-t border-zinc-200 py-24">
         <div className="site-shell">
           <motion.div className="mb-20 max-w-3xl" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">Production Framework</p>
@@ -408,7 +408,7 @@ export default function Home() {
       </section>
 
       {/* 9. Recent Projects Portfolio Section */}
-      <section className="bg-white py-24" id="projects">
+      <section className="py-24" id="projects">
         <div className="site-shell">
           <motion.div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between" {...fadeUp}>
             <div className="max-w-2xl">
@@ -442,7 +442,7 @@ export default function Home() {
       </section>
 
       {/* 10. FAQ Accordion Section */}
-      <section className="bg-zinc-50 border-t border-zinc-200 py-24 md:py-32 relative overflow-hidden" id="faq">
+      <section className="border-t border-zinc-200 py-24 md:py-32 relative overflow-hidden" id="faq">
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
         <div className="site-shell max-w-4xl mx-auto">
           <motion.div className="text-center mb-16" {...fadeUp}>
