@@ -67,7 +67,7 @@ function FAQCard({ faq }) {
 export default function Home() {
   const stats = [
     { label: "Years Experience", value: "18+" },
-    { label: "Successful Projects", value: "2200+" },
+    { label: "Successful Projects", value: "200+" },
     { label: "Events & Exhibitions", value: "500+" },
     { label: "Satisfied Clients", value: "50+" },
   ];
