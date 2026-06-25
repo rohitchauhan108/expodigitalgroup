@@ -44,7 +44,7 @@ const Navbar = () => {
             width={100}
             height={100}
             priority
-            className="lg:h-full h-20 w-auto object-contain"
+            className="lg:h-full h-30 w-auto object-contain"
           />
         </Link>
 
@@ -93,10 +93,10 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 flex flex-col bg-white pt-24 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-white pt-24 pb-20 md:hidden"
           >
             <div className="bg-grid absolute bg-black inset-0" />
-            <div className="site-shell relative z-10 pb-10 bg-black space-y-8">
+            <div className="site-shell relative z-10 bg-black space-y-8">
               {navLinks.map((link, idx) => (
                 <motion.div
                   key={link.name}
@@ -117,11 +117,11 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="pt-8"
+                className=""
               >
                 <Link
                   href="#contact"
-                  className="inline-flex w-full items-center justify-center rounded-2xl bg-[var(--primary)] py-5 text-xl font-black uppercase tracking-tighter text-black"
+                  className="inline-flex lg:w-full items-center justify-center rounded-2xl bg-[var(--primary)] lg:py-5 py-3 px-2 lg:text-xl font-black uppercase tracking-tighter text-black"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Start Project <ArrowRight className="ml-2" />
