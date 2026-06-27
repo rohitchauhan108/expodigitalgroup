@@ -226,7 +226,7 @@ export default function Home() {
           >
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Premium Exhibition Stand Builders • {displayText}
-              <span className="animate-pulse">|</span>
+              {/* <span className="animate-pulse">|</span> */}
             </p>
             <h1 className="mb-8 text-5xl font-bold tracking-tight text-zinc-950 md:text-7xl lg:text-8xl">
               We Bring Your Dream{" "}
