@@ -59,7 +59,7 @@ const Footer = () => {
                 "Custom Solutions",
                 // "EX.PO Systems",
                 "Modular Solutions",
-                "Conference EX.PO",
+                "Conference EXPO",
                 "Display Stands",
                 // "Mall Activations",
                 // "Office Interiors",

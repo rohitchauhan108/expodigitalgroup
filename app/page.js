@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FaWhatsapp } from "react-icons/fa";
@@ -11,7 +11,6 @@ const fadeUp = {
   viewport: { once: true, margin: "-100px" },
   transition: { duration: 0.6, ease: "easeOut" },
 };
-
 function FAQCard({ faq }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,7 +25,7 @@ function FAQCard({ faq }) {
         onClick={() => setIsOpen(!isOpen)}
         className="flex w-full items-center justify-between p-6 text-left focus:outline-none"
       >
-        <span className="font-display text-lg font-bold text-zinc-950 pr-4">
+        <span className="text-lg font-bold text-zinc-950 pr-4">
           {faq.question}
         </span>
         <motion.div
@@ -193,6 +192,25 @@ export default function Home() {
     "Turnkey Event Fabrication",
   ];
 
+  const text = "UAE | KSA | Oman | India";
+
+  const [displayText, setDisplayText] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+
+    const interval = setInterval(() => {
+      setDisplayText(text.slice(0, index + 1));
+      index++;
+
+      if (index === text.length) {
+        clearInterval(interval);
+      }
+    }, 200); // Typing speed
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main className="lg:min-h-screen bg-[#EAF4E1]">
       <Navbar />
@@ -207,9 +225,10 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
-              Premium Exhibition Stand Builders • UAE | KSA | Oman | India,
+              Premium Exhibition Stand Builders • {displayText}
+              <span className="animate-pulse">|</span>
             </p>
-            <h1 className="mb-8 text-5xl font-display font-bold tracking-tight text-zinc-950 md:text-7xl lg:text-8xl">
+            <h1 className="mb-8 text-5xl font-bold tracking-tight text-zinc-950 md:text-7xl lg:text-8xl">
               We Bring Your Dream{" "}
               <span className="gradient-text">Project To Life</span>.
             </h1>
@@ -250,7 +269,7 @@ export default function Home() {
                 className="flex items-center gap-4 flex-shrink-0"
               >
                 <div className="h-2 w-2 rounded-full bg-[var(--primary)] opacity-60" />
-                <span className="text-xl font-display font-medium uppercase tracking-wider text-zinc-600">
+                <span className="text-xl font-medium uppercase tracking-wider text-zinc-600">
                   {title}
                 </span>
               </div>
@@ -272,7 +291,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
               >
-                <p className="mb-2 font-display text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 transition-transform duration-300 group-hover:scale-105">
+                <p className="mb-2 text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 transition-transform duration-300 group-hover:scale-105">
                   {stat.value}
                 </p>
                 <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
@@ -334,7 +353,7 @@ export default function Home() {
                 Excellence in Spatial Branding
               </motion.p>
               <motion.h2
-                className="mb-6 font-display text-4xl font-bold leading-tight text-zinc-950 md:text-5xl lg:text-6xl"
+                className="mb-6 text-4xl font-bold leading-tight text-zinc-950 md:text-5xl lg:text-6xl"
                 {...fadeUp}
                 transition={{ delay: 0.1 }}
               >
@@ -385,7 +404,7 @@ export default function Home() {
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Why Choose Us
             </p>
-            <h2 className="mb-5 text-4xl font-display font-bold text-zinc-950 md:text-6xl">
+            <h2 className="mb-5 text-4xl font-bold text-zinc-950 md:text-6xl">
               Designed to the brief. Built to impress.
             </h2>
             <p className="text-lg leading-relaxed text-zinc-600">
@@ -406,7 +425,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="mb-5 h-1.5 w-16 rounded-full bg-brand-gradient" />
-                <h3 className="mb-4 text-2xl font-display font-bold text-zinc-950">
+                <h3 className="mb-4 text-2xl font-bold text-zinc-950">
                   {item.title}
                 </h3>
                 <p className="leading-relaxed text-zinc-600">{item.text}</p>
@@ -430,7 +449,7 @@ export default function Home() {
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
                 Our Core Capabilities
               </p>
-              <h2 className="text-4xl font-display font-bold text-zinc-950 md:text-6xl">
+              <h2 className="text-4xl font-bold text-zinc-950 md:text-6xl">
                 Visual Power. Flawless Assembly.
               </h2>
             </div>
@@ -457,7 +476,7 @@ export default function Home() {
                     {service.badge}
                   </span>
                 </div>
-                <h3 className="mb-4 text-2xl font-display font-bold text-zinc-950 transition-colors group-hover:text-[var(--primary)]">
+                <h3 className="mb-4 text-2xl font-bold text-zinc-950 transition-colors group-hover:text-[var(--primary)]">
                   {service.title}
                 </h3>
                 <p className="leading-relaxed text-zinc-600">
@@ -476,7 +495,7 @@ export default function Home() {
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Production Framework
             </p>
-            <h2 className="font-display text-4xl font-bold text-zinc-950 md:text-6xl">
+            <h2 className="text-4xl font-bold text-zinc-950 md:text-6xl">
               Our path to experiential precision.
             </h2>
           </motion.div>
@@ -491,10 +510,10 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="mb-8 font-display text-5xl font-extrabold tracking-tight text-zinc-100 transition-colors group-hover:text-[var(--primary)]/40 md:text-6xl">
+                <div className="mb-8 text-5xl font-extrabold tracking-tight text-zinc-100 transition-colors group-hover:text-[var(--primary)]/40 md:text-6xl">
                   {step.num}
                 </div>
-                <h3 className="mb-4 font-display text-2xl font-bold text-zinc-950">
+                <h3 className="mb-4 text-2xl font-bold text-zinc-950">
                   {step.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-600">
@@ -518,7 +537,7 @@ export default function Home() {
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
                 Featured Portfolio
               </p>
-              <h2 className="text-4xl font-display font-bold text-zinc-950 md:text-6xl">
+              <h2 className="text-4xl font-bold text-zinc-950 md:text-6xl">
                 Spaces built to captivate.
               </h2>
             </div>
@@ -549,7 +568,7 @@ export default function Home() {
                   <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
                     {project.type}
                   </p>
-                  <h3 className="text-2xl font-display font-bold text-zinc-950">
+                  <h3 className="text-2xl font-bold text-zinc-950">
                     {project.title}
                   </h3>
                 </div>
@@ -570,7 +589,7 @@ export default function Home() {
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Inquiries & Clarity
             </p>
-            <h2 className="font-display text-4xl font-bold text-zinc-950 md:text-5xl">
+            <h2 className="text-4xl font-bold text-zinc-950 md:text-5xl">
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -593,7 +612,7 @@ export default function Home() {
       <section className="relative overflow-hidden py-10 lg:py-28">
         <div className="site-shell relative z-10 text-center">
           <motion.div {...fadeUp}>
-            <h2 className="mx-auto mb-12 max-w-4xl text-3xl font-display font-bold leading-tight text-zinc-950 md:text-5xl">
+            <h2 className="mx-auto mb-12 max-w-4xl text-3xl font-bold leading-tight text-zinc-950 md:text-5xl">
               We consistently exceed our clients&apos; expectations by providing
               tailor-made solutions that are both{" "}
               <span className="italic gradient-text">eye-catching</span> and

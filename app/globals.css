@@ -15,7 +15,7 @@
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
   --font-sans: var(--font-karla), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  ---syne: ui-sans-serif, system-ui, sans-serif;
 }
 
 * {
