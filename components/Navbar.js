@@ -42,7 +42,7 @@ const Navbar = () => {
         { name: "Modular Solutions", href: "modular-solution" },
       ],
     },
-    { name: "Conference EXPO", href: "#mopo" },
+    { name: "Conference EXPO", href: "#expo" },
     { name: "Display Stands", href: "#quickbuild" },
     { name: "Contact", href: "#contact" },
   ];
