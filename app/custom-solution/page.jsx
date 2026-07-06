@@ -7,33 +7,35 @@ import Navbar from "@/components/Navbar";
 
 // Moved outside the component to prevent recreation on every single render pass
 const GALLERY_IMAGES = [
-  "/modular-solution/image2.png",
-  "/modular-solution/image6.png",
-  "/modular-solution/image8.png",
-  "/modular-solution/image4.png",
-  "/modular-solution/image5.png",
-  "/modular-solution/image1.png",
-  "/modular-solution/image7.png",
-  "/modular-solution/image3.png",
-  "/modular-solution/image9.png",
-  "/modular-solution/image10.png",
-  "/modular-solution/image11.png",
-  "/modular-solution/image12.png",
-  "/modular-solution/image13.png",
-  "/modular-solution/image14.png",
-  "/modular-solution/image15.png",
-  "/modular-solution/image16.png",
-  "/modular-solution/image17.png",
-  "/modular-solution/image18.png",
-  "/modular-solution/image19.png",
-  "/modular-solution/image20.png",
-  "/modular-solution/image21.png",
-  "/modular-solution/image22.png",
-  "/modular-solution/image23.png",
-  "/modular-solution/image24.png",
-  "/modular-solution/image26.png",
-  "/modular-solution/image27.png",
-  "/modular-solution/image28.png",
+  "/custom-solution/image2.png",
+  "/custom-solution/image6.png",
+  "/custom-solution/image8.png",
+  "/custom-solution/image4.png",
+  "/custom-solution/image5.png",
+  "/custom-solution/image1.png",
+  "/custom-solution/image7.png",
+  "/custom-solution/image3.png",
+  "/custom-solution/image9.png",
+  "/custom-solution/image10.png",
+  "/custom-solution/image11.png",
+  "/custom-solution/image12.png",
+  "/custom-solution/image13.png",
+  "/custom-solution/image14.png",
+  "/custom-solution/image15.png",
+  "/custom-solution/image16.png",
+  "/custom-solution/image17.png",
+  "/custom-solution/image18.png",
+  "/custom-solution/image19.png",
+  "/custom-solution/image20.png",
+  "/custom-solution/image21.png",
+  "/custom-solution/image22.png",
+  "/custom-solution/image23.png",
+  "/custom-solution/image24.png",
+  "/custom-solution/image26.png",
+  "/custom-solution/image27.png",
+  "/custom-solution/image28.png",
+  "/custom-solution/image29.png",
+  "/custom-solution/image30.png",
 ];
 
 const IMAGES_PER_LOAD = 9;
@@ -43,7 +45,9 @@ export default function Page() {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const loadMore = () => {
-    setVisibleCount((prev) => Math.min(prev + IMAGES_PER_LOAD, GALLERY_IMAGES.length));
+    setVisibleCount((prev) =>
+      Math.min(prev + IMAGES_PER_LOAD, GALLERY_IMAGES.length),
+    );
   };
 
   const openImage = (globalIndex) => {
@@ -55,11 +59,15 @@ export default function Page() {
   };
 
   const nextImage = () => {
-    setSelectedIndex((prev) => (prev === null || prev === GALLERY_IMAGES.length - 1 ? 0 : prev + 1));
+    setSelectedIndex((prev) =>
+      prev === null || prev === GALLERY_IMAGES.length - 1 ? 0 : prev + 1,
+    );
   };
 
   const prevImage = () => {
-    setSelectedIndex((prev) => (prev === null || prev === 0 ? GALLERY_IMAGES.length - 1 : prev - 1));
+    setSelectedIndex((prev) =>
+      prev === null || prev === 0 ? GALLERY_IMAGES.length - 1 : prev - 1,
+    );
   };
 
   // Keyboard Controls
@@ -99,20 +107,21 @@ export default function Page() {
     };
   }, [selectedIndex]);
 
-  //   this code is to disable image download or copy
-  //   ==>> Start
-    useEffect(() => {
-    const disableContextMenu = (e) => {
-      e.preventDefault();
-    };
-  
-    document.addEventListener("contextmenu", disableContextMenu);
-  
-    return () => {
-      document.removeEventListener("contextmenu", disableContextMenu);
-    };
-  }, []);
-  //   ==>> end 
+
+//   this code is to disable image download or copy
+//   ==>> Start
+  useEffect(() => {
+  const disableContextMenu = (e) => {
+    e.preventDefault();
+  };
+
+  document.addEventListener("contextmenu", disableContextMenu);
+
+  return () => {
+    document.removeEventListener("contextmenu", disableContextMenu);
+  };
+}, []);
+//   ==>> end 
 
   return (
     <div className="flex flex-col min-h-screen bg-[#EAF4E1]">
@@ -121,22 +130,28 @@ export default function Page() {
       {/* Hero Header */}
       <header className="flex-grow flex flex-col items-center justify-center text-center gap-6 px-6 py-16 mt-28 max-w-4xl mx-auto">
         <span className="bg-gray-300 font-semibold px-4 py-1.5 rounded-full text-[var(--primary)] text-xs md:text-sm uppercase tracking-wider">
-          Where Innovation Meets Craftsmanship
+          ELEVATING BRANDS THROUGH INNOVATION
         </span>
 
         <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
-          MODULAR SUSTAINABLE BOOTH SYSTEM <span className="text-[var(--primary)]"><br />(SEG FABRIC)</span>
+          PREMIUM EXHIBITION STAND BUILDER IN{" "}
+          <span className="text-[var(--primary)]">
+            <br /> UAE & KSA
+          </span>
         </h1>
 
         <p className="text-base md:text-lg text-slate-700 lowercase leading-relaxed pb-6 border-b-2 border-[var(--primary)]">
-          Where we can transform your SMALL space into a vibrant, customized design 
-          booth up and ready in a couple of hours. Our expert design team can 
-          magically transform any space into an appealing and visually stunning 
-          execution that is guaranteed to make your brand steal the show. 
-            FORGET THE BORING LOOK OF OCTONORM — THIS CAN ALSO BE USED IN YOUR SHELL SCHEME SPACE.
-          Through modern technology and extraordinary marketing, we help our customers develop a better 
-          understanding of your brand by bringing it to life with eye-catching and majestic displays, 
-          conference booths, mall activations, photo booths, backdrops, and feature walls.
+          Elevate your brand with bespoke exhibition stands in Dubai, Abu Dhabi,
+          and Riyadh. Custom Show Emirates is a leading exhibition stand builder
+          in the UAE & KSA, delivering turnkey solutions from 3D design and
+          fabrication to graphics, logistics, and on-site installation. We
+          specialize in custom, modular, double-decker, and island exhibition
+          stands that create memorable brand experiences and maximize ROI.
+          Trusted for major venues including DWTC, ADNEC, DEC, Expo City Dubai,
+          and Riyadh Exhibition Centre, we provide fast, high-quality execution
+          for events like GITEX, Gulfood, Arab Health, LEAP Riyadh, and The Big
+          5 Saudi. Get a free 3D stand design proposal and quote for your next
+          exhibition.
         </p>
       </header>
 
@@ -155,6 +170,9 @@ export default function Page() {
                 alt={`Gallery display showcase ${index + 1}`}
                 fill
                 sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
+                // these next  two lines is used to not download the images
+                draggable={false}
+                onContextMenu={(e) => e.preventDefault()}
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </button>
@@ -204,7 +222,10 @@ export default function Page() {
           </button>
 
           {/* Lightbox Image Container */}
-          <div className="relative w-[92vw] h-[80vh]" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="relative w-[92vw] h-[80vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
             <Image
               src={GALLERY_IMAGES[selectedIndex]}
               alt={`Expanded showcase display ${selectedIndex + 1}`}

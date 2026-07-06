@@ -38,7 +38,7 @@ const Navbar = () => {
     {
       name: "Solutions",
       dropdown: [
-        { name: "Custom Solutions", href: "custom-solutions" },
+        { name: "Custom Solutions", href: "custom-solution" },
         { name: "Modular Solutions", href: "modular-solution" },
       ],
     },
