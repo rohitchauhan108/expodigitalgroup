@@ -43,6 +43,7 @@ const IMAGES_PER_LOAD = 9;
 export default function Page() {
   const [visibleCount, setVisibleCount] = useState(IMAGES_PER_LOAD);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   const loadMore = () => {
     setVisibleCount((prev) =>
@@ -68,6 +69,13 @@ export default function Page() {
     setSelectedIndex((prev) =>
       prev === null || prev === 0 ? GALLERY_IMAGES.length - 1 : prev - 1,
     );
+  };
+
+  // Strictly intercept right clicks ONLY on protected image interfaces
+  const handleImageRightClick = (e) => {
+    e.preventDefault(); 
+    e.stopPropagation(); 
+    setShowPopup(true); 
   };
 
   // Keyboard Controls
@@ -106,22 +114,6 @@ export default function Page() {
       document.body.style.overflow = "auto";
     };
   }, [selectedIndex]);
-
-
-//   this code is to disable image download or copy
-//   ==>> Start
-  useEffect(() => {
-  const disableContextMenu = (e) => {
-    e.preventDefault();
-  };
-
-  document.addEventListener("contextmenu", disableContextMenu);
-
-  return () => {
-    document.removeEventListener("contextmenu", disableContextMenu);
-  };
-}, []);
-//   ==>> end 
 
   return (
     <div className="flex flex-col min-h-screen bg-[#EAF4E1]">
@@ -162,6 +154,7 @@ export default function Page() {
             <button
               key={image}
               onClick={() => openImage(index)}
+              onContextMenu={handleImageRightClick} 
               className="overflow-hidden rounded-lg shadow-md bg-zinc-950/10 aspect-video cursor-pointer group relative w-full text-left focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
               aria-label={`Open gallery image ${index + 1}`}
             >
@@ -169,10 +162,8 @@ export default function Page() {
                 src={image}
                 alt={`Gallery display showcase ${index + 1}`}
                 fill
-                sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
-                // these next  two lines is used to not download the images
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 draggable={false}
-                onContextMenu={(e) => e.preventDefault()}
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </button>
@@ -225,12 +216,14 @@ export default function Page() {
           <div
             className="relative w-[92vw] h-[80vh]"
             onClick={(e) => e.stopPropagation()}
+            onContextMenu={handleImageRightClick}
           >
             <Image
               src={GALLERY_IMAGES[selectedIndex]}
               alt={`Expanded showcase display ${selectedIndex + 1}`}
               fill
               priority
+              draggable={false}
               className="object-contain rounded-lg"
             />
           </div>
@@ -253,7 +246,6 @@ export default function Page() {
           </div>
         </div>
       )}
-
       <Footer />
     </div>
   );

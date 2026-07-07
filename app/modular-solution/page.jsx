@@ -5,7 +5,6 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
-// Moved outside the component to prevent recreation on every single render pass
 const GALLERY_IMAGES = [
   "/modular-solution/image2.png",
   "/modular-solution/image6.png",
@@ -41,9 +40,12 @@ const IMAGES_PER_LOAD = 9;
 export default function Page() {
   const [visibleCount, setVisibleCount] = useState(IMAGES_PER_LOAD);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   const loadMore = () => {
-    setVisibleCount((prev) => Math.min(prev + IMAGES_PER_LOAD, GALLERY_IMAGES.length));
+    setVisibleCount((prev) =>
+      Math.min(prev + IMAGES_PER_LOAD, GALLERY_IMAGES.length),
+    );
   };
 
   const openImage = (globalIndex) => {
@@ -55,11 +57,22 @@ export default function Page() {
   };
 
   const nextImage = () => {
-    setSelectedIndex((prev) => (prev === null || prev === GALLERY_IMAGES.length - 1 ? 0 : prev + 1));
+    setSelectedIndex((prev) =>
+      prev === null || prev === GALLERY_IMAGES.length - 1 ? 0 : prev + 1,
+    );
   };
 
   const prevImage = () => {
-    setSelectedIndex((prev) => (prev === null || prev === 0 ? GALLERY_IMAGES.length - 1 : prev - 1));
+    setSelectedIndex((prev) =>
+      prev === null || prev === 0 ? GALLERY_IMAGES.length - 1 : prev - 1,
+    );
+  };
+
+  // 1. Strictly intercept right clicks ONLY on the images
+  const handleImageRightClick = (e) => {
+    e.preventDefault(); // Stop default browser context menu
+    e.stopPropagation(); // Stop event from bubbling up to anything else
+    setShowPopup(true); // Open the registration modal
   };
 
   // Keyboard Controls
@@ -99,21 +112,6 @@ export default function Page() {
     };
   }, [selectedIndex]);
 
-  //   this code is to disable image download or copy
-  //   ==>> Start
-    useEffect(() => {
-    const disableContextMenu = (e) => {
-      e.preventDefault();
-    };
-  
-    document.addEventListener("contextmenu", disableContextMenu);
-  
-    return () => {
-      document.removeEventListener("contextmenu", disableContextMenu);
-    };
-  }, []);
-  //   ==>> end 
-
   return (
     <div className="flex flex-col min-h-screen bg-[#EAF4E1]">
       <Navbar />
@@ -125,18 +123,24 @@ export default function Page() {
         </span>
 
         <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
-          MODULAR SUSTAINABLE BOOTH SYSTEM <span className="text-[var(--primary)]"><br />(SEG FABRIC)</span>
+          MODULAR SUSTAINABLE BOOTH SYSTEM{" "}
+          <span className="text-[var(--primary)]">
+            <br />
+            (SEG FABRIC)
+          </span>
         </h1>
 
         <p className="text-base md:text-lg text-slate-700 lowercase leading-relaxed pb-6 border-b-2 border-[var(--primary)]">
-          Where we can transform your SMALL space into a vibrant, customized design 
-          booth up and ready in a couple of hours. Our expert design team can 
-          magically transform any space into an appealing and visually stunning 
-          execution that is guaranteed to make your brand steal the show. 
-            FORGET THE BORING LOOK OF OCTONORM — THIS CAN ALSO BE USED IN YOUR SHELL SCHEME SPACE.
-          Through modern technology and extraordinary marketing, we help our customers develop a better 
-          understanding of your brand by bringing it to life with eye-catching and majestic displays, 
-          conference booths, mall activations, photo booths, backdrops, and feature walls.
+          Where we can transform your SMALL space into a vibrant, customized
+          design booth up and ready in a couple of hours. Our expert design team
+          can magically transform any space into an appealing and visually
+          stunning execution that is guaranteed to make your brand steal the
+          show. FORGET THE BORING LOOK OF OCTONORM — THIS CAN ALSO BE USED IN
+          YOUR SHELL SCHEME SPACE. Through modern technology and extraordinary
+          marketing, we help our customers develop a better understanding of
+          your brand by bringing it to life with eye-catching and majestic
+          displays, conference booths, mall activations, photo booths,
+          backdrops, and feature walls.
         </p>
       </header>
 
@@ -147,6 +151,7 @@ export default function Page() {
             <button
               key={image}
               onClick={() => openImage(index)}
+              onContextMenu={handleImageRightClick} // Handled directly on image item
               className="overflow-hidden rounded-lg shadow-md bg-zinc-950/10 aspect-video cursor-pointer group relative w-full text-left focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
               aria-label={`Open gallery image ${index + 1}`}
             >
@@ -154,7 +159,8 @@ export default function Page() {
                 src={image}
                 alt={`Gallery display showcase ${index + 1}`}
                 fill
-                sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                draggable={false}
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </button>
@@ -182,7 +188,6 @@ export default function Page() {
           role="dialog"
           aria-modal="true"
         >
-          {/* Close Trigger */}
           <button
             onClick={closeImage}
             className="absolute top-5 right-6 text-white text-4xl hover:text-gray-300 transition-colors z-50 focus:outline-none"
@@ -191,7 +196,6 @@ export default function Page() {
             &times;
           </button>
 
-          {/* Previous Button */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -204,17 +208,21 @@ export default function Page() {
           </button>
 
           {/* Lightbox Image Container */}
-          <div className="relative w-[92vw] h-[80vh]" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="relative w-[92vw] h-[80vh]"
+            onClick={(e) => e.stopPropagation()}
+            onContextMenu={handleImageRightClick} // Intercepts on large lightboxed image
+          >
             <Image
               src={GALLERY_IMAGES[selectedIndex]}
               alt={`Expanded showcase display ${selectedIndex + 1}`}
               fill
               priority
+              draggable={false}
               className="object-contain rounded-lg"
             />
           </div>
 
-          {/* Next Button */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -226,13 +234,11 @@ export default function Page() {
             &#10095;
           </button>
 
-          {/* Image Index Counter */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white bg-black/60 px-4 py-1.5 text-sm font-medium rounded-full tracking-wide">
             {selectedIndex + 1} / {GALLERY_IMAGES.length}
           </div>
         </div>
       )}
-
       <Footer />
     </div>
   );
