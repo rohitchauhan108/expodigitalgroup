@@ -36,6 +36,11 @@ const GALLERY_IMAGES = [
   "/custom-solution/image28.png",
   "/custom-solution/image29.png",
   "/custom-solution/image30.png",
+  "/custom-solution/image31.png",
+  "/custom-solution/image32.png",
+  "/custom-solution/image33.png",
+  "/custom-solution/image34.png",
+  "/custom-solution/image35.png",
 ];
 
 const IMAGES_PER_LOAD = 9;

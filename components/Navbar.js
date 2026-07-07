@@ -44,7 +44,7 @@ const Navbar = () => {
     },
     { name: "Conference EXPO", href: "#expo" },
     { name: "Display Stands", href: "#quickbuild" },
-    { name: "Contact", href: "#contact" },
+    { name: "Contact", href: "contact" },
   ];
 
   return (
