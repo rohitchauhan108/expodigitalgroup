@@ -83,9 +83,9 @@ export default function Page() {
 
   // Strictly intercept right clicks ONLY on protected image interfaces
   const handleImageRightClick = (e) => {
-    e.preventDefault(); 
-    e.stopPropagation(); 
-    setShowPopup(true); 
+    e.preventDefault();
+    e.stopPropagation();
+    setShowPopup(true);
   };
 
   // Keyboard Controls
@@ -142,9 +142,15 @@ export default function Page() {
           </span>
         </h1>
 
-        <p className="text-base md:text-lg text-slate-700 lowercase leading-relaxed pb-6 border-b-2 border-[var(--primary)]">
-          Custom Show Emirates is a leading exhibition stand builder in Dubai, Abu Dhabi, and Riyadh, providing turnkey exhibition solutions across the UAE and Saudi Arabia. We specialize in bespoke exhibition stands, modular booths, double-decker stands, and custom trade show booths for major venues including DWTC, ADNEC, Expo City Dubai, DEC, and Riyadh Exhibition Centre. Our end-to-end services include 3D stand design, fabrication, graphics printing, logistics, and on-site installation. We create high-impact exhibition stands for leading events such as GITEX, Gulfood, Arab Health, LEAP Riyadh, The Big 5 Saudi, and Beautyworld, helping brands maximize visibility and ROI.
+        <p className="text-base md:text-lg text-slate-700 lowercase leading-relaxed">
+          Transform your brand presence with Custom Show Emirates, a trusted
+          exhibition stand builder in Dubai, Abu Dhabi, and Riyadh. We
+          specialize in designing and building bespoke exhibition stands that
+          help businesses attract visitors, generate quality leads, and maximize
+          return on investment at leading trade shows across the UAE and Saudi
+          Arabia.{" "}
         </p>
+        <p className="border-b-2 border-[var(--primary)] pb-6 text-base md:text-lg text-slate-700 lowercase leading-relaxed">As a leading exhibition stand company in the UAE and KSA, we provide complete turnkey exhibition solutions, from concept development and 3D visualization to fabrication, logistics, installation, and dismantling. Whether you need a custom exhibition stand in Dubai, a modular exhibition stand in Abu Dhabi, or a double-decker exhibition booth in Riyadh, our experienced team delivers exceptional quality with on-time execution.</p>
       </header>
 
       {/* Gallery Section */}
@@ -154,7 +160,7 @@ export default function Page() {
             <button
               key={image}
               onClick={() => openImage(index)}
-              onContextMenu={handleImageRightClick} 
+              onContextMenu={handleImageRightClick}
               className="overflow-hidden rounded-lg shadow-md bg-zinc-950/10 aspect-video cursor-pointer group relative w-full text-left focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
               aria-label={`Open gallery image ${index + 1}`}
             >
