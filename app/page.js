@@ -66,15 +66,10 @@ function FAQCard({ faq }) {
 export default function Home() {
   const stats = [
     { label: "Years Experience", value: "18+" },
-<<<<<<< HEAD
-    { label: "Successful Projects", value: "200+" },
-    { label: "Events & Exhibitions", value: "500+" },
-    { label: "Satisfied Clients", value: "50+" },
-=======
+
     { label: "Successful Projects", value: "2000+" },
     { label: "Events & Exhibitions", value: "1200+" },
     { label: "Cities", value: "50+" },
->>>>>>> d425516e88c8e209996ed0d05a42e8a5d6ff77c3
   ];
 
   // Dynamically generate your 22 client logo paths from public/client-logo/
