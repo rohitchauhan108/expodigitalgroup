@@ -1,9 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
+import { FaWhatsapp } from "react-icons/fa";
 // Fade-up animation helper preset for section headers & cards
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -11,7 +11,6 @@ const fadeUp = {
   viewport: { once: true, margin: "-100px" },
   transition: { duration: 0.6, ease: "easeOut" },
 };
-
 function FAQCard({ faq }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,7 +25,7 @@ function FAQCard({ faq }) {
         onClick={() => setIsOpen(!isOpen)}
         className="flex w-full items-center justify-between p-6 text-left focus:outline-none"
       >
-        <span className="font-display text-lg font-bold text-zinc-950 pr-4">
+        <span className="text-lg font-bold text-zinc-950 pr-4">
           {faq.question}
         </span>
         <motion.div
@@ -67,9 +66,15 @@ function FAQCard({ faq }) {
 export default function Home() {
   const stats = [
     { label: "Years Experience", value: "18+" },
+<<<<<<< HEAD
     { label: "Successful Projects", value: "200+" },
     { label: "Events & Exhibitions", value: "500+" },
     { label: "Satisfied Clients", value: "50+" },
+=======
+    { label: "Successful Projects", value: "2000+" },
+    { label: "Events & Exhibitions", value: "1200+" },
+    { label: "Cities", value: "50+" },
+>>>>>>> d425516e88c8e209996ed0d05a42e8a5d6ff77c3
   ];
 
   // Dynamically generate your 22 client logo paths from public/client-logo/
@@ -101,13 +106,13 @@ export default function Home() {
         "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1200",
     },
     {
-      title: "EX.PO Sustainable Modular Display",
+      title: "Modular Sustainable Solution",
       type: "Eco-Friendly System",
       image:
         "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1200",
     },
     {
-      title: "High-Traffic Retail Mall Activation",
+      title: "Promotions & Mall Activations",
       type: "Fast Turnkey Deployment",
       image:
         "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1200",
@@ -122,13 +127,13 @@ export default function Home() {
       badge: "Custom Production",
     },
     {
-      title: "EX.PO Sustainable Stand System",
+      title: "Modular Sustainable Stand System",
       description:
         "Our proprietary premium eco-friendly modular profiles. Engineered with zero wood and zero waste, offering over 50 dynamic combinations for repetitive multi-event use.",
       badge: "Green Modular",
     },
     {
-      title: "Retail Outlets & Mall Activations",
+      title: "Promotions & Mall Activations",
       description:
         "Eye-catching commercial kiosks and promotional brand activation zones constructed with premium fast-turnaround SEG frame and textile systems.",
       badge: "Brand Pop-Ups",
@@ -173,7 +178,7 @@ export default function Home() {
         "Yes, Expo Digital Group is a complete turnkey provider. We handle everything from creative conceptual 3D design renders and in-house manufacturing at our Al Quoz compound to shipping, floor assembly, dismantling, and safe storage.",
     },
     {
-      question: "What exactly is the MO.PO Sustainable Stand System?",
+      question: "What exactly is the Modular Portable Sustainable Stand System?",
       answer:
         "MO.PO is our innovative, eco-conscious modular profiling setup. It gives you a premium, heavy custom-built appearance but generates absolutely zero waste, skips wood elements, and can be recombined into over 50 unique spatial variations for multiple exhibitions.",
     },
@@ -193,12 +198,31 @@ export default function Home() {
     "Turnkey Event Fabrication",
   ];
 
+  const text = "UAE | KSA | Oman | India";
+
+  const [displayText, setDisplayText] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+
+    const interval = setInterval(() => {
+      setDisplayText(text.slice(0, index + 1));
+      index++;
+
+      if (index === text.length) {
+        clearInterval(interval);
+      }
+    }, 200); // Typing speed
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main className="lg:min-h-screen bg-[#EAF4E1]">
       <Navbar />
 
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden bg-[#EAF4E1] pt-32 pb-24 md:pt-40 md:pb-32">
+      <section className="relative overflow-hidden bg-[#EAF4E1] pt-40 pb-24 md:pt-50 md:pb-32">
         <div className="site-shell">
           <motion.div
             className="mx-auto max-w-4xl text-center"
@@ -207,9 +231,10 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
-              Premium Exhibition Stand Builders • UAE,USA,Oman,India,
+              Premium Exhibition Stand Builders • {displayText}
+              {/* <span className="animate-pulse">|</span> */}
             </p>
-            <h1 className="mb-8 text-5xl font-display font-bold tracking-tight text-zinc-950 md:text-7xl lg:text-8xl">
+            <h1 className="mb-8 text-5xl font-bold tracking-tight text-zinc-950 md:text-7xl lg:text-8xl">
               We Bring Your Dream{" "}
               <span className="gradient-text">Project To Life</span>.
             </h1>
@@ -250,7 +275,7 @@ export default function Home() {
                 className="flex items-center gap-4 flex-shrink-0"
               >
                 <div className="h-2 w-2 rounded-full bg-[var(--primary)] opacity-60" />
-                <span className="text-xl font-display font-medium uppercase tracking-wider text-zinc-600">
+                <span className="text-xl font-medium uppercase tracking-wider text-zinc-600">
                   {title}
                 </span>
               </div>
@@ -272,7 +297,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
               >
-                <p className="mb-2 font-display text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 transition-transform duration-300 group-hover:scale-105">
+                <p className="mb-2 text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 transition-transform duration-300 group-hover:scale-105">
                   {stat.value}
                 </p>
                 <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
@@ -334,7 +359,7 @@ export default function Home() {
                 Excellence in Spatial Branding
               </motion.p>
               <motion.h2
-                className="mb-6 font-display text-4xl font-bold leading-tight text-zinc-950 md:text-5xl lg:text-6xl"
+                className="mb-6 text-4xl font-bold leading-tight text-zinc-950 md:text-5xl lg:text-6xl"
                 {...fadeUp}
                 transition={{ delay: 0.1 }}
               >
@@ -385,7 +410,7 @@ export default function Home() {
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Why Choose Us
             </p>
-            <h2 className="mb-5 text-4xl font-display font-bold text-zinc-950 md:text-6xl">
+            <h2 className="mb-5 text-4xl font-bold text-zinc-950 md:text-6xl">
               Designed to the brief. Built to impress.
             </h2>
             <p className="text-lg leading-relaxed text-zinc-600">
@@ -406,7 +431,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="mb-5 h-1.5 w-16 rounded-full bg-brand-gradient" />
-                <h3 className="mb-4 text-2xl font-display font-bold text-zinc-950">
+                <h3 className="mb-4 text-2xl font-bold text-zinc-950">
                   {item.title}
                 </h3>
                 <p className="leading-relaxed text-zinc-600">{item.text}</p>
@@ -430,7 +455,7 @@ export default function Home() {
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
                 Our Core Capabilities
               </p>
-              <h2 className="text-4xl font-display font-bold text-zinc-950 md:text-6xl">
+              <h2 className="text-4xl font-bold text-zinc-950 md:text-6xl">
                 Visual Power. Flawless Assembly.
               </h2>
             </div>
@@ -457,7 +482,7 @@ export default function Home() {
                     {service.badge}
                   </span>
                 </div>
-                <h3 className="mb-4 text-2xl font-display font-bold text-zinc-950 transition-colors group-hover:text-[var(--primary)]">
+                <h3 className="mb-4 text-2xl font-bold text-zinc-950 transition-colors group-hover:text-[var(--primary)]">
                   {service.title}
                 </h3>
                 <p className="leading-relaxed text-zinc-600">
@@ -476,7 +501,7 @@ export default function Home() {
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Production Framework
             </p>
-            <h2 className="font-display text-4xl font-bold text-zinc-950 md:text-6xl">
+            <h2 className="text-4xl font-bold text-zinc-950 md:text-6xl">
               Our path to experiential precision.
             </h2>
           </motion.div>
@@ -491,10 +516,10 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="mb-8 font-display text-5xl font-extrabold tracking-tight text-zinc-100 transition-colors group-hover:text-[var(--primary)]/40 md:text-6xl">
+                <div className="mb-8 text-5xl font-extrabold tracking-tight text-zinc-100 transition-colors group-hover:text-[var(--primary)]/40 md:text-6xl">
                   {step.num}
                 </div>
-                <h3 className="mb-4 font-display text-2xl font-bold text-zinc-950">
+                <h3 className="mb-4 text-2xl font-bold text-zinc-950">
                   {step.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-600">
@@ -518,7 +543,7 @@ export default function Home() {
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
                 Featured Portfolio
               </p>
-              <h2 className="text-4xl font-display font-bold text-zinc-950 md:text-6xl">
+              <h2 className="text-4xl font-bold text-zinc-950 md:text-6xl">
                 Spaces built to captivate.
               </h2>
             </div>
@@ -549,7 +574,7 @@ export default function Home() {
                   <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
                     {project.type}
                   </p>
-                  <h3 className="text-2xl font-display font-bold text-zinc-950">
+                  <h3 className="text-2xl font-bold text-zinc-950">
                     {project.title}
                   </h3>
                 </div>
@@ -570,7 +595,7 @@ export default function Home() {
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Inquiries & Clarity
             </p>
-            <h2 className="font-display text-4xl font-bold text-zinc-950 md:text-5xl">
+            <h2 className="text-4xl font-bold text-zinc-950 md:text-5xl">
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -593,7 +618,7 @@ export default function Home() {
       <section className="relative overflow-hidden py-10 lg:py-28">
         <div className="site-shell relative z-10 text-center">
           <motion.div {...fadeUp}>
-            <h2 className="mx-auto mb-12 max-w-4xl text-3xl font-display font-bold leading-tight text-zinc-950 md:text-5xl">
+            <h2 className="mx-auto mb-12 max-w-4xl text-3xl font-bold leading-tight text-zinc-950 md:text-5xl">
               We consistently exceed our clients&apos; expectations by providing
               tailor-made solutions that are both{" "}
               <span className="italic gradient-text">eye-catching</span> and
@@ -606,7 +631,27 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+      <div className="fixed z-20 bottom-10 right-5 flex items-center group cursor-pointer">
+        <a
+          href="https://wa.me/971 (0) 4 000 0000"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-10 right-5 flex items-center group z-50"
+        >
+          <span
+            className="mr-3 bg- text-white bg-black border border-white font-bold px-3 py-2 rounded-lg shadow-lg whitespace-nowrap
+                   opacity-0 translate-x-4
+                   transition-all duration-300
+                   group-hover:opacity-100 group-hover:translate-x-0 hidden lg:flex"
+          >
+            WhatsApp
+          </span>
 
+          <div className="bg-[#FF7900] flex justify-center items-center h-15 w-15 p-5 rounded-full">
+            <FaWhatsapp className="text-3xl text-white" />
+          </div>
+        </a>
+      </div>
       <Footer />
     </main>
   );
