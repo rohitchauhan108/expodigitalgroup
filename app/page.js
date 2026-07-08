@@ -69,6 +69,7 @@ export default function Home() {
     { label: "Successful Projects", value: "200+" },
     { label: "Events & Exhibitions", value: "500+" },
     { label: "Satisfied Clients", value: "50+" },
+
     { label: "Successful Projects", value: "2000+" },
     { label: "Events & Exhibitions", value: "1200+" },
     { label: "Cities", value: "50+" },

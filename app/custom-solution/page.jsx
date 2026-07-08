@@ -9,7 +9,7 @@ import Navbar from "@/components/Navbar";
 const GALLERY_IMAGES = [
   "/custom-solution/1.png",
   "/custom-solution/2.png",
-  "/custom-solution/3.png",
+  // "/custom-solution/3.png",
   "/custom-solution/4.png",
   "/custom-solution/5.png",
   "/custom-solution/6.png",
@@ -45,7 +45,7 @@ const GALLERY_IMAGES = [
   "/custom-solution/37.png",
   "/custom-solution/38.png",
   "/custom-solution/39.png",
-  "/custom-solution/40.png",
+  // "/custom-solution/40.png",
 ];
 
 const IMAGES_PER_LOAD = 9;
