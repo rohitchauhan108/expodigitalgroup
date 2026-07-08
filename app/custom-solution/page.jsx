@@ -7,40 +7,45 @@ import Navbar from "@/components/Navbar";
 
 // Moved outside the component to prevent recreation on every single render pass
 const GALLERY_IMAGES = [
-  "/custom-solution/image2.png",
-  "/custom-solution/image6.png",
-  "/custom-solution/image8.png",
-  "/custom-solution/image4.png",
-  "/custom-solution/image5.png",
-  "/custom-solution/image1.png",
-  "/custom-solution/image7.png",
-  "/custom-solution/image3.png",
-  "/custom-solution/image9.png",
-  "/custom-solution/image10.png",
-  "/custom-solution/image11.png",
-  "/custom-solution/image12.png",
-  "/custom-solution/image13.png",
-  "/custom-solution/image14.png",
-  "/custom-solution/image15.png",
-  "/custom-solution/image16.png",
-  "/custom-solution/image17.png",
-  "/custom-solution/image18.png",
-  "/custom-solution/image19.png",
-  "/custom-solution/image20.png",
-  "/custom-solution/image21.png",
-  "/custom-solution/image22.png",
-  "/custom-solution/image23.png",
-  "/custom-solution/image24.png",
-  "/custom-solution/image26.png",
-  "/custom-solution/image27.png",
-  "/custom-solution/image28.png",
-  "/custom-solution/image29.png",
-  "/custom-solution/image30.png",
-  "/custom-solution/image31.png",
-  "/custom-solution/image32.png",
-  "/custom-solution/image33.png",
-  "/custom-solution/image34.png",
-  "/custom-solution/image35.png",
+  "/custom-solution/1.png",
+  "/custom-solution/2.png",
+  "/custom-solution/3.png",
+  "/custom-solution/4.png",
+  "/custom-solution/5.png",
+  "/custom-solution/6.png",
+  "/custom-solution/7.png",
+  "/custom-solution/8.png",
+  "/custom-solution/9.png",
+  "/custom-solution/10.png",
+  "/custom-solution/11.png",
+  "/custom-solution/12.png",
+  "/custom-solution/13.png",
+  "/custom-solution/14.png",
+  "/custom-solution/15.png",
+  "/custom-solution/16.png",
+  "/custom-solution/17.png",
+  "/custom-solution/18.png",
+  "/custom-solution/19.png",
+  "/custom-solution/20.png",
+  "/custom-solution/21.png",
+  "/custom-solution/22.png",
+  "/custom-solution/23.png",
+  "/custom-solution/24.png",
+  "/custom-solution/26.png",
+  "/custom-solution/27.png",
+  "/custom-solution/28.png",
+  "/custom-solution/29.png",
+  "/custom-solution/30.png",
+  "/custom-solution/31.png",
+  "/custom-solution/32.png",
+  "/custom-solution/33.png",
+  "/custom-solution/34.png",
+  "/custom-solution/35.png",
+  "/custom-solution/36.png",
+  "/custom-solution/37.png",
+  "/custom-solution/38.png",
+  "/custom-solution/39.png",
+  "/custom-solution/40.png",
 ];
 
 const IMAGES_PER_LOAD = 9;
@@ -138,17 +143,7 @@ export default function Page() {
         </h1>
 
         <p className="text-base md:text-lg text-slate-700 lowercase leading-relaxed pb-6 border-b-2 border-[var(--primary)]">
-          Elevate your brand with bespoke exhibition stands in Dubai, Abu Dhabi,
-          and Riyadh. Custom Show Emirates is a leading exhibition stand builder
-          in the UAE & KSA, delivering turnkey solutions from 3D design and
-          fabrication to graphics, logistics, and on-site installation. We
-          specialize in custom, modular, double-decker, and island exhibition
-          stands that create memorable brand experiences and maximize ROI.
-          Trusted for major venues including DWTC, ADNEC, DEC, Expo City Dubai,
-          and Riyadh Exhibition Centre, we provide fast, high-quality execution
-          for events like GITEX, Gulfood, Arab Health, LEAP Riyadh, and The Big
-          5 Saudi. Get a free 3D stand design proposal and quote for your next
-          exhibition.
+          Custom Show Emirates is a leading exhibition stand builder in Dubai, Abu Dhabi, and Riyadh, providing turnkey exhibition solutions across the UAE and Saudi Arabia. We specialize in bespoke exhibition stands, modular booths, double-decker stands, and custom trade show booths for major venues including DWTC, ADNEC, Expo City Dubai, DEC, and Riyadh Exhibition Centre. Our end-to-end services include 3D stand design, fabrication, graphics printing, logistics, and on-site installation. We create high-impact exhibition stands for leading events such as GITEX, Gulfood, Arab Health, LEAP Riyadh, The Big 5 Saudi, and Beautyworld, helping brands maximize visibility and ROI.
         </p>
       </header>
 
