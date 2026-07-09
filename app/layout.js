@@ -1,6 +1,7 @@
 // import { Syne, Karla } from "next/font/google";
 import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
+import { icons } from "lucide-react";
 
 // const syne = Syne({
 //   variable: "--font-syne",
@@ -28,6 +29,7 @@ export const metadata = {
   title: "Expo Digital Group | Exhibition Stand Builder",
   description:
     "Expo Digital Group delivers bespoke exhibition stands, modular systems, quick build booths, and turnkey event solutions across the Middle East.",
+    icons :  "/fav-icon.png" 
 };
 
 export default function RootLayout({ children }) {
