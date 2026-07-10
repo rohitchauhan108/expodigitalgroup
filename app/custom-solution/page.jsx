@@ -266,7 +266,7 @@ export default function Page() {
             </motion.div>
 
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-950 mb-6 leading-tight">
-              ELEVATE Your Brand with{" "}
+              Elevate Your Brand with{" "}
               <span className="gradient-text">Bespoke Exhibition Stands</span>
             </h1>
 
