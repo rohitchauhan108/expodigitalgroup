@@ -54,7 +54,7 @@ const GALLERY_IMAGES = [
   "/custom-solution/3.png",
 ];
 
-const IMAGES_PER_LOAD = 15;
+const IMAGES_PER_LOAD = 9;
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
