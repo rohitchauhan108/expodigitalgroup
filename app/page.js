@@ -228,9 +228,9 @@ export default function Home() {
               Premium Exhibition Stand Builders • {displayText}
               {/* <span className="animate-pulse">|</span> */}
             </p>
-            <h1 className="mb-8 text-5xl font-bold tracking-tight text-zinc-950 md:text-7xl lg:text-8xl">
+            <h1 className="mb-8 text-4xl font-bold tracking-tight text-zinc-950 md:text-6xl lg:text-7xl">
               We Bring Your Dream{" "}
-              <span className="gradient-text">Project To Life</span>.
+              <span className="gradient-text">Project To Life</span>
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-zinc-600 md:text-xl">
               From high-end custom bespoke booths to eco-friendly modular
@@ -291,7 +291,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
               >
-                <p className="mb-2 text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 transition-transform duration-300 group-hover:scale-105">
+                <p className="mb-2 text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 transition-transform duration-300 group-hover:scale-105">
                   {stat.value}
                 </p>
                 <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
@@ -353,7 +353,7 @@ export default function Home() {
                 Excellence in Spatial Branding
               </motion.p>
               <motion.h2
-                className="mb-6 text-4xl font-bold leading-tight text-zinc-950 md:text-5xl lg:text-6xl"
+                className="mb-6 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl"
                 {...fadeUp}
                 transition={{ delay: 0.1 }}
               >
@@ -404,7 +404,7 @@ export default function Home() {
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Why Choose Us
             </p>
-            <h2 className="mb-5 text-4xl font-bold text-zinc-950 md:text-6xl">
+            <h2 className="mb-5 text-3xl font-bold text-zinc-950 md:text-5xl">
               Designed to the brief. Built to impress.
             </h2>
             <p className="text-lg leading-relaxed text-zinc-600">
@@ -449,7 +449,7 @@ export default function Home() {
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
                 Our Core Capabilities
               </p>
-              <h2 className="text-4xl font-bold text-zinc-950 md:text-6xl">
+              <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl">
                 Visual Power. Flawless Assembly.
               </h2>
             </div>
@@ -495,7 +495,7 @@ export default function Home() {
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Production Framework
             </p>
-            <h2 className="text-4xl font-bold text-zinc-950 md:text-6xl">
+            <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl">
               Our path to experiential precision.
             </h2>
           </motion.div>
@@ -510,7 +510,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="mb-8 text-5xl font-extrabold tracking-tight text-zinc-100 transition-colors group-hover:text-[var(--primary)]/40 md:text-6xl">
+                <div className="mb-8 text-3xl font-extrabold tracking-tight text-zinc-100 transition-colors group-hover:text-[var(--primary)]/40 md:text-4xl">
                   {step.num}
                 </div>
                 <h3 className="mb-4 text-2xl font-bold text-zinc-950">
@@ -537,7 +537,7 @@ export default function Home() {
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
                 Featured Portfolio
               </p>
-              <h2 className="text-4xl font-bold text-zinc-950 md:text-6xl">
+              <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl">
                 Spaces built to captivate.
               </h2>
             </div>
@@ -589,7 +589,7 @@ export default function Home() {
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Inquiries & Clarity
             </p>
-            <h2 className="text-4xl font-bold text-zinc-950 md:text-5xl">
+            <h2 className="text-2xl font-bold text-zinc-950 md:text-3xl">
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -612,7 +612,7 @@ export default function Home() {
       <section className="relative overflow-hidden py-10 lg:py-28">
         <div className="site-shell relative z-10 text-center">
           <motion.div {...fadeUp}>
-            <h2 className="mx-auto mb-12 max-w-4xl text-3xl font-bold leading-tight text-zinc-950 md:text-5xl">
+            <h2 className="mx-auto mb-12 max-w-4xl text-xl font-bold leading-tight text-zinc-950 md:text-3xl">
               We consistently exceed our clients&apos; expectations by providing
               tailor-made solutions that are both{" "}
               <span className="italic gradient-text">eye-catching</span> and
