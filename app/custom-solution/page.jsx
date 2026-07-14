@@ -265,7 +265,7 @@ export default function Page() {
               </span>
             </motion.div>
 
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-950 mb-6 leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-950 mb-6 leading-tight">
               Elevate Your Brand with{" "}
               <span className="gradient-text">Bespoke Exhibition Stands</span>
             </h1>

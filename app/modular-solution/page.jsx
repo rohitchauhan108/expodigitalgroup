@@ -212,13 +212,13 @@ export default function Page() {
               </span>
             </motion.div>
 
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-950 mb-6 leading-tight">
-              MODULAR SUSTAINABLE BOOTH SYSTEM{" "}
-              <span className="text-[var(--primary)]">(SEG FABRIC)</span>
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-950 mb-6 leading-tight">
+              Modular Sustainable Booth System{" "}
+              <span className="gradient-text">(SEG Fabric)</span>
             </h1>
 
             <p className="text-lg text-zinc-600 leading-relaxed mb-8 max-w-2xl mx-auto">
-              Where innovation meets craftsmanship—our modular SEG fabric booth system transforms small spaces into vibrant, custom-designed exhibits ready in just hours. Leave the boring Octanorm behind—perfect for shell scheme spaces too.
+              Where innovation meets craftsmanship—Our Modular SEG fabric booth system transforms small spaces into vibrant, custom-designed exhibits ready in just hours. Leave the boring Octanorm behind—perfect for shell scheme spaces too.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center">
