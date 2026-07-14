@@ -4,48 +4,89 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { motion } from "framer-motion";
+import {
+  FaBuilding,
+  FaCube,
+  FaPalette,
+  FaTruck,
+  FaWrench,
+  FaCheckCircle,
+  FaArrowRight,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+  FaLightbulb,
+  FaMedal,
+} from "react-icons/fa";
+import { GiGameConsole } from "react-icons/gi";
+import { GrCompliance } from "react-icons/gr";
+import { GrSchedules } from "react-icons/gr";
 
 const GALLERY_IMAGES = [
-  "/modular-solution/image2.png",
-  "/modular-solution/image6.png",
-  "/modular-solution/image8.png",
-  "/modular-solution/image4.png",
-  "/modular-solution/image5.png",
-  "/modular-solution/image1.png",
-  "/modular-solution/image7.png",
-  "/modular-solution/image3.png",
-  "/modular-solution/image9.png",
-  "/modular-solution/image10.png",
-  "/modular-solution/image11.png",
-  "/modular-solution/image12.png",
-  "/modular-solution/image13.png",
-  "/modular-solution/image14.png",
-  "/modular-solution/image15.png",
-  "/modular-solution/image16.png",
-  "/modular-solution/image17.png",
-  "/modular-solution/image18.png",
-  "/modular-solution/image19.png",
-  "/modular-solution/image20.png",
-  "/modular-solution/image21.png",
-  "/modular-solution/image22.png",
-  "/modular-solution/image23.png",
-  "/modular-solution/image24.png",
-  "/modular-solution/image26.png",
-  "/modular-solution/image27.png",
   "/modular-solution/image28.png",
+  "/modular-solution/image27.png",
+  "/modular-solution/image26.png",
+  "/modular-solution/image24.png",
+  "/modular-solution/image23.png",
+  "/modular-solution/image22.png",
+  "/modular-solution/image21.png",
+  "/modular-solution/image20.png",
+  "/modular-solution/image19.png",
+  "/modular-solution/image18.png",
+  "/modular-solution/image17.png",
+  "/modular-solution/image16.png",
+  "/modular-solution/image15.png",
+  "/modular-solution/image14.png",
+  "/modular-solution/image13.png",
+  "/modular-solution/image12.png",
+  "/modular-solution/image11.png",
+  "/modular-solution/image10.png",
+  "/modular-solution/image9.png",
+  "/modular-solution/image3.png",
+  "/modular-solution/image7.png",
+  "/modular-solution/image1.png",
+  "/modular-solution/image5.png",
+  "/modular-solution/image4.png",
+  "/modular-solution/image8.png",
+  "/modular-solution/image6.png",
+  "/modular-solution/image2.png",
 ];
 
 const IMAGES_PER_LOAD = 9;
 
-export default function Page() {
-  const [visibleCount, setVisibleCount] = useState(IMAGES_PER_LOAD);
-  const [selectedIndex, setSelectedIndex] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
+const fadeUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-100px" },
+  transition: { duration: 0.6, ease: "easeOut" },
+};
 
-  const loadMore = () => {
-    setVisibleCount((prev) =>
-      Math.min(prev + IMAGES_PER_LOAD, GALLERY_IMAGES.length),
-    );
+export default function Page() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  const itemsPerPage = IMAGES_PER_LOAD;
+  const totalPages = Math.ceil(GALLERY_IMAGES.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentImages = GALLERY_IMAGES.slice(indexOfFirstItem, indexOfLastItem);
+
+  const getPaginationNumbers = () => {
+    const pageNumbers = [];
+    if (totalPages <= 5) {
+      for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i);
+      }
+    } else {
+      if (currentPage <= 3) {
+        pageNumbers.push(1, 2, 3, '...', totalPages);
+      } else if (currentPage >= totalPages - 2) {
+        pageNumbers.push(1, '...', totalPages - 2, totalPages - 1, totalPages);
+      } else {
+        pageNumbers.push(1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages);
+      }
+    }
+    return pageNumbers;
   };
 
   const openImage = (globalIndex) => {
@@ -68,14 +109,11 @@ export default function Page() {
     );
   };
 
-  // 1. Strictly intercept right clicks ONLY on the images
   const handleImageRightClick = (e) => {
-    e.preventDefault(); // Stop default browser context menu
-    e.stopPropagation(); // Stop event from bubbling up to anything else
-    setShowPopup(true); // Open the registration modal
+    e.preventDefault();
+    e.stopPropagation();
   };
 
-  // Keyboard Controls
   useEffect(() => {
     if (selectedIndex === null) return;
 
@@ -99,7 +137,6 @@ export default function Page() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIndex]);
 
-  // Disable page scroll while lightbox is open
   useEffect(() => {
     if (selectedIndex !== null) {
       document.body.style.overflow = "hidden";
@@ -112,86 +149,273 @@ export default function Page() {
     };
   }, [selectedIndex]);
 
+  const offerings = [
+    {
+      title: "Conference Booths",
+      description: "Professional, modular booth solutions designed to make an impact at conferences and trade shows.",
+      icon: FaBuilding,
+      color: "from-orange-500 to-orange-600",
+    },
+    {
+      title: "Mall Activations",
+      description: "Eye-catching modular setups that engage shoppers and boost brand visibility in high-traffic malls.",
+      icon: FaCube,
+      color: "from-amber-500 to-orange-500",
+    },
+    {
+      title: "Conference Setups",
+      description: "Complete, turnkey conference environments with everything you need for a successful event.",
+      icon: FaPalette,
+      color: "from-yellow-400 to-amber-500",
+    },
+    {
+      title: "Backdrops & Feature Walls",
+      description: "Stunning, customizable backdrops and feature walls that highlight your brand and messaging.",
+      icon: FaTruck,
+      color: "from-green-500 to-emerald-600",
+    },
+  ];
+
+  const benefits = [
+    { label: "Fast Installation (Hours, Not Days)", icon: GrSchedules },
+    { label: "SEG Fabric Technology", icon: FaMedal },
+    { label: "Shell Scheme Compatible", icon: FaBuilding },
+    { label: "Customizable Designs", icon: FaLightbulb },
+    { label: "Reusable & Sustainable", icon: GiGameConsole },
+    { label: "Transport-Friendly", icon: FaTruck },
+    { label: "DWTC Compliant", icon: GrCompliance },
+    { label: "Turnkey Solutions", icon: FaCheckCircle },
+  ];
+
   return (
-    <div className="flex flex-col min-h-screen bg-[#EAF4E1]">
+    <main className="bg-white">
       <Navbar />
 
-      {/* Hero Header */}
-      <header className="flex-grow flex flex-col items-center justify-center text-center gap-6 px-6 py-16 mt-28 max-w-4xl mx-auto">
-        <span className="bg-gray-300 font-semibold px-4 py-1.5 rounded-full text-[var(--primary)] text-xs md:text-sm uppercase tracking-wider">
-          Where Innovation Meets Craftsmanship
-        </span>
-
-        <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
-          MODULAR SUSTAINABLE BOOTH SYSTEM{" "}
-          <span className="text-[var(--primary)]">
-            <br />
-            (SEG FABRIC)
-          </span>
-        </h1>
-
-        <p className="text-base md:text-lg text-slate-700 lowercase leading-relaxed pb-6 border-b-2 border-[var(--primary)]">
-          Where we can transform your SMALL space into a vibrant, customized
-          design booth up and ready in a couple of hours. Our expert design team
-          can magically transform any space into an appealing and visually
-          stunning execution that is guaranteed to make your brand steal the
-          show. FORGET THE BORING LOOK OF OCTONORM — THIS CAN ALSO BE USED IN
-          YOUR SHELL SCHEME SPACE. Through modern technology and extraordinary
-          marketing, we help our customers develop a better understanding of
-          your brand by bringing it to life with eye-catching and majestic
-          displays, conference booths, mall activations, photo booths,
-          backdrops, and feature walls.
-        </p>
-      </header>
-
-      {/* Gallery Section */}
-      <main className="max-w-7xl mx-auto w-full px-4 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {GALLERY_IMAGES.slice(0, visibleCount).map((image, index) => (
-            <button
-              key={image}
-              onClick={() => openImage(index)}
-              onContextMenu={handleImageRightClick} // Handled directly on image item
-              className="overflow-hidden rounded-lg shadow-md bg-zinc-950/10 aspect-video cursor-pointer group relative w-full text-left focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
-              aria-label={`Open gallery image ${index + 1}`}
+      {/* Hero Section */}
+      <section className="relative pt-40 pb-12 md:pt-56 overflow-hidden bg-[#EAF4E1]">
+        <div className="relative max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
+          <motion.div
+            className="max-w-3xl text-center"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div
+              className="inline-flex items-center gap-2 bg-white border border-[var(--primary)]/20 rounded-full px-4 py-2 mb-6"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
             >
-              <Image
-                src={image}
-                alt={`Gallery display showcase ${index + 1}`}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                draggable={false}
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </button>
-          ))}
+              <span className="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse" />
+              <span className="text-sm font-semibold text-zinc-700">
+                Modular Sustainable Booth System
+              </span>
+            </motion.div>
+
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-950 mb-6 leading-tight">
+              MODULAR SUSTAINABLE BOOTH SYSTEM{" "}
+              <span className="text-[var(--primary)]">(SEG FABRIC)</span>
+            </h1>
+
+            <p className="text-lg text-zinc-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+              Where innovation meets craftsmanship—our modular SEG fabric booth system transforms small spaces into vibrant, custom-designed exhibits ready in just hours. Leave the boring Octanorm behind—perfect for shell scheme spaces too.
+            </p>
+
+            <div className="flex flex-wrap gap-4 justify-center">
+              <button className="group relative bg-gradient-to-r from-[var(--primary)] to-orange-600 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:shadow-xl hover:shadow-[var(--primary)]/30 transition-all hover:-translate-y-1">
+                Get Free 3D Proposal
+                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button className="bg-white border border-zinc-200 text-zinc-950 px-8 py-4 rounded-full font-bold hover:bg-white transition-all hover:shadow-lg">
+                View Our Work
+              </button>
+            </div>
+          </motion.div>
         </div>
+      </section>
 
-        {/* Load More Button */}
-        {visibleCount < GALLERY_IMAGES.length && (
-          <div className="flex justify-center mt-10">
-            <button
-              onClick={loadMore}
-              className="bg-[var(--primary)] text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 active:scale-95 transition-all cursor-pointer"
-            >
-              See More
-            </button>
+      {/* Offerings Section */}
+      <section className="py-12 bg-[#EAF4E1]">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <motion.div className="text-center mb-20" {...fadeUp}>
+            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
+              What We Offer
+            </h2>
+            <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
+              Complete modular solutions tailored for every event need
+            </p>
+            <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {offerings.map((offering, idx) => {
+              const Icon = offering.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  className="group relative p-8 rounded-2xl border border-zinc-200 hover:border-[var(--primary)]/50 transition-all duration-300 overflow-hidden bg-white hover:shadow-xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  whileHover={{ y: -8 }}
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${offering.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                  <div className={`inline-flex p-4 rounded-lg bg-gradient-to-br ${offering.color} mb-6 group-hover:scale-110 transition-transform`}>
+                    <Icon className="text-white text-2xl" />
+                  </div>
+                  <h3 className="text-xl font-bold text-zinc-950 mb-2">
+                    {offering.title}
+                  </h3>
+                  <p className="text-zinc-600 text-sm leading-relaxed">
+                    {offering.description}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
-        )}
-      </main>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-12 bg-[#EAF4E1]">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <motion.div className="text-center mb-20" {...fadeUp}>
+            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
+              Why Choose Modular?
+            </h2>
+            <p className="text-lg text-zinc-600">
+              The benefits that make our system stand out
+            </p>
+            <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />
+          </motion.div>
+
+          <div className="grid md:grid-cols-4 gap-4">
+            {benefits.map((benefit, idx) => {
+              const Icon = benefit.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  className="group relative p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-white/50 text-center hover:bg-white hover:border-[var(--primary)]/30 transition-all"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.05 }}
+                  whileHover={{ y: -4 }}
+                >
+                  <Icon className="text-[var(--primary)] text-2xl mx-auto mb-3 group-hover:scale-125 transition-transform" />
+                  <p className="font-semibold text-zinc-950 text-sm leading-tight">
+                    {benefit.label}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Gallery */}
+      <section className="py-24 bg-[#EAF4E1]">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <motion.div className="text-center mb-20" {...fadeUp}>
+            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
+              Our Portfolio
+            </h2>
+            <p className="text-lg text-zinc-600">
+              See our modular booths in action
+            </p>
+            <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {currentImages.map((image, index) => {
+              const globalIndex = indexOfFirstItem + index;
+              return (
+                <motion.button
+                  key={image}
+                  onClick={() => openImage(globalIndex)}
+                  onContextMenu={handleImageRightClick}
+                  className="overflow-hidden rounded-2xl shadow-lg bg-zinc-950/10 aspect-[4/3] cursor-pointer group relative w-full text-left focus:outline-none focus:ring-2 focus:ring-[var(--primary)] border border-zinc-200 hover:border-[var(--primary)]/50 transition-all"
+                  whileHover={{ y: -8 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
+                  <Image
+                    src={image}
+                    alt={`Gallery image ${globalIndex + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    draggable={false}
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-all">
+                      <div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center">
+                        <FaArrowRight className="text-[var(--primary)]" />
+                      </div>
+                    </div>
+                  </div>
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-2 mt-16">
+              {/* Previous Button */}
+              <button
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="px-4 py-2 rounded-lg border border-zinc-300 text-zinc-700 disabled:opacity-40 disabled:cursor-not-allowed hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all font-semibold"
+              >
+                Prev
+              </button>
+
+              {/* Page Numbers */}
+              {getPaginationNumbers().map((page, index) => (
+                <button
+                  key={index}
+                  onClick={() => typeof page === 'number' && setCurrentPage(page)}
+                  disabled={page === '...'}
+                  className={`px-4 py-2 rounded-lg font-bold transition-all ${
+                    page === currentPage
+                      ? 'bg-[var(--primary)] text-white'
+                      : page === '...'
+                      ? 'text-zinc-500 cursor-default'
+                      : 'border border-zinc-300 text-zinc-700 hover:border-[var(--primary)] hover:text-[var(--primary)]'
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+
+              {/* Next Button */}
+              <button
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 rounded-lg border border-zinc-300 text-zinc-700 disabled:opacity-40 disabled:cursor-not-allowed hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all font-semibold"
+              >
+                Next
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Lightbox Modal */}
       {selectedIndex !== null && (
-        <div
-          className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center select-none"
+        <motion.div
+          className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center select-none backdrop-blur-sm"
           onClick={closeImage}
-          role="dialog"
-          aria-modal="true"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
         >
           <button
             onClick={closeImage}
-            className="absolute top-5 right-6 text-white text-4xl hover:text-gray-300 transition-colors z-50 focus:outline-none"
-            aria-label="Close Lightbox"
+            className="absolute top-6 right-6 text-white text-4xl hover:text-orange-400 z-50 transition-colors"
           >
             &times;
           </button>
@@ -201,21 +425,18 @@ export default function Page() {
               e.stopPropagation();
               prevImage();
             }}
-            className="absolute left-4 md:left-8 text-white text-5xl hover:scale-110 active:scale-95 transition-all z-50 p-2 focus:outline-none"
-            aria-label="Previous image"
+            className="absolute left-4 md:left-8 text-white text-5xl hover:text-[var(--primary)] hover:scale-125 z-50 p-2 transition-all"
           >
             &#10094;
           </button>
 
-          {/* Lightbox Image Container */}
           <div
             className="relative w-[92vw] h-[80vh]"
             onClick={(e) => e.stopPropagation()}
-            onContextMenu={handleImageRightClick} // Intercepts on large lightboxed image
           >
             <Image
               src={GALLERY_IMAGES[selectedIndex]}
-              alt={`Expanded showcase display ${selectedIndex + 1}`}
+              alt={`Image ${selectedIndex + 1}`}
               fill
               priority
               draggable={false}
@@ -228,18 +449,18 @@ export default function Page() {
               e.stopPropagation();
               nextImage();
             }}
-            className="absolute right-4 md:right-8 text-white text-5xl hover:scale-110 active:scale-95 transition-all z-50 p-2 focus:outline-none"
-            aria-label="Next image"
+            className="absolute right-4 md:right-8 text-white text-5xl hover:text-[var(--primary)] hover:scale-125 z-50 p-2 transition-all"
           >
             &#10095;
           </button>
 
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white bg-black/60 px-4 py-1.5 text-sm font-medium rounded-full tracking-wide">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white bg-black/60 backdrop-blur-md px-6 py-2 text-sm rounded-full border border-white/20">
             {selectedIndex + 1} / {GALLERY_IMAGES.length}
           </div>
-        </div>
+        </motion.div>
       )}
+
       <Footer />
-    </div>
+    </main>
   );
 }
