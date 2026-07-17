@@ -56,21 +56,18 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4">
               {[
-                "Custom Solutions",
-                // "EX.PO Systems",
-                "Modular Solutions",
-                "Conference EXPO",
-                "Display Stands",
-                // "Mall Activations",
-                // "Office Interiors",
+                { name: "Custom Solutions", href: "/custom-solution" },
+                { name: "Modular Solutions", href: "/modular-solution" },
+                { name: "Conference EXPO", href: "/conference-expo" },
+                { name: "Display Stands", href: "#" },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.name}>
                   <Link
-                    href="#"
+                    href={item.href}
                     className="group flex items-center text-white font-bold transition-colors hover:text-[var(--primary)]"
                   >
                     <span className="h-[1px] w-0 bg-[var(--primary)] transition-all group-hover:w-4 group-hover:mr-2" />
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
