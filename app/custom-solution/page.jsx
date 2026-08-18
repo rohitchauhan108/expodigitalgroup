@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import FloatingIcons from "@/components/FloatingIcons";
+import TopBar from "@/components/TopBar";
 import { motion } from "framer-motion";
 import {
   FaBuilding,
@@ -242,10 +244,11 @@ export default function Page() {
 
   return (
     <main className="bg-white">
+      <TopBar />
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-40 pb-12 md:pt-56 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-48 pb-12 md:pt-64 overflow-hidden bg-[#EAF4E1]">
         <div className="relative max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
           <motion.div
             className="max-w-3xl text-center"
@@ -599,6 +602,7 @@ export default function Page() {
         </motion.div>
       )}
 
+      <FloatingIcons />
       <Footer />
     </main>
   );

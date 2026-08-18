@@ -2,174 +2,637 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import React from "react";
-import { Facebook, Instagram, Twitter } from "lucide-react";
-import { FaPhone } from "react-icons/fa6";
+import FloatingIcons from "@/components/FloatingIcons";
+import TopBar from "@/components/TopBar";
+import React, { useState } from "react";
+import { Send, CheckCircle2 } from "lucide-react";
+import { FaPhone, FaArrowRight } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
-import { IoLocationOutline } from "react-icons/io5";
+import { IoLocationOutline, IoTimeOutline } from "react-icons/io5";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-100px" },
+  transition: { duration: 0.6, ease: "easeOut" },
+};
 
 function Page() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+    privacy: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Thank you! Our team will get back to you within 24 hours.");
+  };
+
+  const serviceOptions = [
+    "Custom Exhibition Stand Design & Build",
+    "Modular Sustainable Stand System (MO.PO)",
+    "Conference & Expo Booth Solutions",
+    "Promotions & Mall Activations",
+    "Commercial Showroom Interiors",
+    "Furniture & AV Rentals",
+    "3D Architectural Renderings",
+    "Turnkey Event Project Management",
+  ];
+
+  const inquiryBullets = [
+    {
+      title: "In-House Production",
+      text: "100% fabrication at our Al Quoz compound. Full quality control on every build from cutting to final assembly.",
+    },
+    {
+      title: "DWTC & ADNEC Certified",
+      text: "Fully certified for Dubai World Trade Centre, ADNEC Abu Dhabi, and all major Middle Eastern exhibition venues.",
+    },
+    {
+      title: "500+ Successful Projects",
+      text: "Proven track record delivering premium exhibition stands, brand activations, and conference booths across UAE, KSA, Oman, and India.",
+    },
+  ];
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#EAF4E1] text-[#0A1145]">
+    <div className="min-h-screen flex flex-col bg-[#EAF4E1] text-zinc-900">
+      <TopBar />
       <Navbar />
 
-      {/* Main Content Container - Added pt-28 and md:pt-36 to push content below the fixed Navbar */}
-      <main className="flex-grow flex items-center justify-center p-56">
-        <div className="max-w-6xl w-full flex flex-col gap-20">
-          {/* Top Section: Image Left, Form Right */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
-            {/* Left Column: Image Container with matching asymmetry */}
-            <div className="col-span-1 md:col-span-5 flex justify-center w-full">
-              <div className="group relative w-full max-w-sm aspect-[3/4]">
-                {/* Border (Always Visible) */}
-                <div className="absolute inset-0 -translate-x-3 -translate-y-3 rounded-bl-[80px] rounded-tr-[80px] rounded-tl-2xl rounded-br-2xl border-3 border-[var(--primary)]" />
+      {/* =============================== */}
+      {/* SECTION 1: HERO BANNER */}
+      {/* =============================== */}
+      <section className="relative pt-48 md:pt-60 pb-24 md:pb-32 overflow-hidden bg-[#EAF4E1]">
+        <div className="site-shell relative z-10">
+          <motion.div
+            className="mx-auto max-w-4xl text-center"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              Premium Exhibition Stand Builders • Get in Touch
+            </p>
+            <h1 className="mb-8 text-3xl font-bold tracking-tight text-zinc-950 md:text-5xl lg:text-6xl leading-[1.1]">
+              Let&apos;s Build Something{" "}
+              <span className="gradient-text">Extraordinary</span>
+            </h1>
+            <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-zinc-600 md:text-lg">
+              Whether it&apos;s a bespoke exhibition booth, modular system, or
+              full conference pavilion — our team delivers precision, speed, and
+              brand-accurate execution across the Middle East & India.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="#contact-form"
+                className="w-full sm:w-auto rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-lg shadow-[var(--primary)]/10 flex items-center justify-center gap-2 group"
+              >
+                Get a Free Design Quote
+                <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="tel:+971040000000"
+                className="w-full sm:w-auto rounded-full border border-zinc-200 bg-white px-10 py-4 font-bold text-zinc-950 transition-all hover:bg-zinc-50 flex items-center justify-center gap-2"
+              >
+                <FaPhone className="w-4 h-4 text-[var(--primary)]" />
+                Call Our Team
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-                {/* Image */}
-                <div className="relative z-10 w-full h-full overflow-hidden bg-white rounded-bl-[80px] rounded-tr-[80px] rounded-tl-2xl rounded-br-2xl transition-transform duration-500 group-hover:translate-x-3 group-hover:translate-y-3">
-                  <img
-                    src="/contact.png"
-                    alt="Contact visual asset"
-                    className="w-full h-full object-cover"
-                  />
+      {/* =============================== */}
+      {/* SECTION 2: HOW WE CAN HELP + CLIENT ADVISORY */}
+      {/* =============================== */}
+      <section className="relative py-24 md:py-32 overflow-hidden border-t border-zinc-200">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+        <div className="site-shell relative z-10">
+          <div className="grid lg:grid-cols-12 gap-16 lg:items-start">
+            {/* LEFT: Get in Touch */}
+            <motion.div
+              className="lg:col-span-6"
+              {...fadeUp}
+            >
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+                Get in Touch
+              </p>
+              <h2 className="mb-6 text-3xl font-bold leading-tight text-zinc-950 md:text-3xl lg:text-5xl">
+                How we can help{" "}
+                <span className="gradient-text">transform</span> your next
+                exhibition presence.
+              </h2>
+              <p className="mb-8 text-base leading-relaxed text-zinc-600">
+                Whether you&apos;re launching a premium bespoke booth, a fast
+                modular setup, or a full conference exhibition floor — our
+                design, fabrication, and logistics teams manage the entire
+                project end-to-end.
+              </p>
+
+              <div className="border-t border-zinc-200 pt-8 mb-8">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="h-1 w-12 rounded-full bg-brand-gradient" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">
+                    Operational Reach
+                  </span>
+                </div>
+                <div className="flex items-center gap-3 bg-white/60 backdrop-blur-sm border border-zinc-200 rounded-full px-5 py-3 w-fit">
+                  <div className="w-3 h-3 rounded-full bg-[var(--primary)] animate-pulse" />
+                  <span className="text-xs font-bold text-zinc-800">
+                    Serving UAE • KSA • Oman • India
+                  </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Right Column: Form and Socials */}
-            {/* Right Column: Form and Socials Block Container */}
-            <div className="col-span-1 md:col-span-7 w-full">
-              <div className="bg-white/30 backdrop-blur-md p-8 md:p-12 rounded-tl-2xl rounded-br-2xl rounded-tr-[50px] rounded-bl-[50px] border border-[#0A1145]/10 shadow-[0_8px_32px_0_rgba(10,17,69,0.03)] flex flex-col justify-center transition-all duration-500 hover:shadow-[0_12px_40px_0_rgba(10,17,69,0.06)]">
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--primary)] mb-3 block">
-                  Get in Touch
-                </span>
-                <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-10 tracking-wide text-left text-[var(--primary)] font-semibold">
-                  Contact Us
-                </h1>
+            {/* RIGHT: Dedicated Client Advisory card */}
+            <motion.div
+              className="lg:col-span-6"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)] overflow-hidden">
+                <div className="absolute -bottom-16 -right-16 w-72 h-72 rounded-full bg-brand-gradient opacity-10 blur-[80px] pointer-events-none" />
 
-                <form
-                  className="space-y-8"
-                  onSubmit={(e) => e.preventDefault()}
-                >
-                  <div className="relative group">
-                    <input
-                      type="text"
-                      id="fullName"
-                      placeholder="Full Name"
-                      className="w-full bg-transparent border-b border-[#0A1145]/20 pb-3 text-lg focus:outline-none focus:border-[#0A1145] placeholder:text-[#0A1145]/40 rounded-none transition-colors duration-300"
-                    />
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+                      <FaPhone className="text-2xl text-[var(--primary)]" />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-4 py-2 rounded-full">
+                      24-hr Response
+                    </span>
                   </div>
 
-                  <div className="relative group">
-                    <input
-                      type="email"
-                      id="email"
-                      placeholder="E-mail"
-                      className="w-full bg-transparent border-b border-[#0A1145]/20 pb-3 text-lg focus:outline-none focus:border-[#0A1145] placeholder:text-[#0A1145]/40 rounded-none transition-colors duration-300"
-                    />
-                  </div>
+                  <h3 className="mb-4 text-2xl md:text-3xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+                    Dedicated Client Advisory
+                  </h3>
+                  <p className="leading-relaxed text-zinc-600 mb-8 text-sm md:text-lg">
+                    Submit design briefs anytime, 24/7. Our technical and
+                    accounts teams review every inquiry and respond within one
+                    business day.
+                  </p>
 
-                  <div className="relative group">
-                    <input
-                      type="text"
-                      id="message"
-                      placeholder="Message"
-                      className="w-full bg-transparent border-b border-[#0A1145]/20 pb-3 text-lg focus:outline-none focus:border-[#0A1145] placeholder:text-[#0A1145]/40 rounded-none transition-colors duration-300"
-                    />
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8 pt-6">
-                    <button
-                      type="submit"
-                      className="bg-[var(--primary)] text-white font-medium py-4 px-10 rounded-xl hover:bg-black transition-all duration-300 cursor-pointer text-center tracking-wide shadow-md hover:shadow-lg"
+                  <div className="border-t border-zinc-100 pt-6 space-y-5">
+                    <a
+                      href="mailto:sales@expodigitalgroup.com"
+                      className="flex items-center gap-4 text-zinc-900 font-bold hover:text-[var(--primary)] transition-colors group/item"
                     >
-                      Send Message
-                    </button>
+                      <div className="w-11 h-11 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center group-hover/item:bg-[var(--primary)]/10 transition-colors">
+                        <MdOutlineEmail className="text-xl text-[var(--primary)]" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-zinc-400 uppercase tracking-widest font-bold mb-1">
+                          Email
+                        </p>
+                        <p className="text-sm md:text-lg">
+                          sales@expodigitalgroup.com
+                        </p>
+                      </div>
+                    </a>
 
-                    {/* Social Icons integrated via elegant architectural lines */}
-                    <div className="flex items-center gap-4 self-start sm:self-center">
-                      <span className="hidden sm:inline-block w-6 h-[1px] bg-[#0A1145]/20"></span>
-                      <div className="flex items-center space-x-4">
-                        <a
-                          href="#"
-                          aria-label="Facebook"
-                          className="p-2.5 rounded-full border border-[#0A1145]/10 bg-white/40 hover:bg-[var(--primary)] hover:text-white transition-all duration-300 text-black"
-                        >
-                          <Facebook className="w-4 h-4 fill-current stroke-none" />
-                        </a>
-                        <a
-                          href="#"
-                          aria-label="Instagram"
-                          className="p-2.5 rounded-full border border-[#0A1145]/10 bg-white/40 hover:bg-[var(--primary)] hover:text-white transition-all duration-300 text-black"
-                        >
-                          <Instagram className="w-4 h-4 stroke-current stroke-[2]" />
-                        </a>
-                        <a
-                          href="#"
-                          aria-label="Twitter"
-                          className="p-2.5 rounded-full border border-[#0A1145]/10 bg-white/40 hover:bg-[var(--primary)] hover:text-white transition-all duration-300 text-black"
-                        >
-                          <Twitter className="w-4 h-4 fill-current stroke-none" />
-                        </a>
+                    <a
+                      href="tel:+971040000000"
+                      className="flex items-center gap-4 text-zinc-900 font-bold hover:text-[var(--primary)] transition-colors group/item"
+                    >
+                      <div className="w-11 h-11 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center group-hover/item:bg-[var(--primary)]/10 transition-colors">
+                        <FaPhone className="text-lg text-[var(--primary)]" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-zinc-400 uppercase tracking-widest font-bold mb-1">
+                          Phone
+                        </p>
+                        <p className="text-sm md:text-lg">
+                          +971 (0) 4 000 0000
+                        </p>
+                      </div>
+                    </a>
+
+                    <div className="flex items-start gap-4 text-zinc-900 group/item">
+                      <div className="w-11 h-11 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center group-hover/item:bg-[var(--primary)]/10 transition-colors shrink-0 mt-0.5">
+                        <IoLocationOutline className="text-xl text-[var(--primary)]" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-zinc-400 uppercase tracking-widest font-bold mb-1">
+                          Base
+                        </p>
+                        <p className="text-sm md:text-lg font-bold leading-relaxed">
+                          Al Quoz Industrial Area 4, Capitol Compound, Dubai,
+                          UAE
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 text-zinc-900 group/item">
+                      <div className="w-11 h-11 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center group-hover/item:bg-[var(--primary)]/10 transition-colors shrink-0">
+                        <IoTimeOutline className="text-xl text-[var(--primary)]" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-zinc-400 uppercase tracking-widest font-bold mb-1">
+                          Hours
+                        </p>
+                        <p className="text-sm md:text-lg font-bold">
+                          Monday – Friday, 9:00 AM – 6:00 PM
+                        </p>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* =============================== */}
+      {/* SECTION 3: INQUIRY + FORM (TWO CARDS) */}
+      {/* =============================== */}
+      <section
+        id="contact-form"
+        className="py-24 md:py-28 border-y border-zinc-200 relative overflow-hidden"
+      >
+        {/* Ambient blur */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--primary)]/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="site-shell relative z-10">
+          <motion.div className="mb-16 max-w-3xl text-center mx-auto" {...fadeUp}>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              Inquiry & Sourcing
+            </p>
+            <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl tracking-tight">
+              Request Pricing or{" "}
+              <span className="gradient-text">Submit an Inquiry</span>
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-zinc-600 max-w-2xl mx-auto">
+              Our design and estimating team is ready to build your custom
+              concept. Share your requirements below and we&apos;ll respond with
+              a tailored plan within 24 hours.
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10">
+            {/* LEFT CARD: Request Pricing Info */}
+            <motion.div
+              className="lg:col-span-5"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)] h-full flex flex-col">
+                <div className="mb-6 flex items-center justify-between">
+                  <div className="h-2 w-12 rounded-full bg-brand-gradient transition-all duration-300 group-hover:w-20" />
+                  <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-zinc-500">
+                    Expo Advantage
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-bold text-zinc-950 mb-6 group-hover:text-[var(--primary)] transition-colors">
+                  Why partner with Expo Digital?
+                </h3>
+
+                <p className="text-base leading-relaxed text-zinc-600 mb-10">
+                  From 3D render to on-site handover — we own every part of
+                  the process, so you don&apos;t have to.
+                </p>
+
+                <div className="border-t border-zinc-100 pt-8 space-y-6 flex-1">
+                  {inquiryBullets.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-4">
+                      <div className="w-7 h-7 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2
+                          className="w-4 h-4 text-[var(--primary)]"
+                          strokeWidth={2.5}
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-base font-bold text-zinc-950 mb-1">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs text-base text-zinc-600 leading-relaxed">
+                          {item.text}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom quote pill */}
+                <div className="mt-10 p-5 md:p-6 bg-zinc-50 rounded-2xl border border-zinc-100">
+                  <p className="text-xs text-base italic text-zinc-600 leading-relaxed">
+                    &ldquo;Designed to the brief. Engineered to dominate the
+                    exhibition floor.&rdquo;
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* RIGHT CARD: CONTACT FORM */}
+            <motion.div
+              className="lg:col-span-7"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)]">
+                <form onSubmit={handleSubmit} className="space-y-7">
+                  {/* First name + Last name */}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                        First Name{" "}
+                        <span className="text-[var(--primary)]">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="firstName"
+                        required
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        placeholder="Enter your first name"
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                        Last Name{" "}
+                        <span className="text-[var(--primary)]">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="lastName"
+                        required
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        placeholder="Enter your last name"
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email + Phone */}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                        Email <span className="text-[var(--primary)]">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Enter your email"
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                        Phone <span className="text-[var(--primary)]">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        required
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="Enter your phone number"
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Service dropdown */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                      What do you need help with?{" "}
+                      <span className="text-[var(--primary)]">*</span>
+                    </label>
+                    <select
+                      name="service"
+                      required
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all appearance-none cursor-pointer pr-12"
+                      style={{
+                        backgroundImage:
+                          "url(\"data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FF7900' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\")",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "right 1.25rem center",
+                        backgroundSize: "1.25rem",
+                      }}
+                    >
+                      <option value="">Select the service</option>
+                      {serviceOptions.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                      Message
+                    </label>
+                    <textarea
+                      name="message"
+                      rows={5}
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Provide details about your exhibition booth, event date, venue, sizing requirements, or any reference designs..."
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all resize-none"
+                    />
+                  </div>
+
+                  {/* Privacy checkbox */}
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      name="privacy"
+                      required
+                      checked={formData.privacy}
+                      onChange={handleChange}
+                      className="mt-1 w-5 h-5 rounded border-zinc-300 text-[var(--primary)] focus:ring-[var(--primary)] cursor-pointer shrink-0"
+                    />
+                    <label className="text-xs text-base text-zinc-600 cursor-pointer font-medium">
+                      <span className="text-[var(--primary)] font-bold">
+                        *
+                      </span>{" "}
+                      Yes, I agree with the privacy policy.
+                    </label>
+                  </div>
+
+                  {/* Submit button - matches home page CTA style */}
+                  <button
+                    type="submit"
+                    className="group relative w-full sm:w-auto sm:mx-auto sm:block rounded-full bg-[var(--primary)] lg:px-12 px-10 py-5 font-bold text-white transition-all hover:scale-105 shadow-xl shadow-[var(--primary)]/20 flex items-center justify-center gap-3"
+                  >
+                    <Send className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    Send Message
+                  </button>
                 </form>
               </div>
-            </div>
+            </motion.div>
           </div>
+        </div>
+      </section>
 
-          {/* Decorative Divider */}
-          <div className="relative flex items-center justify-center">
-            <div className="absolute inset-0 flex items-center">
-            </div>
-            <div className="w-full border-t border-[var(--primary)]"></div>
-            <h1 className="relative px-4 text-[var(--primary)] text-sm tracking-widest font-bold uppercase">
-              Info
-            </h1>
-            <div className="w-full border-t border-[var(--primary)]"></div>
-          </div>
+      {/* =============================== */}
+      {/* SECTION 4: CONTACT INFO CARDS ROW */}
+      {/* =============================== */}
+      <section className="py-24 md:py-28 relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
 
-          {/* Bottom Section: Architectural Asymmetric Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Box 1: Phone */}
-            <div className="group bg-white/40 backdrop-blur-sm p-8 rounded-tl-xl rounded-br-xl rounded-tr-3xl rounded-bl-3xl border border-[#0A1145]/10 hover:-translate-y-1 hover:bg-white/60 hover:shadow-[0_12px_30px_rgba(10,17,69,0.04)] transition-all duration-300 flex flex-col justify-between items-center min-h-[140px]">
-              <h3 className="font-bold text-xl tracking-[0.15em] uppercase text-[var(--primary)] opacity-80 flex items-center gap-3">
-                <FaPhone />Phone
+        <div className="site-shell">
+          <motion.div className="mb-16 max-w-3xl text-center mx-auto" {...fadeUp}>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              Direct Contact
+            </p>
+            <h2 className="text-xl font-bold text-zinc-950 md:text-3xl">
+              Reach Out Through Your Preferred Channel
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.05, duration: 0.5 }}
+              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)]"
+            >
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+                  <FaPhone className="text-lg text-[var(--primary)]" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
+                  Fast Callback
+                </span>
+              </div>
+
+              <h3 className="mb-3 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+                Phone
               </h3>
               <a
-                href="tel:+97140000000"
-                className="text-lg text-black hover:text-[var(--primary)] transition-colors inline-block tracking-tight mt-4 break-words"
+                href="tel:+971040000000"
+                className="text-lg font-bold text-zinc-600 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
               >
                 +971 (0) 4 000 0000
               </a>
-            </div>
 
-            {/* Box 2: Email */}
-            <div className="group bg-white/40 backdrop-blur-sm p-8 rounded-tl-xl rounded-br-xl rounded-tr-3xl rounded-bl-3xl border border-[#0A1145]/10 hover:-translate-y-1 hover:bg-white/60 hover:shadow-[0_12px_30px_rgba(10,17,69,0.04)] transition-all duration-300 flex flex-col justify-between items-center min-h-[140px]">
-              <h3 className="font-bold text-xl tracking-[0.15em] uppercase text-[var(--primary)] opacity-80 flex items-center gap-3">
-                <MdOutlineEmail />Contact Email
+              <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
+                <span>Call During Business Hours</span>
+                <FaArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)]"
+            >
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+                  <MdOutlineEmail className="text-xl text-[var(--primary)]" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
+                  24-hr Response
+                </span>
+              </div>
+
+              <h3 className="mb-3 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+                Email
               </h3>
               <a
                 href="mailto:sales@expodigitalgroup.com"
-                className="text-lg text-black hover:text-[var(--primary)] transition-colors inline-block tracking-tight mt-4 break-words"
+                className="text-lg font-bold text-zinc-600 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
               >
                 sales@expodigitalgroup.com
               </a>
-            </div>
 
-            {/* Box 3: Address */}
-            <div className="group bg-white/40 backdrop-blur-sm p-8 rounded-tl-xl rounded-br-xl rounded-tr-3xl rounded-bl-3xl border border-[#0A1145]/10 hover:-translate-y-1 hover:bg-white/60 hover:shadow-[0_12px_30px_rgba(10,17,69,0.04)] transition-all duration-300 flex flex-col justify-between items-center text-center min-h-[140px]">
-              <h3 className="font-bold text-xl tracking-[0.15em] uppercase text-[var(--primary)] opacity-80 flex items-center gap-3">
-                <IoLocationOutline />Based in
+              <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
+                <span>Send Project Brief</span>
+                <FaArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15, duration: 0.5 }}
+              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)]"
+            >
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+                  <IoLocationOutline className="text-xl text-[var(--primary)]" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
+                  Production HQ
+                </span>
+              </div>
+
+              <h3 className="mb-3 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+                Based In
               </h3>
-              <p className="text-lg text-black leading-relaxed mt-4">
-                Alquoz Industrial Area 4, Capitol Compound, Dubai, UAE
+              <p className="text-lg font-bold text-zinc-600 leading-relaxed">
+                Al Quoz Industrial Area 4, Capitol Compound, Dubai, UAE
               </p>
-            </div>
+
+              <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
+                <span>Visit By Appointment</span>
+                <FaArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </motion.div>
           </div>
         </div>
-      </main>
+      </section>
 
+      {/* =============================== */}
+      {/* SECTION 5: CTA STRIP */}
+      {/* =============================== */}
+      <section className="relative overflow-hidden py-20 lg:py-28 border-t border-zinc-200">
+        <div className="site-shell relative z-10 text-center">
+          <motion.div {...fadeUp}>
+            <h2 className="mx-auto mb-12 max-w-4xl text-lg font-bold leading-tight text-zinc-950 md:text-3xl">
+              From 3D concept render to on-site handover at DWTC, ADNEC, or
+              across the region — we handle every detail so your team{" "}
+              <span className="italic gradient-text">stays focused</span> on
+              the event itself.
+            </h2>
+            <div className="mx-auto mb-12 h-1 w-20 rounded-full bg-brand-gradient" />
+            <a
+              href="#contact-form"
+              className="rounded-full bg-[var(--primary)] lg:px-12 px-10 py-5 font-bold text-white inline-block transition-transform hover:scale-105 shadow-xl shadow-[var(--primary)]/20"
+            >
+              Let&apos;s Build Something Extraordinary
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      <FloatingIcons />
       <Footer />
     </div>
   );

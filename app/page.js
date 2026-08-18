@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { FaWhatsapp } from "react-icons/fa";
+import FloatingIcons from "@/components/FloatingIcons";
+import TopBar from "@/components/TopBar";
 // Fade-up animation helper preset for section headers & cards
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -213,10 +214,11 @@ export default function Home() {
 
   return (
     <main className="lg:min-h-screen bg-[#EAF4E1]">
+      <TopBar />
       <Navbar />
 
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden bg-[#EAF4E1] pt-40 pb-24 md:pt-50 md:pb-32">
+      <section className="relative overflow-hidden bg-[#EAF4E1] pt-48 pb-24 md:pt-60 md:pb-32">
         <div className="site-shell">
           <motion.div
             className="mx-auto max-w-4xl text-center"
@@ -398,42 +400,95 @@ export default function Home() {
       </section>
 
       {/* 6. Why Expo Digital Section */}
-      <section className="lg:py-15">
-        <div className="site-shell">
-          <motion.div className="mb-14 max-w-3xl" {...fadeUp}>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
-              Why Choose Us
-            </p>
-            <h2 className="mb-5 text-3xl font-bold text-zinc-950 md:text-5xl">
-              Designed to the brief. Built to impress.
-            </h2>
-            <p className="text-lg leading-relaxed text-zinc-600">
-              As a premier custom trade show contractor in Dubai, we manage
-              initial concepts, interior fabrication, safety handovers,
-              dismantling, and long-term asset storage smoothly under one roof.
-            </p>
-          </motion.div>
+<section className="relative py-20 lg:py-28 overflow-hidden" id="why-us">
+  {/* Ambient Background Blur */}
+  <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[var(--primary)]/5 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {principles.map((item, index) => (
-              <motion.div
-                key={item.title}
-                className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-[0_16px_40px_rgba(17,17,17,0.05)]"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="mb-5 h-1.5 w-16 rounded-full bg-brand-gradient" />
-                <h3 className="mb-4 text-2xl font-bold text-zinc-950">
-                  {item.title}
-                </h3>
-                <p className="leading-relaxed text-zinc-600">{item.text}</p>
-              </motion.div>
-            ))}
+  <div className="site-shell relative z-10">
+    <motion.div className="mb-16 max-w-3xl" {...fadeUp}>
+      <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+        Why Choose Expo Digital
+      </p>
+      <h2 className="mb-6 text-3xl font-bold text-zinc-950 md:text-5xl tracking-tight">
+        Designed to the brief. <br className="hidden sm:inline" />
+        <span className="gradient-text">Engineered to dominate</span> the floor.
+      </h2>
+      <p className="text-lg leading-relaxed text-zinc-600">
+        We handle the high-stakes friction of trade show logistics—from initial 3D design to local fabrication, complex venue clearances, and fast dismantling.
+      </p>
+    </motion.div>
+
+    {/* Feature Grid */}
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {[
+        {
+          icon: (
+            <svg className="w-6 h-6 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          ),
+          tag: "Direct Fabrication",
+          title: "In-House Production",
+          text: "100% produced in our Al Quoz compound. No middlemen or third-party delays—giving us total control over material quality and precision assembly.",
+        },
+        {
+          icon: (
+            <svg className="w-6 h-6 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          ),
+          tag: "DWTC & ADNEC Certified",
+          title: "Turnkey & On-Time",
+          text: "Navigating strict venue regulations, permits, structural checks, and overnight handovers smoothly so your team walks in stress-free.",
+        },
+        {
+          icon: (
+            <svg className="w-6 h-6 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          ),
+          tag: "MO.PO System",
+          title: "Eco Modular & Custom",
+          text: "Whether you need high-impact bespoke structural woodwork or zero-waste modular framework with 50+ layout variations, we build to fit.",
+        },
+      ].map((item, index) => (
+        <motion.div
+          key={item.title}
+          className="group relative flex flex-col justify-between rounded-3xl border border-zinc-200/80 bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
+          <div>
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+                {item.icon}
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
+                {item.tag}
+              </span>
+            </div>
+
+            <h3 className="mb-3 text-2xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+              {item.title}
+            </h3>
+            <p className="leading-relaxed text-zinc-600 text-sm md:text-base">
+              {item.text}
+            </p>
           </div>
-        </div>
-      </section>
+
+          <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
+            <span>Learn More</span>
+            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* 7. Core Services Section */}
       <section
@@ -625,27 +680,7 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      <div className="fixed z-20 bottom-10 right-5 flex items-center group cursor-pointer">
-        <a
-          href="https://wa.me/971 (0) 4 000 0000"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed bottom-10 right-5 flex items-center group z-50"
-        >
-          <span
-            className="mr-3 bg- text-white bg-black border border-white font-bold px-3 py-2 rounded-lg shadow-lg whitespace-nowrap
-                   opacity-0 translate-x-4
-                   transition-all duration-300
-                   group-hover:opacity-100 group-hover:translate-x-0 hidden lg:flex"
-          >
-            WhatsApp
-          </span>
-
-          <div className="bg-[#FF7900] flex justify-center items-center h-15 w-15 p-5 rounded-full">
-            <FaWhatsapp className="text-3xl text-white" />
-          </div>
-        </a>
-      </div>
+      <FloatingIcons />
       <Footer />
     </main>
   );

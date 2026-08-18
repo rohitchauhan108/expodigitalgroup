@@ -24,13 +24,13 @@ const Footer = () => {
       <div className="site-shell relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-8">
+            <Link href="/" className="inline-block mb-1">
               <Image
                 src="/expo-digital-logo.png"
                 alt="Expo Digital Group"
-                width={180}
-                height={64}
-                className="h-14 w-auto object-contain"
+                width={240}
+                height={80}
+                className="h-44 w-auto object-contain "
               />
             </Link>
             <p className="mb-8 max-w-xs leading-relaxed text-white font-medium">
@@ -143,7 +143,6 @@ const Footer = () => {
             © {new Date().getFullYear()} Expo Digital Group. Built for
             Excellence.
           </p>
-          {/* Changed justify-start to justify-center, and added md:justify-start */}
           <div className="flex w-full justify-center space-x-8 text-sm font-bold uppercase tracking-widest text-white md:w-auto md:justify-start">
             <Link
               href="#"

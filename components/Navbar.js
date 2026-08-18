@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
@@ -8,20 +8,40 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
 
-  // Handle scroll effect for desktop header background
+  const lastScrollY = useRef(0);
+
+  // Handle scroll behavior (Hide on scroll down, show on scroll up)
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // Toggle background style when page is scrolled past threshold
+      setIsScrolled(currentScrollY > 20);
+
+      // Handle visibility logic:
+      // Always show if near the top (e.g. within 50px)
+      if (currentScrollY < 50) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY.current) {
+        // Scrolling DOWN -> Hide
+        setIsVisible(false);
+      } else {
+        // Scrolling UP -> Show
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevents the background content from scrolling underneath the active mobile menu overlay
+  // Prevent background scrolling when mobile menu overlay is active
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -49,7 +69,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-transform duration-300 ease-in-out ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      } ${
         isScrolled
           ? "bg-[#000000] py-0 shadow-[0_10px_40px_rgba(0,0,0,0.05)] backdrop-blur-xl"
           : "bg-[#000000] py-0"
@@ -137,9 +159,12 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -30 }}
             className="fixed inset-0 w-full h-fit z-40 bg-black md:hidden overflow-y-auto flex flex-col"
           >
-            {/* NEW HEADER TRACK RIGHT INSIDE SCREEN TO RENDER LOGO AND CLOSE LINK ACCURATELY */}
             <div className="site-shell flex h-36 justify-between items-center shrink-0">
-              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3">
+              <Link
+                href="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center gap-3"
+              >
                 <Image
                   src="/expo-digital-logo.png"
                   alt="Expo Digital Group"
@@ -149,7 +174,7 @@ const Navbar = () => {
                   className="h-30 w-auto object-fill"
                 />
               </Link>
-              
+
               <button
                 className="flex h-10 w-10 items-center justify-center rounded-full text-white"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -158,7 +183,6 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Menu Links Body */}
             <div className="site-shell space-y-7 pb-20 flex-1">
               {navLinks.map((link, idx) => (
                 <motion.div
@@ -173,7 +197,7 @@ const Navbar = () => {
                         onClick={() =>
                           setMobileDropdownOpen(!mobileDropdownOpen)
                         }
-                        className="flex w-full items-center justify-between text-lg font-black uppercase tracking-tight text-white"
+                        className="flex w-full items-center justify-between text-lg font-bold uppercase tracking-tight text-white"
                       >
                         {link.name}
                         <ChevronDown
@@ -214,7 +238,7 @@ const Navbar = () => {
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-lg font-black uppercase tracking-tight text-white hover:text-[var(--primary)]"
+                      className="block text-lg font-bold uppercase tracking-tight text-white hover:text-[var(--primary)]"
                     >
                       {link.name}
                     </Link>
@@ -222,7 +246,6 @@ const Navbar = () => {
                 </motion.div>
               ))}
 
-              {/* CTA Button */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -231,7 +254,7 @@ const Navbar = () => {
                 <Link
                   href="#contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="inline-flex w-full items-center justify-center rounded-xl bg-[var(--primary)] py-4 text-lg font-black uppercase text-white"
+                  className="inline-flex w-full items-center justify-center rounded-xl bg-[var(--primary)] py-4 text-lg font-bold uppercase text-white"
                 >
                   Start Project
                   <ArrowRight className="ml-2" />

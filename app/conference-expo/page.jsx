@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import FloatingIcons from "@/components/FloatingIcons";
+import TopBar from "@/components/TopBar";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaMapMarkedAlt,
@@ -243,10 +245,11 @@ export default function ConferenceExpoPage() {
 
   return (
     <main className="bg-white min-h-screen selection:bg-[var(--primary)] selection:text-white overflow-x-hidden">
+      <TopBar />
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 md:pt-56 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-48 pb-20 md:pt-64 overflow-hidden bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             
@@ -264,7 +267,7 @@ export default function ConferenceExpoPage() {
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-black tracking-tight text-zinc-950 mb-6 leading-[1.1]">
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-950 mb-6 leading-[1.1]">
                 Impactful Conference <br />
                 <span className="bg-gradient-to-r from-[var(--primary)] to-orange-600 bg-clip-text text-transparent">
                   Exhibition Booths
@@ -351,15 +354,15 @@ export default function ConferenceExpoPage() {
             >
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white/60 backdrop-blur-md border border-white p-6 rounded-[2rem] shadow-sm transform translate-y-6">
-                  <span className="text-3xl font-black text-[var(--primary)] block mb-1">Fast</span>
+                  <span className="text-3xl font-bold text-[var(--primary)] block mb-1">Fast</span>
                   <p className="text-sm font-semibold text-zinc-800">Setup Modular Architecture</p>
                 </div>
                 <div className="bg-white/60 backdrop-blur-md border border-white p-6 rounded-[2rem] shadow-sm">
-                  <span className="text-3xl font-black text-orange-600 block mb-1">Smart</span>
+                  <span className="text-3xl font-bold text-orange-600 block mb-1">Smart</span>
                   <p className="text-sm font-semibold text-zinc-800">Sponsor Configuration Space</p>
                 </div>
                 <div className="bg-white/60 backdrop-blur-md border border-white p-6 rounded-[2rem] shadow-sm transform translate-y-6">
-                  <span className="text-3xl font-black text-amber-500 block mb-1">Clear</span>
+                  <span className="text-3xl font-bold text-amber-500 block mb-1">Clear</span>
                   <p className="text-sm font-semibold text-zinc-800">Fixed Cost Structure Transparency</p>
                 </div>
                 <div className="bg-zinc-950 p-6 rounded-[2rem] text-white shadow-xl flex flex-col justify-between">
@@ -379,7 +382,7 @@ export default function ConferenceExpoPage() {
               <h2 className="text-xs font-bold tracking-[0.2em] text-[var(--primary)] uppercase mb-3">
                 Our Advantage
               </h2>
-              <h3 className="text-3xl md:text-5xl font-black text-zinc-950 mb-6 leading-tight">
+              <h3 className="text-3xl md:text-5xl font-bold text-zinc-950 mb-6 leading-tight">
                 Quick Build. Price Efficient. Fast Setup.
               </h3>
               <p className="text-lg text-zinc-600 mb-6 leading-relaxed">
@@ -422,7 +425,7 @@ export default function ConferenceExpoPage() {
               <span className="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">How We Execute</span>
             </div>
-            <h3 className="text-3xl md:text-5xl font-black text-zinc-950 tracking-tight leading-none">
+            <h3 className="text-3xl md:text-5xl font-bold text-zinc-950 tracking-tight leading-none">
               Strategic Execution Pipeline
             </h3>
             <p className="text-base md:text-lg text-zinc-600 mt-4 max-w-xl mx-auto font-medium">
@@ -454,7 +457,7 @@ export default function ConferenceExpoPage() {
                         <span className={`text-xs font-bold px-3 py-1.5 rounded-full border ${p.badgeClass}`}>
                           {p.phase}
                         </span>
-                        <span className="text-5xl font-black text-zinc-950/5 tracking-tighter group-hover:text-zinc-950/10 select-none transition-colors">
+                        <span className="text-5xl font-bold text-zinc-950/5 tracking-tighter group-hover:text-zinc-950/10 select-none transition-colors">
                           {p.step}
                         </span>
                       </div>
@@ -468,7 +471,7 @@ export default function ConferenceExpoPage() {
                       </div>
 
                       {/* Content */}
-                      <h4 className="text-2xl font-black text-zinc-950 mb-3 tracking-tight group-hover:text-[var(--primary)] transition-colors">
+                      <h4 className="text-2xl font-bold text-zinc-950 mb-3 tracking-tight group-hover:text-[var(--primary)] transition-colors">
                         {p.title}
                       </h4>
                       <p className="text-sm md:text-base text-zinc-600 leading-relaxed mb-6 font-medium">
@@ -509,7 +512,7 @@ export default function ConferenceExpoPage() {
                 <span className="text-xs font-bold uppercase tracking-[0.15em] text-zinc-700">Why Choose Us</span>
               </div>
               
-              <h2 className="text-3xl md:text-5xl font-black text-zinc-950 tracking-tight leading-[1.15]">
+              <h2 className="text-3xl md:text-5xl font-bold text-zinc-950 tracking-tight leading-[1.15]">
                 What makes us the <br />
                 <span className="bg-gradient-to-r from-[var(--primary)] to-orange-600 bg-clip-text text-transparent">
                   Perfect Choice
@@ -552,7 +555,7 @@ export default function ConferenceExpoPage() {
                     {/* Right Typography Content */}
                     <div className="space-y-2">
                       <div className="flex items-center gap-3">
-                        <span className="text-xs font-black text-[var(--primary)]/40 tracking-wider">
+                        <span className="text-xs font-bold text-[var(--primary)]/40 tracking-wider">
                           0{idx + 1}
                         </span>
                         <h3 className="text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
@@ -576,7 +579,7 @@ export default function ConferenceExpoPage() {
       <section className="py-24 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-black text-zinc-950 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
               Our Portfolio
             </h2>
             <p className="text-lg text-zinc-600 max-w-xl mx-auto">
@@ -662,7 +665,7 @@ export default function ConferenceExpoPage() {
       <section className="py-12 border-t border-zinc-200/40 bg-[#EAF4E1]">
         <div className="max-w-3xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-16" {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-black text-zinc-950 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-zinc-600">
@@ -702,7 +705,7 @@ export default function ConferenceExpoPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/20 mb-8 text-[var(--primary)]">
                 <FaBuilding className="text-2xl" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-black mb-6 leading-tight text-zinc-950">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-zinc-950">
                 Let's build your next booth.
               </h2>
               <p className="text-lg md:text-xl font-medium text-zinc-600 mb-10 max-w-2xl mx-auto">
