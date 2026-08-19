@@ -1,10 +1,47 @@
 "use client";
-import { motion } from "framer-motion";
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingIcons from "@/components/FloatingIcons";
 import TopBar from "@/components/TopBar";
+import { Sparkles, Rocket, Building2, Users } from "lucide-react";
+
+// Hero Slider Data Configuration
+const heroSlides = [
+  {
+    id: 1,
+    tagline: "PREMIUM EXHIBITION STAND BUILDERS",
+    titleStart: "We Bring Your Dream",
+    titleHighlight: "Project To Life",
+    description:
+      "From high-end custom bespoke booths to eco-friendly modular structures. We turn original concepts into breathtaking, eye-catching spaces that stand out on competitive show floors.",
+    bgImage:
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1920",
+  },
+  {
+    id: 2,
+    tagline: "CUSTOM BESPOKE & SUSTAINABLE DESIGNS",
+    titleStart: "Engineering Unrivaled",
+    titleHighlight: "Brand Presence",
+    description:
+      "Maximize foot traffic and leave a lasting impression with our engineered MO.PO reusable tech and tailor-made architectural exhibition environments.",
+    bgImage:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1920",
+  },
+  {
+    id: 3,
+    tagline: "TURNKEY EVENT & MALL ACTIVATIONS",
+    titleStart: "Transforming Spatial",
+    titleHighlight: "Customer Engagement",
+    description:
+      "Complete end-to-end execution directly from our Al Quoz compound: fast fabrication, seamless logistics, and strict venue-compliant installation.",
+    bgImage:
+      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1920",
+  },
+];
+
 // Fade-up animation helper preset for section headers & cards
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -12,6 +49,7 @@ const fadeUp = {
   viewport: { once: true, margin: "-100px" },
   transition: { duration: 0.6, ease: "easeOut" },
 };
+
 function FAQCard({ faq }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -65,53 +103,31 @@ function FAQCard({ faq }) {
 }
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto-play timer for hero carousel (5s per slide)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) =>
+      prev === 0 ? heroSlides.length - 1 : prev - 1
+    );
+  };
+
   const stats = [
-    { label: "Years Experience", value: "18+" },
-    { label: "Successful Projects", value: "200+" },
-    { label: "Events & Exhibitions", value: "500+" },
-    { label: "Satisfied Clients", value: "50+" },
-  ];
-
-  // Dynamically generate your 22 client logo paths from public/client-logo/
-  const clientLogos = Array.from(
-    { length: 22 },
-    (_, i) => `/client-logo/${i + 1}.jpeg`,
-  );
-
-  const principles = [
-    {
-      title: "Our Mission",
-      text: "Redefining the art of showcasing corporate excellence. Our meticulously crafted architectural structures amplify your brand's presence and leave a profound impact on competitive floors.",
-    },
-    {
-      title: "Our Vision",
-      text: "To transform your original concepts into majestic, functional environments—boosting global brand visibility to completely unmatched levels across city and across venue the region.",
-    },
-    {
-      title: "Our Values",
-      text: "Uncompromising structural integrity, elite interior craftsmanship, absolute transparent collaboration, and a deep commitment to modern eco-friendly exhibition formats.",
-    },
-  ];
-
-  const recentProjects = [
-    {
-      title: "Custom Bespoke Exhibition Booth",
-      type: "Premium Custom Build",
-      image:
-        "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1200",
-    },
-    {
-      title: "Modular Sustainable Solution",
-      type: "Eco-Friendly System",
-      image:
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1200",
-    },
-    {
-      title: "Promotions & Mall Activations",
-      type: "Fast Turnkey Deployment",
-      image:
-        "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1200",
-    },
+    { label: "Years Experience", value: "18+", icon: Sparkles },
+    { label: "Successful Projects", value: "200+", icon: Rocket },
+    { label: "Events & Exhibitions", value: "500+", icon: Building2 },
+    { label: "Satisfied Clients", value: "50+", icon: Users },
   ];
 
   const services = [
@@ -194,20 +210,17 @@ export default function Home() {
   ];
 
   const text = "UAE | KSA | Oman | India";
-
   const [displayText, setDisplayText] = useState("");
 
   useEffect(() => {
     let index = 0;
-
     const interval = setInterval(() => {
       setDisplayText(text.slice(0, index + 1));
       index++;
-
       if (index === text.length) {
         clearInterval(interval);
       }
-    }, 200); // Typing speed
+    }, 200);
 
     return () => clearInterval(interval);
   }, []);
@@ -217,42 +230,78 @@ export default function Home() {
       <TopBar />
       <Navbar />
 
-      {/* 1. Hero Section */}
-      <section className="relative overflow-hidden bg-[#EAF4E1] pt-48 pb-24 md:pt-60 md:pb-32">
-        <div className="site-shell">
+      {/* 1. Hero Section with Carousel & Background Images */}
+      <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-zinc-950 pt-36 pb-20 md:pt-48 md:pb-28">
+        <AnimatePresence mode="wait">
           <motion.div
-            className="mx-auto max-w-4xl text-center"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
-              Premium Exhibition Stand Builders • {displayText}
-              {/* <span className="animate-pulse">|</span> */}
-            </p>
-            <h1 className="mb-8 text-4xl font-bold tracking-tight text-zinc-950 md:text-6xl lg:text-7xl">
-              We Bring Your Dream{" "}
-              <span className="gradient-text">Project To Life</span>
-            </h1>
-            <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-zinc-600 md:text-xl">
-              From high-end custom bespoke booths to eco-friendly modular
-              structures. We turn original concepts into breathtaking,
-              eye-catching spaces that stand out on competitive show floors.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="w-full sm:w-auto rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-lg shadow-[var(--primary)]/10">
-                Explore Our Portfolio
-              </button>
-              <button className="w-full sm:w-auto rounded-full border border-zinc-200 bg-white px-10 py-4 font-bold text-zinc-950 transition-all hover:bg-zinc-50">
-                Request a Design Quote
-              </button>
-            </div>
-          </motion.div>
+            key={heroSlides[currentSlide].id}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0 z-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `linear-gradient(rgba(10, 15, 10, 0.65), rgba(10, 15, 10, 0.75)), url(${heroSlides[currentSlide].bgImage})`,
+            }}
+          />
+        </AnimatePresence>
+
+        <div className="site-shell relative z-10 w-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={heroSlides[currentSlide].id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="mx-auto max-w-4xl text-center text-white"
+            >
+              <p className="mb-4 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-emerald-400">
+                {heroSlides[currentSlide].tagline} • {displayText}
+              </p>
+              <h1 className="mb-8 text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
+                {heroSlides[currentSlide].titleStart}{" "}
+                <span className="gradient-text">
+                  {heroSlides[currentSlide].titleHighlight}
+                </span>
+              </h1>
+              <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-zinc-200 md:text-xl">
+                {heroSlides[currentSlide].description}
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button className="w-full sm:w-auto rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-lg shadow-[var(--primary)]/30">
+                  Explore Our Portfolio
+                </button>
+                <button className="w-full sm:w-auto rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-10 py-4 font-bold text-white transition-all hover:bg-white hover:text-zinc-950">
+                  Request a Design Quote
+                </button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
+
+        <button
+          onClick={prevSlide}
+          aria-label="Previous Slide"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-md border border-white/10 transition-all hover:bg-black/60 hover:scale-110"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          onClick={nextSlide}
+          aria-label="Next Slide"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-md border border-white/10 transition-all hover:bg-black/60 hover:scale-110"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </section>
 
       {/* 2. Infinite Services Marquee Section */}
-      <section className="border-b border-zinc-200 py-8 overflow-hidden">
+      <section className="border-b border-zinc-200 py-8 overflow-hidden bg-white/30 backdrop-blur-sm">
         <motion.div
           className="w-full relative flex [mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)]"
           initial={{ opacity: 0 }}
@@ -266,12 +315,9 @@ export default function Home() {
             transition={{ ease: "linear", duration: 25, repeat: Infinity }}
           >
             {[...marqueeItems, ...marqueeItems].map((title, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-4 flex-shrink-0"
-              >
-                <div className="h-2 w-2 rounded-full bg-[var(--primary)] opacity-60" />
-                <span className="text-xl font-medium uppercase tracking-wider text-zinc-600">
+              <div key={index} className="flex items-center gap-4 flex-shrink-0">
+                <div className="h-2 w-2 rounded-full bg-orange-500 opacity-80" />
+                <span className="text-xl font-bold uppercase tracking-wider text-zinc-700">
                   {title}
                 </span>
               </div>
@@ -280,35 +326,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 4. Clean & Professional Stats Section */}
-      <section className="border-b border-zinc-200 py-16 md:py-20" id="stats">
-        <div className="site-shell">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
-            {stats.map((stat, idx) => (
-              <motion.div
-                key={idx}
-                className="flex flex-col items-center text-center px-4 relative group"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-              >
-                <p className="mb-2 text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 transition-transform duration-300 group-hover:scale-105">
-                  {stat.value}
-                </p>
-                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-                  {stat.label}
-                </p>
-                {idx < 3 && (
-                  <div className="hidden md:block absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-zinc-200" />
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Advanced About Section */}
+      {/* 4. Advanced About Section */}
       <section className="relative py-24 md:py-32 overflow-hidden" id="about">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
         <div className="site-shell relative z-10">
@@ -339,12 +357,10 @@ export default function Home() {
                     On-Time & On-Brief Delivery
                   </p>
                   <p className="text-xs text-zinc-600">
-                    Managing complete fabrication complexity & strict venue
-                    logistics across DWTC & ADNEC smoothly.
+                    Managing complete fabrication complexity & strict venue logistics across DWTC & ADNEC smoothly.
                   </p>
                 </motion.div>
               </div>
-              <div className="absolute -bottom-10 -left-10 -z-10 h-72 w-72 rounded-full bg-brand-gradient opacity-15 blur-[100px]" />
             </motion.div>
 
             <div className="lg:col-span-6 lg:pl-6">
@@ -367,10 +383,7 @@ export default function Home() {
                 {...fadeUp}
                 transition={{ delay: 0.2 }}
               >
-                With an unwavering dedication to in-house craftsmanship, strict
-                material selection, and rigorous design execution, Expo Digital
-                Group guarantees that your presence stands out beautifully in
-                any high-traffic exhibition hall.
+                With an unwavering dedication to in-house craftsmanship, strict material selection, and rigorous design execution, Expo Digital Group guarantees that your presence stands out beautifully in any high-traffic exhibition hall.
               </motion.p>
 
               <motion.div
@@ -399,102 +412,115 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Why Expo Digital Section */}
-<section className="relative py-20 lg:py-28 overflow-hidden" id="why-us">
-  {/* Ambient Background Blur */}
-  <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[var(--primary)]/5 rounded-full blur-3xl pointer-events-none" />
+      {/* 5. Redesigned Why Expo Digital Section with Integrated Stats */}
+      <section className="relative py-24 lg:py-32 overflow-hidden bg-zinc-50/50" id="why-us">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+        
+        <div className="site-shell relative z-10">
+          <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
+            
+            {/* Left Content Column */}
+            <div className="lg:col-span-6 space-y-8">
+              <motion.div {...fadeUp}>
+                <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+                  Why Choose Expo Digital
+                </p>
+                <h2 className="mb-6 text-3xl font-bold text-zinc-950 md:text-5xl tracking-tight leading-tight">
+                  Designed to the brief. <br className="hidden sm:inline" />
+                  <span className="gradient-text">Engineered to dominate</span> the floor.
+                </h2>
+                <p className="text-lg leading-relaxed text-zinc-600">
+                  We handle the high-stakes friction of trade show logistics—from initial 3D design to local fabrication, complex venue clearances, and fast dismantling.
+                </p>
+              </motion.div>
 
-  <div className="site-shell relative z-10">
-    <motion.div className="mb-16 max-w-3xl" {...fadeUp}>
-      <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
-        Why Choose Expo Digital
-      </p>
-      <h2 className="mb-6 text-3xl font-bold text-zinc-950 md:text-5xl tracking-tight">
-        Designed to the brief. <br className="hidden sm:inline" />
-        <span className="gradient-text">Engineered to dominate</span> the floor.
-      </h2>
-      <p className="text-lg leading-relaxed text-zinc-600">
-        We handle the high-stakes friction of trade show logistics—from initial 3D design to local fabrication, complex venue clearances, and fast dismantling.
-      </p>
-    </motion.div>
-
-    {/* Feature Grid */}
-    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {[
-        {
-          icon: (
-            <svg className="w-6 h-6 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-          ),
-          tag: "Direct Fabrication",
-          title: "In-House Production",
-          text: "100% produced in our Al Quoz compound. No middlemen or third-party delays—giving us total control over material quality and precision assembly.",
-        },
-        {
-          icon: (
-            <svg className="w-6 h-6 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          ),
-          tag: "DWTC & ADNEC Certified",
-          title: "Turnkey & On-Time",
-          text: "Navigating strict venue regulations, permits, structural checks, and overnight handovers smoothly so your team walks in stress-free.",
-        },
-        {
-          icon: (
-            <svg className="w-6 h-6 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-          ),
-          tag: "MO.PO System",
-          title: "Eco Modular & Custom",
-          text: "Whether you need high-impact bespoke structural woodwork or zero-waste modular framework with 50+ layout variations, we build to fit.",
-        },
-      ].map((item, index) => (
-        <motion.div
-          key={item.title}
-          className="group relative flex flex-col justify-between rounded-3xl border border-zinc-200/80 bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-        >
-          <div>
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
-                {item.icon}
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: <Building2 className="w-5 h-5" />,
+                    title: "In-House Production",
+                    text: "100% produced in our Al Quoz compound. No middlemen or third-party delays.",
+                  },
+                  {
+                    icon: <Rocket className="w-5 h-5" />,
+                    title: "Turnkey & On-Time",
+                    text: "Navigating strict venue regulations and structural checks for smooth handovers.",
+                  },
+                  {
+                    icon: <Sparkles className="w-5 h-5" />,
+                    title: "Eco Modular & Custom",
+                    text: "Zero-waste modular framework with 50+ layout variations built to fit.",
+                  },
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-start gap-4 p-4 rounded-2xl transition-colors hover:bg-white/80 hover:shadow-sm group"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)] group-hover:bg-[var(--primary)] group-hover:text-white transition-all duration-300">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">{item.title}</h4>
+                      <p className="text-sm text-zinc-500 leading-relaxed">{item.text}</p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
-                {item.tag}
-              </span>
             </div>
 
-            <h3 className="mb-3 text-2xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
-              {item.title}
-            </h3>
-            <p className="leading-relaxed text-zinc-600 text-sm md:text-base">
-              {item.text}
-            </p>
-          </div>
+            {/* Right Image & Stats Column */}
+            <div className="lg:col-span-6 relative">
+              <motion.div
+                className="relative aspect-square w-full overflow-hidden rounded-[2.5rem] border border-zinc-200 bg-zinc-100 shadow-2xl"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+              >
+                <img
+                  src="/custom-solution/37.png"
+                  alt="Premium Exhibition Stand Build"
+                  className="h-full w-full object-cover"
+                />
+                
+                {/* Integrated Stats Overlay */}
+                <div className="absolute bottom-6 left-6 right-6 rounded-[2rem] border border-white/20 bg-white/70 p-6 backdrop-blur-xl shadow-2xl">
+                  <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+                    {stats.map((stat, idx) => {
+                      const Icon = stat.icon;
+                      return (
+                        <div key={idx} className="flex flex-col items-start px-2">
+                          <div className="flex items-center gap-2 mb-1">
+                            <Icon className="w-4 h-4 text-[var(--primary)]" strokeWidth={2.5} />
+                            <span className="text-2xl font-bold tracking-tight text-zinc-950">
+                              {stat.value}
+                            </span>
+                          </div>
+                          <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-500">
+                            {stat.label}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </motion.div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -top-6 -right-6 w-32 h-32 bg-[var(--primary)]/10 rounded-full blur-3xl -z-10" />
+              <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-orange-500/10 rounded-full blur-[80px] -z-10" />
+            </div>
 
-          <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
-            <span>Learn More</span>
-            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
           </div>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
-      {/* 7. Core Services Section */}
-      <section
-        className="border-y border-zinc-200 py-10 lg:py-24"
-        id="services"
-      >
+      {/* 6. Core Services Section */}
+      <section className="border-y border-zinc-200 py-10 lg:py-24" id="services">
         <div className="site-shell">
           <motion.div
             className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
@@ -505,13 +531,11 @@ export default function Home() {
                 Our Core Capabilities
               </p>
               <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl">
-                Visual Power. Flawless Assembly.
+                Visual Power. <span className="gradient-text">Flawless Assembly.</span>
               </h2>
             </div>
             <p className="max-w-xl text-lg leading-relaxed text-zinc-600">
-              From high-impact bespoke design solutions to eco-conscious modular
-              configurations, we engineer custom spaces that command customer
-              engagement.
+              From high-impact bespoke design solutions to eco-conscious modular configurations, we engineer custom spaces that command customer engagement.
             </p>
           </motion.div>
 
@@ -543,45 +567,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. Workflow Process Section */}
-      <section className="border-t border-zinc-200 py-10 lg:py-24">
-        <div className="site-shell">
+      {/* 7. UPDATED: Connected Timeline Production Framework with Matching Gradient Font */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="site-shell relative z-10">
           <motion.div className="mb-20 max-w-3xl" {...fadeUp}>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-orange-600">
               Production Framework
             </p>
-            <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl">
-              Our path to experiential precision.
+            <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl tracking-tight leading-tight">
+              Our path to{" "}
+              <span className="gradient-text">
+                experiential precision.
+              </span>
             </h2>
           </motion.div>
 
-          <div className="grid gap-8 md:grid-cols-3">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={step.num}
-                className="group relative rounded-3xl border border-zinc-200 bg-white p-10 transition-all duration-300 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.04)]"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="mb-8 text-3xl font-extrabold tracking-tight text-zinc-100 transition-colors group-hover:text-[var(--primary)]/40 md:text-4xl">
-                  {step.num}
-                </div>
-                <h3 className="mb-4 text-2xl font-bold text-zinc-950">
-                  {step.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-zinc-600">
-                  {step.desc}
-                </p>
-                <div className="absolute bottom-0 left-10 right-10 h-[2px] scale-x-0 bg-brand-gradient transition-transform duration-300 group-hover:scale-x-100" />
-              </motion.div>
-            ))}
+          <div className="relative">
+            {/* Desktop Connecting Line */}
+            <div className="hidden lg:block absolute top-[4.5rem] left-[10%] right-[10%] h-1 bg-gradient-to-r from-orange-400 via-amber-400 to-orange-500 rounded-full z-0 opacity-40" />
+
+            <div className="grid gap-12 lg:grid-cols-3 lg:gap-8 relative z-10">
+              {processSteps.map((step, index) => (
+                <motion.div
+                  key={step.num}
+                  className="group relative flex flex-col items-start rounded-3xl border border-white/80 bg-white/80 p-8 md:p-10 backdrop-blur-md shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white hover:border-orange-400/40 hover:shadow-2xl"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                >
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-amber-600 text-white shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-xl font-bold">{step.num}</span>
+                  </div>
+
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs font-bold uppercase tracking-widest text-orange-600">
+                      Phase {step.num}
+                    </span>
+                    {index < processSteps.length - 1 && (
+                      <svg className="hidden lg:block w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7-7 7" />
+                      </svg>
+                    )}
+                  </div>
+
+                  <h3 className="mb-4 text-2xl font-bold text-zinc-950 group-hover:text-orange-600 transition-colors">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-sm md:text-base leading-relaxed text-zinc-600">
+                    {step.desc}
+                  </p>
+
+                  <div className="absolute bottom-0 left-8 right-8 h-1 scale-x-0 rounded-t-full bg-gradient-to-r from-orange-500 to-amber-500 transition-transform duration-300 group-hover:scale-x-100" />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 9. Recent Projects Portfolio Section */}
+      {/* 8. Recent Projects Portfolio Section */}
       <section className="py-10 lg:py-24" id="projects">
         <div className="site-shell">
           <motion.div
@@ -593,19 +639,18 @@ export default function Home() {
                 Featured Portfolio
               </p>
               <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl">
-                Spaces built to captivate.
+                Spaces built <span className="gradient-text">to captivate.</span>
               </h2>
             </div>
             <p className="max-w-xl text-lg leading-relaxed text-zinc-600">
-              A detailed glimpse inside our premium fabrications across
-              Dubai&apos;s primary commercial and retail exhibition hubs.
+              A detailed glimpse inside our premium fabrications across Dubai&apos;s primary commercial and retail exhibition hubs.
             </p>
           </motion.div>
 
           <div className="grid gap-6 lg:grid-cols-3">
-            {recentProjects.map((project, index) => (
+            {heroSlides.map((project, index) => (
               <motion.article
-                key={project.title}
+                key={project.id}
                 className="overflow-hidden rounded-[2rem] border border-zinc-200 bg-white shadow-[0_18px_50px_rgba(17,17,17,0.06)]"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -614,17 +659,17 @@ export default function Home() {
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src={project.image}
-                    alt={project.title}
+                    src={project.bgImage}
+                    alt={project.titleHighlight}
                     className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                 </div>
                 <div className="p-7">
                   <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
-                    {project.type}
+                    {project.tagline}
                   </p>
                   <h3 className="text-2xl font-bold text-zinc-950">
-                    {project.title}
+                    {project.titleStart} {project.titleHighlight}
                   </h3>
                 </div>
               </motion.article>
@@ -633,19 +678,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 10. FAQ Accordion Section */}
+      {/* 9. FAQ Accordion Section */}
       <section
         className="border-t border-zinc-200 py-10 lg:py-24 md:py-32 relative overflow-hidden"
         id="faq"
       >
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
         <div className="site-shell max-w-4xl mx-auto">
           <motion.div className="text-center mb-16" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Inquiries & Clarity
             </p>
             <h2 className="text-2xl font-bold text-zinc-950 md:text-3xl">
-              Frequently Asked Questions
+              Frequently Asked <span className="gradient-text">Questions</span>
             </h2>
           </motion.div>
 
@@ -663,23 +707,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 11. Quote / Call-To-Action Section */}
+      {/* 10. Call-To-Action Section */}
       <section className="relative overflow-hidden py-10 lg:py-28">
         <div className="site-shell relative z-10 text-center">
           <motion.div {...fadeUp}>
-            <h2 className="mx-auto mb-12 max-w-4xl text-xl font-bold leading-tight text-zinc-950 md:text-3xl">
-              We consistently exceed our clients&apos; expectations by providing
-              tailor-made solutions that are both{" "}
-              <span className="italic gradient-text">eye-catching</span> and
-              functional.
+            <h2 className="mx-auto mb-12 max-w-4xl text-3xl font-bold leading-tight text-zinc-950 md:text-5xl">
+              Ready to transform your brand <br className="hidden sm:inline" />
+              <span className="gradient-text">into an architectural experience?</span>
             </h2>
-            <div className="mx-auto mb-12 h-1 w-20 rounded-full bg-brand-gradient" />
-            <button className="rounded-full bg-[var(--primary)] lg:px-12 px-5 py-5 font-bold text-white transition-transform hover:scale-105 shadow-xl shadow-[var(--primary)]/20">
-              Let&apos;s Build Something Extraordinary
-            </button>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <button className="rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-xl shadow-[var(--primary)]/30">
+                Get Started Today
+              </button>
+              <button className="rounded-full border border-zinc-300 bg-white px-10 py-4 font-bold text-zinc-900 transition-all hover:bg-zinc-100">
+                Contact Our Team
+              </button>
+            </div>
           </motion.div>
         </div>
       </section>
+
       <FloatingIcons />
       <Footer />
     </main>

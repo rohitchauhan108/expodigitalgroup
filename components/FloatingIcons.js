@@ -5,7 +5,8 @@ import { FaWhatsapp, FaPhone } from "react-icons/fa";
 
 const FloatingIcons = () => {
   return (
-    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[9998] flex flex-col items-end gap-3 pointer-events-none">
+    // Changed top-1/2 -translate-y-1/2 to bottom-10 right-4 (or right-0 if you want them attached to the edge)
+    <div className="fixed right-0 bottom-10 z-[9998] flex flex-col items-end gap-3 pointer-events-none">
       {/* WhatsApp Button */}
       <div className="pointer-events-auto flex justify-end">
         <a
@@ -13,7 +14,7 @@ const FloatingIcons = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"
-          className="group flex h-12 md:h-14 items-center rounded-l-full bg-[#00A884] px-3.5 text-white shadow-xl transition-all duration-300 ease-in-out"
+          className="group flex h-12 md:h-14 items-center rounded-l-full bg-[#00A884] px-3.5 text-white shadow-xl transition-all duration-300 ease-in-out hover:pr-4"
         >
           {/* Text slides out independently */}
           <span className="max-w-0 overflow-hidden whitespace-nowrap text-xs md:text-sm font-bold opacity-0 transition-all duration-300 ease-in-out group-hover:mr-2.5 group-hover:max-w-[120px] group-hover:opacity-100">
@@ -31,7 +32,7 @@ const FloatingIcons = () => {
         <a
           href="tel:+971040000000"
           aria-label="Call Us"
-          className="group flex h-12 md:h-14 items-center rounded-l-full bg-[#0A1145] px-3.5 text-white shadow-xl transition-all duration-300 ease-in-out"
+          className="group flex h-12 md:h-14 items-center rounded-l-full bg-[#0A1145] px-3.5 text-white shadow-xl transition-all duration-300 ease-in-out hover:pr-4"
         >
           {/* Text slides out independently */}
           <span className="max-w-0 overflow-hidden whitespace-nowrap text-xs md:text-sm font-bold opacity-0 transition-all duration-300 ease-in-out group-hover:mr-2.5 group-hover:max-w-[100px] group-hover:opacity-100">

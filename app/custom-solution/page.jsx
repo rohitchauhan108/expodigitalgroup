@@ -248,7 +248,7 @@ export default function Page() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-48 pb-12 md:pt-64 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-36 pb-12 md:pt-48 overflow-hidden bg-[#EAF4E1]">
         <div className="relative max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
           <motion.div
             className="max-w-3xl text-center"
@@ -294,10 +294,13 @@ export default function Page() {
       <section className="py-12 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
-              Our Core Services
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              Our Core Capabilities
+            </p>
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+              Our Core <span className="gradient-text">Services</span>
             </h2>
-            <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
+            <p className="text-lg leading-relaxed text-zinc-600 max-w-2xl mx-auto">
               Complete turnkey exhibition solutions from concept to installation
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />
@@ -340,10 +343,13 @@ export default function Page() {
       <section className="py-12 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
-              We Serve Across UAE & KSA
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              Regional Coverage
+            </p>
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+              We Serve Across <span className="gradient-text">UAE & KSA</span>
             </h2>
-            <p className="text-lg text-zinc-600">
+            <p className="text-lg leading-relaxed text-zinc-600">
               Premium exhibition stand solutions in your city
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />
@@ -383,10 +389,13 @@ export default function Page() {
       <section className="py-12 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
-              We Build For Top Events
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              Industry Events
+            </p>
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+              We Build For <span className="gradient-text">Top Events</span>
             </h2>
-            <p className="text-lg text-zinc-600">
+            <p className="text-lg leading-relaxed text-zinc-600">
               Trusted by brands for industry-leading exhibitions
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />
@@ -422,10 +431,13 @@ export default function Page() {
       <section className="py-12 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               What Makes Us Stand Out
+            </p>
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+              What Makes Us <span className="gradient-text">Stand Out</span>
             </h2>
-            <p className="text-lg text-zinc-600">
+            <p className="text-lg leading-relaxed text-zinc-600">
               Top 8 Exhibition Stand Builder in Dubai and Regional Leaders
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />
@@ -455,15 +467,17 @@ export default function Page() {
         </div>
       </section>
 
-    
       {/* Portfolio Gallery */}
       <section className="py-24 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
-              Our Portfolio
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              Featured Portfolio
+            </p>
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+              Our <span className="gradient-text">Portfolio</span>
             </h2>
-            <p className="text-lg text-zinc-600">
+            <p className="text-lg leading-relaxed text-zinc-600">
               Showcase of bespoke exhibitions and stands we've crafted for leading brands
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />

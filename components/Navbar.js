@@ -63,7 +63,7 @@ const Navbar = () => {
       ],
     },
     { name: "Conference EXPO", href: "/conference-expo" },
-    { name: "Display Stands", href: "#quickbuild" },
+    { name: "Display Stands", href: "/display-stands" },
     { name: "Contact", href: "contact" },
   ];
 

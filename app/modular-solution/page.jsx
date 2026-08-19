@@ -195,7 +195,7 @@ export default function Page() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-48 pb-12 md:pt-64 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-36 pb-12 md:pt-48 overflow-hidden bg-[#EAF4E1]">
         <div className="relative max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
           <motion.div
             className="max-w-3xl text-center"
@@ -241,10 +241,13 @@ export default function Page() {
       <section className="py-12 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
-              What We Offer
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              Our Core Capabilities
+            </p>
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+              What <span className="gradient-text">We Offer</span>
             </h2>
-            <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
+            <p className="text-lg leading-relaxed text-zinc-600 max-w-2xl mx-auto">
               Complete modular solutions tailored for every event need
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />
@@ -284,10 +287,13 @@ export default function Page() {
       <section className="py-12 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              The Modular Advantage
+            </p>
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
               Why Choose Modular?
             </h2>
-            <p className="text-lg text-zinc-600">
+            <p className="text-lg leading-relaxed text-zinc-600">
               The benefits that make our system stand out
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />
@@ -321,10 +327,13 @@ export default function Page() {
       <section className="py-24 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
-              Our Portfolio
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              Featured Portfolio
+            </p>
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+              Our <span className="gradient-text">Portfolio</span>
             </h2>
-            <p className="text-lg text-zinc-600">
+            <p className="text-lg leading-relaxed text-zinc-600">
               See our modular booths in action
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />

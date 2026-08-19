@@ -249,7 +249,7 @@ export default function ConferenceExpoPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-48 pb-20 md:pt-64 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-36 pb-20 md:pt-48 overflow-hidden bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             
@@ -269,7 +269,7 @@ export default function ConferenceExpoPage() {
 
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-950 mb-6 leading-[1.1]">
                 Impactful Conference <br />
-                <span className="bg-gradient-to-r from-[var(--primary)] to-orange-600 bg-clip-text text-transparent">
+                <span className="gradient-text">
                   Exhibition Booths
                 </span>
               </h1>
@@ -379,16 +379,17 @@ export default function ConferenceExpoPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h2 className="text-xs font-bold tracking-[0.2em] text-[var(--primary)] uppercase mb-3">
+              <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
                 Our Advantage
+              </p>
+              <h2 className="mb-6 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+                Quick Build. Price Efficient. <br className="hidden sm:inline" />
+                <span className="gradient-text">Fast Setup.</span>
               </h2>
-              <h3 className="text-3xl md:text-5xl font-bold text-zinc-950 mb-6 leading-tight">
-                Quick Build. Price Efficient. Fast Setup.
-              </h3>
-              <p className="text-lg text-zinc-600 mb-6 leading-relaxed">
+              <p className="mb-6 text-lg leading-relaxed text-zinc-600">
                 Whether it's a tight corporate activation space or a high-volume exhibition hall, our system adapts to scale sponsor capacities safely without logistically complicating layout setups.
               </p>
-              <p className="text-base text-zinc-500 mb-8 leading-relaxed">
+              <p className="mb-8 text-base leading-relaxed text-zinc-500">
                 Every component is tailored explicitly for installation efficiency and seamless teardowns. Your personnel handles on-site networking priorities, while we manage total booth logistics end-to-end.
               </p>
               
@@ -421,14 +422,13 @@ export default function ConferenceExpoPage() {
           
           {/* Section Header */}
           <motion.div className="text-center mb-20" {...fadeUp}>
-            <div className="inline-flex items-center gap-2 bg-white/80 border border-zinc-200/50 rounded-full px-4 py-1.5 mb-4 shadow-sm">
-              <span className="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">How We Execute</span>
-            </div>
-            <h3 className="text-3xl md:text-5xl font-bold text-zinc-950 tracking-tight leading-none">
-              Strategic Execution Pipeline
-            </h3>
-            <p className="text-base md:text-lg text-zinc-600 mt-4 max-w-xl mx-auto font-medium">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              How We Execute
+            </p>
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl tracking-tight">
+              Strategic Execution <span className="gradient-text">Pipeline</span>
+            </h2>
+            <p className="text-lg leading-relaxed text-zinc-600 mt-4 max-w-xl mx-auto">
               Our step-by-step framework engineered to take you from empty hall space to high-impact sponsor exhibition presence.
             </p>
           </motion.div>
@@ -514,7 +514,7 @@ export default function ConferenceExpoPage() {
               
               <h2 className="text-3xl md:text-5xl font-bold text-zinc-950 tracking-tight leading-[1.15]">
                 What makes us the <br />
-                <span className="bg-gradient-to-r from-[var(--primary)] to-orange-600 bg-clip-text text-transparent">
+                <span className="gradient-text">
                   Perfect Choice
                 </span>
               </h2>
@@ -562,7 +562,7 @@ export default function ConferenceExpoPage() {
                           {item.title}
                         </h3>
                       </div>
-                      <p className="text-zinc-600 text-sm md:text-base leading-relaxed font-medium">
+                      <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
                         {item.description}
                       </p>
                     </div>
@@ -579,10 +579,13 @@ export default function ConferenceExpoPage() {
       <section className="py-24 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              Featured Portfolio
+            </p>
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
               Our Portfolio
             </h2>
-            <p className="text-lg text-zinc-600 max-w-xl mx-auto">
+            <p className="text-lg leading-relaxed text-zinc-600 max-w-xl mx-auto">
               Showcase of impactful conference booths we've delivered.
             </p>
           </motion.div>
@@ -665,10 +668,13 @@ export default function ConferenceExpoPage() {
       <section className="py-12 border-t border-zinc-200/40 bg-[#EAF4E1]">
         <div className="max-w-3xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-16" {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4">
-              Frequently Asked Questions
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              Inquiries & Clarity
+            </p>
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+              Frequently Asked <span className="gradient-text">Questions</span>
             </h2>
-            <p className="text-lg text-zinc-600">
+            <p className="text-lg leading-relaxed text-zinc-600">
               Clear operating profiles regarding architectural production parameters.
             </p>
           </motion.div>
@@ -705,10 +711,10 @@ export default function ConferenceExpoPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/20 mb-8 text-[var(--primary)]">
                 <FaBuilding className="text-2xl" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-zinc-950">
-                Let's build your next booth.
+              <h2 className="mb-6 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+                Let's build your <span className="gradient-text">next booth.</span>
               </h2>
-              <p className="text-lg md:text-xl font-medium text-zinc-600 mb-10 max-w-2xl mx-auto">
+              <p className="text-lg leading-relaxed text-zinc-600 mb-10 max-w-2xl mx-auto md:text-xl">
                 Strategic floor planning, transparent pricing, and fast setup. <br/> Get your team ready for the event.
               </p>
               
@@ -722,6 +728,7 @@ export default function ConferenceExpoPage() {
       </section>
 
       <Footer />
+      <FloatingIcons />
 
       {/* Lightbox Modal */}
       {selectedIndex !== null && (

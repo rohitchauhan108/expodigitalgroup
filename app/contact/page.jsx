@@ -76,7 +76,7 @@ function Page() {
       {/* =============================== */}
       {/* SECTION 1: HERO BANNER */}
       {/* =============================== */}
-      <section className="relative pt-48 md:pt-60 pb-24 md:pb-32 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-36 md:pt-48 pb-24 md:pb-32 overflow-hidden bg-[#EAF4E1]">
         <div className="site-shell relative z-10">
           <motion.div
             className="mx-auto max-w-4xl text-center"
@@ -131,11 +131,10 @@ function Page() {
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
                 Get in Touch
               </p>
-              <h2 className="mb-6 text-3xl font-bold leading-tight text-zinc-950 md:text-3xl lg:text-5xl">
-                How we can help{" "}
-                <span className="gradient-text">transform</span> your next
-                exhibition presence.
-              </h2>
+              <h2 className="mb-6 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+              How we can help <span className="gradient-text">transform</span>{" "}
+              your next exhibition presence.
+            </h2>
               <p className="mb-8 text-base leading-relaxed text-zinc-600">
                 Whether you&apos;re launching a premium bespoke booth, a fast
                 modular setup, or a full conference exhibition floor — our
@@ -507,8 +506,8 @@ function Page() {
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Direct Contact
             </p>
-            <h2 className="text-xl font-bold text-zinc-950 md:text-3xl">
-              Reach Out Through Your Preferred Channel
+            <h2 className="text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+              Reach Out Through Your <span className="gradient-text">Preferred Channel</span>
             </h2>
           </motion.div>
 
@@ -615,11 +614,11 @@ function Page() {
       <section className="relative overflow-hidden py-20 lg:py-28 border-t border-zinc-200">
         <div className="site-shell relative z-10 text-center">
           <motion.div {...fadeUp}>
-            <h2 className="mx-auto mb-12 max-w-4xl text-lg font-bold leading-tight text-zinc-950 md:text-3xl">
+            <h2 className="mx-auto mb-12 max-w-4xl text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
               From 3D concept render to on-site handover at DWTC, ADNEC, or
-              across the region — we handle every detail so your team{" "}
-              <span className="italic gradient-text">stays focused</span> on
-              the event itself.
+              across the region — we handle every detail{" "}
+              <span className="italic gradient-text">so your team stays focused</span>{" "}
+              on the event itself.
             </h2>
             <div className="mx-auto mb-12 h-1 w-20 rounded-full bg-brand-gradient" />
             <a

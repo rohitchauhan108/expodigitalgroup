@@ -2,6 +2,7 @@
 import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
 import { icons } from "lucide-react";
+import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 
 // const syne = Syne({
 //   variable: "--font-syne",
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
         className={`${montserrat.variable} ${poppins.variable} font-sans bg-white text-zinc-900 antialiased`}
         // className={`${syne.variable} ${karla.variable} font-sans bg-white text-zinc-900 antialiased`}
       >
+        <LenisSmoothScroll />
         {children}
       </body>
     </html>

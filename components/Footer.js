@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="mb-8 text-sm font-display font-black uppercase tracking-[0.2em] text-white">
+            <h4 className="mb-8 text-sm font-bold uppercase tracking-[0.2em] text-white">
               Our Services
             </h4>
             <ul className="space-y-4">
@@ -75,7 +75,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="mb-8 text-sm font-display font-black uppercase tracking-[0.2em] text-white">
+            <h4 className="mb-8 text-sm font-bold uppercase tracking-[0.2em] text-white">
               Quick Links
             </h4>
             <ul className="space-y-4">
@@ -100,7 +100,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="mb-8 text-sm font-display font-black uppercase tracking-[0.2em] text-white">
+            <h4 className="mb-8 text-sm font-bold uppercase tracking-[0.2em] text-white">
               Contact Details
             </h4>
             <div className="space-y-6">
