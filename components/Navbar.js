@@ -129,7 +129,7 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <Link
-            href="#contact"
+            href="/contact"
             className="group relative flex items-center justify-center overflow-hidden rounded-full bg-[var(--primary)] text-white transition-all hover:text-black shrink-0 whitespace-nowrap px-4 py-2.5 text-xs gap-1.5 xl:px-7 xl:py-3 xl:text-sm xl:gap-2"
           >
             <span className="relative z-10">Get Quote</span>
@@ -252,7 +252,7 @@ const Navbar = () => {
                 transition={{ delay: 0.6 }}
               >
                 <Link
-                  href="#contact"
+                  href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="inline-flex w-full items-center justify-center rounded-xl bg-[var(--primary)] py-4 text-lg font-bold uppercase text-white"
                 >

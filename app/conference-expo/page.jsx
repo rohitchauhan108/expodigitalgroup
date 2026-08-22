@@ -762,7 +762,7 @@ export default function ConferenceExpoPage() {
       </section>
 
       {/* Modern High-Contrast CTA Section */}
-      <section className="py-12 pb-32 bg-[#EAF4E1]">
+      {/* <section className="py-12 pb-32 bg-[#EAF4E1]">
         <div className="max-w-5xl mx-auto px-6 md:px-8">
           <motion.div 
             className="relative rounded-[3rem] overflow-hidden bg-white text-zinc-950 shadow-2xl border border-zinc-200"
@@ -793,7 +793,7 @@ export default function ConferenceExpoPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
       <FloatingIcons />

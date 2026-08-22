@@ -10,7 +10,7 @@ const FloatingIcons = () => {
       {/* WhatsApp Button */}
       <div className="pointer-events-auto flex justify-end">
         <a
-          href="https://wa.me/971040000000"
+          href="https://wa.me/971563760187"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"
@@ -30,7 +30,7 @@ const FloatingIcons = () => {
       {/* Call Us Button */}
       <div className="pointer-events-auto flex justify-end">
         <a
-          href="tel:+971040000000"
+          href="tel:+971563760187"
           aria-label="Call Us"
           className="group flex h-12 md:h-14 items-center rounded-l-full bg-[#0A1145] px-3.5 text-white shadow-xl transition-all duration-300 ease-in-out hover:pr-4"
         >

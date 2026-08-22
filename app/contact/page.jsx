@@ -135,17 +135,14 @@ function Page() {
         <div className="site-shell relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 lg:items-start">
             {/* LEFT: Get in Touch */}
-            <motion.div
-              className="lg:col-span-6"
-              {...fadeUp}
-            >
+            <motion.div className="lg:col-span-6" {...fadeUp}>
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
                 Get in Touch
               </p>
               <h2 className="mb-6 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
-              How we can help <span className="gradient-text">transform</span>{" "}
-              your next exhibition presence.
-            </h2>
+                How we can help <span className="gradient-text">transform</span>{" "}
+                your next exhibition presence.
+              </h2>
               <p className="mb-8 text-base leading-relaxed text-zinc-600">
                 Whether you&apos;re launching a premium bespoke booth, a fast
                 modular setup, or a full conference exhibition floor — our
@@ -160,7 +157,6 @@ function Page() {
                     Operational Reach
                   </span>
                 </div>
-               
               </div>
             </motion.div>
 
@@ -223,23 +219,72 @@ function Page() {
                         <p className="text-xs text-zinc-400 uppercase tracking-widest font-bold mb-1">
                           Phone
                         </p>
-                        <p className="text-sm md:text-lg">
-                          +971 (0) 4 000 0000
-                        </p>
+                        <p className="text-sm md:text-lg">+971 563760187</p>
                       </div>
                     </a>
 
-                    <div className="flex items-start gap-4 text-zinc-900 group/item">
-                      <div className="w-11 h-11 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center group-hover/item:bg-[var(--primary)]/10 transition-colors shrink-0 mt-0.5">
-                        <IoLocationOutline className="text-xl text-[var(--primary)]" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-zinc-400 uppercase tracking-widest font-bold mb-1">
-                          Base
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Dubai */}
+                      <div className="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-300 hover:border-zinc-300 hover:shadow-[0_10px_30px_rgba(17,17,17,0.04)]">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+                            <IoLocationOutline className="text-base text-[var(--primary)]" />
+                          </div>
+                          <h4 className="font-bold text-zinc-950 text-base">
+                            Dubai
+                          </h4>
+                        </div>
+                        <p className="text-xs text-zinc-600 leading-relaxed pl-11">
+                          Expo Digital Fz LLC &bull; Nishyama Technical Services
+                          LLC
                         </p>
-                        <p className="text-sm md:text-lg font-bold leading-relaxed">
-                          Al Quoz Industrial Area 4, Capitol Compound, Dubai,
-                          UAE
+                      </div>
+
+                      {/* KSA */}
+                      <div className="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-300 hover:border-zinc-300 hover:shadow-[0_10px_30px_rgba(17,17,17,0.04)]">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+                            <IoLocationOutline className="text-base text-[var(--primary)]" />
+                          </div>
+                          <h4 className="font-bold text-zinc-950 text-base">
+                            KSA
+                          </h4>
+                        </div>
+                        <p className="text-xs text-zinc-600 leading-relaxed pl-11">
+                          Expo Digital Riyadh
+                        </p>
+                      </div>
+
+                      {/* India */}
+                      <div className="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-300 hover:border-zinc-300 hover:shadow-[0_10px_30px_rgba(17,17,17,0.04)]">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+                            <IoLocationOutline className="text-base text-[var(--primary)]" />
+                          </div>
+                          <h4 className="font-bold text-zinc-950 text-base">
+                            India
+                          </h4>
+                        </div>
+                        <p className="text-xs text-zinc-600 leading-relaxed pl-11">
+                          EXPO Worldwide Pvt Ltd{" "}
+                          <span className="block text-zinc-400 mt-0.5">
+                            Mumbai, Bangalore, Delhi
+                          </span>
+                        </p>
+                      </div>
+
+                      {/* Europe */}
+                      <div className="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-300 hover:border-zinc-300 hover:shadow-[0_10px_30px_rgba(17,17,17,0.04)]">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+                            <IoLocationOutline className="text-base text-[var(--primary)]" />
+                          </div>
+                          <h4 className="font-bold text-zinc-950 text-base">
+                            Europe
+                          </h4>
+                        </div>
+                        <p className="text-xs text-zinc-600 leading-relaxed pl-11">
+                          Expo UG
                         </p>
                       </div>
                     </div>
@@ -276,7 +321,10 @@ function Page() {
         <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--primary)]/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="site-shell relative z-10">
-          <motion.div className="mb-16 max-w-3xl text-center mx-auto" {...fadeUp}>
+          <motion.div
+            className="mb-16 max-w-3xl text-center mx-auto"
+            {...fadeUp}
+          >
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Inquiry & Sourcing
             </p>
@@ -313,8 +361,8 @@ function Page() {
                 </h3>
 
                 <p className="text-base leading-relaxed text-zinc-600 mb-10">
-                  From 3D render to on-site handover — we own every part of
-                  the process, so you don&apos;t have to.
+                  From 3D render to on-site handover — we own every part of the
+                  process, so you don&apos;t have to.
                 </p>
 
                 <div className="border-t border-zinc-100 pt-8 space-y-6 flex-1">
@@ -479,9 +527,7 @@ function Page() {
                       className="mt-1 w-5 h-5 rounded border-zinc-300 text-[var(--primary)] focus:ring-[var(--primary)] cursor-pointer shrink-0"
                     />
                     <label className="text-xs text-base text-zinc-600 cursor-pointer font-medium">
-                      <span className="text-[var(--primary)] font-bold">
-                        *
-                      </span>{" "}
+                      <span className="text-[var(--primary)] font-bold">*</span>{" "}
                       Yes, I agree with the privacy policy.
                     </label>
                   </div>
@@ -491,7 +537,6 @@ function Page() {
                     type="submit"
                     className="group relative w-full sm:w-auto sm:mx-auto sm:block rounded-full bg-[var(--primary)] lg:px-12 px-10 py-5 font-bold text-white transition-all hover:scale-105 shadow-xl shadow-[var(--primary)]/20 flex items-center justify-center gap-3"
                   >
-                    <Send className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     Send Message
                   </button>
                 </form>
@@ -508,12 +553,16 @@ function Page() {
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
 
         <div className="site-shell">
-          <motion.div className="mb-16 max-w-3xl text-center mx-auto" {...fadeUp}>
+          <motion.div
+            className="mb-16 max-w-3xl text-center mx-auto"
+            {...fadeUp}
+          >
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Direct Contact
             </p>
             <h2 className="text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
-              Reach Out Through Your <span className="gradient-text">Preferred Channel</span>
+              Reach Out Through Your{" "}
+              <span className="gradient-text">Preferred Channel</span>
             </h2>
           </motion.div>
 
@@ -538,10 +587,10 @@ function Page() {
                 Phone
               </h3>
               <a
-                href="tel:+971040000000"
+                href="tel:+971563760187"
                 className="text-lg font-bold text-zinc-600 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
               >
-                +971 (0) 4 000 0000
+                +971 563760187
               </a>
 
               <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
@@ -594,16 +643,41 @@ function Page() {
                   <IoLocationOutline className="text-xl text-[var(--primary)]" />
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
-                  Production HQ
+                  Global Presence
                 </span>
               </div>
 
-              <h3 className="mb-3 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+              <h3 className="mb-4 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
                 Based In
               </h3>
-              <p className="text-lg font-bold text-zinc-600 leading-relaxed">
-                Al Quoz Industrial Area 4, Capitol Compound, Dubai, UAE
-              </p>
+
+              <div className="space-y-4 text-sm text-zinc-600 leading-relaxed">
+                <div>
+                  <span className="font-bold text-zinc-9ode">Dubai</span>
+                  <p className="text-xs text-zinc-500 mt-0.5">
+                    Expo Digital Fz LLC &bull; Nishyama Technical Services LLC
+                  </p>
+                </div>
+
+                <div>
+                  <span className="font-bold text-zinc-900">KSA</span>
+                  <p className="text-xs text-zinc-500 mt-0.5">
+                    Expo Digital Riyadh
+                  </p>
+                </div>
+
+                <div>
+                  <span className="font-bold text-zinc-900">India</span>
+                  <p className="text-xs text-zinc-500 mt-0.5">
+                    EXPO Worldwide Pvt Ltd &bull; Mumbai, Bangalore, Delhi
+                  </p>
+                </div>
+
+                <div>
+                  <span className="font-bold text-zinc-900">Europe</span>
+                  <p className="text-xs text-zinc-500 mt-0.5">Expo UG</p>
+                </div>
+              </div>
 
               <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
                 <span>Visit By Appointment</span>
@@ -623,7 +697,9 @@ function Page() {
             <h2 className="mx-auto mb-12 max-w-4xl text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
               From 3D concept render to on-site handover at DWTC, ADNEC, or
               across the region — we handle every detail{" "}
-              <span className="italic gradient-text">so your team stays focused</span>{" "}
+              <span className="italic gradient-text">
+                so your team stays focused
+              </span>{" "}
               on the event itself.
             </h2>
             <div className="mx-auto mb-12 h-1 w-20 rounded-full bg-brand-gradient" />
