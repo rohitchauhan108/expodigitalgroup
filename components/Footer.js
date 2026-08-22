@@ -38,10 +38,16 @@ const Footer = () => {
               crafted exhibition solutions.
             </p>
             <div className="flex space-x-4">
-              {[Instagram, Linkedin, Twitter].map((Icon, idx) => (
+              {[
+                { Icon: Instagram, href: "https://www.instagram.com/" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/" },
+                { Icon: Twitter, href: "https://www.twitter.com/" },
+              ].map(({ Icon, href }, idx) => (
                 <a
                   key={idx}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white text-[var(--primary)] transition-all hover:bg-[var(--primary)] hover:border-[var(--primary)] hover:text-white hover:scale-110 shadow-sm"
                 >
                   <Icon size={20} />
@@ -59,7 +65,7 @@ const Footer = () => {
                 { name: "Custom Solutions", href: "/custom-solution" },
                 { name: "Modular Solutions", href: "/modular-solution" },
                 { name: "Conference EXPO", href: "/conference-expo" },
-                { name: "Display Stands", href: "#" },
+                { name: "Display Stands", href: "/display-stands" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link
@@ -80,19 +86,19 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4">
               {[
-                "About Us",
-                "Recent Projects",
-                "Our Process",
-                "Vision 2030",
-                "Get a Quote",
+                { name: "About Us", href: "/#about" },
+                { name: "Recent Projects", href: "/#projects" },
+                { name: "Our Process", href: "/#services" },
+                { name: "Vision 2030", href: "/#why-us" },
+                { name: "Get a Quote", href: "/contact" },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.name}>
                   <Link
-                    href="#"
+                    href={item.href}
                     className="group flex items-center text-white font-bold transition-colors hover:text-[var(--primary)]"
                   >
                     <span className="h-[1px] w-0 bg-[var(--primary)] transition-all group-hover:w-4 group-hover:mr-2" />
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -128,7 +134,7 @@ const Footer = () => {
                   <Phone size={20} />
                 </div>
                 <a
-                  href="tel:+9710000000"
+                  href="tel:+971040000000"
                   className="text-white font-bold transition-colors hover:text-[var(--primary)]"
                 >
                   +971 (0) 4 000 0000
@@ -145,13 +151,13 @@ const Footer = () => {
           </p>
           <div className="flex w-full justify-center space-x-8 text-sm font-bold uppercase tracking-widest text-white md:w-auto md:justify-start">
             <Link
-              href="#"
+              href="/contact"
               className="transition-colors hover:text-[var(--primary)]"
             >
               Privacy
             </Link>
             <Link
-              href="#"
+              href="/contact"
               className="transition-colors hover:text-[var(--primary)]"
             >
               Terms

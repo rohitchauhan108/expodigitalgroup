@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import FloatingIcons from "@/components/FloatingIcons";
@@ -197,27 +198,27 @@ export default function Page() {
 
   const locations = [
     {
-      city: "Dubai",
-      country: "UAE",
-      venue: "DWTC, DEC, Expo City Dubai",
+      city: "UAE",
+      country: "Dubai • Abu Dhabi • Sharjah",
+      venue: "DWTC, ADNEC, DEC, Expo City Dubai, Sharjah Expo Centre",
       icon: FaMapMarkerAlt,
     },
     {
-      city: "Abu Dhabi",
-      country: "UAE",
-      venue: "ADNEC",
+      city: "KSA",
+      country: "Riyadh • Jeddah • Dammam",
+      venue: "Riyadh Exhibition Centre, Jeddah Centre, Dammam Venues",
       icon: FaMapMarkerAlt,
     },
     {
-      city: "Riyadh",
-      country: "KSA",
-      venue: "Riyadh Exhibition Centre",
+      city: "India",
+      country: "Mumbai • Delhi • Bangalore",
+      venue: "Bombay Exhibition Centre, Pragati Maidan, BIEC Bangalore",
       icon: FaMapMarkerAlt,
     },
     {
-      city: "Jeddah",
-      country: "KSA",
-      venue: "Regional Exhibition Hub",
+      city: "Europe",
+      country: "Germany • France • UK • Italy",
+      venue: "Messe Frankfurt, Paris Expo, ExCeL London, Fiera Milano",
       icon: FaMapMarkerAlt,
     },
   ];
@@ -235,10 +236,10 @@ export default function Page() {
     { label: "Shell Scheme Upgrades", icon: GrSchedules },
     { label: "VIP Lounges & Lounges", icon: FaMedal },
     { label: "Interactive Digital Displays", icon: FaLightbulb },
-    { label: "Double Decker Stands KSA", icon: FaBuilding },
+    { label: "Double Decker Stands", icon: FaBuilding },
     { label: "Sustainable Construction", icon: GiGameConsole },
     { label: "Fast Delivery", icon: FaTruck },
-    { label: "DWTC Compliance", icon: GrCompliance },
+    { label: "Organiser Compliance", icon: GrCompliance },
     { label: "Turnkey Solutions", icon: FaCheckCircle },
   ];
 
@@ -249,7 +250,17 @@ export default function Page() {
 
       {/* Hero Section */}
       <section className="relative pt-36 pb-12 md:pt-48 overflow-hidden bg-[#EAF4E1]">
-        <div className="relative max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80&auto=format&fit=crop"
+            alt="Exhibition Fabrication Workshop"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#EAF4E1]/90 via-[#EAF4E1]/80 to-[#EAF4E1]/95" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
           <motion.div
             className="max-w-3xl text-center"
             initial={{ opacity: 0, y: 40 }}
@@ -274,17 +285,17 @@ export default function Page() {
             </h1>
 
             <p className="text-lg text-zinc-600 leading-relaxed mb-8 max-w-2xl mx-auto">
-              Custom Show Emirates specializes in designing and building world-class exhibition stands that transform your brand presence. From concept to installation—we deliver ROI-driven solutions across the UAE and Saudi Arabia.
+              Custom Show Emirates specializes in designing and building world-class exhibition stands that transform your brand presence. From concept to installation—we deliver ROI-driven solutions across the Middle East, India and Europe.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center">
-              <button className="group relative bg-gradient-to-r from-[var(--primary)] to-orange-600 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:shadow-xl hover:shadow-[var(--primary)]/30 transition-all hover:-translate-y-1">
+              <Link href="/contact" className="group relative bg-gradient-to-r from-[var(--primary)] to-orange-600 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:shadow-xl hover:shadow-[var(--primary)]/30 transition-all hover:-translate-y-1">
                 Get Free 3D Proposal
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="bg-white border border-zinc-200 text-zinc-950 px-8 py-4 rounded-full font-bold hover:bg-white transition-all hover:shadow-lg">
-                View Our Work
-              </button>
+              </Link>
+              <Link href="#custom-portfolio" className="bg-white border border-zinc-200 text-zinc-950 px-8 py-4 rounded-full font-bold hover:bg-white transition-all hover:shadow-lg">
+                View Our Portfolio
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -344,13 +355,13 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
-              Regional Coverage
+              Our Coverage
             </p>
             <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
-              We Serve Across <span className="gradient-text">UAE & KSA</span>
+              We Serve Across <span className="gradient-text">Global Exhibition Hubs</span>
             </h2>
             <p className="text-lg leading-relaxed text-zinc-600">
-              Premium exhibition stand solutions in your city
+              Premium exhibition stand solutions across regions
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />
           </motion.div>
@@ -385,45 +396,109 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Featured Events */}
-      <section className="py-12 bg-[#EAF4E1]">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <motion.div className="text-center mb-20" {...fadeUp}>
+      {/* Industry Events — Write-up Section */}
+      <section className="py-24 bg-[#EAF4E1]">
+        <div className="max-w-5xl mx-auto px-6 md:px-8">
+          <motion.div className="text-center mb-16" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Industry Events
             </p>
             <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
-              We Build For <span className="gradient-text">Top Events</span>
+              Stand Design &amp; Build Expertise for <span className="gradient-text">Top MENA &amp; Global Exhibitions</span>
             </h2>
-            <p className="text-lg leading-relaxed text-zinc-600">
-              Trusted by brands for industry-leading exhibitions
+            <p className="text-lg leading-relaxed text-zinc-600 max-w-3xl mx-auto">
+              Whether it's a technology expo, food &amp; beverage showcase, healthcare summit or construction industry show, our team has the industry-specific knowledge to design and build stands that speak directly to your event's audience.
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full mx-auto mt-6" />
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {events.map((event, idx) => {
-              const Icon = event.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  className="group relative overflow-hidden rounded-xl cursor-pointer"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)] via-orange-500 to-[var(--secondary)] opacity-90 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative p-10 text-white text-center flex flex-col items-center justify-center min-h-32">
-                    <Icon className="text-4xl mb-4 group-hover:scale-110 transition-transform" />
-                    <p className="font-bold text-lg">{event.name}</p>
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-10 bg-white" />
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+          <motion.div className="grid md:grid-cols-2 gap-8" {...fadeUp}>
+            <article className="relative overflow-hidden rounded-2xl border border-zinc-200 shadow-sm group">
+              <div className="absolute inset-0">
+                <Image
+                  src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80&auto=format&fit=crop"
+                  alt="Technology Conference"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-zinc-950/85 via-zinc-900/75 to-zinc-900/60" />
+              </div>
+              <div className="relative z-10 p-8 text-white">
+                <div className="flex items-center gap-3 mb-4">
+                  <FaCalendarAlt className="text-[var(--primary)] text-2xl" />
+                  <h3 className="text-xl font-bold">Technology, Business &amp; Innovation Shows</h3>
+                </div>
+                <p className="leading-relaxed text-base text-zinc-100/90">
+                  From <strong>GITEX Dubai</strong> and <strong>LEAP Riyadh</strong> to <strong>Seamless Middle East</strong>, <strong>ADIPEC</strong>, <strong>Gitex Africa</strong>, <strong>MEDICA</strong>, <strong>MWC Barcelona</strong> and more — we build stands that attract footfall with interactive demos, LED walls, product showcases and well-placed meeting zones so you can talk to every qualified lead instead of just waving them in.
+                </p>
+              </div>
+            </article>
+
+            <article className="relative overflow-hidden rounded-2xl border border-zinc-200 shadow-sm group">
+              <div className="absolute inset-0">
+                <Image
+                  src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80&auto=format&fit=crop"
+                  alt="Food & Beverage Exhibition"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-zinc-950/85 via-zinc-900/75 to-zinc-900/60" />
+              </div>
+              <div className="relative z-10 p-8 text-white">
+                <div className="flex items-center gap-3 mb-4">
+                  <FaCalendarAlt className="text-[var(--primary)] text-2xl" />
+                  <h3 className="text-xl font-bold">Food, FMCG &amp; Hospitality Exhibitions</h3>
+                </div>
+                <p className="leading-relaxed text-base text-zinc-100/90">
+                  Our portfolio includes custom stands at <strong>Gulfood</strong>, <strong>Anuga</strong>, <strong>Sial</strong>, <strong>Hotel Show Dubai</strong>, <strong>WOP Dubai</strong>, <strong>Saudi Food Expo</strong>, <strong>Food Africa</strong> and other major F&amp;B shows — complete with product sampling counters, refrigeration integration, backlit SEG menus, coffee bars and hygiene-compliant finishes.
+                </p>
+              </div>
+            </article>
+
+            <article className="relative overflow-hidden rounded-2xl border border-zinc-200 shadow-sm group">
+              <div className="absolute inset-0">
+                <Image
+                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&q=80&auto=format&fit=crop"
+                  alt="Healthcare Conference"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-zinc-950/85 via-zinc-900/75 to-zinc-900/60" />
+              </div>
+              <div className="relative z-10 p-8 text-white">
+                <div className="flex items-center gap-3 mb-4">
+                  <FaCalendarAlt className="text-[var(--primary)] text-2xl" />
+                  <h3 className="text-xl font-bold">Healthcare, Medical &amp; Pharma Conferences</h3>
+                </div>
+                <p className="leading-relaxed text-base text-zinc-100/90">
+                  At shows like <strong>Arab Health</strong>, <strong>Medlab</strong>, <strong>CPhI Worldwide</strong>, <strong>DUPHAT</strong>, <strong>SAUDI HEALTH</strong> and <strong>Pharmapack Europe</strong>, our stands use a clean, clinical aesthetic with premium product showcases, semi-private consultation rooms, large-format visual storytelling and AV that helps medical and pharma brands educate as well as sell.
+                </p>
+              </div>
+            </article>
+
+            <article className="relative overflow-hidden rounded-2xl border border-zinc-200 shadow-sm group">
+              <div className="absolute inset-0">
+                <Image
+                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80&auto=format&fit=crop"
+                  alt="Construction & Real Estate Expo"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-zinc-950/85 via-zinc-900/75 to-zinc-900/60" />
+              </div>
+              <div className="relative z-10 p-8 text-white">
+                <div className="flex items-center gap-3 mb-4">
+                  <FaCalendarAlt className="text-[var(--primary)] text-2xl" />
+                  <h3 className="text-xl font-bold">Construction, Real Estate &amp; Retail</h3>
+                </div>
+                <p className="leading-relaxed text-base text-zinc-100/90">
+                  Industry leaders trust us for shows like <strong>The Big 5</strong>, <strong>Big 5 Saudi</strong>, <strong>WETEX</strong>, <strong>Cityscape Global</strong>, <strong>Index Dubai</strong>, <strong>Acetech India</strong> and <strong>EuroShop</strong>. We deliver architectural booths with premium material finishes, VR walkthrough stations, sample displays, scale models and VIP meeting suites that impress project owners, developers and retail chains.
+                </p>
+              </div>
+            </article>
+          </motion.div>
+
+          
         </div>
       </section>
 
@@ -468,7 +543,7 @@ export default function Page() {
       </section>
 
       {/* Portfolio Gallery */}
-      <section className="py-24 bg-[#EAF4E1]">
+      <section id="custom-portfolio" className="py-24 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import FloatingIcons from "@/components/FloatingIcons";
@@ -27,6 +28,7 @@ import {
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
+  
   viewport: { once: true, margin: "-100px" },
   transition: { duration: 0.6, ease: "easeOut" },
 };
@@ -184,6 +186,9 @@ export default function ConferenceExpoPage() {
       icon: FaRocket,
       color: "from-purple-500 to-pink-500",
     },
+    
+    
+    
   ];
 
   const processSteps = [
@@ -241,7 +246,7 @@ export default function ConferenceExpoPage() {
     }
   ];
 
-  const locations = ["UAE", "KSA", "Oman", "Qatar", "Egypt", "India"];
+  const locations = ["UAE", "KSA", "Oman", "Qatar", "Europe", "India"];
 
   return (
     <main className="bg-white min-h-screen selection:bg-[var(--primary)] selection:text-white overflow-x-hidden">
@@ -250,6 +255,16 @@ export default function ConferenceExpoPage() {
 
       {/* Hero Section */}
       <section className="relative pt-36 pb-20 md:pt-48 overflow-hidden bg-[#EAF4E1]">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920&q=80&auto=format&fit=crop"
+            alt="Conference Exhibition Hall"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#EAF4E1]/95 via-[#EAF4E1]/80 to-[#EAF4E1]/60" />
+        </div>
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             
@@ -263,7 +278,7 @@ export default function ConferenceExpoPage() {
               <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-[var(--primary)]/20 rounded-full px-4 py-2 mb-6 shadow-sm">
                 <span className="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse" />
                 <span className="text-xs md:text-sm font-bold uppercase tracking-wider text-zinc-700">
-                  Turnkey Booth Solutions • Middle East & India
+                  Turnkey Booth Solutions • Sustainable Stands
                 </span>
               </div>
 
@@ -279,13 +294,13 @@ export default function ConferenceExpoPage() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <button className="group bg-gradient-to-r from-[var(--primary)] to-orange-600 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:shadow-xl hover:shadow-[var(--primary)]/20 transition-all duration-300">
+                <Link href="/contact" className="group bg-gradient-to-r from-[var(--primary)] to-orange-600 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:shadow-xl hover:shadow-[var(--primary)]/20 transition-all duration-300">
                   Get Free 3D Proposal
                   <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="bg-white/80 backdrop-blur-sm border border-zinc-200/80 text-zinc-950 px-8 py-4 rounded-full font-bold hover:bg-white transition-all duration-300 shadow-sm">
-                  View Case Studies
-                </button>
+                </Link>
+                <Link href="/#conference-portfolio" className="bg-white/80 backdrop-blur-sm border border-zinc-200/80 text-zinc-950 px-8 py-4 rounded-full font-bold hover:bg-white transition-all duration-300 shadow-sm">
+                  View Our Portfolio
+                </Link>
               </div>
             </motion.div>
 
@@ -397,7 +412,10 @@ export default function ConferenceExpoPage() {
                 {[
                   "Modular rapid deployment engineering systems",
                   "Adaptable scale infrastructure arrays up to 100+ units",
-                  "Complete turnkey physical layout configuration oversight"
+                  "Complete turnkey physical layout configuration oversight",
+                  "Conference-ready staging, LED wall & AV rig integration",
+                  "Unified cross-regional delivery across UAE, KSA, India & Europe",
+                  "Full compliance, HSE, permits & dedicated on-site supervision"
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center text-[var(--primary)] text-xs font-bold shadow-sm flex-shrink-0">
@@ -523,8 +541,58 @@ export default function ConferenceExpoPage() {
                 Strategic structural engineering and rapid operational systems custom designed to streamline high-volume brand exhibition production parameters smoothly.
               </p>
               
+              {/* Primary Feature Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-zinc-900/10 border border-white/60 group">
+                <div className="aspect-[4/5] relative">
+                  <Image
+                    src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=900&q=80&auto=format&fit=crop"
+                    alt="Conference Expo Setup Team"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+                    <div className="text-white">
+                      <p className="text-xs uppercase tracking-[0.2em] font-bold text-orange-300 mb-1">Live Project</p>
+                      <p className="font-bold text-lg leading-tight">Exhibition Hall Buildout, Dubai</p>
+                    </div>
+                    <div className="w-11 h-11 rounded-full bg-[var(--primary)] flex items-center justify-center text-white shadow-lg shadow-orange-500/40 flex-shrink-0">
+                      <FaArrowRight className="text-sm" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Stat Badge */}
+              <div className="bg-white rounded-2xl border border-zinc-200/70 shadow-lg shadow-zinc-900/5 p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--primary)] to-orange-600 text-white flex items-center justify-center flex-shrink-0">
+                    <FaChartLine className="text-lg" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-3xl font-black text-zinc-950 leading-none mb-1">
+                      450+
+                    </p>
+                    <p className="text-sm font-semibold text-zinc-700 mb-1">Conference &amp; Expo Projects Delivered</p>
+                    <p className="text-xs text-zinc-500 leading-relaxed">
+                      Across UAE, KSA, India and Europe — from intimate corporate conferences to 100+ unit mega exhibition halls.
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-5 grid grid-cols-2 gap-3">
+                  <div className="bg-[#EAF4E1] rounded-xl p-3 border border-zinc-100">
+                    <p className="text-xs text-zinc-500 mb-1">Build Speed</p>
+                    <p className="font-bold text-zinc-950">50% Faster</p>
+                  </div>
+                  <div className="bg-[#EAF4E1] rounded-xl p-3 border border-zinc-100">
+                    <p className="text-xs text-zinc-500 mb-1">Brand Consistency</p>
+                    <p className="font-bold text-zinc-950">100% Uptime</p>
+                  </div>
+                </div>
+              </div>
+              
               {/* Dynamic Abstract Graphical Accent */}
-              <div className="hidden lg:block pt-6">
+              <div className="hidden lg:block pt-2">
                 <div className="h-1 w-20 bg-gradient-to-r from-[var(--primary)] to-orange-600 rounded-full" />
                 <div className="mt-3 flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-[var(--primary)]/30" />
@@ -718,10 +786,10 @@ export default function ConferenceExpoPage() {
                 Strategic floor planning, transparent pricing, and fast setup. <br/> Get your team ready for the event.
               </p>
               
-              <button className="group relative bg-gradient-to-r from-[var(--primary)] to-orange-600 text-white px-8 py-4 rounded-full font-bold text-base hover:shadow-xl hover:shadow-[var(--primary)]/30 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 mx-auto">
+              <Link href="/contact" className="group relative bg-gradient-to-r from-[var(--primary)] to-orange-600 text-white px-8 py-4 rounded-full font-bold text-base hover:shadow-xl hover:shadow-[var(--primary)]/30 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 mx-auto w-fit">
                 Start Your Project
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>

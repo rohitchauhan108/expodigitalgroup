@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import FloatingIcons from "@/components/FloatingIcons";
@@ -153,7 +154,7 @@ export default function DisplayStandsPage() {
     },
   ];
 
-  const locations = ["UAE", "KSA", "Oman", "Qatar", "Egypt", "India"];
+  const locations = ["UAE", "KSA", "Oman", "Qatar", "Europe", "India"];
 
   return (
     <main className="bg-white min-h-screen selection:bg-[var(--primary)] selection:text-white overflow-x-hidden">
@@ -162,6 +163,16 @@ export default function DisplayStandsPage() {
 
       {/* 1. HERO SECTION — Conference visual language */}
       <section className="relative pt-36 pb-20 md:pt-48 overflow-hidden bg-[#EAF4E1]">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80&auto=format&fit=crop"
+            alt="Retail Display & Shopping Mall"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#EAF4E1]/95 via-[#EAF4E1]/80 to-[#EAF4E1]/60" />
+        </div>
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
 
@@ -174,8 +185,7 @@ export default function DisplayStandsPage() {
               <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-[var(--primary)]/20 rounded-full px-4 py-2 mb-6 shadow-sm">
                 <span className="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse" />
                 <span className="text-xs md:text-sm font-bold uppercase tracking-wider text-zinc-700">
-                  Corrugated • SEG Lightboxes • Bespoke Builds • Middle East & India
-                </span>
+                  Corrugated Stands • SEG Lightboxes • Bespoke Builds     </span>
               </div>
 
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-950 mb-6 leading-[1.1]">
@@ -188,13 +198,13 @@ export default function DisplayStandsPage() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <button className="group bg-gradient-to-r from-[var(--primary)] to-orange-600 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:shadow-xl hover:shadow-[var(--primary)]/20 transition-all duration-300">
+                <Link href="/contact" className="group bg-gradient-to-r from-[var(--primary)] to-orange-600 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:shadow-xl hover:shadow-[var(--primary)]/20 transition-all duration-300">
                   Get Free Design Proposal
                   <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="bg-white/80 backdrop-blur-sm border border-zinc-200/80 text-zinc-950 px-8 py-4 rounded-full font-bold hover:bg-white transition-all duration-300 shadow-sm">
-                  View Portfolio
-                </button>
+                </Link>
+                <Link href="/#display-portfolio" className="bg-white/80 backdrop-blur-sm border border-zinc-200/80 text-zinc-950 px-8 py-4 rounded-full font-bold hover:bg-white transition-all duration-300 shadow-sm">
+                  View Our Portfolio
+                </Link>
               </div>
 
               <div className="flex items-center gap-6 mt-10 pt-6 border-t border-zinc-950/5">
@@ -229,7 +239,7 @@ export default function DisplayStandsPage() {
               <div className="relative w-full max-w-[480px] mx-auto aspect-square bg-gradient-to-br from-white/60 to-white/20 backdrop-blur-md rounded-[3rem] border border-white p-6 shadow-2xl">
                 <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-inner bg-zinc-100 group">
                   <Image
-                    src="/display-stands/8.webp"
+                    src="/display-stands/2.webp"
                     alt="Display Stand Showcase"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -474,7 +484,7 @@ export default function DisplayStandsPage() {
       </section>
 
       {/* 6. PORTFOLIO GALLERY */}
-      <section className="py-24 bg-[#EAF4E1]">
+      <section id="display-portfolio" className="py-24 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">

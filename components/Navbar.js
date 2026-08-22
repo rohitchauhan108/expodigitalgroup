@@ -58,13 +58,13 @@ const Navbar = () => {
     {
       name: "Solutions",
       dropdown: [
-        { name: "Custom Solutions", href: "custom-solution" },
-        { name: "Modular Solutions", href: "modular-solution" },
+        { name: "Custom Solutions", href: "/custom-solution" },
+        { name: "Modular Solutions", href: "/modular-solution" },
       ],
     },
     { name: "Conference EXPO", href: "/conference-expo" },
     { name: "Display Stands", href: "/display-stands" },
-    { name: "Contact", href: "contact" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -77,7 +77,7 @@ const Navbar = () => {
           : "bg-[#000000] py-0"
       }`}
     >
-      <div className="site-shell flex h-36 justify-between items-center">
+      <div className="site-shell flex h-44 justify-between items-center">
         {/* Logo */}
         <Link href="/" className="relative z-50 flex items-center gap-3">
           <Image
@@ -86,7 +86,7 @@ const Navbar = () => {
             width={100}
             height={100}
             priority
-            className="lg:h-36 h-30 w-auto object-fill"
+            className="lg:h-44 h-30 w-auto object-fill"
           />
         </Link>
 

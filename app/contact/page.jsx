@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import FloatingIcons from "@/components/FloatingIcons";
 import TopBar from "@/components/TopBar";
 import React, { useState } from "react";
+import Image from "next/image";
 import { Send, CheckCircle2 } from "lucide-react";
 import { FaPhone, FaArrowRight } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
@@ -77,6 +78,16 @@ function Page() {
       {/* SECTION 1: HERO BANNER */}
       {/* =============================== */}
       <section className="relative pt-36 md:pt-48 pb-24 md:pb-32 overflow-hidden bg-[#EAF4E1]">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format&fit=crop"
+            alt="Modern Office Meeting Room"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#EAF4E1]/90 via-[#EAF4E1]/85 to-[#EAF4E1]/95" />
+        </div>
         <div className="site-shell relative z-10">
           <motion.div
             className="mx-auto max-w-4xl text-center"
@@ -149,12 +160,7 @@ function Page() {
                     Operational Reach
                   </span>
                 </div>
-                <div className="flex items-center gap-3 bg-white/60 backdrop-blur-sm border border-zinc-200 rounded-full px-5 py-3 w-fit">
-                  <div className="w-3 h-3 rounded-full bg-[var(--primary)] animate-pulse" />
-                  <span className="text-xs font-bold text-zinc-800">
-                    Serving UAE • KSA • Oman • India
-                  </span>
-                </div>
+               
               </div>
             </motion.div>
 

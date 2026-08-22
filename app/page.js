@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import FloatingIcons from "@/components/FloatingIcons";
 import TopBar from "@/components/TopBar";
 import { Sparkles, Rocket, Building2, Users } from "lucide-react";
+import Link from "next/link";
 
 // Hero Slider Data Configuration
 const heroSlides = [
@@ -18,7 +19,7 @@ const heroSlides = [
     description:
       "From high-end custom bespoke booths to eco-friendly modular structures. We turn original concepts into breathtaking, eye-catching spaces that stand out on competitive show floors.",
     bgImage:
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1920",
+      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1920",
   },
   {
     id: 2,
@@ -28,7 +29,7 @@ const heroSlides = [
     description:
       "Maximize foot traffic and leave a lasting impression with our engineered MO.PO reusable tech and tailor-made architectural exhibition environments.",
     bgImage:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1920",
+      "https://img.magnific.com/premium-photo/technology-exhibition_1134901-154339.jpg?uid=R212285470&ga=GA1.1.1383789883.1786786872&semt=ais_hybrid&w=740&q=80",
   },
   {
     id: 3,
@@ -38,7 +39,7 @@ const heroSlides = [
     description:
       "Complete end-to-end execution directly from our Al Quoz compound: fast fabrication, seamless logistics, and strict venue-compliant installation.",
     bgImage:
-      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1920",
+      "https://img.magnific.com/premium-photo/perumin-2015-showcasing-business-brands-exhibition-arequipa-peru_1000124-20666.jpg?uid=R212285470&ga=GA1.1.1383789883.1786786872&semt=ais_hybrid&w=740&q=80?auto=format&fit=crop&q=80&w=1920",
   },
 ];
 
@@ -49,6 +50,54 @@ const fadeUp = {
   viewport: { once: true, margin: "-100px" },
   transition: { duration: 0.6, ease: "easeOut" },
 };
+
+function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = React.useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3, once: true }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime = null;
+    const numericEnd = parseFloat(String(end).replace(/[^0-9.]/g, ""));
+    const onlySuffix = String(end).replace(/[0-9.]/g, "");
+    const displaySuffix = suffix || onlySuffix;
+
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * numericEnd));
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        setCount(numericEnd);
+      }
+    };
+
+    requestAnimationFrame(step);
+  }, [isVisible, end, duration]);
+
+  return <span ref={ref}>{count}{suffix || String(end).replace(/[0-9.]/g, "")}</span>;
+}
 
 function FAQCard({ faq }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -125,9 +174,9 @@ export default function Home() {
 
   const stats = [
     { label: "Years Experience", value: "18+", icon: Sparkles },
-    { label: "Successful Projects", value: "200+", icon: Rocket },
+    { label: "Successful Projects", value: "800+", icon: Rocket },
     { label: "Events & Exhibitions", value: "500+", icon: Building2 },
-    { label: "Satisfied Clients", value: "50+", icon: Users },
+    { label: "Satisfied Clients", value: "1000+", icon: Users },
   ];
 
   const services = [
@@ -154,14 +203,14 @@ export default function Home() {
   const expertiseTags = [
     "Custom Fabrications",
     "Bespoke Stands",
-    "MO.PO Reusable Tech",
+    "Modular Reusable Tech",
     "Mall Activations",
     "Furniture Rentals",
     "Excellence on Brief",
     "Turnkey Project Management",
-    "DWTC Logistics",
+    "Exhibition & Booth Logistics",
     "3D Architectural Renderings",
-    "Al Quoz Production Compound",
+    "In-House Production Facility",
   ];
 
   const processSteps = [
@@ -202,14 +251,13 @@ export default function Home() {
 
   const marqueeItems = [
     "Bespoke Exhibition Booths",
-    "MO.PO Sustainable Stands",
     "Promotional & Mall Activations",
     "Commercial Showroom Interiors",
     "Furniture & AV Rentals",
     "Turnkey Event Fabrication",
   ];
 
-  const text = "UAE | KSA | Oman | India";
+  const text = "UAE | KSA | Oman | India | Europe";
   const [displayText, setDisplayText] = useState("");
 
   useEffect(() => {
@@ -259,7 +307,7 @@ export default function Home() {
               <p className="mb-4 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-emerald-400">
                 {heroSlides[currentSlide].tagline} • {displayText}
               </p>
-              <h1 className="mb-8 text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
+              <h1 className="mb-8 text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-[76px]">
                 {heroSlides[currentSlide].titleStart}{" "}
                 <span className="gradient-text">
                   {heroSlides[currentSlide].titleHighlight}
@@ -269,12 +317,12 @@ export default function Home() {
                 {heroSlides[currentSlide].description}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="w-full sm:w-auto rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-lg shadow-[var(--primary)]/30">
-                  Explore Our Portfolio
-                </button>
-                <button className="w-full sm:w-auto rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-10 py-4 font-bold text-white transition-all hover:bg-white hover:text-zinc-950">
+                <Link href="/custom-solution" className="w-full sm:w-auto rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-lg shadow-[var(--primary)]/30">
+                  Explore Our Custom Solutions
+                </Link>
+                <Link href="/contact" className="w-full sm:w-auto rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-10 py-4 font-bold text-white transition-all hover:bg-white hover:text-zinc-950">
                   Request a Design Quote
-                </button>
+                </Link>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -326,6 +374,41 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* 3. Minimal Stats Counter Strip */}
+      <section className="relative py-12 md:py-16 overflow-hidden">
+        <div className="site-shell">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-0">
+            {stats.map((stat, idx) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className={`relative flex flex-col items-center px-4 ${
+                    idx < stats.length - 1 ? "md:border-r md:border-zinc-200" : ""
+                  }`}
+                >
+                  <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full text-[var(--primary)]">
+                    <Icon size={16} strokeWidth={2} />
+                  </div>
+                  <div className="mb-1">
+                    <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-950 tracking-tight">
+                      <AnimatedCounter end={stat.value} duration={2000} />
+                    </span>
+                  </div>
+                  <p className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-500 text-center">
+                    {stat.label}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* 4. Advanced About Section */}
       <section className="relative py-24 md:py-32 overflow-hidden" id="about">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
@@ -340,7 +423,7 @@ export default function Home() {
             >
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.5rem] border border-zinc-200 bg-zinc-100 shadow-[0_30px_80px_rgba(17,17,17,0.08)] group">
                 <motion.img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200"
+                  src="https://videocdn.cdnpk.net/videos/f052324d-675d-5c39-a8e2-2aa87f1c0d0c/vertical/thumbnails/large.jpg?uid=R212285470&ga=GA1.1.1383789883.1786786872&semt=ais_hybrid&item_id=7421719&w=740&q=80"
                   alt="Expo Digital production showroom"
                   className="h-full w-full object-cover"
                   whileHover={{ scale: 1.03 }}
@@ -439,7 +522,7 @@ export default function Home() {
                   {
                     icon: <Building2 className="w-5 h-5" />,
                     title: "In-House Production",
-                    text: "100% produced in our Al Quoz compound. No middlemen or third-party delays.",
+                    text: "100% In-House Production. No middlemen or third-party delays.",
                   },
                   {
                     icon: <Rocket className="w-5 h-5" />,
@@ -449,7 +532,7 @@ export default function Home() {
                   {
                     icon: <Sparkles className="w-5 h-5" />,
                     title: "Eco Modular & Custom",
-                    text: "Zero-waste modular framework with 50+ layout variations built to fit.",
+                    text: "Zero-waste modular framework with 100+ layout variations built to fit.",
                   },
                 ].map((item, index) => (
                   <motion.div
@@ -472,7 +555,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Image & Stats Column */}
+            {/* Right Image Column */}
             <div className="lg:col-span-6 relative">
               <motion.div
                 className="relative aspect-square w-full overflow-hidden rounded-[2.5rem] border border-zinc-200 bg-zinc-100 shadow-2xl"
@@ -486,28 +569,6 @@ export default function Home() {
                   alt="Premium Exhibition Stand Build"
                   className="h-full w-full object-cover"
                 />
-                
-                {/* Integrated Stats Overlay */}
-                <div className="absolute bottom-6 left-6 right-6 rounded-[2rem] border border-white/20 bg-white/70 p-6 backdrop-blur-xl shadow-2xl">
-                  <div className="grid grid-cols-2 gap-y-6 gap-x-4">
-                    {stats.map((stat, idx) => {
-                      const Icon = stat.icon;
-                      return (
-                        <div key={idx} className="flex flex-col items-start px-2">
-                          <div className="flex items-center gap-2 mb-1">
-                            <Icon className="w-4 h-4 text-[var(--primary)]" strokeWidth={2.5} />
-                            <span className="text-2xl font-bold tracking-tight text-zinc-950">
-                              {stat.value}
-                            </span>
-                          </div>
-                          <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-500">
-                            {stat.label}
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
               </motion.div>
               
               {/* Decorative elements */}
@@ -716,12 +777,12 @@ export default function Home() {
               <span className="gradient-text">into an architectural experience?</span>
             </h2>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-xl shadow-[var(--primary)]/30">
+              <Link href="/contact" className="rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-xl shadow-[var(--primary)]/30">
                 Get Started Today
-              </button>
-              <button className="rounded-full border border-zinc-300 bg-white px-10 py-4 font-bold text-zinc-900 transition-all hover:bg-zinc-100">
-                Contact Our Team
-              </button>
+              </Link>
+              <Link href="/#projects" className="rounded-full border border-zinc-300 bg-white px-10 py-4 font-bold text-zinc-900 transition-all hover:bg-zinc-100">
+                View Our Portfolio
+              </Link>
             </div>
           </motion.div>
         </div>

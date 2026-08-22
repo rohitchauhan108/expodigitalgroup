@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import FloatingIcons from "@/components/FloatingIcons";
@@ -185,7 +186,7 @@ export default function Page() {
     { label: "Customizable Designs", icon: FaLightbulb },
     { label: "Reusable & Sustainable", icon: GiGameConsole },
     { label: "Transport-Friendly", icon: FaTruck },
-    { label: "DWTC Compliant", icon: GrCompliance },
+    { label: "Organiser Compliance", icon: GrCompliance },
     { label: "Turnkey Solutions", icon: FaCheckCircle },
   ];
 
@@ -196,7 +197,17 @@ export default function Page() {
 
       {/* Hero Section */}
       <section className="relative pt-36 pb-12 md:pt-48 overflow-hidden bg-[#EAF4E1]">
-        <div className="relative max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1560472355-536de3962603?w=1920&q=80&auto=format&fit=crop"
+            alt="Modular SEG Fabric Exhibition Booth"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#EAF4E1]/90 via-[#EAF4E1]/80 to-[#EAF4E1]/95" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
           <motion.div
             className="max-w-3xl text-center"
             initial={{ opacity: 0, y: 40 }}
@@ -225,13 +236,13 @@ export default function Page() {
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center">
-              <button className="group relative bg-gradient-to-r from-[var(--primary)] to-orange-600 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:shadow-xl hover:shadow-[var(--primary)]/30 transition-all hover:-translate-y-1">
+              <Link href="/contact" className="group relative bg-gradient-to-r from-[var(--primary)] to-orange-600 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:shadow-xl hover:shadow-[var(--primary)]/30 transition-all hover:-translate-y-1">
                 Get Free 3D Proposal
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="bg-white border border-zinc-200 text-zinc-950 px-8 py-4 rounded-full font-bold hover:bg-white transition-all hover:shadow-lg">
-                View Our Work
-              </button>
+              </Link>
+              <Link href="#modular-portfolio" className="bg-white border border-zinc-200 text-zinc-950 px-8 py-4 rounded-full font-bold hover:bg-white transition-all hover:shadow-lg">
+                View Our Portfolio
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -324,7 +335,7 @@ export default function Page() {
       </section>
 
       {/* Portfolio Gallery */}
-      <section className="py-24 bg-[#EAF4E1]">
+      <section id="modular-portfolio" className="py-24 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
