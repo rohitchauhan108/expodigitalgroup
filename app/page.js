@@ -8,6 +8,7 @@ import FloatingIcons from "@/components/FloatingIcons";
 import TopBar from "@/components/TopBar";
 import { Sparkles, Rocket, Building2, Users } from "lucide-react";
 import Link from "next/link";
+import Services from "@/components/Services";
 
 // Hero Slider Data Configuration
 const heroSlides = [
@@ -627,6 +628,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Services/>
 
       {/* 7. UPDATED: Connected Timeline Production Framework with Matching Gradient Font */}
       <section className="py-24 relative overflow-hidden">
