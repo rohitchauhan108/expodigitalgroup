@@ -116,7 +116,7 @@ function Page() {
                 <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="tel:+971040000000"
+                href="tel:+971563760187"
                 className="w-full sm:w-auto rounded-full border border-zinc-200 bg-white px-10 py-4 font-bold text-zinc-950 transition-all hover:bg-zinc-50 flex items-center justify-center gap-2"
               >
                 <FaPhone className="w-4 h-4 text-[var(--primary)]" />
@@ -209,7 +209,7 @@ function Page() {
                     </a>
 
                     <a
-                      href="tel:+971040000000"
+                      href="tel:+971563760187"
                       className="flex items-center gap-4 text-zinc-900 font-bold hover:text-[var(--primary)] transition-colors group/item"
                     >
                       <div className="w-11 h-11 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center group-hover/item:bg-[var(--primary)]/10 transition-colors">
@@ -222,72 +222,6 @@ function Page() {
                         <p className="text-sm md:text-lg">+971 563760187</p>
                       </div>
                     </a>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {/* Dubai */}
-                      <div className="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-300 hover:border-zinc-300 hover:shadow-[0_10px_30px_rgba(17,17,17,0.04)]">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
-                            <IoLocationOutline className="text-base text-[var(--primary)]" />
-                          </div>
-                          <h4 className="font-bold text-zinc-950 text-base">
-                            Dubai
-                          </h4>
-                        </div>
-                        <p className="text-xs text-zinc-600 leading-relaxed pl-11">
-                          Expo Digital Fz LLC &bull; Nishyama Technical Services
-                          LLC
-                        </p>
-                      </div>
-
-                      {/* KSA */}
-                      <div className="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-300 hover:border-zinc-300 hover:shadow-[0_10px_30px_rgba(17,17,17,0.04)]">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
-                            <IoLocationOutline className="text-base text-[var(--primary)]" />
-                          </div>
-                          <h4 className="font-bold text-zinc-950 text-base">
-                            KSA
-                          </h4>
-                        </div>
-                        <p className="text-xs text-zinc-600 leading-relaxed pl-11">
-                          Expo Digital Riyadh
-                        </p>
-                      </div>
-
-                      {/* India */}
-                      <div className="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-300 hover:border-zinc-300 hover:shadow-[0_10px_30px_rgba(17,17,17,0.04)]">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
-                            <IoLocationOutline className="text-base text-[var(--primary)]" />
-                          </div>
-                          <h4 className="font-bold text-zinc-950 text-base">
-                            India
-                          </h4>
-                        </div>
-                        <p className="text-xs text-zinc-600 leading-relaxed pl-11">
-                          EXPO Worldwide Pvt Ltd{" "}
-                          <span className="block text-zinc-400 mt-0.5">
-                            Mumbai, Bangalore, Delhi
-                          </span>
-                        </p>
-                      </div>
-
-                      {/* Europe */}
-                      <div className="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-300 hover:border-zinc-300 hover:shadow-[0_10px_30px_rgba(17,17,17,0.04)]">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
-                            <IoLocationOutline className="text-base text-[var(--primary)]" />
-                          </div>
-                          <h4 className="font-bold text-zinc-950 text-base">
-                            Europe
-                          </h4>
-                        </div>
-                        <p className="text-xs text-zinc-600 leading-relaxed pl-11">
-                          Expo UG
-                        </p>
-                      </div>
-                    </div>
 
                     <div className="flex items-center gap-4 text-zinc-900 group/item">
                       <div className="w-11 h-11 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center group-hover/item:bg-[var(--primary)]/10 transition-colors shrink-0">
@@ -566,32 +500,35 @@ function Page() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Phone Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.05, duration: 0.5 }}
-              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)]"
+              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)] flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
-                  <FaPhone className="text-lg text-[var(--primary)]" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+                    <FaPhone className="text-lg text-[var(--primary)]" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
+                    Fast Callback
+                  </span>
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
-                  Fast Callback
-                </span>
-              </div>
 
-              <h3 className="mb-3 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
-                Phone
-              </h3>
-              <a
-                href="tel:+971563760187"
-                className="text-lg font-bold text-zinc-600 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
-              >
-                +971 563760187
-              </a>
+                <h3 className="mb-3 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+                  Phone
+                </h3>
+                <a
+                  href="tel:+971563760187"
+                  className="text-lg font-bold text-zinc-600 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
+                >
+                  +971 563760187
+                </a>
+              </div>
 
               <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
                 <span>Call During Business Hours</span>
@@ -599,31 +536,34 @@ function Page() {
               </div>
             </motion.div>
 
+            {/* Email Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)]"
+              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)] flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
-                  <MdOutlineEmail className="text-xl text-[var(--primary)]" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+                    <MdOutlineEmail className="text-xl text-[var(--primary)]" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
+                    24-hr Response
+                  </span>
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
-                  24-hr Response
-                </span>
-              </div>
 
-              <h3 className="mb-3 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
-                Email
-              </h3>
-              <a
-                href="mailto:sales@expodigitalgroup.com"
-                className="text-lg font-bold text-zinc-600 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
-              >
-                sales@expodigitalgroup.com
-              </a>
+                <h3 className="mb-3 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+                  Email
+                </h3>
+                <a
+                  href="mailto:sales@expodigitalgroup.com"
+                  className="text-lg font-bold text-zinc-600 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
+                >
+                  sales@expodigitalgroup.com
+                </a>
+              </div>
 
               <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
                 <span>Send Project Brief</span>
@@ -631,12 +571,13 @@ function Page() {
               </div>
             </motion.div>
 
+            {/* Global Presence / Address Full Width Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15, duration: 0.5 }}
-              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)]"
+              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:border-zinc-300 md:col-span-2"
             >
               <div className="flex items-center justify-between mb-8">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
@@ -647,35 +588,48 @@ function Page() {
                 </span>
               </div>
 
-              <h3 className="mb-4 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+              <h3 className="mb-6 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
                 Based In
               </h3>
 
-              <div className="space-y-4 text-sm text-zinc-600 leading-relaxed">
-                <div>
-                  <span className="font-bold text-zinc-9ode">Dubai</span>
-                  <p className="text-xs text-zinc-500 mt-0.5">
+              {/* 4 Small Cards Grid */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {/* Dubai Card */}
+                <div className="rounded-2xl border border-zinc-300 bg-zinc-50/50 p-5 transition-all duration-300 hover:border-zinc-200 hover:bg-white hover:shadow-sm">
+                  <span className="font-bold text-zinc-900 text-base">
+                    Dubai
+                  </span>
+                  <p className="text-xs text-zinc-500 mt-1 leading-relaxed">
                     Expo Digital Fz LLC &bull; Nishyama Technical Services LLC
                   </p>
                 </div>
 
-                <div>
-                  <span className="font-bold text-zinc-900">KSA</span>
-                  <p className="text-xs text-zinc-500 mt-0.5">
+                {/* KSA Card */}
+                <div className="rounded-2xl border border-zinc-300 bg-zinc-50/50 p-5 transition-all duration-300 hover:border-zinc-200 hover:bg-white hover:shadow-sm">
+                  <span className="font-bold text-zinc-900 text-base">KSA</span>
+                  <p className="text-xs text-zinc-500 mt-1 leading-relaxed">
                     Expo Digital Riyadh
                   </p>
                 </div>
 
-                <div>
-                  <span className="font-bold text-zinc-900">India</span>
-                  <p className="text-xs text-zinc-500 mt-0.5">
+                {/* India Card */}
+                <div className="rounded-2xl border border-zinc-300 bg-zinc-50/50 p-5 transition-all duration-300 hover:border-zinc-200 hover:bg-white hover:shadow-sm">
+                  <span className="font-bold text-zinc-900 text-base">
+                    India
+                  </span>
+                  <p className="text-xs text-zinc-500 mt-1 leading-relaxed">
                     EXPO Worldwide Pvt Ltd &bull; Mumbai, Bangalore, Delhi
                   </p>
                 </div>
 
-                <div>
-                  <span className="font-bold text-zinc-900">Europe</span>
-                  <p className="text-xs text-zinc-500 mt-0.5">Expo UG</p>
+                {/* Europe Card */}
+                <div className="rounded-2xl border border-zinc-300 bg-zinc-50/50 p-5 transition-all duration-300 hover:border-zinc-200 hover:bg-white hover:shadow-sm">
+                  <span className="font-bold text-zinc-900 text-base">
+                    Europe
+                  </span>
+                  <p className="text-xs text-zinc-500 mt-1 leading-relaxed">
+                    Expo UG
+                  </p>
                 </div>
               </div>
 

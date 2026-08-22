@@ -4,11 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   Mail,
-  MapPin,
-  Instagram,
+  Facebook,
   Linkedin,
-  Twitter,
-  ArrowUpRight,
   Phone,
 } from "lucide-react";
 
@@ -30,7 +27,7 @@ const Footer = () => {
                 alt="Expo Digital Group"
                 width={240}
                 height={80}
-                className="h-44 w-auto object-contain "
+                className="h-44 w-auto object-contain"
               />
             </Link>
             <p className="mb-8 max-w-xs leading-relaxed text-white font-medium">
@@ -39,9 +36,8 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               {[
-                { Icon: Instagram, href: "https://www.instagram.com/" },
-                { Icon: Linkedin, href: "https://www.linkedin.com/" },
-                { Icon: Twitter, href: "https://www.twitter.com/" },
+                { Icon: Facebook, href: "https://www.facebook.com/ExhibitionsEventsActivationsBespokefurniture/" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/expo-digital-llc-b09950210" },
               ].map(({ Icon, href }, idx) => (
                 <a
                   key={idx}
@@ -80,89 +76,80 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h4 className="mb-8 text-sm font-bold uppercase tracking-[0.2em] text-white">
-              Quick Links
-            </h4>
-            <ul className="space-y-4">
-              {[
-                { name: "About Us", href: "/#about" },
-                { name: "Recent Projects", href: "/#projects" },
-                { name: "Our Process", href: "/#services" },
-                { name: "Vision 2030", href: "/#why-us" },
-                { name: "Get a Quote", href: "/contact" },
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="group flex items-center text-white font-bold transition-colors hover:text-[var(--primary)]"
-                  >
-                    <span className="h-[1px] w-0 bg-[var(--primary)] transition-all group-hover:w-4 group-hover:mr-2" />
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+          {/* 3rd Column: Contact Details */}
           <div>
             <h4 className="mb-8 text-sm font-bold uppercase tracking-[0.2em] text-white">
               Contact Details
             </h4>
             <div className="space-y-6">
-              <div className="flex items-start space-x-4 group">
-                <div className="mt-1 h-10 w-10 shrink-0 flex items-center justify-center rounded-lg bg-zinc-900 text-[var(--primary)]">
-                  <MapPin size={20} />
-                </div>
-                <span className="leading-relaxed text-white font-bold">
-                  Alquoz Industrial Area 4, Capitol Compound, Dubai, UAE
-                </span>
-              </div>
               <div className="flex items-center space-x-4 group">
                 <div className="h-10 w-10 shrink-0 flex items-center justify-center rounded-lg bg-zinc-900 text-[var(--primary)]">
                   <Mail size={20} />
                 </div>
                 <a
                   href="mailto:sales@expodigitalgroup.com"
-                  className="text-white font-bold transition-colors hover:text-[var(--primary)]"
+                  className="text-white font-bold transition-colors hover:text-[var(--primary)] text-sm"
                 >
                   sales@expodigitalgroup.com
                 </a>
               </div>
+
               <div className="flex items-center space-x-4 group">
                 <div className="h-10 w-10 shrink-0 flex items-center justify-center rounded-lg bg-zinc-900 text-[var(--primary)]">
                   <Phone size={20} />
                 </div>
                 <a
-                  href="tel:+971040000000"
-                  className="text-white font-bold transition-colors hover:text-[var(--primary)]"
+                  href="tel:+971563760187"
+                  className="text-white font-bold transition-colors hover:text-[var(--primary)] text-sm"
                 >
-                  +971 (0) 4 000 0000
+                  +971 563760187
                 </a>
+              </div>
+            </div>
+          </div>
+
+          {/* 4th Column: Locations & Addresses */}
+          <div>
+            <h4 className="mb-8 text-sm font-bold uppercase tracking-[0.2em] text-white">
+              Locations
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="p-2 border-r border-zinc-800">
+                <span className="font-bold text-white text-sm">Dubai</span>
+                <p className="text-xs text-white mt-1 leading-relaxed">
+                  Expo Digital Fz LLC &bull; Nishyama Technical Services LLC
+                </p>
+              </div>
+
+              <div className="p-2">
+                <span className="font-bold text-white text-sm">KSA</span>
+                <p className="text-xs text-white mt-1 leading-relaxed">
+                  Expo Digital Riyadh
+                </p>
+              </div>
+
+              <div className="p-2 border-r border-zinc-800">
+                <span className="font-bold text-white text-sm">India</span>
+                <p className="text-xs text-white mt-1 leading-relaxed">
+                  EXPO Worldwide Pvt Ltd &bull; Mumbai, Bangalore, Delhi
+                </p>
+              </div>
+
+              <div className="p-2">
+                <span className="font-bold text-white text-sm">Europe</span>
+                <p className="text-xs text-white mt-1 leading-relaxed">
+                  Expo UG
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-6 border-t border-zinc-200 pt-12 md:flex-row">
-          <p className="text-center text-sm font-bold uppercase tracking-widest text-white md:text-left">
-            © {new Date().getFullYear()} Expo Digital Group. Built for
+        <div className="flex flex-col items-center justify-center border-t border-zinc-200 pt-12">
+          <p className="text-center text-sm font-bold uppercase tracking-widest text-white">
+            &copy; {new Date().getFullYear()} Expo Digital Group. Built for
             Excellence.
           </p>
-          <div className="flex w-full justify-center space-x-8 text-sm font-bold uppercase tracking-widest text-white md:w-auto md:justify-start">
-            <Link
-              href="/contact"
-              className="transition-colors hover:text-[var(--primary)]"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="/contact"
-              className="transition-colors hover:text-[var(--primary)]"
-            >
-              Terms
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

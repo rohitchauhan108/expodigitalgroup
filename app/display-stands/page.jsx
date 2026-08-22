@@ -202,7 +202,7 @@ export default function DisplayStandsPage() {
                   Get Free Design Proposal
                   <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link href="/#display-portfolio" className="bg-white/80 backdrop-blur-sm border border-zinc-200/80 text-zinc-950 px-8 py-4 rounded-full font-bold hover:bg-white transition-all duration-300 shadow-sm">
+                <Link href="#display-portfolio" className="bg-white/80 backdrop-blur-sm border border-zinc-200/80 text-zinc-950 px-8 py-4 rounded-full font-bold hover:bg-white transition-all duration-300 shadow-sm">
                   View Our Portfolio
                 </Link>
               </div>
@@ -484,7 +484,7 @@ export default function DisplayStandsPage() {
       </section>
 
       {/* 6. PORTFOLIO GALLERY */}
-      <section id="display-portfolio" className="py-24 bg-[#EAF4E1]">
+      <section id="display-portfolio" className="py-24 bg-[#EAF4E1]" id="display-portfolio">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
