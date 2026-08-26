@@ -280,7 +280,7 @@ export default function Home() {
       <Navbar />
 
       {/* 1. Hero Section with Carousel & Background Images */}
-      <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-zinc-950 pt-36 pb-20 md:pt-48 md:pb-28">
+      <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-[#EAF4E1] pt-36 pb-20 md:pt-48 md:pb-28">
         <AnimatePresence mode="wait">
           <motion.div
             key={heroSlides[currentSlide].id}
@@ -290,7 +290,7 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeInOut" }}
             className="absolute inset-0 z-0 bg-cover bg-center"
             style={{
-              backgroundImage: `linear-gradient(rgba(10, 15, 10, 0.65), rgba(10, 15, 10, 0.75)), url(${heroSlides[currentSlide].bgImage})`,
+              backgroundImage: `linear-gradient(rgba(234, 244, 225, 0.55), rgba(234, 244, 225, 0.72)), url(${heroSlides[currentSlide].bgImage})`,
             }}
           />
         </AnimatePresence>
@@ -303,25 +303,25 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mx-auto max-w-4xl text-center text-white"
+              className="mx-auto max-w-4xl text-center text-zinc-950"
             >
-              <p className="mb-4 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-emerald-400">
+              <p className="mb-4 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
                 {heroSlides[currentSlide].tagline} • {displayText}
               </p>
-              <h1 className="mb-8 text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-[76px]">
+              <h1 className="mb-8 text-4xl font-bold tracking-tight text-zinc-950 md:text-6xl lg:text-[76px]">
                 {heroSlides[currentSlide].titleStart}{" "}
                 <span className="gradient-text">
                   {heroSlides[currentSlide].titleHighlight}
                 </span>
               </h1>
-              <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-zinc-200 md:text-xl">
+              <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-zinc-700 md:text-xl">
                 {heroSlides[currentSlide].description}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/custom-solution" className="w-full sm:w-auto rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-lg shadow-[var(--primary)]/30">
                   Explore Our Custom Solutions
                 </Link>
-                <Link href="/contact" className="w-full sm:w-auto rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-10 py-4 font-bold text-white transition-all hover:bg-white hover:text-zinc-950">
+                <Link href="/contact" className="w-full sm:w-auto rounded-full border border-zinc-300 bg-white/80 backdrop-blur-md px-10 py-4 font-bold text-zinc-950 transition-all hover:bg-zinc-950 hover:text-white hover:border-zinc-950">
                   Request a Design Quote
                 </Link>
               </div>
@@ -332,7 +332,7 @@ export default function Home() {
         <button
           onClick={prevSlide}
           aria-label="Previous Slide"
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-md border border-white/10 transition-all hover:bg-black/60 hover:scale-110"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white/80 text-zinc-950 backdrop-blur-md border border-zinc-200 shadow-md transition-all hover:bg-white hover:scale-110"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
@@ -341,7 +341,7 @@ export default function Home() {
         <button
           onClick={nextSlide}
           aria-label="Next Slide"
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-md border border-white/10 transition-all hover:bg-black/60 hover:scale-110"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white/80 text-zinc-950 backdrop-blur-md border border-zinc-200 shadow-md transition-all hover:bg-white hover:scale-110"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
