@@ -3,10 +3,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,23 +16,26 @@ const Navbar = () => {
 
   const lastScrollY = useRef(0);
 
+  // Helper function to check if link is active
+  const isActive = (href) => pathname === href;
+
+  // Helper function to check if any child link in a dropdown is active
+  const isParentActive = (dropdownItems) => {
+    return dropdownItems?.some((item) => pathname === item.href);
+  };
+
   // Handle scroll behavior (Hide on scroll down, show on scroll up)
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Toggle background style when page is scrolled past threshold
       setIsScrolled(currentScrollY > 20);
 
-      // Handle visibility logic:
-      // Always show if near the top (e.g. within 50px)
       if (currentScrollY < 50) {
         setIsVisible(true);
       } else if (currentScrollY > lastScrollY.current) {
-        // Scrolling DOWN -> Hide
         setIsVisible(false);
       } else {
-        // Scrolling UP -> Show
         setIsVisible(true);
       }
 
@@ -95,7 +100,13 @@ const Navbar = () => {
           {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.name} className="relative group">
-                <button className="flex items-center gap-1 text-sm font-bold uppercase tracking-widest text-white hover:text-[var(--primary)] transition-colors">
+                <button
+                  className={`flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] ${
+                    isParentActive(link.dropdown)
+                      ? "text-[var(--primary)]"
+                      : "text-white"
+                  }`}
+                >
                   {link.name}
                   <ChevronDown
                     size={16}
@@ -108,7 +119,11 @@ const Navbar = () => {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="block px-6 py-4 text-sm font-semibold text-white hover:bg-[var(--primary)] hover:text-white transition-colors"
+                      className={`block px-6 py-4 text-sm font-semibold transition-colors hover:bg-[var(--primary)] hover:text-white ${
+                        isActive(item.href)
+                          ? "bg-[var(--primary)] text-white"
+                          : "text-white"
+                      }`}
                     >
                       {item.name}
                     </Link>
@@ -119,10 +134,18 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className="group relative text-sm font-bold uppercase tracking-widest text-white transition-colors hover:text-[var(--primary)]"
+                className={`group relative text-sm font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] ${
+                  isActive(link.href)
+                    ? "text-[var(--primary)]"
+                    : "text-white"
+                }`}
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[var(--primary)] transition-all group-hover:w-full" />
+                <span
+                  className={`absolute -bottom-1 left-0 h-[2px] bg-[var(--primary)] transition-all group-hover:w-full ${
+                    isActive(link.href) ? "w-full" : "w-0"
+                  }`}
+                />
               </Link>
             )
           )}
@@ -197,7 +220,11 @@ const Navbar = () => {
                         onClick={() =>
                           setMobileDropdownOpen(!mobileDropdownOpen)
                         }
-                        className="flex w-full items-center justify-between text-lg font-bold uppercase tracking-tight text-white"
+                        className={`flex w-full items-center justify-between text-lg font-bold uppercase tracking-tight transition-colors ${
+                          isParentActive(link.dropdown)
+                            ? "text-[var(--primary)]"
+                            : "text-white"
+                        }`}
                       >
                         {link.name}
                         <ChevronDown
@@ -224,7 +251,11 @@ const Navbar = () => {
                                     setIsMobileMenuOpen(false);
                                     setMobileDropdownOpen(false);
                                   }}
-                                  className="block text-gray-300 hover:text-[var(--primary)]"
+                                  className={`block transition-colors ${
+                                    isActive(item.href)
+                                      ? "text-[var(--primary)] font-bold"
+                                      : "text-gray-300 hover:text-[var(--primary)]"
+                                  }`}
                                 >
                                   {item.name}
                                 </Link>
@@ -238,7 +269,11 @@ const Navbar = () => {
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-lg font-bold uppercase tracking-tight text-white hover:text-[var(--primary)]"
+                      className={`block text-lg font-bold uppercase tracking-tight transition-colors ${
+                        isActive(link.href)
+                          ? "text-[var(--primary)]"
+                          : "text-white hover:text-[var(--primary)]"
+                      }`}
                     >
                       {link.name}
                     </Link>

@@ -247,20 +247,7 @@ export default function DisplayStandsPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-zinc-950/0 to-transparent" />
 
-                  {/* Floating Line 1 */}
-                  <motion.div
-                    className="absolute -top-3 -right-3 bg-white p-3 rounded-2xl shadow-xl border border-white flex items-center gap-2.5"
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center">
-                      <FaTree className="text-white text-sm" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] uppercase tracking-wider text-zinc-500 font-bold">Material</p>
-                      <p className="text-sm font-bold text-zinc-950 leading-none">100% Eco</p>
-                    </div>
-                  </motion.div>
+                  
 
                   {/* Floating Line 2 */}
                   <motion.div
@@ -484,7 +471,7 @@ export default function DisplayStandsPage() {
       </section>
 
       {/* 6. PORTFOLIO GALLERY */}
-      <section id="display-portfolio" className="py-24 bg-[#EAF4E1]" id="display-portfolio">
+      <section id="display-portfolio" className="py-24 bg-[#EAF4E1]" >
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">

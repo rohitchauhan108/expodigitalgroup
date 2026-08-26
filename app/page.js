@@ -30,7 +30,7 @@ const heroSlides = [
     description:
       "Maximize foot traffic and leave a lasting impression with our engineered MO.PO reusable tech and tailor-made architectural exhibition environments.",
     bgImage:
-      "https://img.magnific.com/premium-photo/technology-exhibition_1134901-154339.jpg?uid=R212285470&ga=GA1.1.1383789883.1786786872&semt=ais_hybrid&w=740&q=80",
+      "/banners/banner2.webp",
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ const heroSlides = [
     description:
       "Complete end-to-end execution directly from our Al Quoz compound: fast fabrication, seamless logistics, and strict venue-compliant installation.",
     bgImage:
-      "https://img.magnific.com/premium-photo/perumin-2015-showcasing-business-brands-exhibition-arequipa-peru_1000124-20666.jpg?uid=R212285470&ga=GA1.1.1383789883.1786786872&semt=ais_hybrid&w=740&q=80?auto=format&fit=crop&q=80&w=1920",
+      "/banners/banner3.webp",
   },
 ];
 
@@ -566,7 +566,7 @@ export default function Home() {
                 transition={{ duration: 0.7 }}
               >
                 <img
-                  src="/custom-solution/37.png"
+                  src="/about.png"
                   alt="Premium Exhibition Stand Build"
                   className="h-full w-full object-cover"
                 />

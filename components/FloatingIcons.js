@@ -14,15 +14,15 @@ const FloatingIcons = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"
-          className="group flex h-12 md:h-14 items-center rounded-l-full bg-[#00A884] px-3.5 text-white shadow-xl transition-all duration-300 ease-in-out hover:pr-4"
+          className="group flex h-14 md:h-16 items-center rounded-l-full bg-brand-gradient px-4 md:px-5 text-white shadow-2xl transition-all duration-300 ease-in-out hover:pr-6 hover:shadow-[0_0_30px_rgba(255,121,0,0.35)]"
         >
           {/* Text slides out independently */}
-          <span className="max-w-0 overflow-hidden whitespace-nowrap text-xs md:text-sm font-bold opacity-0 transition-all duration-300 ease-in-out group-hover:mr-2.5 group-hover:max-w-[120px] group-hover:opacity-100">
-            WhatsApp
+          <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm md:text-base font-bold opacity-0 transition-all duration-300 ease-in-out group-hover:mr-3 group-hover:max-w-[140px] group-hover:opacity-100">
+            WhatsApp Us
           </span>
 
-          <div className="flex h-6 w-6 shrink-0 items-center justify-center">
-            <FaWhatsapp className="h-6 w-6 text-white" />
+          <div className="flex h-8 w-8 md:h-9 md:w-9 shrink-0 items-center justify-center">
+            <FaWhatsapp className="h-8 w-8 md:h-9 md:w-9 text-white drop-shadow-md" />
           </div>
         </a>
       </div>
@@ -32,15 +32,15 @@ const FloatingIcons = () => {
         <a
           href="tel:+971563760187"
           aria-label="Call Us"
-          className="group flex h-12 md:h-14 items-center rounded-l-full bg-[#0A1145] px-3.5 text-white shadow-xl transition-all duration-300 ease-in-out hover:pr-4"
+          className="group flex h-14 md:h-16 items-center rounded-l-full bg-[#0A1145] px-4 md:px-5 text-white shadow-2xl transition-all duration-300 ease-in-out hover:pr-6 hover:shadow-[0_0_25px_rgba(10,17,69,0.4)]"
         >
           {/* Text slides out independently */}
-          <span className="max-w-0 overflow-hidden whitespace-nowrap text-xs md:text-sm font-bold opacity-0 transition-all duration-300 ease-in-out group-hover:mr-2.5 group-hover:max-w-[100px] group-hover:opacity-100">
+          <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm md:text-base font-bold opacity-0 transition-all duration-300 ease-in-out group-hover:mr-3 group-hover:max-w-[110px] group-hover:opacity-100">
             Call Us
           </span>
 
-          <div className="flex h-6 w-6 shrink-0 items-center justify-center">
-            <FaPhone className="h-5 w-5 text-white" />
+          <div className="flex h-8 w-8 md:h-9 md:w-9 shrink-0 items-center justify-center">
+            <FaPhone className="h-7 w-7 md:h-8 md:w-8 text-white drop-shadow-md" />
           </div>
         </a>
       </div>

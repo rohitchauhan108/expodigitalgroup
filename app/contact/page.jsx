@@ -642,30 +642,7 @@ function Page() {
         </div>
       </section>
 
-      {/* =============================== */}
-      {/* SECTION 5: CTA STRIP */}
-      {/* =============================== */}
-      <section className="relative overflow-hidden py-20 lg:py-28 border-t border-zinc-200">
-        <div className="site-shell relative z-10 text-center">
-          <motion.div {...fadeUp}>
-            <h2 className="mx-auto mb-12 max-w-4xl text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
-              From 3D concept render to on-site handover at DWTC, ADNEC, or
-              across the region — we handle every detail{" "}
-              <span className="italic gradient-text">
-                so your team stays focused
-              </span>{" "}
-              on the event itself.
-            </h2>
-            <div className="mx-auto mb-12 h-1 w-20 rounded-full bg-brand-gradient" />
-            <a
-              href="#contact-form"
-              className="rounded-full bg-[var(--primary)] lg:px-12 px-10 py-5 font-bold text-white inline-block transition-transform hover:scale-105 shadow-xl shadow-[var(--primary)]/20"
-            >
-              Let&apos;s Build Something Extraordinary
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      
 
       <FloatingIcons />
       <Footer />
