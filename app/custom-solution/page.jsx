@@ -200,7 +200,7 @@ export default function Page() {
     {
       city: "UAE",
       country: "Dubai • Abu Dhabi • Sharjah",
-      venue: "DWTC, ADNEC, DEC, Expo City Dubai, Sharjah Expo Centre",
+      venue: "DEC, Expo City Dubai, Sharjah Expo Centre, and all premier venues across the Emirates",
       icon: FaMapMarkerAlt,
     },
     {

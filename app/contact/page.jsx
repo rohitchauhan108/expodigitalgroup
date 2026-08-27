@@ -60,8 +60,8 @@ function Page() {
       text: "100% fabrication at our Al Quoz compound. Full quality control on every build from cutting to final assembly.",
     },
     {
-      title: "DWTC & ADNEC Certified",
-      text: "Fully certified for Dubai World Trade Centre, ADNEC Abu Dhabi, and all major Middle Eastern exhibition venues.",
+      title: "Certified for Major Venues",
+      text: "Fully certified for all major Middle Eastern exhibition venues and premier global event spaces.",
     },
     {
       title: "500+ Successful Projects",
@@ -151,11 +151,28 @@ function Page() {
               </p>
 
               <div className="border-t border-zinc-200 pt-8 mb-8">
-                <div className="flex items-center gap-3 mb-5">
+                <div className="flex items-center gap-3 mb-6">
                   <div className="h-1 w-12 rounded-full bg-brand-gradient" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">
                     Operational Reach
                   </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {[
+                    { label: "UAE" },
+                    { label: "KSA" },
+                    { label: "India" },
+                    { label: "Europe" },
+                  ].map((loc, i) => (
+                    <div
+                      key={i}
+                      className="rounded-2xl border border-zinc-200 bg-white p-4 hover:border-[var(--primary)]/30 transition-colors group/loc flex items-center justify-center"
+                    >
+                      <p className="text-xl md:text-2xl font-black gradient-text tracking-tight">
+                        {loc.label}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -524,7 +541,7 @@ function Page() {
                 </h3>
                 <a
                   href="tel:+971563760187"
-                  className="text-lg font-bold text-zinc-600 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
+                  className="text-xl md:text-2xl font-black text-zinc-950 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
                 >
                   +971 563760187
                 </a>
@@ -559,7 +576,7 @@ function Page() {
                 </h3>
                 <a
                   href="mailto:sales@expodigitalgroup.com"
-                  className="text-lg font-bold text-zinc-600 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
+                  className="text-xl md:text-2xl font-black text-zinc-950 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
                 >
                   sales@expodigitalgroup.com
                 </a>
@@ -577,65 +594,105 @@ function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15, duration: 0.5 }}
-              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:border-zinc-300 md:col-span-2"
+              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 lg:p-12 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-1 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)] md:col-span-2 overflow-hidden"
             >
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
-                  <IoLocationOutline className="text-xl text-[var(--primary)]" />
+              <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-brand-gradient opacity-10 blur-[80px] pointer-events-none" />
+
+              <div className="flex items-center justify-between mb-8 relative z-10">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+                  <IoLocationOutline className="text-2xl text-[var(--primary)]" />
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
+                <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 bg-zinc-50 border border-zinc-200 px-4 py-2 rounded-full">
                   Global Presence
                 </span>
               </div>
 
-              <h3 className="mb-6 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+              <h3 className="mb-8 text-2xl md:text-3xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors relative z-10">
                 Based In
               </h3>
 
-              {/* 4 Small Cards Grid */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {/* 4 Highlighted Location Cards */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 relative z-10">
                 {/* Dubai Card */}
-                <div className="rounded-2xl border border-zinc-300 bg-zinc-50/50 p-5 transition-all duration-300 hover:border-zinc-200 hover:bg-white hover:shadow-sm">
-                  <span className="font-bold text-zinc-900 text-base">
+                <div className="group/card relative rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-50 p-6 transition-all duration-400 hover:-translate-y-1 hover:border-[var(--primary)]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
+                  <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover/card:opacity-[0.04] transition-opacity duration-400 pointer-events-none" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0 shadow-md shadow-[var(--primary)]/15">
+                      <IoLocationOutline className="text-white text-lg" />
+                    </div>
+                  </div>
+                  <h4 className="mb-2 text-2xl md:text-3xl font-black gradient-text tracking-tight">
                     Dubai
-                  </span>
-                  <p className="text-xs text-zinc-500 mt-1 leading-relaxed">
-                    Expo Digital Fz LLC &bull; Nishyama Technical Services LLC
+                  </h4>
+                  <p className="text-sm md:text-base font-semibold text-zinc-700 leading-relaxed">
+                    Expo Digital Fz LLC
+                  </p>
+                  <p className="text-xs md:text-sm text-zinc-600 leading-relaxed mt-1">
+                    Nishyama Technical Services LLC
                   </p>
                 </div>
 
                 {/* KSA Card */}
-                <div className="rounded-2xl border border-zinc-300 bg-zinc-50/50 p-5 transition-all duration-300 hover:border-zinc-200 hover:bg-white hover:shadow-sm">
-                  <span className="font-bold text-zinc-900 text-base">KSA</span>
-                  <p className="text-xs text-zinc-500 mt-1 leading-relaxed">
+                <div className="group/card relative rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-50 p-6 transition-all duration-400 hover:-translate-y-1 hover:border-[var(--primary)]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
+                  <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover/card:opacity-[0.04] transition-opacity duration-400 pointer-events-none" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0 shadow-md shadow-[var(--primary)]/15">
+                      <IoLocationOutline className="text-white text-lg" />
+                    </div>
+                  </div>
+                  <h4 className="mb-2 text-2xl md:text-3xl font-black gradient-text tracking-tight">
+                    KSA
+                  </h4>
+                  <p className="text-sm md:text-base font-semibold text-zinc-700 leading-relaxed">
                     Expo Digital Riyadh
+                  </p>
+                  <p className="text-xs md:text-sm text-zinc-600 leading-relaxed mt-1">
+                    Riyadh &bull; Jeddah &bull; Dammam
                   </p>
                 </div>
 
                 {/* India Card */}
-                <div className="rounded-2xl border border-zinc-300 bg-zinc-50/50 p-5 transition-all duration-300 hover:border-zinc-200 hover:bg-white hover:shadow-sm">
-                  <span className="font-bold text-zinc-900 text-base">
+                <div className="group/card relative rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-50 p-6 transition-all duration-400 hover:-translate-y-1 hover:border-[var(--primary)]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
+                  <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover/card:opacity-[0.04] transition-opacity duration-400 pointer-events-none" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0 shadow-md shadow-[var(--primary)]/15">
+                      <IoLocationOutline className="text-white text-lg" />
+                    </div>
+                  </div>
+                  <h4 className="mb-2 text-2xl md:text-3xl font-black gradient-text tracking-tight">
                     India
-                  </span>
-                  <p className="text-xs text-zinc-500 mt-1 leading-relaxed">
-                    EXPO Worldwide Pvt Ltd &bull; Mumbai, Bangalore, Delhi
+                  </h4>
+                  <p className="text-sm md:text-base font-semibold text-zinc-700 leading-relaxed">
+                    EXPO Worldwide Pvt Ltd
+                  </p>
+                  <p className="text-xs md:text-sm text-zinc-600 leading-relaxed mt-1">
+                    Mumbai &bull; Bangalore &bull; Delhi
                   </p>
                 </div>
 
                 {/* Europe Card */}
-                <div className="rounded-2xl border border-zinc-300 bg-zinc-50/50 p-5 transition-all duration-300 hover:border-zinc-200 hover:bg-white hover:shadow-sm">
-                  <span className="font-bold text-zinc-900 text-base">
+                <div className="group/card relative rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-50 p-6 transition-all duration-400 hover:-translate-y-1 hover:border-[var(--primary)]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
+                  <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover/card:opacity-[0.04] transition-opacity duration-400 pointer-events-none" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0 shadow-md shadow-[var(--primary)]/15">
+                      <IoLocationOutline className="text-white text-lg" />
+                    </div>
+                  </div>
+                  <h4 className="mb-2 text-2xl md:text-3xl font-black gradient-text tracking-tight">
                     Europe
-                  </span>
-                  <p className="text-xs text-zinc-500 mt-1 leading-relaxed">
+                  </h4>
+                  <p className="text-sm md:text-base font-semibold text-zinc-700 leading-relaxed">
                     Expo UG
+                  </p>
+                  <p className="text-xs md:text-sm text-zinc-600 leading-relaxed mt-1">
+                    Germany &bull; Pan-European Coverage
                   </p>
                 </div>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
+              <div className="mt-10 pt-5 border-t border-zinc-100 flex items-center justify-between text-sm font-semibold text-zinc-500 group-hover:text-[var(--primary)] transition-colors relative z-10">
                 <span>Visit By Appointment</span>
-                <FaArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <FaArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </div>
             </motion.div>
           </div>

@@ -20,7 +20,7 @@ const heroSlides = [
     description:
       "From high-end custom bespoke booths to eco-friendly modular structures. We turn original concepts into breathtaking, eye-catching spaces that stand out on competitive show floors.",
     bgImage:
-      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1920",
+      "/banners/banner1.webp",
   },
   {
     id: 2,
@@ -159,7 +159,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
+    }, 10000);
     return () => clearInterval(timer);
   }, []);
 
@@ -246,7 +246,7 @@ export default function Home() {
     {
       question: "Which regions and exhibition venues do you cover?",
       answer:
-        "While our primary fabrication facility operates locally out of Dubai, we regularly deliver turnkey pavilions, booths, and pop-up activations for premium global brands across major Middle Eastern hubs including DWTC, ADNEC, and global exhibition spaces.",
+        "While our primary fabrication facility operates locally out of Dubai, we regularly deliver turnkey pavilions, booths, and pop-up activations for premium global brands across major Middle Eastern hubs and premier global exhibition spaces.",
     },
   ];
 
@@ -290,7 +290,7 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeInOut" }}
             className="absolute inset-0 z-0 bg-cover bg-center"
             style={{
-              backgroundImage: `linear-gradient(rgba(234, 244, 225, 0.55), rgba(234, 244, 225, 0.72)), url(${heroSlides[currentSlide].bgImage})`,
+              backgroundImage: `linear-gradient(rgba(234, 244, 225, 0.82), rgba(234, 244, 225, 0.9)), url(${heroSlides[currentSlide].bgImage})`,
             }}
           />
         </AnimatePresence>
@@ -305,23 +305,23 @@ export default function Home() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="mx-auto max-w-4xl text-center text-zinc-950"
             >
-              <p className="mb-4 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              <p className="mb-4 text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-[var(--primary)]">
                 {heroSlides[currentSlide].tagline} • {displayText}
               </p>
-              <h1 className="mb-8 text-4xl font-bold tracking-tight text-zinc-950 md:text-6xl lg:text-[76px]">
+              <h1 className="mb-8 text-4xl font-black tracking-tight text-zinc-950 md:text-6xl lg:text-[76px] leading-[1.05]">
                 {heroSlides[currentSlide].titleStart}{" "}
                 <span className="gradient-text">
                   {heroSlides[currentSlide].titleHighlight}
                 </span>
               </h1>
-              <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-zinc-700 md:text-xl">
+              <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-zinc-800 md:text-xl font-semibold">
                 {heroSlides[currentSlide].description}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/custom-solution" className="w-full sm:w-auto rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-lg shadow-[var(--primary)]/30">
+                <Link href="/custom-solution" className="w-full sm:w-auto rounded-full bg-[var(--primary)] px-10 py-4 font-black text-white transition-transform hover:scale-105 shadow-lg shadow-[var(--primary)]/30">
                   Explore Our Custom Solutions
                 </Link>
-                <Link href="/contact" className="w-full sm:w-auto rounded-full border border-zinc-300 bg-white/80 backdrop-blur-md px-10 py-4 font-bold text-zinc-950 transition-all hover:bg-zinc-950 hover:text-white hover:border-zinc-950">
+                <Link href="/contact" className="w-full sm:w-auto rounded-full border border-zinc-300 bg-white/90 backdrop-blur-md px-10 py-4 font-black text-zinc-950 transition-all hover:bg-white hover:border-zinc-950 shadow-md shadow-zinc-900/5">
                   Request a Design Quote
                 </Link>
               </div>
@@ -441,7 +441,7 @@ export default function Home() {
                     On-Time & On-Brief Delivery
                   </p>
                   <p className="text-xs text-zinc-600">
-                    Managing complete fabrication complexity & strict venue logistics across DWTC & ADNEC smoothly.
+                    Managing complete fabrication complexity & strict venue logistics across all major exhibition venues smoothly.
                   </p>
                 </motion.div>
               </div>

@@ -545,7 +545,7 @@ export default function ConferenceExpoPage() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-zinc-900/10 border border-white/60 group">
                 <div className="aspect-[4/5] relative">
                   <Image
-                    src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=900&q=80&auto=format&fit=crop"
+                    src="/conference/whychoose.jpg"
                     alt="Conference Expo Setup Team"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
