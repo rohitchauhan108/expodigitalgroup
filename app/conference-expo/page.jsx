@@ -151,44 +151,41 @@ export default function ConferenceExpoPage() {
 
   const whyChooseUs = [
     {
-      title: "Strategic Floor Planning",
-      description: "We design high-traffic layout schematics engineered to maximize sponsor premium placement visibility and facilitate natural visitor flow.",
+      title: "Strategic Networking Layouts",
+      description: "We design space-optimized networking zones and registration areas engineered to facilitate natural attendee flow and speaker access.",
       icon: FaMapMarkedAlt,
       color: "from-orange-500 to-orange-600",
     },
     {
-      title: "Fast Turnaround Time",
-      description: "Speed-engineered building modules. Our pre-fitted structural frameworks ensure zero-delay rapid deployment on the exhibition floor.",
+      title: "Overnight Rapid Deployment",
+      description: "Speed-engineered building modules allow for overnight installation, ensuring your plenary sessions and expo floors are ready by dawn.",
       icon: FaBolt,
       color: "from-amber-500 to-orange-500",
     },
     {
-      title: "Transparent Costing",
-      description: "100% itemized, crystal-clear budgeting lines. No unexpected logistical markups, surcharges, or hidden breakdown fees.",
+      title: "Fixed Cost Transparency",
+      description: "100% itemized, crystal-clear budgeting lines for large-scale deployments. No unexpected logistical markups or hidden fees.",
       icon: FaMoneyBillWave,
       color: "from-yellow-400 to-amber-500",
     },
     {
-      title: "Seamless Sponsor Coordination",
-      description: "We assume complete logistical communications with your individual event sponsors to secure optimized placement value.",
+      title: "End-to-End Sponsor Support",
+      description: "We handle total logistical communication with individual event sponsors, ensuring their brand kiosks meet all venue technical specs.",
       icon: FaHandshake,
       color: "from-green-500 to-emerald-600",
     },
     {
-      title: "Vivid Graphics & Execution",
-      description: "High-definition large format fabric printing paired with clinical on-site placement for flawless spatial presence.",
+      title: "Wayfinding & Speaker Backdrops",
+      description: "High-definition large format fabric printing for flawless stage backdrops, dynamic wayfinding, and integrated digital signage.",
       icon: FaPalette,
       color: "from-blue-500 to-cyan-500",
     },
     {
-      title: "Scalable Deployments",
-      description: "Modular framework architecture engineered to easily transition configurations from compact clusters to sprawling exhibition spaces.",
+      title: "VIP Lounge & Plenary Scale",
+      description: "Modular architecture engineered to transition from intimate VIP speaker lounges to sprawling 100+ unit plenary exhibition halls.",
       icon: FaRocket,
       color: "from-purple-500 to-pink-500",
     },
-    
-    
-    
   ];
 
   const processSteps = [
@@ -196,9 +193,9 @@ export default function ConferenceExpoPage() {
       step: "01",
       phase: "Phase 1: Planning",
       title: "Strategic Blueprinting",
-      desc: "Custom architectural space-mapping tailored precisely to your specific venue footprint, visitor traffic projections, and exit layouts.",
+      desc: "Custom architectural space-mapping tailored to your venue footprint, attendee traffic flow, and session breakout zones.",
       icon: FaLayerGroup,
-      deliverables: ["CAD Floor Layouts", "3D Space Optimization", "Traffic Flow Models"],
+      deliverables: ["CAD Floor Layouts", "Networking Zone Maps", "Traffic Flow Models"],
       color: "from-orange-500 to-amber-500",
       badgeClass: "bg-orange-500/10 text-orange-600 border-orange-500/20",
       glowClass: "group-hover:shadow-orange-500/10",
@@ -206,10 +203,10 @@ export default function ConferenceExpoPage() {
     {
       step: "02",
       phase: "Phase 2: Coordination",
-      title: "Sponsor Direct Alignment",
-      desc: "We interface directly with individual sponsors to collect asset specs, coordinate custom banners, and configure premium brand placements.",
+      title: "Sponsor & Speaker Alignment",
+      desc: "We interface directly with sponsors and speakers to coordinate kiosk specs, custom backdrops, and premium stage placements.",
       icon: FaCogs,
-      deliverables: ["Direct Asset Gathering", "Custom Brand Fit-outs", "Zero-stress Communication"],
+      deliverables: ["Sponsor Asset Coordination", "Stage Backdrop Fit-outs", "Technical Spec Management"],
       color: "from-emerald-500 to-teal-500",
       badgeClass: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20",
       glowClass: "group-hover:shadow-emerald-500/10",
@@ -217,10 +214,10 @@ export default function ConferenceExpoPage() {
     {
       step: "03",
       phase: "Phase 3: Execution",
-      title: "Assembly & Launch",
-      desc: "Rapid modular building on-site under clinical supervision, followed by immediate sponsor hand-off and continuous event support.",
+      title: "Assembly & Plenary Launch",
+      desc: "Rapid overnight modular building on-site under clinical supervision, followed by immediate plenary handover and event support.",
       icon: FaChartLine,
-      deliverables: ["Pre-assembly Testing", "Fast Structural Assembly", "Safe Teardown Logistics"],
+      deliverables: ["Rapid Structural Assembly", "Stage & AV Handover", "Safe Teardown Logistics"],
       color: "from-indigo-500 to-purple-500",
       badgeClass: "bg-indigo-500/10 text-indigo-600 border-indigo-500/20",
       glowClass: "group-hover:shadow-indigo-500/10",
@@ -290,7 +287,7 @@ export default function ConferenceExpoPage() {
               </h1>
 
               <p className="text-lg text-zinc-600 leading-relaxed mb-8 max-w-xl">
-                We partner with Organizers, Corporations & Conferences to deliver premium exhibition structures. Engineering high-presence environments from <strong>10 to 100+ participant setups</strong>.
+                We partner with Organizers and Corporations to engineer premium conference environments. From high-presence <strong>networking pavilions</strong> to <strong>100+ unit plenary expo floors</strong>, we deliver speed and precision.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -444,10 +441,10 @@ export default function ConferenceExpoPage() {
               How We Execute
             </p>
             <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl tracking-tight">
-              Strategic Execution <span className="gradient-text">Pipeline</span>
+              Conference Space <span className="gradient-text">Execution</span>
             </h2>
             <p className="text-lg leading-relaxed text-zinc-600 mt-4 max-w-xl mx-auto">
-              Our step-by-step framework engineered to take you from empty hall space to high-impact sponsor exhibition presence.
+              Our specialized framework for transforming empty venues into high-engagement plenary spaces and sponsor exhibition floors.
             </p>
           </motion.div>
 
@@ -538,14 +535,14 @@ export default function ConferenceExpoPage() {
               </h2>
               
               <p className="text-base text-zinc-600 max-w-md leading-relaxed">
-                Strategic structural engineering and rapid operational systems custom designed to streamline high-volume brand exhibition production parameters smoothly.
+                Strategic space engineering and rapid deployment systems custom-built for high-impact conference pavilions, networking lounges, and multi-track plenary halls.
               </p>
               
               {/* Primary Feature Image */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-zinc-900/10 border border-white/60 group">
                 <div className="aspect-[4/5] relative">
                   <Image
-                    src="/conference/whychoose.jpg"
+                    src="https://i.pinimg.com/736x/28/89/cb/2889cbe110a16ac534dfd908ad476f2b.jpg"
                     alt="Conference Expo Setup Team"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -554,7 +551,7 @@ export default function ConferenceExpoPage() {
                   <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
                     <div className="text-white">
                       <p className="text-xs uppercase tracking-[0.2em] font-bold text-orange-300 mb-1">Live Project</p>
-                      <p className="font-bold text-lg leading-tight">Exhibition Hall Buildout, Dubai</p>
+                      <p className="font-bold text-lg leading-tight">Corporate Summit Pavilion, Riyadh</p>
                     </div>
                     <div className="w-11 h-11 rounded-full bg-[var(--primary)] flex items-center justify-center text-white shadow-lg shadow-orange-500/40 flex-shrink-0">
                       <FaArrowRight className="text-sm" />

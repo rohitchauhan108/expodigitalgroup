@@ -161,18 +161,8 @@ export default function DisplayStandsPage() {
       <TopBar />
       <Navbar />
 
-      {/* 1. HERO SECTION — Conference visual language */}
+      {/* 1. HERO SECTION */}
       <section className="relative pt-36 pb-20 md:pt-48 overflow-hidden bg-[#EAF4E1]">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80&auto=format&fit=crop"
-            alt="Retail Display & Shopping Mall"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#EAF4E1]/95 via-[#EAF4E1]/80 to-[#EAF4E1]/60" />
-        </div>
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
 

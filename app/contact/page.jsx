@@ -48,7 +48,6 @@ function Page() {
     "Modular Sustainable Stand System",
     "Conference & Expo Booth Solutions",
     "Promotions & Mall Activations",
-    "Commercial Showroom Interiors",
     "Furniture & AV Rentals",
     "3D Architectural Renderings",
     "Turnkey Event Project Management",
@@ -78,16 +77,6 @@ function Page() {
       {/* SECTION 1: HERO BANNER */}
       {/* =============================== */}
       <section className="relative pt-36 md:pt-48 pb-24 md:pb-32 overflow-hidden bg-[#EAF4E1]">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format&fit=crop"
-            alt="Modern Office Meeting Room"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#EAF4E1]/90 via-[#EAF4E1]/85 to-[#EAF4E1]/95" />
-        </div>
         <div className="site-shell relative z-10">
           <motion.div
             className="mx-auto max-w-4xl text-center"
@@ -608,91 +597,119 @@ function Page() {
               </div>
 
               <h3 className="mb-8 text-2xl md:text-3xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors relative z-10">
-                Based In
+                Our Locations
               </h3>
 
               {/* 4 Highlighted Location Cards */}
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 relative z-10">
                 {/* Dubai Card */}
-                <div className="group/card relative rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-50 p-6 transition-all duration-400 hover:-translate-y-1 hover:border-[var(--primary)]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
+                <div className="group/card relative rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-400 hover:-translate-y-1.5 hover:border-[var(--primary)]/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
                   <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover/card:opacity-[0.04] transition-opacity duration-400 pointer-events-none" />
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0 shadow-md shadow-[var(--primary)]/15">
-                      <IoLocationOutline className="text-white text-lg" />
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+                      <IoLocationOutline className="text-[var(--primary)] text-lg" />
                     </div>
                   </div>
-                  <h4 className="mb-2 text-2xl md:text-3xl font-black gradient-text tracking-tight">
+                  <h4 className="mb-5 text-2xl md:text-3xl font-black gradient-text tracking-tight">
                     Dubai
                   </h4>
-                  <p className="text-sm md:text-base font-semibold text-zinc-700 leading-relaxed">
-                    Expo Digital Fz LLC
-                  </p>
-                  <p className="text-xs md:text-sm text-zinc-600 leading-relaxed mt-1">
-                    Nishyama Technical Services LLC
-                  </p>
+                  <div className="space-y-3">
+                    <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3.5 transition-all duration-300 hover:bg-white hover:shadow-sm">
+                      <div className="flex items-start gap-2.5">
+                        <div className="mt-0.5 shrink-0 w-5 h-5 rounded-md bg-[var(--primary)]/15 border border-[var(--primary)]/30 flex items-center justify-center">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
+                        </div>
+                        <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
+                          Expo Digital Fz LLC
+                        </p>
+                      </div>
+                    </div>
+                    <div className="group/co relative rounded-xl border border-[var(--secondary)]/20 bg-zinc-50/50 p-3.5 transition-all duration-300 hover:bg-white hover:shadow-sm">
+                      <div className="flex items-start gap-2.5">
+                        <div className="mt-0.5 shrink-0 w-5 h-5 rounded-md bg-[var(--secondary)]/15 border border-[var(--secondary)]/30 flex items-center justify-center">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[var(--secondary)]" />
+                        </div>
+                        <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
+                          Nishyama Technical Services LLC
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* KSA Card */}
-                <div className="group/card relative rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-50 p-6 transition-all duration-400 hover:-translate-y-1 hover:border-[var(--primary)]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
+                <div className="group/card relative rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-400 hover:-translate-y-1.5 hover:border-[var(--primary)]/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
                   <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover/card:opacity-[0.04] transition-opacity duration-400 pointer-events-none" />
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0 shadow-md shadow-[var(--primary)]/15">
-                      <IoLocationOutline className="text-white text-lg" />
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+                      <IoLocationOutline className="text-[var(--primary)] text-lg" />
                     </div>
                   </div>
-                  <h4 className="mb-2 text-2xl md:text-3xl font-black gradient-text tracking-tight">
+                  <h4 className="mb-5 text-2xl md:text-3xl font-black gradient-text tracking-tight">
                     KSA
                   </h4>
-                  <p className="text-sm md:text-base font-semibold text-zinc-700 leading-relaxed">
-                    Expo Digital Riyadh
-                  </p>
-                  <p className="text-xs md:text-sm text-zinc-600 leading-relaxed mt-1">
-                    Riyadh &bull; Jeddah &bull; Dammam
-                  </p>
+                  <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3.5 transition-all duration-300 hover:bg-white hover:shadow-sm">
+                    <div className="flex items-start gap-2.5">
+                      <div className="mt-0.5 shrink-0 w-5 h-5 rounded-md bg-[var(--primary)]/15 border border-[var(--primary)]/30 flex items-center justify-center">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
+                      </div>
+                      <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
+                        Expo Digital Riyadh
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
                 {/* India Card */}
-                <div className="group/card relative rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-50 p-6 transition-all duration-400 hover:-translate-y-1 hover:border-[var(--primary)]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
+                <div className="group/card relative rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-400 hover:-translate-y-1.5 hover:border-[var(--primary)]/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
                   <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover/card:opacity-[0.04] transition-opacity duration-400 pointer-events-none" />
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0 shadow-md shadow-[var(--primary)]/15">
-                      <IoLocationOutline className="text-white text-lg" />
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+                      <IoLocationOutline className="text-[var(--primary)] text-lg" />
                     </div>
                   </div>
-                  <h4 className="mb-2 text-2xl md:text-3xl font-black gradient-text tracking-tight">
+                  <h4 className="mb-5 text-2xl md:text-3xl font-black gradient-text tracking-tight">
                     India
                   </h4>
-                  <p className="text-sm md:text-base font-semibold text-zinc-700 leading-relaxed">
-                    EXPO Worldwide Pvt Ltd
-                  </p>
-                  <p className="text-xs md:text-sm text-zinc-600 leading-relaxed mt-1">
-                    Mumbai &bull; Bangalore &bull; Delhi
-                  </p>
+                  <div className="space-y-3">
+                    <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3.5 transition-all duration-300 hover:bg-white hover:shadow-sm">
+                      <div className="flex items-start gap-2.5">
+                        <div className="mt-0.5 shrink-0 w-5 h-5 rounded-md bg-[var(--primary)]/15 border border-[var(--primary)]/30 flex items-center justify-center">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
+                        </div>
+                        <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
+                          EXPO Worldwide Pvt Ltd
+                        </p>
+                      </div>
+                    </div>
+                    <p className="px-4 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">
+                      Mumbai • Bangalore • Delhi
+                    </p>
+                  </div>
                 </div>
 
                 {/* Europe Card */}
-                <div className="group/card relative rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-50 p-6 transition-all duration-400 hover:-translate-y-1 hover:border-[var(--primary)]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
+                <div className="group/card relative rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-400 hover:-translate-y-1.5 hover:border-[var(--primary)]/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
                   <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover/card:opacity-[0.04] transition-opacity duration-400 pointer-events-none" />
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0 shadow-md shadow-[var(--primary)]/15">
-                      <IoLocationOutline className="text-white text-lg" />
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+                      <IoLocationOutline className="text-[var(--primary)] text-lg" />
                     </div>
                   </div>
-                  <h4 className="mb-2 text-2xl md:text-3xl font-black gradient-text tracking-tight">
+                  <h4 className="mb-5 text-2xl md:text-3xl font-black gradient-text tracking-tight">
                     Europe
                   </h4>
-                  <p className="text-sm md:text-base font-semibold text-zinc-700 leading-relaxed">
-                    Expo UG
-                  </p>
-                  <p className="text-xs md:text-sm text-zinc-600 leading-relaxed mt-1">
-                    Germany &bull; Pan-European Coverage
-                  </p>
+                  <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3.5 transition-all duration-300 hover:bg-white hover:shadow-sm">
+                    <div className="flex items-start gap-2.5">
+                      <div className="mt-0.5 shrink-0 w-5 h-5 rounded-md bg-[var(--primary)]/15 border border-[var(--primary)]/30 flex items-center justify-center">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
+                      </div>
+                      <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
+                        Expo UG
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              <div className="mt-10 pt-5 border-t border-zinc-100 flex items-center justify-between text-sm font-semibold text-zinc-500 group-hover:text-[var(--primary)] transition-colors relative z-10">
-                <span>Visit By Appointment</span>
-                <FaArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </div>
             </motion.div>
           </div>

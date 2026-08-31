@@ -14,19 +14,23 @@ import {
 const locations = [
   {
     city: "Dubai",
-    company: "Expo Digital Fz LLC • Nishyama Technical Services LLC",
+    companies: [
+      { name: "Expo Digital Fz LLC", color: "var(--primary)" },
+      { name: "Nishyama Technical Services LLC", color: "var(--secondary)" },
+    ],
   },
   {
     city: "KSA",
-    company: "Expo Digital Riyadh",
+    companies: [{ name: "Expo Digital Riyadh", color: "var(--primary)" }],
   },
   {
     city: "India",
-    company: "EXPO Worldwide Pvt Ltd • Mumbai, Bangalore, Delhi",
+    companies: [{ name: "EXPO Worldwide Pvt Ltd", color: "var(--primary)" }],
+    subText: "Mumbai • Bangalore • Delhi",
   },
   {
     city: "Europe",
-    company: "Expo UG",
+    companies: [{ name: "Expo UG", color: "var(--primary)" }],
   },
 ];
 
@@ -187,16 +191,40 @@ const Footer = () => {
 
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 group-hover:scale-110 transition-transform duration-300">
+                    <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 transition-transform duration-300 group-hover:scale-110">
                       <MapPin size={20} className="text-[var(--primary)]" />
                     </div>
                     <h4 className="text-xl font-bold gradient-text">
                       {loc.city}
                     </h4>
                   </div>
-                  <p className="text-sm text-zinc-400 leading-relaxed font-medium group-hover:text-zinc-300 transition-colors duration-300">
-                    {loc.company}
-                  </p>
+                  
+                  <div className="space-y-2.5">
+                    {loc.companies.map((co, cIdx) => (
+                      <div 
+                        key={cIdx}
+                        className="relative rounded-lg border bg-zinc-800/60 backdrop-blur-sm px-3 py-2.5 transition-all duration-300 hover:bg-zinc-800"
+                        style={{ borderColor: `${co.color}40` }}
+                      >
+                        <div className="flex items-start gap-2">
+                          <div 
+                            className="mt-1 shrink-0 w-4 h-4 rounded border flex items-center justify-center"
+                            style={{ backgroundColor: `${co.color}20`, borderColor: `${co.color}60` }}
+                          >
+                            <div className="w-1 h-1 rounded-full" style={{ backgroundColor: co.color }} />
+                          </div>
+                          <p className="text-sm font-black text-white leading-snug">
+                            {co.name}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                    {loc.subText && (
+                      <p className="px-2 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500 group-hover:text-zinc-400 transition-colors">
+                        {loc.subText}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}

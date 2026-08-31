@@ -250,16 +250,6 @@ export default function Page() {
 
       {/* Hero Section */}
       <section className="relative pt-36 pb-12 md:pt-48 overflow-hidden bg-[#EAF4E1]">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80&auto=format&fit=crop"
-            alt="Exhibition Fabrication Workshop"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#EAF4E1]/90 via-[#EAF4E1]/80 to-[#EAF4E1]/95" />
-        </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
           <motion.div
             className="max-w-3xl text-center"

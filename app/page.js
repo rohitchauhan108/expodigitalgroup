@@ -253,7 +253,6 @@ export default function Home() {
   const marqueeItems = [
     "Bespoke Exhibition Booths",
     "Promotional & Mall Activations",
-    "Commercial Showroom Interiors",
     "Furniture & AV Rentals",
     "Turnkey Event Fabrication",
   ];
@@ -279,22 +278,8 @@ export default function Home() {
       <TopBar />
       <Navbar />
 
-      {/* 1. Hero Section with Carousel & Background Images */}
+      {/* 1. Hero Section with Carousel */}
       <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-[#EAF4E1] pt-36 pb-20 md:pt-48 md:pb-28">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={heroSlides[currentSlide].id}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="absolute inset-0 z-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `linear-gradient(rgba(234, 244, 225, 0.82), rgba(234, 244, 225, 0.9)), url(${heroSlides[currentSlide].bgImage})`,
-            }}
-          />
-        </AnimatePresence>
-
         <div className="site-shell relative z-10 w-full">
           <AnimatePresence mode="wait">
             <motion.div
@@ -329,24 +314,22 @@ export default function Home() {
           </AnimatePresence>
         </div>
 
-        <button
-          onClick={prevSlide}
-          aria-label="Previous Slide"
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white/80 text-zinc-950 backdrop-blur-md border border-zinc-200 shadow-md transition-all hover:bg-white hover:scale-110"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <button
-          onClick={nextSlide}
-          aria-label="Next Slide"
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white/80 text-zinc-950 backdrop-blur-md border border-zinc-200 shadow-md transition-all hover:bg-white hover:scale-110"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+        <div className="absolute bottom-8 right-8 z-20 flex items-center gap-2 bg-white/80 backdrop-blur-md border border-zinc-200 rounded-full px-3 py-2 shadow-md">
+          {heroSlides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`w-10 h-8 rounded-full text-xs font-black transition-all duration-300 ${
+                currentSlide === idx
+                  ? "bg-gradient-to-r from-[var(--primary)] to-orange-600 text-white shadow-lg shadow-[var(--primary)]/30"
+                  : "text-zinc-500 hover:text-zinc-950"
+              }`}
+            >
+              {String(idx + 1).padStart(2, "0")}
+            </button>
+          ))}
+        </div>
       </section>
 
       {/* 2. Infinite Services Marquee Section */}

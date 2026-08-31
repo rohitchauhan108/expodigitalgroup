@@ -101,7 +101,7 @@ const Navbar = () => {
             link.dropdown ? (
               <div key={link.name} className="relative group">
                 <button
-                  className={`flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] ${
+                  className={`flex items-center gap-1 text-md font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] ${
                     isParentActive(link.dropdown)
                       ? "text-[var(--primary)]"
                       : "text-white"
@@ -119,7 +119,7 @@ const Navbar = () => {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className={`block px-6 py-4 text-sm font-semibold transition-colors hover:bg-[var(--primary)] hover:text-white ${
+                      className={`block px-6 py-4 text-md font-semibold transition-colors hover:bg-[var(--primary)] hover:text-white ${
                         isActive(item.href)
                           ? "bg-[var(--primary)] text-white"
                           : "text-white"
@@ -134,7 +134,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`group relative text-sm font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] ${
+                className={`group relative text-md font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] ${
                   isActive(link.href)
                     ? "text-[var(--primary)]"
                     : "text-white"
