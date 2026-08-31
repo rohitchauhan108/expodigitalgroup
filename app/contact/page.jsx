@@ -45,7 +45,7 @@ function Page() {
 
   const serviceOptions = [
     "Custom Exhibition Stand Design & Build",
-    "Modular Sustainable Stand System (MO.PO)",
+    "Modular Sustainable Stand System",
     "Conference & Expo Booth Solutions",
     "Promotions & Mall Activations",
     "Commercial Showroom Interiors",

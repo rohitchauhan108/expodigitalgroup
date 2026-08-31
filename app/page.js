@@ -28,7 +28,7 @@ const heroSlides = [
     titleStart: "Engineering Unrivaled",
     titleHighlight: "Brand Presence",
     description:
-      "Maximize foot traffic and leave a lasting impression with our engineered MO.PO reusable tech and tailor-made architectural exhibition environments.",
+      "Maximize foot traffic and leave a lasting impression with our engineered Modular Sustainable reusable tech and tailor-made architectural exhibition environments.",
     bgImage:
       "/banners/banner2.webp",
   },
@@ -241,7 +241,7 @@ export default function Home() {
     {
       question: "What exactly is the Modular Portable Sustainable Stand System?",
       answer:
-        "MO.PO is our innovative, eco-conscious modular profiling setup. It gives you a premium, heavy custom-built appearance but generates absolutely zero waste, skips wood elements, and can be recombined into over 50 unique spatial variations for multiple exhibitions.",
+        "Modular Sustainable is our innovative, eco-conscious modular profiling setup. It gives you a premium, heavy custom-built appearance but generates absolutely zero waste, skips wood elements, and can be recombined into over 50 unique spatial variations for multiple exhibitions.",
     },
     {
       question: "Which regions and exhibition venues do you cover?",
