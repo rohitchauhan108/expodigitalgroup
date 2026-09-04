@@ -15,10 +15,10 @@ const TopBar = () => {
           >
             <MdOutlineEmail className="text-xs md:text-base text-[var(--primary)] group-hover:scale-110 transition-transform" />
             <span className="hidden sm:inline uppercase tracking-wider">
-              Sales@ExpoDigitalGroup.COM
+              sales@expodigitalgroup.com
             </span>
             <span className="sm:hidden uppercase tracking-wider">
-              Sales@ExpoDigitalGroup
+              sales@expodigitalgroup.com
             </span>
           </a>
 

@@ -184,22 +184,22 @@ export default function Home() {
   const principles = [
     {
       title: "Precision",
-      description: "Every detail is designed and delivered to match your brief.",
+      description: "Millimetres matter. A stand that is almost right is wrong.",
       icon: Crosshair,
     },
     {
       title: "Speed",
-      description: "Fast fabrication and smooth installation keep your event on track.",
+      description: "Show dates do not move. Neither do ours.",
       icon: Gauge,
     },
     {
       title: "Accountability",
-      description: "One dedicated team takes ownership from concept to handover.",
+      description: "One team, one contract. If it is our stand, it is our problem.",
       icon: ShieldCheck,
     },
     {
-      title: "Crafts",
-      description: "Quality materials and skilled making bring every space to life.",
+      title: "Craft",
+      description: "We are builders first. The finish is the brand.",
       icon: Hammer,
     },
   ];
@@ -399,8 +399,8 @@ export default function Home() {
                     idx < principles.length - 1 ? "md:border-r md:border-zinc-200" : ""
                   }`}
                 >
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
-                    <Icon size={22} strokeWidth={2} />
+                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+                    <Icon size={26} strokeWidth={2} />
                   </div>
                   <h3 className="mb-2 text-lg md:text-xl font-bold text-zinc-950">
                     {principle.title}
@@ -427,7 +427,7 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.5rem] border border-zinc-200 bg-zinc-100 shadow-[0_30px_80px_rgba(17,17,17,0.08)] group">
+              <div className="relative aspect-[4/5] w-full origin-center scale-[0.94] overflow-hidden rounded-[2.5rem] border border-zinc-200 bg-zinc-100 shadow-[0_30px_80px_rgba(17,17,17,0.08)] group">
                 <motion.img
                   src="https://videocdn.cdnpk.net/videos/f052324d-675d-5c39-a8e2-2aa87f1c0d0c/vertical/thumbnails/large.jpg?uid=R212285470&ga=GA1.1.1383789883.1786786872&semt=ais_hybrid&item_id=7421719&w=740&q=80"
                   alt="Expo Digital production showroom"

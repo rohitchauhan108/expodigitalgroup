@@ -39,12 +39,24 @@ const locations = [
   },
   {
     city: "India",
-    companies: [{ name: "EXPO Worldwide Pvt Ltd", color: "var(--primary)" }],
+    companies: [
+      {
+        name: "Expo Worldwide Pvt LTD",
+        address: "Head Office, Gami Industrial Area, Office No. C-39A, 2nd Floor, Navi Mumbai, Thane - 400705, Maharashtra",
+        color: "var(--primary)",
+      },
+    ],
     subText: "Mumbai • Bangalore • Delhi",
   },
   {
     city: "Europe",
-    companies: [{ name: "Expo UG", color: "var(--primary)" }],
+    companies: [
+      {
+        name: "Expo Works",
+        address: "Nadarzyn, 05-830, Near Warsaw, Poland",
+        color: "var(--primary)",
+      },
+    ],
   },
 ];
 
@@ -232,7 +244,7 @@ const Footer = () => {
                           </p>
                         </div>
                         {co.address && (
-                          <p className="mt-2 pl-6 text-xs leading-relaxed text-zinc-400">
+                          <p className="mt-2 pl-6 text-sm font-semibold leading-relaxed text-zinc-300">
                             {co.address}
                           </p>
                         )}

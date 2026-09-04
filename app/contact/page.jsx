@@ -623,7 +623,7 @@ function Page() {
                           Expo Digital (FZ) LLC
                         </p>
                       </div>
-                      <p className="mt-2 pl-7 text-xs leading-relaxed text-zinc-500">
+                      <p className="mt-3 pl-7 text-sm md:text-base font-semibold leading-relaxed text-zinc-700">
                         Capital Compound, Al Quoz Industrial Area 2, Dubai, UAE
                       </p>
                     </div>
@@ -636,7 +636,7 @@ function Page() {
                           Nishyama Technical Services LLC
                         </p>
                       </div>
-                      <p className="mt-2 pl-7 text-xs leading-relaxed text-zinc-500">
+                      <p className="mt-3 pl-7 text-sm md:text-base font-semibold leading-relaxed text-zinc-700">
                         Al Quoz Industrial Area 3, Warehouse No. 2-3, Dubai, UAE
                         (Opposite Al Quoz Mall)
                       </p>
@@ -664,7 +664,7 @@ function Page() {
                         Expo Digital Riyadh (Riyadh)
                       </p>
                     </div>
-                    <p className="mt-2 pl-7 text-xs leading-relaxed text-zinc-500">
+                    <p className="mt-3 pl-7 text-sm md:text-base font-semibold leading-relaxed text-zinc-700">
                       Al Sulay, Riyadh - 14275, Warehouse - 11-12
                     </p>
                   </div>
@@ -688,9 +688,13 @@ function Page() {
                           <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
                         </div>
                         <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
-                          EXPO Worldwide Pvt Ltd
+                          Expo Worldwide Pvt LTD
                         </p>
                       </div>
+                      <p className="mt-3 pl-7 text-sm md:text-base font-semibold leading-relaxed text-zinc-700">
+                        Head Office, Gami Industrial Area, Office No. C-39A,
+                        2nd Floor, Navi Mumbai, Thane - 400705, Maharashtra
+                      </p>
                     </div>
                     <p className="px-4 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">
                       Mumbai • Bangalore • Delhi
@@ -715,9 +719,12 @@ function Page() {
                         <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
                       </div>
                       <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
-                        Expo UG
+                          Expo Works
                       </p>
                     </div>
+                    <p className="mt-3 pl-7 text-sm md:text-base font-semibold leading-relaxed text-zinc-700">
+                      Nadarzyn, 05-830, Near Warsaw, Poland
+                    </p>
                   </div>
                 </div>
               </div>
