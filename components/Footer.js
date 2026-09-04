@@ -13,15 +13,29 @@ import {
 
 const locations = [
   {
-    city: "Dubai",
+    city: "UAE",
     companies: [
-      { name: "Expo Digital Fz LLC", color: "var(--primary)" },
-      { name: "Nishyama Technical Services LLC", color: "var(--secondary)" },
+      {
+        name: "Expo Digital (FZ) LLC",
+        address: "Capital Compound, Al Quoz Industrial Area 2, Dubai, UAE",
+        color: "var(--primary)",
+      },
+      {
+        name: "Nishyama Technical Services LLC",
+        address: "Al Quoz Industrial Area 3, Warehouse No. 2-3, Dubai, UAE (Opposite Al Quoz Mall)",
+        color: "var(--secondary)",
+      },
     ],
   },
   {
     city: "KSA",
-    companies: [{ name: "Expo Digital Riyadh", color: "var(--primary)" }],
+    companies: [
+      {
+        name: "Expo Digital Riyadh (Riyadh)",
+        address: "Al Sulay, Riyadh - 14275, Warehouse - 11-12",
+        color: "var(--primary)",
+      },
+    ],
   },
   {
     city: "India",
@@ -217,6 +231,11 @@ const Footer = () => {
                             {co.name}
                           </p>
                         </div>
+                        {co.address && (
+                          <p className="mt-2 pl-6 text-xs leading-relaxed text-zinc-400">
+                            {co.address}
+                          </p>
+                        )}
                       </div>
                     ))}
                     {loc.subText && (

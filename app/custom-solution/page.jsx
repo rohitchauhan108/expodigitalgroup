@@ -26,6 +26,11 @@ import { GrCompliance } from "react-icons/gr";
 import { GrSchedules } from "react-icons/gr";
 // Moved outside the component to prevent recreation on every single render pass
 const GALLERY_IMAGES = [
+  "/custom-solution/42.jpeg",
+  "/custom-solution/41.jpeg",
+  "/custom-solution/40.jpeg",
+  "/custom-solution/39.jpeg",
+  "/custom-solution/38.jpeg",
   "/custom-solution/37.png",
   "/custom-solution/36.png",
   "/custom-solution/35.png",
@@ -264,7 +269,7 @@ export default function Page() {
               transition={{ delay: 0.1 }}
             >
               <span className="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse" />
-              <span className="text-sm font-semibold text-zinc-700">
+              <span className="text-base font-bold text-zinc-800">
                 Custom Exhibition Solutions
               </span>
             </motion.div>
@@ -274,8 +279,8 @@ export default function Page() {
               <span className="gradient-text">Bespoke Exhibition Stands</span>
             </h1>
 
-            <p className="text-lg text-zinc-600 leading-relaxed mb-8 max-w-2xl mx-auto">
-              Custom Show Emirates specializes in designing and building world-class exhibition stands that transform your brand presence. From concept to installation—we deliver ROI-driven solutions across the Middle East, India and Europe.
+            <p className="text-xl text-zinc-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+              We offer complete end-to-end solutions—from 3D design and premium graphics to in-house fabrication and seamless installation. Our expertise spans bespoke architectural stands, modular systems, and brand activations tailored to your vision. Operating across the Middle East, India, and Europe, we deliver ROI-driven results at premier venues and events. With proven craftsmanship and innovative engineering, we turn concepts into show-stopping experiences that drive foot traffic and lasting impressions.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center">

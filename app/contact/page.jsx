@@ -84,7 +84,7 @@ function Page() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+            <p className="mb-4 text-md font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
               Premium Exhibition Stand Builders • Get in Touch
             </p>
             <h1 className="mb-8 text-3xl font-bold tracking-tight text-zinc-950 md:text-5xl lg:text-6xl leading-[1.1]">
@@ -94,7 +94,7 @@ function Page() {
             <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-zinc-600 md:text-lg">
               Whether it&apos;s a bespoke exhibition booth, modular system, or
               full conference pavilion — our team delivers precision, speed, and
-              brand-accurate execution across the Middle East & India.
+              brand-accurate execution across the Middle East, India & Europe.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -183,7 +183,7 @@ function Page() {
                       <FaPhone className="text-2xl text-[var(--primary)]" />
                     </div>
                     <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-4 py-2 rounded-full">
-                      24-hr Response
+                      06-hr Response
                     </span>
                   </div>
 
@@ -301,7 +301,7 @@ function Page() {
                 </h3>
 
                 <p className="text-base leading-relaxed text-zinc-600 mb-10">
-                  From 3D render to on-site handover — we own every part of the
+                  From Large Format Printing/Branding to on-site handover — we own every part of the
                   process, so you don&apos;t have to.
                 </p>
 
@@ -611,7 +611,7 @@ function Page() {
                     </div>
                   </div>
                   <h4 className="mb-5 text-2xl md:text-3xl font-black gradient-text tracking-tight">
-                    Dubai
+                    UAE
                   </h4>
                   <div className="space-y-3">
                     <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3.5 transition-all duration-300 hover:bg-white hover:shadow-sm">
@@ -620,9 +620,12 @@ function Page() {
                           <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
                         </div>
                         <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
-                          Expo Digital Fz LLC
+                          Expo Digital (FZ) LLC
                         </p>
                       </div>
+                      <p className="mt-2 pl-7 text-xs leading-relaxed text-zinc-500">
+                        Capital Compound, Al Quoz Industrial Area 2, Dubai, UAE
+                      </p>
                     </div>
                     <div className="group/co relative rounded-xl border border-[var(--secondary)]/20 bg-zinc-50/50 p-3.5 transition-all duration-300 hover:bg-white hover:shadow-sm">
                       <div className="flex items-start gap-2.5">
@@ -633,6 +636,10 @@ function Page() {
                           Nishyama Technical Services LLC
                         </p>
                       </div>
+                      <p className="mt-2 pl-7 text-xs leading-relaxed text-zinc-500">
+                        Al Quoz Industrial Area 3, Warehouse No. 2-3, Dubai, UAE
+                        (Opposite Al Quoz Mall)
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -654,9 +661,12 @@ function Page() {
                         <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
                       </div>
                       <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
-                        Expo Digital Riyadh
+                        Expo Digital Riyadh (Riyadh)
                       </p>
                     </div>
+                    <p className="mt-2 pl-7 text-xs leading-relaxed text-zinc-500">
+                      Al Sulay, Riyadh - 14275, Warehouse - 11-12
+                    </p>
                   </div>
                 </div>
 

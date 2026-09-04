@@ -26,6 +26,7 @@ import { GrCompliance } from "react-icons/gr";
 import { GrSchedules } from "react-icons/gr";
 
 const GALLERY_IMAGES = [
+  "/modular-solution/image29.jpeg",
   "/modular-solution/image28.png",
   "/modular-solution/image27.png",
   "/modular-solution/image26.png",
@@ -211,7 +212,7 @@ export default function Page() {
               transition={{ delay: 0.1 }}
             >
               <span className="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse" />
-              <span className="text-sm font-semibold text-zinc-700">
+              <span className="text-base font-bold text-zinc-800">
                 Modular Sustainable Booth System
               </span>
             </motion.div>
@@ -221,8 +222,8 @@ export default function Page() {
               <span className="gradient-text">(SEG Fabric)</span>
             </h1>
 
-            <p className="text-lg text-zinc-600 leading-relaxed mb-8 max-w-2xl mx-auto">
-              Where innovation meets craftsmanship—Our Modular SEG fabric booth system transforms small spaces into vibrant, custom-designed exhibits ready in just hours. Leave the boring Octanorm behind—perfect for shell scheme spaces too.
+            <p className="text-xl text-zinc-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+              Our Modular SEG fabric booth system revolutionizes exhibition stands with fast installation and stunning visual impact. We provide complete end-to-end solutions—from innovative design and premium fabric graphics to rapid assembly and professional installation. Perfect for conference booths, mall activations, and brand experiences, our modular systems combine versatility with sustainability. Reusable across multiple events, transport-friendly, and organizer-compliant, they deliver consistent ROI while reducing environmental impact. Operating across the Middle East, India, and Europe, we transform your vision into show-stopping experiences in hours, not days.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center">

@@ -235,7 +235,7 @@ export default function ConferenceExpoPage() {
     },
     {
       question: "Do you offer services outside the UAE?",
-      answer: "Yes, we deliver turnkey booth solutions across the Middle East and India, including UAE, KSA, Oman, Qatar, and Egypt. We partner with organizers and corporations regionally."
+      answer: "Yes, we deliver turnkey booth solutions across the Middle East, India and Europe, including UAE, KSA, Oman, Qatar, and Egypt. We partner with organizers and corporations regionally."
     },
     {
       question: "Are there any hidden charges in your pricing?",
@@ -542,7 +542,7 @@ export default function ConferenceExpoPage() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-zinc-900/10 border border-white/60 group">
                 <div className="aspect-[4/5] relative">
                   <Image
-                    src="https://i.pinimg.com/736x/28/89/cb/2889cbe110a16ac534dfd908ad476f2b.jpg"
+                    src="https://i.pinimg.com/736x/3c/2d/4d/3c2d4ddae96514fd1a43f040880ddd45.jpg"
                     alt="Conference Expo Setup Team"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -568,7 +568,7 @@ export default function ConferenceExpoPage() {
                   </div>
                   <div className="flex-1">
                     <p className="text-3xl font-black text-zinc-950 leading-none mb-1">
-                      450+
+                      1000+
                     </p>
                     <p className="text-sm font-semibold text-zinc-700 mb-1">Conference &amp; Expo Projects Delivered</p>
                     <p className="text-xs text-zinc-500 leading-relaxed">

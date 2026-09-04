@@ -6,7 +6,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingIcons from "@/components/FloatingIcons";
 import TopBar from "@/components/TopBar";
-import { Sparkles, Rocket, Building2, Users } from "lucide-react";
+import {
+  Building2,
+  Crosshair,
+  Gauge,
+  Hammer,
+  Rocket,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 import Link from "next/link";
 import Services from "@/components/Services";
 
@@ -15,7 +23,7 @@ const heroSlides = [
   {
     id: 1,
     tagline: "PREMIUM EXHIBITION STAND BUILDERS",
-    titleStart: "We Bring Your Dream",
+    titleStart: "We Bring Your",
     titleHighlight: "Project To Life",
     description:
       "From high-end custom bespoke booths to eco-friendly modular structures. We turn original concepts into breathtaking, eye-catching spaces that stand out on competitive show floors.",
@@ -38,7 +46,7 @@ const heroSlides = [
     titleStart: "Transforming Spatial",
     titleHighlight: "Customer Engagement",
     description:
-      "Complete end-to-end execution directly from our Al Quoz compound: fast fabrication, seamless logistics, and strict venue-compliant installation.",
+      "Complete end-to-end execution directly from our factory compound: fast fabrication, seamless logistics, and strict venue-compliant installation.",
     bgImage:
       "/banners/banner3.webp",
   },
@@ -155,11 +163,11 @@ function FAQCard({ faq }) {
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto-play timer for hero carousel (5s per slide)
+  // Auto-play timer for hero carousel (12s per slide)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 10000);
+    }, 12000);
     return () => clearInterval(timer);
   }, []);
 
@@ -173,11 +181,27 @@ export default function Home() {
     );
   };
 
-  const stats = [
-    { label: "Years Experience", value: "18+", icon: Sparkles },
-    { label: "Successful Projects", value: "800+", icon: Rocket },
-    { label: "Events & Exhibitions", value: "500+", icon: Building2 },
-    { label: "Satisfied Clients", value: "1000+", icon: Users },
+  const principles = [
+    {
+      title: "Precision",
+      description: "Every detail is designed and delivered to match your brief.",
+      icon: Crosshair,
+    },
+    {
+      title: "Speed",
+      description: "Fast fabrication and smooth installation keep your event on track.",
+      icon: Gauge,
+    },
+    {
+      title: "Accountability",
+      description: "One dedicated team takes ownership from concept to handover.",
+      icon: ShieldCheck,
+    },
+    {
+      title: "Crafts",
+      description: "Quality materials and skilled making bring every space to life.",
+      icon: Hammer,
+    },
   ];
 
   const services = [
@@ -236,7 +260,7 @@ export default function Home() {
     {
       question: "Do you handle the entire exhibition cycle in-house?",
       answer:
-        "Yes, Expo Digital Group is a complete turnkey provider. We handle everything from creative conceptual 3D design renders and in-house manufacturing at our Al Quoz compound to shipping, floor assembly, dismantling, and safe storage.",
+        "Yes, Expo Digital Group is a complete turnkey provider. We handle everything from creative conceptual 3D design renders and in-house manufacturing at our factory compound to shipping, floor assembly, dismantling, and safe storage.",
     },
     {
       question: "What exactly is the Modular Portable Sustainable Stand System?",
@@ -358,12 +382,12 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 3. Minimal Stats Counter Strip */}
+      {/* 3. Our Principles */}
       <section className="relative py-12 md:py-16 overflow-hidden">
         <div className="site-shell">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-0">
-            {stats.map((stat, idx) => {
-              const Icon = stat.icon;
+            {principles.map((principle, idx) => {
+              const Icon = principle.icon;
               return (
                 <motion.div
                   key={idx}
@@ -372,19 +396,17 @@ export default function Home() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className={`relative flex flex-col items-center px-4 ${
-                    idx < stats.length - 1 ? "md:border-r md:border-zinc-200" : ""
+                    idx < principles.length - 1 ? "md:border-r md:border-zinc-200" : ""
                   }`}
                 >
-                  <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full text-[var(--primary)]">
-                    <Icon size={16} strokeWidth={2} />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+                    <Icon size={22} strokeWidth={2} />
                   </div>
-                  <div className="mb-1">
-                    <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-950 tracking-tight">
-                      <AnimatedCounter end={stat.value} duration={2000} />
-                    </span>
-                  </div>
-                  <p className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-500 text-center">
-                    {stat.label}
+                  <h3 className="mb-2 text-lg md:text-xl font-bold text-zinc-950">
+                    {principle.title}
+                  </h3>
+                  <p className="max-w-[16rem] text-center text-sm md:text-base leading-relaxed text-zinc-600">
+                    {principle.description}
                   </p>
                 </motion.div>
               );
@@ -424,7 +446,7 @@ export default function Home() {
                     On-Time & On-Brief Delivery
                   </p>
                   <p className="text-xs text-zinc-600">
-                    Managing complete fabrication complexity & strict venue logistics across all major exhibition venues smoothly.
+                    Managing complete fabrication complexity & strict venue compliance across all major exhibition centres smoothly.
                   </p>
                 </motion.div>
               </div>
@@ -497,7 +519,7 @@ export default function Home() {
                   <span className="gradient-text">Engineered to dominate</span> the floor.
                 </h2>
                 <p className="text-lg leading-relaxed text-zinc-600">
-                  We handle the high-stakes friction of trade show logistics—from initial 3D design to local fabrication, complex venue clearances, and fast dismantling.
+                  We handle the high-stakes friction of trade show logistics—from initial large format printing design to local fabrication, complex venue clearances, and fast dismantling.
                 </p>
               </motion.div>
 
@@ -674,7 +696,7 @@ export default function Home() {
       </section>
 
       {/* 8. Recent Projects Portfolio Section */}
-      <section className="py-10 lg:py-24" id="projects">
+      <section className="py-10 lg:py-12" id="projects">
         <div className="site-shell">
           <motion.div
             className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
@@ -726,7 +748,7 @@ export default function Home() {
 
       {/* 9. FAQ Accordion Section */}
       <section
-        className="border-t border-zinc-200 py-10 lg:py-24 md:py-32 relative overflow-hidden"
+        className="border-t border-zinc-200 py-10 lg:py-16 md:py-16 relative overflow-hidden"
         id="faq"
       >
         <div className="site-shell max-w-4xl mx-auto">
@@ -754,7 +776,7 @@ export default function Home() {
       </section>
 
       {/* 10. Call-To-Action Section */}
-      <section className="relative overflow-hidden py-10 lg:py-28">
+      <section className="relative overflow-hidden py-10 lg:py-12 lg:pb-28">
         <div className="site-shell relative z-10 text-center">
           <motion.div {...fadeUp}>
             <h2 className="mx-auto mb-12 max-w-4xl text-3xl font-bold leading-tight text-zinc-950 md:text-5xl">
@@ -765,8 +787,8 @@ export default function Home() {
               <Link href="/contact" className="rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-xl shadow-[var(--primary)]/30">
                 Get Started Today
               </Link>
-              <Link href="/#projects" className="rounded-full border border-zinc-300 bg-white px-10 py-4 font-bold text-zinc-900 transition-all hover:bg-zinc-100">
-                View Our Portfolio
+              <Link href="/custom-solution" className="rounded-full border border-zinc-300 bg-white px-10 py-4 font-bold text-zinc-900 transition-all hover:bg-zinc-100">
+                View Our Custom Solutions
               </Link>
             </div>
           </motion.div>
