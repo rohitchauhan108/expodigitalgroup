@@ -450,34 +450,6 @@ function Page() {
                         "Your inquiry has been received. Our sales and design team will review your request and get back to you within 24 hours."}
                     </p>
 
-                    <div className="mb-10 w-full max-w-sm rounded-2xl border border-zinc-200 bg-zinc-50/60 p-5 text-left space-y-2.5">
-                      <div className="flex items-center gap-3">
-                        <MdOutlineEmail className="w-5 h-5 text-[var(--primary)] shrink-0" />
-                        <div className="flex-1 min-w-0">
-                          <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
-                            Confirmation sent to
-                          </p>
-                          <p className="text-sm md:text-base font-bold text-zinc-900 truncate">
-                            rohitrankmantra12@gmail.com
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <FaPhone className="w-5 h-5 text-[var(--primary)] shrink-0" />
-                        <div className="flex-1 min-w-0">
-                          <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
-                            Need immediate help? Call
-                          </p>
-                          <a
-                            href="tel:+971563760187"
-                            className="text-sm md:text-base font-bold text-zinc-900 hover:text-[var(--primary)] transition-colors"
-                          >
-                            +971 563760187
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
                     <button
                       type="button"
                       onClick={() =>
