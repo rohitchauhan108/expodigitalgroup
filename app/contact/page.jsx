@@ -30,6 +30,13 @@ function Page() {
     privacy: false,
   });
 
+  const [status, setStatus] = useState({
+    loading: false,
+    success: false,
+    error: false,
+    message: "",
+  });
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -38,9 +45,75 @@ function Page() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const resetForm = () => {
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      service: "",
+      message: "",
+      privacy: false,
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Thank you! Our team will get back to you within 24 hours.");
+
+    const accessKey = "7bc5515b-a67d-4951-bf47-ae26939f2619";
+
+    setStatus({ loading: true, success: false, error: false, message: "" });
+
+    try {
+      const payload = {
+        access_key: accessKey,
+        to: "rohitrankmantra12@gmail.com",
+        subject: `New Contact Inquiry from ${formData.firstName} ${formData.lastName}`,
+        from_name: "Expo Digital Group Website",
+        to_name: "Sales Team",
+        reply_to: formData.email,
+        First_Name: formData.firstName,
+        Last_Name: formData.lastName,
+        Email: formData.email,
+        Phone: formData.phone,
+        Service: formData.service,
+        Message: formData.message || "—",
+        Privacy_Agreed: formData.privacy ? "Yes" : "No",
+      };
+
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus({
+          loading: false,
+          success: true,
+          error: false,
+          message:
+            "Thank you! Your inquiry has been received. Our team will get back to you within 24 hours.",
+        });
+        resetForm();
+      } else {
+        throw new Error(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setStatus({
+        loading: false,
+        success: false,
+        error: true,
+        message:
+          err.message ||
+          "We couldn't send your message right now. Please try again or contact us directly at sales@expodigitalgroup.com.",
+      });
+    }
   };
 
   const serviceOptions = [
@@ -49,14 +122,14 @@ function Page() {
     "Conference & Expo Booth Solutions",
     "Promotions & Mall Activations",
     "Furniture & AV Rentals",
-    "3D Architectural Renderings",
+    "Large Format Printing / Branding",
     "Turnkey Event Project Management",
   ];
 
   const inquiryBullets = [
     {
       title: "In-House Production",
-      text: "100% fabrication at our Al Quoz compound. Full quality control on every build from cutting to final assembly.",
+      text: "100% fabrication at our factory compound. Full quality control on every build from cutting to final assembly.",
     },
     {
       title: "Certified for Major Venues",
@@ -344,142 +417,283 @@ function Page() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <div className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)]">
-                <form onSubmit={handleSubmit} className="space-y-7">
-                  {/* First name + Last name */}
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
-                        First Name{" "}
-                        <span className="text-[var(--primary)]">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="firstName"
-                        required
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        placeholder="Enter your first name"
-                        className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
-                        Last Name{" "}
-                        <span className="text-[var(--primary)]">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="lastName"
-                        required
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        placeholder="Enter your last name"
-                        className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all"
-                      />
-                    </div>
-                  </div>
+              <div className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)] overflow-hidden">
+                {status.success ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="relative z-10 flex flex-col items-center text-center py-6 md:py-10"
+                  >
+                    <div className="absolute -top-10 -right-10 w-60 h-60 rounded-full bg-brand-gradient opacity-10 blur-[70px] pointer-events-none" />
+                    <div className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-brand-gradient opacity-10 blur-[80px] pointer-events-none" />
 
-                  {/* Email + Phone */}
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
-                        Email <span className="text-[var(--primary)]">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Enter your email"
-                        className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all"
-                      />
+                    <div className="relative mb-8">
+                      <div className="absolute inset-0 rounded-full bg-[var(--secondary)]/20 animate-ping" />
+                      <div className="relative w-24 h-24 rounded-full bg-brand-gradient flex items-center justify-center shadow-2xl shadow-[var(--secondary)]/20">
+                        <CheckCircle2
+                          className="w-12 h-12 text-white"
+                          strokeWidth={3}
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
-                        Phone <span className="text-[var(--primary)]">*</span>
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        required
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="Enter your phone number"
-                        className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all"
-                      />
-                    </div>
-                  </div>
 
-                  {/* Service dropdown */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
-                      What do you need help with?{" "}
-                      <span className="text-[var(--primary)]">*</span>
-                    </label>
-                    <select
-                      name="service"
-                      required
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all appearance-none cursor-pointer pr-12"
-                      style={{
-                        backgroundImage:
-                          "url(\"data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FF7900' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\")",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "right 1.25rem center",
-                        backgroundSize: "1.25rem",
-                      }}
+                    <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] gradient-text">
+                      Message Successfully Sent
+                    </p>
+                    <h3 className="mb-5 text-3xl md:text-4xl font-black tracking-tight text-zinc-950 leading-tight">
+                      Thank you for reaching out!
+                    </h3>
+                    <p className="mb-10 max-w-lg text-base md:text-lg leading-relaxed text-zinc-600">
+                      {status.message ||
+                        "Your inquiry has been received. Our sales and design team will review your request and get back to you within 24 hours."}
+                    </p>
+
+                    <div className="mb-10 w-full max-w-sm rounded-2xl border border-zinc-200 bg-zinc-50/60 p-5 text-left space-y-2.5">
+                      <div className="flex items-center gap-3">
+                        <MdOutlineEmail className="w-5 h-5 text-[var(--primary)] shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
+                            Confirmation sent to
+                          </p>
+                          <p className="text-sm md:text-base font-bold text-zinc-900 truncate">
+                            rohitrankmantra12@gmail.com
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <FaPhone className="w-5 h-5 text-[var(--primary)] shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
+                            Need immediate help? Call
+                          </p>
+                          <a
+                            href="tel:+971563760187"
+                            className="text-sm md:text-base font-bold text-zinc-900 hover:text-[var(--primary)] transition-colors"
+                          >
+                            +971 563760187
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setStatus({
+                          loading: false,
+                          success: false,
+                          error: false,
+                          message: "",
+                        })
+                      }
+                      className="rounded-full border-2 border-zinc-200 bg-white px-10 py-4 font-bold text-zinc-900 transition-all hover:scale-105 hover:border-[var(--primary)]/40 hover:bg-[var(--primary)]/5 flex items-center gap-2 group"
                     >
-                      <option value="">Select the service</option>
-                      {serviceOptions.map((opt) => (
-                        <option key={opt} value={opt}>
-                          {opt}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                      <FaArrowRight className="w-4 h-4 transition-transform -rotate-180 group-hover:-translate-x-1" />
+                      Send Another Inquiry
+                    </button>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-7">
+                    {/* First name + Last name */}
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                          First Name{" "}
+                          <span className="text-[var(--primary)]">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="firstName"
+                          required
+                          value={formData.firstName}
+                          onChange={handleChange}
+                          placeholder="Enter your first name"
+                          className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                          Last Name{" "}
+                          <span className="text-[var(--primary)]">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="lastName"
+                          required
+                          value={formData.lastName}
+                          onChange={handleChange}
+                          placeholder="Enter your last name"
+                          className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all"
+                        />
+                      </div>
+                    </div>
 
-                  {/* Message */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
-                      Message
-                    </label>
-                    <textarea
-                      name="message"
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Provide details about your exhibition booth, event date, venue, sizing requirements, or any reference designs..."
-                      className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all resize-none"
-                    />
-                  </div>
+                    {/* Email + Phone */}
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                          Email <span className="text-[var(--primary)]">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="Enter your email"
+                          className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                          Phone <span className="text-[var(--primary)]">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          required
+                          value={formData.phone}
+                          onChange={handleChange}
+                          placeholder="Enter your phone number"
+                          className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all"
+                        />
+                      </div>
+                    </div>
 
-                  {/* Privacy checkbox */}
-                  <div className="flex items-start gap-3">
+                    {/* Service dropdown */}
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                        What do you need help with?{" "}
+                        <span className="text-[var(--primary)]">*</span>
+                      </label>
+                      <select
+                        name="service"
+                        required
+                        value={formData.service}
+                        onChange={handleChange}
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all appearance-none cursor-pointer pr-12"
+                        style={{
+                          backgroundImage:
+                            "url(\"data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FF7900' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\")",
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "right 1.25rem center",
+                          backgroundSize: "1.25rem",
+                        }}
+                      >
+                        <option value="">Select the service</option>
+                        {serviceOptions.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Message */}
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                        Message
+                      </label>
+                      <textarea
+                        name="message"
+                        rows={5}
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Provide details about your exhibition booth, event date, venue, sizing requirements, or any reference designs..."
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-5 py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10 transition-all resize-none"
+                      />
+                    </div>
+
+                    {/* Honeypot spam protection */}
                     <input
                       type="checkbox"
-                      name="privacy"
-                      required
-                      checked={formData.privacy}
-                      onChange={handleChange}
-                      className="mt-1 w-5 h-5 rounded border-zinc-300 text-[var(--primary)] focus:ring-[var(--primary)] cursor-pointer shrink-0"
+                      name="botcheck"
+                      className="hidden"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      readOnly
                     />
-                    <label className="text-xs text-base text-zinc-600 cursor-pointer font-medium">
-                      <span className="text-[var(--primary)] font-bold">*</span>{" "}
-                      Yes, I agree with the privacy policy.
-                    </label>
-                  </div>
 
-                  {/* Submit button - matches home page CTA style */}
-                  <button
-                    type="submit"
-                    className="group relative w-full sm:w-auto sm:mx-auto sm:block rounded-full bg-[var(--primary)] lg:px-12 px-10 py-5 font-bold text-white transition-all hover:scale-105 shadow-xl shadow-[var(--primary)]/20 flex items-center justify-center gap-3"
-                  >
-                    Send Message
-                  </button>
-                </form>
+                    {/* Privacy checkbox */}
+                    <div className="flex items-start gap-3">
+                      <input
+                        type="checkbox"
+                        name="privacy"
+                        required
+                        checked={formData.privacy}
+                        onChange={handleChange}
+                        className="mt-1 w-5 h-5 rounded border-zinc-300 text-[var(--primary)] focus:ring-[var(--primary)] cursor-pointer shrink-0"
+                      />
+                      <label className="text-xs text-base text-zinc-600 cursor-pointer font-medium">
+                        <span className="text-[var(--primary)] font-bold">
+                          *
+                        </span>{" "}
+                        Yes, I agree with the privacy policy.
+                      </label>
+                    </div>
+
+                    {/* Error banner only (success takes over the whole card) */}
+                    {status.error && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="flex items-start gap-3 rounded-2xl border border-red-300/50 bg-red-50 p-4 md:p-5"
+                      >
+                        <div className="w-6 h-6 rounded-full bg-red-500 shrink-0 mt-0.5 flex items-center justify-center text-white text-sm font-bold">
+                          !
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-sm md:text-base font-bold text-red-800 mb-1">
+                            Oops — couldn&apos;t send your message
+                          </p>
+                          <p className="text-sm md:text-base font-semibold text-red-700 leading-relaxed">
+                            {status.message}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {/* Submit button - matches home page CTA style */}
+                    <button
+                      type="submit"
+                      disabled={status.loading}
+                      className="group relative w-full sm:w-auto rounded-full bg-[var(--primary)] lg:px-12 px-10 py-5 font-bold text-white transition-all hover:scale-105 shadow-xl shadow-[var(--primary)]/20 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    >
+                      {status.loading ? (
+                        <>
+                          <svg
+                            className="animate-spin w-5 h-5 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            ></circle>
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
+                          </svg>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5" />
+                          Send Message
+                        </>
+                      )}
+                    </button>
+                  </form>
+                )}
               </div>
             </motion.div>
           </div>
