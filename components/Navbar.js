@@ -20,6 +20,12 @@ const Navbar = () => {
     return dropdownItems?.some((item) => pathname === item.href);
   };
 
+  // Close mobile menu automatically on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setMobileDropdownOpen(false);
+  }, [pathname]);
+
   // Prevent background scrolling when mobile menu overlay is active
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -47,27 +53,28 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="relative w-full z-[9999] bg-[#000000] py-0">
-      <div className="site-shell flex h-28 md:h-36 lg:h-44 xl:h-52 justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="relative z-50 flex items-center gap-3">
+    <nav className="relative w-full z-[9999] bg-[#000000] border-b border-zinc-900 py-0">
+      <div className="site-shell flex h-28 md:h-36 lg:h-44 xl:h-52 justify-between items-center px-4 md:px-8">
+        
+        {/* Large Logo */}
+        <Link href="/" className="relative z-50 flex items-center shrink-0">
           <Image
             src="/expo-digital-logo.png"
             alt="Expo Digital Group"
             width={300}
             height={300}
             priority
-            className="h-24 md:h-32 lg:h-40 xl:h-48 w-auto object-cover"
+            className="h-24 md:h-32 lg:h-40 xl:h-48 w-auto object-contain"
           />
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-10">
+        {/* Desktop Navigation (lg & above) */}
+        <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
           {navLinks.map((link) =>
             link.dropdown ? (
-              <div key={link.name} className="relative group">
+              <div key={link.name} className="relative group py-4">
                 <button
-                  className={`flex items-center gap-1 text-md font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] ${
+                  className={`flex items-center gap-1.5 text-xs xl:text-sm font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] ${
                     isParentActive(link.dropdown)
                       ? "text-[var(--primary)]"
                       : "text-white"
@@ -80,27 +87,30 @@ const Navbar = () => {
                   />
                 </button>
 
-                <div className="absolute left-0 top-full mt-3 w-64 rounded-xl bg-black shadow-2xl opacity-0 invisible translate-y-3 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 overflow-hidden z-50">
-                  {link.dropdown.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={`block px-6 py-4 text-md font-semibold transition-colors hover:bg-[var(--primary)] hover:text-white ${
-                        isActive(item.href)
-                          ? "bg-[var(--primary)] text-white"
-                          : "text-white"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                {/* Dropdown Menu */}
+                <div className="absolute left-0 top-full pt-2 w-60 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
+                  <div className="rounded-xl bg-zinc-950 border border-zinc-800 shadow-2xl overflow-hidden py-2">
+                    {link.dropdown.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className={`block px-6 py-3.5 text-xs xl:text-sm font-semibold transition-colors hover:bg-[var(--primary)] hover:text-white ${
+                          isActive(item.href)
+                            ? "bg-[var(--primary)] text-white"
+                            : "text-zinc-200"
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             ) : (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`group relative text-md font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] ${
+                className={`group relative text-xs xl:text-sm font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] py-2 ${
                   isActive(link.href)
                     ? "text-[var(--primary)]"
                     : "text-white"
@@ -108,7 +118,7 @@ const Navbar = () => {
               >
                 {link.name}
                 <span
-                  className={`absolute -bottom-1 left-0 h-[2px] bg-[var(--primary)] transition-all group-hover:w-full ${
+                  className={`absolute bottom-0 left-0 h-[2px] bg-[var(--primary)] transition-all group-hover:w-full ${
                     isActive(link.href) ? "w-full" : "w-0"
                   }`}
                 />
@@ -119,7 +129,7 @@ const Navbar = () => {
           {/* CTA Button */}
           <Link
             href="/contact"
-            className="group relative flex items-center justify-center overflow-hidden rounded-full bg-[var(--primary)] text-white transition-all hover:text-black shrink-0 whitespace-nowrap px-4 py-2.5 text-xs gap-1.5 xl:px-7 xl:py-3 xl:text-sm xl:gap-2"
+            className="group relative flex items-center justify-center overflow-hidden rounded-full bg-[var(--primary)] text-white transition-all hover:bg-white hover:text-black shrink-0 whitespace-nowrap px-5 py-2.5 text-xs xl:px-7 xl:py-3 xl:text-sm font-semibold gap-2 shadow-lg"
           >
             <span className="relative z-10">Get Quote</span>
             <ArrowRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -128,13 +138,14 @@ const Navbar = () => {
 
         {/* Mobile Toggle Button */}
         <button
-          className="relative z-50 flex h-10 w-10 items-center justify-center rounded-full bg-black text-white md:hidden"
+          aria-label="Toggle Navigation Menu"
+          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 text-white lg:hidden focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X size={20} className="text-white" />
+            <X size={22} className="text-white" />
           ) : (
-            <Menu size={20} />
+            <Menu size={22} />
           )}
         </button>
       </div>
@@ -143,35 +154,20 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -30 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            className="fixed inset-0 w-full h-full z-40 bg-black md:hidden overflow-y-auto flex flex-col"
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="fixed inset-0 w-full h-full z-40 bg-black/95 backdrop-blur-xl lg:hidden overflow-y-auto flex flex-col pt-32"
           >
-            <div className="site-shell flex h-28 md:h-36 items-center shrink-0">
-              <Link
-                href="/"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-3"
-              >
-                <Image
-                  src="/expo-digital-logo.png"
-                  alt="Expo Digital Group"
-                  width={300}
-                  height={300}
-                  priority
-                  className="h-24 w-auto object-cover"
-                />
-              </Link>
-            </div>
-
-            <div className="site-shell space-y-6 pb-20 flex-1 pt-2">
+            <div className="site-shell space-y-6 px-6 pb-20 flex-1">
               {navLinks.map((link, idx) => (
                 <motion.div
                   key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -15 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.08 }}
+                  transition={{ delay: idx * 0.05 }}
+                  className="border-b border-zinc-800/60 pb-4"
                 >
                   {link.dropdown ? (
                     <>
@@ -179,7 +175,7 @@ const Navbar = () => {
                         onClick={() =>
                           setMobileDropdownOpen(!mobileDropdownOpen)
                         }
-                        className={`flex w-full items-center justify-between text-lg font-bold uppercase tracking-tight transition-colors ${
+                        className={`flex w-full items-center justify-between text-base font-bold uppercase tracking-wider transition-colors ${
                           isParentActive(link.dropdown)
                             ? "text-[var(--primary)]"
                             : "text-white"
@@ -187,8 +183,10 @@ const Navbar = () => {
                       >
                         {link.name}
                         <ChevronDown
-                          className={`transition-transform ${
-                            mobileDropdownOpen ? "rotate-180" : ""
+                          className={`transition-transform duration-300 ${
+                            mobileDropdownOpen
+                              ? "rotate-180 text-[var(--primary)]"
+                              : "text-zinc-400"
                           }`}
                         />
                       </button>
@@ -199,21 +197,18 @@ const Navbar = () => {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
                             className="overflow-hidden"
                           >
-                            <div className="mt-4 ml-5 space-y-4 border-l border-gray-700 pl-5">
+                            <div className="mt-3 ml-2 space-y-3 border-l-2 border-[var(--primary)] pl-4 py-1">
                               {link.dropdown.map((item) => (
                                 <Link
                                   key={item.name}
                                   href={item.href}
-                                  onClick={() => {
-                                    setIsMobileMenuOpen(false);
-                                    setMobileDropdownOpen(false);
-                                  }}
-                                  className={`block transition-colors ${
+                                  className={`block text-sm transition-colors ${
                                     isActive(item.href)
-                                      ? "text-[var(--primary)] font-bold"
-                                      : "text-gray-300 hover:text-[var(--primary)]"
+                                      ? "text-[var(--primary)] font-semibold"
+                                      : "text-zinc-300 hover:text-white"
                                   }`}
                                 >
                                   {item.name}
@@ -227,8 +222,7 @@ const Navbar = () => {
                   ) : (
                     <Link
                       href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`block text-lg font-bold uppercase tracking-tight transition-colors ${
+                      className={`block text-base font-bold uppercase tracking-wider transition-colors ${
                         isActive(link.href)
                           ? "text-[var(--primary)]"
                           : "text-white hover:text-[var(--primary)]"
@@ -241,17 +235,17 @@ const Navbar = () => {
               ))}
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.3 }}
+                className="pt-4"
               >
                 <Link
                   href="/contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="inline-flex w-full items-center justify-center rounded-xl bg-[var(--primary)] py-4 text-lg font-bold uppercase text-white"
+                  className="inline-flex w-full items-center justify-center rounded-xl bg-[var(--primary)] py-3.5 text-base font-bold uppercase tracking-wider text-white shadow-lg active:scale-95 transition-transform"
                 >
                   Start Project
-                  <ArrowRight className="ml-2" />
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </motion.div>
             </div>

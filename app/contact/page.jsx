@@ -671,277 +671,298 @@ function Page() {
       {/* =============================== */}
       {/* SECTION 4: CONTACT INFO CARDS ROW */}
       {/* =============================== */}
-      <section className="py-24 md:py-28 relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
+  <section className="py-24 md:py-28 relative overflow-hidden">
+  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
 
-        <div className="site-shell">
-          <motion.div
-            className="mb-16 max-w-3xl text-center mx-auto"
-            {...fadeUp}
+  <div className="site-shell">
+    <motion.div
+      className="mb-16 max-w-3xl text-center mx-auto"
+      {...fadeUp}
+    >
+      <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+        Direct Contact
+      </p>
+      <h2 className="text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+        Reach Out Through Your{" "}
+        <span className="gradient-text">Preferred Channel</span>
+      </h2>
+    </motion.div>
+
+    <div className="grid md:grid-cols-2 gap-8">
+      {/* Phone Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.05, duration: 0.5 }}
+        className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)] flex flex-col justify-between"
+      >
+        <div>
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+              <FaPhone className="text-lg text-[var(--primary)]" />
+            </div>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
+              Fast Callback
+            </span>
+          </div>
+
+          <h3 className="mb-3 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+            Phone
+          </h3>
+          <a
+            href="tel:+971563760187"
+            className="text-xl md:text-2xl font-black text-zinc-950 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
           >
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
-              Direct Contact
-            </p>
-            <h2 className="text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
-              Reach Out Through Your{" "}
-              <span className="gradient-text">Preferred Channel</span>
-            </h2>
-          </motion.div>
+            +971 563760187
+          </a>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Phone Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05, duration: 0.5 }}
-              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)] flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
-                    <FaPhone className="text-lg text-[var(--primary)]" />
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
-                    Fast Callback
-                  </span>
+        <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
+          <span>Call During Business Hours</span>
+          <FaArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+        </div>
+      </motion.div>
+
+      {/* Email Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.1, duration: 0.5 }}
+        className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)] flex flex-col justify-between"
+      >
+        <div>
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+              <MdOutlineEmail className="text-xl text-[var(--primary)]" />
+            </div>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
+              24-hr Response
+            </span>
+          </div>
+
+          <h3 className="mb-3 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+            Email
+          </h3>
+          <a
+            href="mailto:sales@expodigitalgroup.com"
+            className="text-xl md:text-2xl font-black text-zinc-950 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-all"
+          >
+            sales@expodigitalgroup.com
+          </a>
+        </div>
+
+        <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
+          <span>Send Project Brief</span>
+          <FaArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+        </div>
+      </motion.div>
+
+      {/* Global Presence / Address Full Width Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.15, duration: 0.5 }}
+        className="group relative rounded-3xl border border-zinc-200 bg-white p-6 md:p-10 lg:p-12 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-1 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)] md:col-span-2 overflow-hidden"
+      >
+        <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-brand-gradient opacity-10 blur-[80px] pointer-events-none" />
+
+        <div className="flex items-center justify-between mb-8 relative z-10">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
+            <IoLocationOutline className="text-2xl text-[var(--primary)]" />
+          </div>
+          <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 bg-zinc-50 border border-zinc-200 px-4 py-2 rounded-full">
+            Global Presence
+          </span>
+        </div>
+
+        <h3 className="mb-8 text-2xl md:text-3xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors relative z-10">
+          Our Locations
+        </h3>
+
+        {/* 4 Location Cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 relative z-10">
+          {/* UAE Card */}
+          <div className="group/card relative rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 transition-all duration-400 hover:-translate-y-1.5 hover:border-[var(--primary)]/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+                  <IoLocationOutline className="text-[var(--primary)] text-lg" />
                 </div>
-
-                <h3 className="mb-3 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
-                  Phone
-                </h3>
-                <a
-                  href="tel:+971563760187"
-                  className="text-xl md:text-2xl font-black text-zinc-950 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
-                >
-                  +971 563760187
-                </a>
               </div>
-
-              <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
-                <span>Call During Business Hours</span>
-                <FaArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </div>
-            </motion.div>
-
-            {/* Email Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)] flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
-                    <MdOutlineEmail className="text-xl text-[var(--primary)]" />
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 border border-zinc-100 px-3 py-1 rounded-full">
-                    24-hr Response
-                  </span>
-                </div>
-
-                <h3 className="mb-3 text-xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
-                  Email
-                </h3>
-                <a
-                  href="mailto:sales@expodigitalgroup.com"
-                  className="text-xl md:text-2xl font-black text-zinc-950 hover:text-[var(--primary)] transition-colors inline-block leading-relaxed break-words"
-                >
-                  sales@expodigitalgroup.com
-                </a>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-[var(--primary)] transition-colors">
-                <span>Send Project Brief</span>
-                <FaArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </div>
-            </motion.div>
-
-            {/* Global Presence / Address Full Width Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15, duration: 0.5 }}
-              className="group relative rounded-3xl border border-zinc-200 bg-white p-8 md:p-10 lg:p-12 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-1 hover:border-zinc-300 hover:shadow-[0_20px_50px_rgba(17,17,17,0.06)] md:col-span-2 overflow-hidden"
-            >
-              <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-brand-gradient opacity-10 blur-[80px] pointer-events-none" />
-
-              <div className="flex items-center justify-between mb-8 relative z-10">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-[var(--primary)]/10 transition-colors">
-                  <IoLocationOutline className="text-2xl text-[var(--primary)]" />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 bg-zinc-50 border border-zinc-200 px-4 py-2 rounded-full">
-                  Global Presence
-                </span>
-              </div>
-
-              <h3 className="mb-8 text-2xl md:text-3xl font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors relative z-10">
-                Our Locations
-              </h3>
-
-              {/* 4 Highlighted Location Cards */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 relative z-10">
-                {/* Dubai Card */}
-                <div className="group/card relative rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-400 hover:-translate-y-1.5 hover:border-[var(--primary)]/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
-                  <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover/card:opacity-[0.04] transition-opacity duration-400 pointer-events-none" />
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
-                      <IoLocationOutline className="text-[var(--primary)] text-lg" />
+              <h4 className="mb-4 text-2xl md:text-3xl font-black gradient-text tracking-tight">
+                UAE
+              </h4>
+              <div className="space-y-3">
+                <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3 transition-all duration-300 hover:bg-white hover:shadow-sm">
+                  <div className="flex items-start gap-2">
+                    <div className="mt-0.5 shrink-0 w-4 h-4 rounded-md bg-[var(--primary)]/15 border border-[var(--primary)]/30 flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
                     </div>
-                  </div>
-                  <h4 className="mb-5 text-2xl md:text-3xl font-black gradient-text tracking-tight">
-                    UAE
-                  </h4>
-                  <div className="space-y-3">
-                    <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3.5 transition-all duration-300 hover:bg-white hover:shadow-sm">
-                      <div className="flex items-start gap-2.5">
-                        <div className="mt-0.5 shrink-0 w-5 h-5 rounded-md bg-[var(--primary)]/15 border border-[var(--primary)]/30 flex items-center justify-center">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
-                        </div>
-                        <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
-                          Expo Digital (FZ) LLC
-                        </p>
-                      </div>
-                      <p className="mt-3 pl-7 text-sm md:text-base font-semibold leading-relaxed text-zinc-700">
-                        Capital Compound, Al Quoz Industrial Area 2, Dubai, UAE
-                      </p>
-                    </div>
-                    <div className="group/co relative rounded-xl border border-[var(--secondary)]/20 bg-zinc-50/50 p-3.5 transition-all duration-300 hover:bg-white hover:shadow-sm">
-                      <div className="flex items-start gap-2.5">
-                        <div className="mt-0.5 shrink-0 w-5 h-5 rounded-md bg-[var(--secondary)]/15 border border-[var(--secondary)]/30 flex items-center justify-center">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[var(--secondary)]" />
-                        </div>
-                        <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
-                          Nishyama Technical Services LLC
-                        </p>
-                      </div>
-                      <p className="mt-3 pl-7 text-sm md:text-base font-semibold leading-relaxed text-zinc-700">
-                        Al Quoz Industrial Area 3, Warehouse No. 2-3, Dubai, UAE
-                        (Opposite Al Quoz Mall)
-                      </p>
-                    </div>
-                    <a
-                      href="mailto:sales@expodigitalgroup.com"
-                      className="flex items-center gap-2 pl-2 pt-1 text-sm font-semibold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors"
-                    >
-                      <MdOutlineEmail className="shrink-0" />
-                      sales@expodigitalgroup.com
-                    </a>
-                  </div>
-                </div>
-
-                {/* KSA Card */}
-                <div className="group/card relative rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-400 hover:-translate-y-1.5 hover:border-[var(--primary)]/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
-                  <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover/card:opacity-[0.04] transition-opacity duration-400 pointer-events-none" />
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
-                      <IoLocationOutline className="text-[var(--primary)] text-lg" />
-                    </div>
-                  </div>
-                  <h4 className="mb-5 text-2xl md:text-3xl font-black gradient-text tracking-tight">
-                    KSA
-                  </h4>
-                  <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3.5 transition-all duration-300 hover:bg-white hover:shadow-sm">
-                    <div className="flex items-start gap-2.5">
-                      <div className="mt-0.5 shrink-0 w-5 h-5 rounded-md bg-[var(--primary)]/15 border border-[var(--primary)]/30 flex items-center justify-center">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
-                      </div>
-                      <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
-                        Expo Digital Riyadh (Riyadh)
-                      </p>
-                    </div>
-                    <p className="mt-3 pl-7 text-sm md:text-base font-semibold leading-relaxed text-zinc-700">
-                      Al Sulay, Riyadh - 14275, Warehouse - 11-12
+                    <p className="text-xs md:text-sm font-black text-zinc-950 leading-snug">
+                      Expo Digital (FZ) LLC
                     </p>
                   </div>
-                  <a
-                    href="mailto:sales@expodigitalgroup.com"
-                    className="flex items-center gap-2 pl-2 pt-1 text-sm font-semibold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors"
-                  >
-                    <MdOutlineEmail className="shrink-0" />
-                    sales@expodigitalgroup.com
-                  </a>
+                  <p className="mt-2 pl-6 text-xs font-semibold leading-relaxed text-zinc-700">
+                    Capital Compound, Al Quoz Industrial Area 2, Dubai, UAE
+                  </p>
                 </div>
-
-                {/* India Card */}
-                <div className="group/card relative rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-400 hover:-translate-y-1.5 hover:border-[var(--primary)]/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
-                  <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover/card:opacity-[0.04] transition-opacity duration-400 pointer-events-none" />
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
-                      <IoLocationOutline className="text-[var(--primary)] text-lg" />
+                <div className="group/co relative rounded-xl border border-[var(--secondary)]/20 bg-zinc-50/50 p-3 transition-all duration-300 hover:bg-white hover:shadow-sm">
+                  <div className="flex items-start gap-2">
+                    <div className="mt-0.5 shrink-0 w-4 h-4 rounded-md bg-[var(--secondary)]/15 border border-[var(--secondary)]/30 flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--secondary)]" />
                     </div>
-                  </div>
-                  <h4 className="mb-5 text-2xl md:text-3xl font-black gradient-text tracking-tight">
-                    India
-                  </h4>
-                  <div className="space-y-3">
-                    <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3.5 transition-all duration-300 hover:bg-white hover:shadow-sm">
-                      <div className="flex items-start gap-2.5">
-                        <div className="mt-0.5 shrink-0 w-5 h-5 rounded-md bg-[var(--primary)]/15 border border-[var(--primary)]/30 flex items-center justify-center">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
-                        </div>
-                        <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
-                          Expo Worldwide Pvt LTD
-                        </p>
-                      </div>
-                      <p className="mt-3 pl-7 text-sm md:text-base font-semibold leading-relaxed text-zinc-700">
-                        Head Office, Gami Industrial Area, Office No. C-39A,
-                        2nd Floor, Navi Mumbai, Thane - 400705, Maharashtra
-                      </p>
-                    </div>
-                    <p className="px-4 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">
-                      Mumbai • Bangalore • Delhi
-                    </p>
-                    <a
-                      href="mailto:sales@expodigitalgroup.com"
-                      className="flex items-center gap-2 pl-2 pt-1 text-sm font-semibold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors"
-                    >
-                      <MdOutlineEmail className="shrink-0" />
-                      sales@expodigitalgroup.com
-                    </a>
-                  </div>
-                </div>
-
-                {/* Europe Card */}
-                <div className="group/card relative rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-400 hover:-translate-y-1.5 hover:border-[var(--primary)]/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden">
-                  <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover/card:opacity-[0.04] transition-opacity duration-400 pointer-events-none" />
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
-                      <IoLocationOutline className="text-[var(--primary)] text-lg" />
-                    </div>
-                  </div>
-                  <h4 className="mb-5 text-2xl md:text-3xl font-black gradient-text tracking-tight">
-                    Europe
-                  </h4>
-                  <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3.5 transition-all duration-300 hover:bg-white hover:shadow-sm">
-                    <div className="flex items-start gap-2.5">
-                      <div className="mt-0.5 shrink-0 w-5 h-5 rounded-md bg-[var(--primary)]/15 border border-[var(--primary)]/30 flex items-center justify-center">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
-                      </div>
-                      <p className="text-sm md:text-[15px] font-black text-zinc-950 leading-snug">
-                          Expo Works
-                      </p>
-                    </div>
-                    <p className="mt-3 pl-7 text-sm md:text-base font-semibold leading-relaxed text-zinc-700">
-                      Nadarzyn, 05-830, Near Warsaw, Poland
+                    <p className="text-xs md:text-sm font-black text-zinc-950 leading-snug">
+                      Nishyama Technical Services LLC
                     </p>
                   </div>
-                  <a
-                    href="mailto:sales@expodigitalgroup.com"
-                    className="flex items-center gap-2 pl-2 pt-1 text-sm font-semibold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors"
-                  >
-                    <MdOutlineEmail className="shrink-0" />
-                    sales@expodigitalgroup.com
-                  </a>
+                  <p className="mt-2 pl-6 text-xs font-semibold leading-relaxed text-zinc-700">
+                    Al Quoz Industrial Area 3, Warehouse No. 2-3, Dubai, UAE (Opposite Al Quoz Mall)
+                  </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
+
+            <a
+              href="mailto:sales@expodigitalgroup.com"
+              title="sales@expodigitalgroup.com"
+              className="flex items-center gap-1.5 mt-4 pt-3 border-t border-zinc-100 text-[11px] xl:text-xs font-bold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors min-w-0"
+            >
+              <MdOutlineEmail className="shrink-0 text-sm" />
+              <span className="truncate whitespace-nowrap block">
+                sales@expodigitalgroup.com
+              </span>
+            </a>
+          </div>
+
+          {/* KSA Card */}
+          <div className="group/card relative rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 transition-all duration-400 hover:-translate-y-1.5 hover:border-[var(--primary)]/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+                  <IoLocationOutline className="text-[var(--primary)] text-lg" />
+                </div>
+              </div>
+              <h4 className="mb-4 text-2xl md:text-3xl font-black gradient-text tracking-tight">
+                KSA
+              </h4>
+              <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3 transition-all duration-300 hover:bg-white hover:shadow-sm">
+                <div className="flex items-start gap-2">
+                  <div className="mt-0.5 shrink-0 w-4 h-4 rounded-md bg-[var(--primary)]/15 border border-[var(--primary)]/30 flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
+                  </div>
+                  <p className="text-xs md:text-sm font-black text-zinc-950 leading-snug">
+                    Expo Digital Riyadh (Riyadh)
+                  </p>
+                </div>
+                <p className="mt-2 pl-6 text-xs font-semibold leading-relaxed text-zinc-700">
+                  Al Sulay, Riyadh - 14275, Warehouse - 11-12
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="mailto:sales@expodigitalgroup.com"
+              title="sales@expodigitalgroup.com"
+              className="flex items-center gap-1.5 mt-4 pt-3 border-t border-zinc-100 text-[11px] xl:text-xs font-bold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors min-w-0"
+            >
+              <MdOutlineEmail className="shrink-0 text-sm" />
+              <span className="truncate whitespace-nowrap block">
+                sales@expodigitalgroup.com
+              </span>
+            </a>
+          </div>
+
+          {/* India Card */}
+          <div className="group/card relative rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 transition-all duration-400 hover:-translate-y-1.5 hover:border-[var(--primary)]/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+                  <IoLocationOutline className="text-[var(--primary)] text-lg" />
+                </div>
+              </div>
+              <h4 className="mb-4 text-2xl md:text-3xl font-black gradient-text tracking-tight">
+                India
+              </h4>
+              <div className="space-y-3">
+                <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3 transition-all duration-300 hover:bg-white hover:shadow-sm">
+                  <div className="flex items-start gap-2">
+                    <div className="mt-0.5 shrink-0 w-4 h-4 rounded-md bg-[var(--primary)]/15 border border-[var(--primary)]/30 flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
+                    </div>
+                    <p className="text-xs md:text-sm font-black text-zinc-950 leading-snug">
+                      Expo Worldwide Pvt LTD
+                    </p>
+                  </div>
+                  <p className="mt-2 pl-6 text-xs font-bold text-[var(--primary)]">
+                    Head Office: Mumbai
+                  </p>
+                  <p className="mt-1 pl-6 text-xs font-semibold leading-relaxed text-zinc-700">
+                    Gami Industrial Area, Office No. C-39A, 2nd Floor, Navi Mumbai, Thane - 400705, Maharashtra
+                  </p>
+                </div>
+                <p className="px-2 text-[10px] font-black uppercase tracking-wider text-zinc-400">
+                  Mumbai • Bangalore • Delhi
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="mailto:sales@expodigitalgroup.com"
+              title="sales@expodigitalgroup.com"
+              className="flex items-center gap-1.5 mt-4 pt-3 border-t border-zinc-100 text-[11px] xl:text-xs font-bold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors min-w-0"
+            >
+              <MdOutlineEmail className="shrink-0 text-sm" />
+              <span className="truncate whitespace-nowrap block">
+                sales@expodigitalgroup.com
+              </span>
+            </a>
+          </div>
+
+          {/* Europe Card */}
+          <div className="group/card relative rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 transition-all duration-400 hover:-translate-y-1.5 hover:border-[var(--primary)]/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+                  <IoLocationOutline className="text-[var(--primary)] text-lg" />
+                </div>
+              </div>
+              <h4 className="mb-4 text-2xl md:text-3xl font-black gradient-text tracking-tight">
+                Europe
+              </h4>
+              <div className="group/co relative rounded-xl border border-[var(--primary)]/20 bg-zinc-50/50 p-3 transition-all duration-300 hover:bg-white hover:shadow-sm">
+                <div className="flex items-start gap-2">
+                  <div className="mt-0.5 shrink-0 w-4 h-4 rounded-md bg-[var(--primary)]/15 border border-[var(--primary)]/30 flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
+                  </div>
+                  <p className="text-xs md:text-sm font-black text-zinc-950 leading-snug">
+                    Expo Works
+                  </p>
+                </div>
+                <p className="mt-2 pl-6 text-xs font-semibold leading-relaxed text-zinc-700">
+                  Nadarzyn, 05-830, Near Warsaw, Poland
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="mailto:sales@expodigitalgroup.com"
+              title="sales@expodigitalgroup.com"
+              className="flex items-center gap-1.5 mt-4 pt-3 border-t border-zinc-100 text-[11px] xl:text-xs font-bold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors min-w-0"
+            >
+              <MdOutlineEmail className="shrink-0 text-sm" />
+              <span className="truncate whitespace-nowrap block">
+                sales@expodigitalgroup.com
+              </span>
+            </a>
           </div>
         </div>
-      </section>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       
 

@@ -42,7 +42,8 @@ const locations = [
     companies: [
       {
         name: "Expo Worldwide Pvt LTD",
-        address: "Head Office, Gami Industrial Area, Office No. C-39A, 2nd Floor, Navi Mumbai, Thane - 400705, Maharashtra",
+        headOffice: "Head Office: Mumbai",
+        address: "Gami Industrial Area, Office No. C-39A, 2nd Floor, Navi Mumbai, Thane - 400705, Maharashtra",
         color: "var(--primary)",
       },
     ],
@@ -157,15 +158,14 @@ const Footer = () => {
               Contact Details
             </h4>
             <div className="space-y-6">
-            
-
-              <div className="flex items-center space-x-4 group">
+              <div className="flex items-center space-x-4 group min-w-0">
                 <div className="h-10 w-10 shrink-0 flex items-center justify-center rounded-lg bg-zinc-900 text-[var(--primary)]">
                   <Mail size={20} />
                 </div>
                 <a
                   href="mailto:sales@expodigitalgroup.com"
-                  className="text-white font-bold transition-colors hover:text-[var(--primary)] text-sm"
+                  className="text-white font-bold transition-colors hover:text-[var(--primary)] text-sm truncate"
+                  title="sales@expodigitalgroup.com"
                 >
                   sales@expodigitalgroup.com
                 </a>
@@ -205,7 +205,7 @@ const Footer = () => {
             {locations.map((loc, idx) => (
               <motion.div
                 key={idx}
-                className="group relative p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-[var(--primary)]/40 transition-all duration-500 overflow-hidden"
+                className="group relative p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-[var(--primary)]/40 transition-all duration-500 overflow-hidden flex flex-col justify-between"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -213,11 +213,11 @@ const Footer = () => {
                 whileHover={{ y: -4 }}
               >
                 <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-gradient-to-br from-[var(--primary)]/5 to-[var(--secondary)]/5 group-hover:from-[var(--primary)]/10 group-hover:to-[var(--secondary)]/10 transition-all duration-500" />
+                <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-gradient-to-br from-[var(--primary)]/5 to-[var(--secondary)]/5 group-hover:from-[var(--primary)]/10 group-hover:to-[var(--secondary)]/10 transition-all duration-500 pointer-events-none" />
 
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 transition-transform duration-300 group-hover:scale-110">
+                    <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-gradient/10 border border-[var(--primary)]/20 transition-transform duration-300 group-hover:scale-110 shrink-0">
                       <MapPin size={20} className="text-[var(--primary)]" />
                     </div>
                     <h4 className="text-xl font-bold gradient-text">
@@ -239,31 +239,40 @@ const Footer = () => {
                           >
                             <div className="w-1 h-1 rounded-full" style={{ backgroundColor: co.color }} />
                           </div>
-                          <p className="text-sm font-black text-white leading-snug">
+                          <p className="text-xs md:text-sm font-black text-white leading-snug">
                             {co.name}
                           </p>
                         </div>
+                        {co.headOffice && (
+                          <p className="mt-2 pl-6 text-xs font-bold text-[var(--primary)]">
+                            {co.headOffice}
+                          </p>
+                        )}
                         {co.address && (
-                          <p className="mt-2 pl-6 text-sm font-semibold leading-relaxed text-zinc-300">
+                          <p className="mt-1 pl-6 text-xs font-semibold leading-relaxed text-zinc-300">
                             {co.address}
                           </p>
                         )}
                       </div>
                     ))}
                     {loc.subText && (
-                      <p className="px-2 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500 group-hover:text-zinc-400 transition-colors">
+                      <p className="px-2 text-[10px] font-black uppercase tracking-[0.15em] text-zinc-500 group-hover:text-zinc-400 transition-colors">
                         {loc.subText}
                       </p>
                     )}
-                    <a
-                      href="mailto:sales@expodigitalgroup.com"
-                      className="flex items-center gap-2 pl-2 pt-1 text-sm font-semibold text-[var(--primary)] hover:text-white transition-colors"
-                    >
-                      <Mail size={14} className="shrink-0" />
-                      sales@expodigitalgroup.com
-                    </a>
                   </div>
                 </div>
+
+                <a
+                  href="mailto:sales@expodigitalgroup.com"
+                  title="sales@expodigitalgroup.com"
+                  className="flex items-center gap-2 mt-4 pt-3 border-t border-zinc-800/80 text-xs font-bold text-[var(--primary)] hover:text-white transition-colors min-w-0 relative z-10"
+                >
+                  <Mail size={14} className="shrink-0" />
+                  <span className="truncate whitespace-nowrap block">
+                    sales@expodigitalgroup.com
+                  </span>
+                </a>
               </motion.div>
             ))}
           </div>

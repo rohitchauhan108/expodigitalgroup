@@ -413,91 +413,92 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Advanced About Section */}
-      <section className="relative py-24 md:py-32 overflow-hidden" id="about">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
-        <div className="site-shell relative z-10">
-          <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
-            <motion.div
-              className="relative lg:col-span-6"
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              <div className="relative aspect-[4/5] w-full origin-center scale-[0.94] overflow-hidden rounded-[2.5rem] border border-zinc-200 bg-zinc-100 shadow-[0_30px_80px_rgba(17,17,17,0.08)] group">
-                <motion.img
-                  src="https://videocdn.cdnpk.net/videos/f052324d-675d-5c39-a8e2-2aa87f1c0d0c/vertical/thumbnails/large.jpg?uid=R212285470&ga=GA1.1.1383789883.1786786872&semt=ais_hybrid&item_id=7421719&w=740&q=80"
-                  alt="Expo Digital production showroom"
-                  className="h-full w-full object-cover"
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.6 }}
-                />
-                <motion.div
-                  className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/20 bg-white/70 p-6 backdrop-blur-md hidden sm:block shadow-lg"
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <p className="text-sm font-bold uppercase tracking-wider text-zinc-950 mb-1">
-                    On-Time & On-Brief Delivery
-                  </p>
-                  <p className="text-xs text-zinc-600">
-                    Managing complete fabrication complexity & strict venue compliance across all major exhibition centres smoothly.
-                  </p>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            <div className="lg:col-span-6 lg:pl-6">
-              <motion.p
-                className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]"
-                {...fadeUp}
-              >
-                Excellence in Spatial Branding
-              </motion.p>
-              <motion.h2
-                className="mb-6 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl"
-                {...fadeUp}
-                transition={{ delay: 0.1 }}
-              >
-                We translate creative ideas into{" "}
-                <span className="gradient-text">majestic environments</span>.
-              </motion.h2>
-              <motion.p
-                className="mb-6 text-lg leading-relaxed text-zinc-600"
-                {...fadeUp}
-                transition={{ delay: 0.2 }}
-              >
-                With an unwavering dedication to in-house craftsmanship, strict material selection, and rigorous design execution, Expo Digital Group guarantees that your presence stands out beautifully in any high-traffic exhibition hall.
-              </motion.p>
-
-              <motion.div
-                className="flex flex-wrap gap-2.5"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, staggerChildren: 0.05 }}
-              >
-                {expertiseTags.map((tag, idx) => (
-                  <motion.span
-                    key={idx}
-                    className="rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-xs font-semibold text-zinc-700 cursor-default"
-                    whileHover={{
-                      scale: 1.05,
-                      borderColor: "rgba(24,24,27,0.3)",
-                      backgroundColor: "#fff",
-                    }}
-                  >
-                    {tag}
-                  </motion.span>
-                ))}
-              </motion.div>
-            </div>
-          </div>
+     {/* 4. Advanced About Section */}
+<section className="relative py-24 md:py-32 overflow-hidden" id="about">
+  <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+  <div className="site-shell relative z-10">
+    <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
+      <motion.div
+        className="relative lg:col-span-6"
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+        {/* Adjusted scale-[0.75] and added max-w-md mx-auto */}
+        <div className="relative aspect-[4/5] w-full max-w-md mx-auto origin-center scale-[1.1] overflow-hidden rounded-[2.5rem] border border-zinc-200 bg-zinc-100 shadow-[0_30px_80px_rgba(17,17,17,0.08)] group">
+          <motion.img
+            src="https://videocdn.cdnpk.net/videos/f052324d-675d-5c39-a8e2-2aa87f1c0d0c/vertical/thumbnails/large.jpg?uid=R212285470&ga=GA1.1.1383789883.1786786872&semt=ais_hybrid&item_id=7421719&w=740&q=80"
+            alt="Expo Digital production showroom"
+            className="h-full w-full object-cover"
+            whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.6 }}
+          />
+          <motion.div
+            className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/20 bg-white/70 p-6 backdrop-blur-md hidden sm:block shadow-lg"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <p className="text-sm font-bold uppercase tracking-wider text-zinc-950 mb-1">
+              On-Time & On-Brief Delivery
+            </p>
+            <p className="text-xs text-zinc-600">
+              Managing complete fabrication complexity & strict venue compliance across all major exhibition centres smoothly.
+            </p>
+          </motion.div>
         </div>
-      </section>
+      </motion.div>
+
+      <div className="lg:col-span-6 lg:pl-6">
+        <motion.p
+          className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]"
+          {...fadeUp}
+        >
+          Excellence in Spatial Branding
+        </motion.p>
+        <motion.h2
+          className="mb-6 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl"
+          {...fadeUp}
+          transition={{ delay: 0.1 }}
+        >
+          We translate creative ideas into{" "}
+          <span className="gradient-text">majestic environments</span>.
+        </motion.h2>
+        <motion.p
+          className="mb-6 text-lg leading-relaxed text-zinc-600"
+          {...fadeUp}
+          transition={{ delay: 0.2 }}
+        >
+          With an unwavering dedication to in-house craftsmanship, strict material selection, and rigorous design execution, Expo Digital Group guarantees that your presence stands out beautifully in any high-traffic exhibition hall.
+        </motion.p>
+
+        <motion.div
+          className="flex flex-wrap gap-2.5"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, staggerChildren: 0.05 }}
+        >
+          {expertiseTags.map((tag, idx) => (
+            <motion.span
+              key={idx}
+              className="rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-xs font-semibold text-zinc-700 cursor-default"
+              whileHover={{
+                scale: 1.05,
+                borderColor: "rgba(24,24,27,0.3)",
+                backgroundColor: "#fff",
+              }}
+            >
+              {tag}
+            </motion.span>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* 5. Redesigned Why Expo Digital Section with Integrated Stats */}
       <section className="relative py-24 lg:py-32 overflow-hidden bg-zinc-50/50" id="why-us">
