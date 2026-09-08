@@ -903,7 +903,9 @@ function Page() {
                     Gami Industrial Area, Office No. C-39A, 2nd Floor, Navi Mumbai, Thane - 400705, Maharashtra
                   </p>
                 </div>
-                <p className="px-2 text-[10px] font-black uppercase tracking-wider text-zinc-400">
+
+                {/* Updated high-contrast bold color here */}
+                <p className="px-2 text-[11px] font-extrabold uppercase tracking-wider text-zinc-800">
                   Mumbai • Bangalore • Delhi
                 </p>
               </div>

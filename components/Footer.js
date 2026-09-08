@@ -256,7 +256,7 @@ const Footer = () => {
                       </div>
                     ))}
                     {loc.subText && (
-                      <p className="px-2 text-[10px] font-black uppercase tracking-[0.15em] text-zinc-500 group-hover:text-zinc-400 transition-colors">
+                      <p className="px-2 pt-1 text-[11px] font-extrabold uppercase tracking-[0.15em] text-zinc-200 transition-colors">
                         {loc.subText}
                       </p>
                     )}
