@@ -3,7 +3,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingIcons from "@/components/FloatingIcons";
-import TopBar from "@/components/TopBar";
 import React, { useState } from "react";
 import Image from "next/image";
 import { Send, CheckCircle2 } from "lucide-react";
@@ -67,10 +66,8 @@ function Page() {
     try {
       const payload = {
         access_key: accessKey,
-        to: "rohitrankmantra12@gmail.com",
         subject: `New Contact Inquiry from ${formData.firstName} ${formData.lastName}`,
         from_name: "Expo Digital Group Website",
-        to_name: "Sales Team",
         reply_to: formData.email,
         First_Name: formData.firstName,
         Last_Name: formData.lastName,
@@ -136,20 +133,19 @@ function Page() {
       text: "Fully certified for all major Middle Eastern exhibition venues and premier global event spaces.",
     },
     {
-      title: "500+ Successful Projects",
+      title: "1000+ Successful Projects",
       text: "Proven track record delivering premium exhibition stands, brand activations, and conference booths across UAE, KSA, Oman, and India.",
     },
   ];
 
   return (
     <div className="min-h-screen flex flex-col bg-[#EAF4E1] text-zinc-900">
-      <TopBar />
       <Navbar />
 
       {/* =============================== */}
       {/* SECTION 1: HERO BANNER */}
       {/* =============================== */}
-      <section className="relative pt-36 md:pt-48 pb-24 md:pb-32 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-20 md:pt-28 pb-24 md:pb-32 overflow-hidden bg-[#EAF4E1]">
         <div className="site-shell relative z-10">
           <motion.div
             className="mx-auto max-w-4xl text-center"
@@ -827,6 +823,13 @@ function Page() {
                         (Opposite Al Quoz Mall)
                       </p>
                     </div>
+                    <a
+                      href="mailto:sales@expodigitalgroup.com"
+                      className="flex items-center gap-2 pl-2 pt-1 text-sm font-semibold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors"
+                    >
+                      <MdOutlineEmail className="shrink-0" />
+                      sales@expodigitalgroup.com
+                    </a>
                   </div>
                 </div>
 
@@ -854,6 +857,13 @@ function Page() {
                       Al Sulay, Riyadh - 14275, Warehouse - 11-12
                     </p>
                   </div>
+                  <a
+                    href="mailto:sales@expodigitalgroup.com"
+                    className="flex items-center gap-2 pl-2 pt-1 text-sm font-semibold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors"
+                  >
+                    <MdOutlineEmail className="shrink-0" />
+                    sales@expodigitalgroup.com
+                  </a>
                 </div>
 
                 {/* India Card */}
@@ -885,6 +895,13 @@ function Page() {
                     <p className="px-4 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">
                       Mumbai • Bangalore • Delhi
                     </p>
+                    <a
+                      href="mailto:sales@expodigitalgroup.com"
+                      className="flex items-center gap-2 pl-2 pt-1 text-sm font-semibold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors"
+                    >
+                      <MdOutlineEmail className="shrink-0" />
+                      sales@expodigitalgroup.com
+                    </a>
                   </div>
                 </div>
 
@@ -912,6 +929,13 @@ function Page() {
                       Nadarzyn, 05-830, Near Warsaw, Poland
                     </p>
                   </div>
+                  <a
+                    href="mailto:sales@expodigitalgroup.com"
+                    className="flex items-center gap-2 pl-2 pt-1 text-sm font-semibold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors"
+                  >
+                    <MdOutlineEmail className="shrink-0" />
+                    sales@expodigitalgroup.com
+                  </a>
                 </div>
               </div>
             </motion.div>

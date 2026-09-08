@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingIcons from "@/components/FloatingIcons";
-import TopBar from "@/components/TopBar";
 import {
   Building2,
   Crosshair,
@@ -24,7 +23,7 @@ const heroSlides = [
     id: 1,
     tagline: "PREMIUM EXHIBITION STAND BUILDERS",
     titleStart: "We Bring Your",
-    titleHighlight: "Project To Life",
+    titleHighlight: "Projects To Life",
     description:
       "From high-end custom bespoke booths to eco-friendly modular structures. We turn original concepts into breathtaking, eye-catching spaces that stand out on competitive show floors.",
     bgImage:
@@ -194,7 +193,7 @@ export default function Home() {
     },
     {
       title: "Accountability",
-      description: "One team, one contract. If it is our stand, it is our problem.",
+      description: "One team, one contract. If it is our stand, it is our responsibility.",
       icon: ShieldCheck,
     },
     {
@@ -234,7 +233,7 @@ export default function Home() {
     "Excellence on Brief",
     "Turnkey Project Management",
     "Exhibition & Booth Logistics",
-    "3D Architectural Renderings",
+    "Large Format Printing",
     "In-House Production Facility",
   ];
 
@@ -276,7 +275,7 @@ export default function Home() {
 
   const marqueeItems = [
     "Bespoke Exhibition Booths",
-    "Promotional & Mall Activations",
+    "Promotion & Mall Activations",
     "Furniture & AV Rentals",
     "Turnkey Event Fabrication",
   ];
@@ -299,11 +298,10 @@ export default function Home() {
 
   return (
     <main className="lg:min-h-screen bg-[#EAF4E1]">
-      <TopBar />
       <Navbar />
 
       {/* 1. Hero Section with Carousel */}
-      <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-[#EAF4E1] pt-36 pb-20 md:pt-48 md:pb-28">
+      <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-[#EAF4E1] pt-20 pb-20 md:pt-28 md:pb-28">
         <div className="site-shell relative z-10 w-full">
           <AnimatePresence mode="wait">
             <motion.div

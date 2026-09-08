@@ -6,7 +6,6 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import FloatingIcons from "@/components/FloatingIcons";
-import TopBar from "@/components/TopBar";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaMapMarkedAlt,
@@ -247,11 +246,10 @@ export default function ConferenceExpoPage() {
 
   return (
     <main className="bg-white min-h-screen selection:bg-[var(--primary)] selection:text-white overflow-x-hidden">
-      <TopBar />
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-36 pb-20 md:pt-48 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-20 pb-20 md:pt-28 overflow-hidden bg-[#EAF4E1]">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920&q=80&auto=format&fit=crop"

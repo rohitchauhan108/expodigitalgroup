@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -9,12 +9,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
-
-  const lastScrollY = useRef(0);
 
   // Helper function to check if link is active
   const isActive = (href) => pathname === href;
@@ -23,28 +19,6 @@ const Navbar = () => {
   const isParentActive = (dropdownItems) => {
     return dropdownItems?.some((item) => pathname === item.href);
   };
-
-  // Handle scroll behavior (Hide on scroll down, show on scroll up)
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      setIsScrolled(currentScrollY > 20);
-
-      if (currentScrollY < 50) {
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY.current) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Prevent background scrolling when mobile menu overlay is active
   useEffect(() => {
@@ -73,25 +47,17 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-[9999] transition-transform duration-300 ease-in-out ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      } ${
-        isScrolled
-          ? "bg-[#000000] py-0 shadow-[0_10px_40px_rgba(0,0,0,0.05)] backdrop-blur-xl"
-          : "bg-[#000000] py-0"
-      }`}
-    >
-      <div className="site-shell flex h-48 justify-between items-center">
+    <nav className="relative w-full z-[9999] bg-[#000000] py-0">
+      <div className="site-shell flex h-28 md:h-36 lg:h-44 xl:h-52 justify-between items-center">
         {/* Logo */}
         <Link href="/" className="relative z-50 flex items-center gap-3">
           <Image
             src="/expo-digital-logo.png"
             alt="Expo Digital Group"
-            width={100}
-            height={100}
+            width={300}
+            height={300}
             priority
-            className="lg:h-48 h-30 w-auto object-fill"
+            className="h-24 md:h-32 lg:h-40 xl:h-48 w-auto object-cover"
           />
         </Link>
 
@@ -114,7 +80,7 @@ const Navbar = () => {
                   />
                 </button>
 
-                <div className="absolute left-0 top-full mt-3 w-64 rounded-xl bg-black shadow-2xl opacity-0 invisible translate-y-3 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 overflow-hidden">
+                <div className="absolute left-0 top-full mt-3 w-64 rounded-xl bg-black shadow-2xl opacity-0 invisible translate-y-3 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 overflow-hidden z-50">
                   {link.dropdown.map((item) => (
                     <Link
                       key={item.name}
@@ -180,9 +146,9 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
-            className="fixed inset-0 w-full h-fit z-40 bg-black md:hidden overflow-y-auto flex flex-col"
+            className="fixed inset-0 w-full h-full z-40 bg-black md:hidden overflow-y-auto flex flex-col"
           >
-            <div className="site-shell flex h-36 justify-between items-center shrink-0">
+            <div className="site-shell flex h-28 md:h-36 items-center shrink-0">
               <Link
                 href="/"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -191,22 +157,15 @@ const Navbar = () => {
                 <Image
                   src="/expo-digital-logo.png"
                   alt="Expo Digital Group"
-                  width={100}
-                  height={100}
+                  width={300}
+                  height={300}
                   priority
-                  className="h-30 w-auto object-fill"
+                  className="h-24 w-auto object-cover"
                 />
               </Link>
-
-              <button
-                className="flex h-10 w-10 items-center justify-center rounded-full text-white"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <X size={24} />
-              </button>
             </div>
 
-            <div className="site-shell space-y-7 pb-20 flex-1">
+            <div className="site-shell space-y-6 pb-20 flex-1 pt-2">
               {navLinks.map((link, idx) => (
                 <motion.div
                   key={link.name}

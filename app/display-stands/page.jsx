@@ -6,7 +6,6 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import FloatingIcons from "@/components/FloatingIcons";
-import TopBar from "@/components/TopBar";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaArrowRight,
@@ -158,11 +157,10 @@ export default function DisplayStandsPage() {
 
   return (
     <main className="bg-white min-h-screen selection:bg-[var(--primary)] selection:text-white overflow-x-hidden">
-      <TopBar />
       <Navbar />
 
       {/* 1. HERO SECTION */}
-      <section className="relative pt-36 pb-20 md:pt-48 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-20 pb-20 md:pt-28 overflow-hidden bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
 

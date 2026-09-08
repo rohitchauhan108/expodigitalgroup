@@ -6,7 +6,6 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import FloatingIcons from "@/components/FloatingIcons";
-import TopBar from "@/components/TopBar";
 import { motion } from "framer-motion";
 import {
   FaBuilding,
@@ -250,11 +249,10 @@ export default function Page() {
 
   return (
     <main className="bg-white">
-      <TopBar />
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-36 pb-12 md:pt-48 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-20 pb-12 md:pt-28 overflow-hidden bg-[#EAF4E1]">
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
           <motion.div
             className="max-w-3xl text-center"

@@ -255,6 +255,13 @@ const Footer = () => {
                         {loc.subText}
                       </p>
                     )}
+                    <a
+                      href="mailto:sales@expodigitalgroup.com"
+                      className="flex items-center gap-2 pl-2 pt-1 text-sm font-semibold text-[var(--primary)] hover:text-white transition-colors"
+                    >
+                      <Mail size={14} className="shrink-0" />
+                      sales@expodigitalgroup.com
+                    </a>
                   </div>
                 </div>
               </motion.div>
