@@ -301,7 +301,7 @@ export default function Home() {
       <Navbar />
 
       {/* 1. Hero Section with Carousel */}
-      <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-[#EAF4E1] pt-20 pb-20 md:pt-28 md:pb-28">
+      <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-[#EAF4E1] pt-20 pb-24 md:pt-16 md:pb-28">
         <div className="site-shell relative z-10 w-full">
           <AnimatePresence mode="wait">
             <motion.div

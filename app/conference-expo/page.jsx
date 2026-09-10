@@ -249,7 +249,7 @@ export default function ConferenceExpoPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-20 md:pt-28 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-20 pb-20 md:pt-16 overflow-hidden bg-[#EAF4E1]">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920&q=80&auto=format&fit=crop"

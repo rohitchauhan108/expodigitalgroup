@@ -195,7 +195,7 @@ export default function Page() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-12 md:pt-28 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-[72px] pb-12 md:pt-16 overflow-hidden bg-[#EAF4E1]">
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
           <motion.div
             className="max-w-3xl text-center"

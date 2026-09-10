@@ -160,7 +160,7 @@ export default function DisplayStandsPage() {
       <Navbar />
 
       {/* 1. HERO SECTION */}
-      <section className="relative pt-20 pb-20 md:pt-28 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-[72px] pb-20 md:pt-20 overflow-hidden bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
 

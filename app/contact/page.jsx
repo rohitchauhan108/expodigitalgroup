@@ -145,7 +145,7 @@ function Page() {
       {/* =============================== */}
       {/* SECTION 1: HERO BANNER */}
       {/* =============================== */}
-      <section className="relative pt-20 md:pt-28 pb-24 md:pb-32 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-[72px] md:pt-20 pb-24 md:pb-20 overflow-hidden bg-[#EAF4E1]">
         <div className="site-shell relative z-10">
           <motion.div
             className="mx-auto max-w-4xl text-center"
@@ -188,7 +188,7 @@ function Page() {
       {/* =============================== */}
       {/* SECTION 2: HOW WE CAN HELP + CLIENT ADVISORY */}
       {/* =============================== */}
-      <section className="relative py-24 md:py-32 overflow-hidden border-t border-zinc-200">
+      <section className="relative py-24 md:py-20 overflow-hidden border-t border-zinc-200">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
         <div className="site-shell relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 lg:items-start">
@@ -261,8 +261,7 @@ function Page() {
                   </h3>
                   <p className="leading-relaxed text-zinc-600 mb-8 text-sm md:text-lg">
                     Submit design briefs anytime, 24/7. Our technical and
-                    accounts teams review every inquiry and respond within one
-                    business day.
+                    accounts teams review every inquiry and respond within the day.
                   </p>
 
                   <div className="border-t border-zinc-100 pt-6 space-y-5">
@@ -307,7 +306,7 @@ function Page() {
                           Hours
                         </p>
                         <p className="text-sm md:text-lg font-bold">
-                          Monday – Friday, 9:00 AM – 6:00 PM
+                          Monday – Saturday, 9:00 AM – 7:00 PM
                         </p>
                       </div>
                     </div>
@@ -324,7 +323,7 @@ function Page() {
       {/* =============================== */}
       <section
         id="contact-form"
-        className="py-24 md:py-28 border-y border-zinc-200 relative overflow-hidden"
+        className="py-24 md:py-20 border-y border-zinc-200 relative overflow-hidden"
       >
         {/* Ambient blur */}
         <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--primary)]/5 rounded-full blur-3xl pointer-events-none" />
