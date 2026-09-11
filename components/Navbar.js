@@ -74,7 +74,7 @@ const Navbar = () => {
             link.dropdown ? (
               <div key={link.name} className="relative group py-4">
                 <button
-                  className={`flex items-center gap-1.5 text-xs xl:text-sm font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] ${
+                  className={`flex items-center gap-1.5 text-sm xl:text-base font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] ${
                     isParentActive(link.dropdown)
                       ? "text-[var(--primary)]"
                       : "text-white"
@@ -94,7 +94,7 @@ const Navbar = () => {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className={`block px-6 py-3.5 text-xs xl:text-sm font-semibold transition-colors hover:bg-[var(--primary)] hover:text-white ${
+                        className={`block px-6 py-3.5 text-sm xl:text-base font-semibold transition-colors hover:bg-[var(--primary)] hover:text-white ${
                           isActive(item.href)
                             ? "bg-[var(--primary)] text-white"
                             : "text-zinc-200"
@@ -110,7 +110,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`group relative text-xs xl:text-sm font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] py-2 ${
+                className={`group relative text-sm xl:text-base font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] py-2 ${
                   isActive(link.href)
                     ? "text-[var(--primary)]"
                     : "text-white"
@@ -129,7 +129,7 @@ const Navbar = () => {
           {/* CTA Button */}
           <Link
             href="/contact"
-            className="group relative flex items-center justify-center overflow-hidden rounded-full bg-[var(--primary)] text-white transition-all hover:bg-white hover:text-black shrink-0 whitespace-nowrap px-5 py-2.5 text-xs xl:px-7 xl:py-3 xl:text-sm font-semibold gap-2 shadow-lg"
+            className="group relative flex items-center justify-center overflow-hidden rounded-full bg-[var(--primary)] text-white transition-all hover:bg-white hover:text-black shrink-0 whitespace-nowrap px-5 py-2.5 text-sm xl:px-7 xl:py-3 xl:text-base font-semibold gap-2 shadow-lg"
           >
             <span className="relative z-10">Get Quote</span>
             <ArrowRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" />

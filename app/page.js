@@ -310,18 +310,19 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mx-auto max-w-4xl text-center text-zinc-950"
+              className="mx-auto max-w-6xl text-center text-zinc-950"
             >
               <p className="mb-4 text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-[var(--primary)]">
                 {heroSlides[currentSlide].tagline} • {displayText}
               </p>
               <h1 className="mb-8 text-4xl font-black tracking-tight text-zinc-950 md:text-6xl lg:text-[76px] leading-[1.05]">
-                {heroSlides[currentSlide].titleStart}{" "}
+                {heroSlides[currentSlide].titleStart}
+                <br />
                 <span className="gradient-text">
                   {heroSlides[currentSlide].titleHighlight}
                 </span>
               </h1>
-              <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-zinc-800 md:text-xl font-semibold">
+              <p className="mx-auto mb-10 max-w-3xl text-base leading-relaxed text-zinc-800 md:text-xl font-semibold">
                 {heroSlides[currentSlide].description}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
