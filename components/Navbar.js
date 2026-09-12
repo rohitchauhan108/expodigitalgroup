@@ -75,7 +75,7 @@ const Navbar = () => {
             link.dropdown ? (
               <div key={link.name} className="relative group py-4">
                 <button
-                  className={`flex items-center gap-1 text-xs xl:text-sm font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors hover:text-[var(--primary)] ${
+                  className={`flex items-center gap-1 text-xs xl:text-base font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors hover:text-[var(--primary)] ${
                     isParentActive(link.dropdown)
                       ? "text-[var(--primary)]"
                       : "text-white"
