@@ -904,11 +904,12 @@ function Page() {
                 </div>
 
                 {/* Updated high-contrast bold color here */}
-                <p className="px-2 text-[11px] font-extrabold uppercase tracking-wider text-zinc-800">
+                <p className="px-2 text-center text-[11px] font-extrabold uppercase tracking-wider text-zinc-800">
                   Mumbai • Bangalore • Delhi
                 </p>
               </div>
             </div>
+
 
             <a
               href="mailto:sales@expodigitalgroup.com"

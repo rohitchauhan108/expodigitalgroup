@@ -48,6 +48,7 @@ const Navbar = () => {
       ],
     },
     { name: "Conference EXPO", href: "/conference-expo" },
+    { name: "Promotions", href: "/promotions" },
     { name: "Display Stands", href: "/display-stands" },
     { name: "Contact", href: "/contact" },
   ];
@@ -69,12 +70,12 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation (lg & above) */}
-        <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
+        <div className="hidden lg:flex items-center space-x-4 xl:space-x-7">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.name} className="relative group py-4">
                 <button
-                  className={`flex items-center gap-1.5 text-sm xl:text-base font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] ${
+                  className={`flex items-center gap-1 text-xs xl:text-sm font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors hover:text-[var(--primary)] ${
                     isParentActive(link.dropdown)
                       ? "text-[var(--primary)]"
                       : "text-white"
@@ -110,7 +111,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`group relative text-sm xl:text-base font-bold uppercase tracking-widest transition-colors hover:text-[var(--primary)] py-2 ${
+                className={`group relative text-xs xl:text-base font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors hover:text-[var(--primary)] py-2 ${
                   isActive(link.href)
                     ? "text-[var(--primary)]"
                     : "text-white"
@@ -129,7 +130,7 @@ const Navbar = () => {
           {/* CTA Button */}
           <Link
             href="/contact"
-            className="group relative flex items-center justify-center overflow-hidden rounded-full bg-[var(--primary)] text-white transition-all hover:bg-white hover:text-black shrink-0 whitespace-nowrap px-5 py-2.5 text-sm xl:px-7 xl:py-3 xl:text-base font-semibold gap-2 shadow-lg"
+            className="group relative flex items-center justify-center overflow-hidden rounded-full bg-[var(--primary)] text-white transition-all hover:bg-white hover:text-black shrink-0 whitespace-nowrap px-4 py-2 text-xs xl:px-6 xl:py-2.5 xl:text-sm font-semibold gap-2 shadow-lg"
           >
             <span className="relative z-10">Get Quote</span>
             <ArrowRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" />

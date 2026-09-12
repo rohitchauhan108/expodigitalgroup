@@ -113,6 +113,7 @@ const Footer = () => {
                 { name: "Custom Solutions", href: "/custom-solution" },
                 { name: "Modular Solutions", href: "/modular-solution" },
                 { name: "Conference EXPO", href: "/conference-expo" },
+                { name: "Promotions", href: "/promotions" },
                 { name: "Display Stands", href: "/display-stands" },
               ].map((item) => (
                 <li key={item.name}>
@@ -256,7 +257,7 @@ const Footer = () => {
                       </div>
                     ))}
                     {loc.subText && (
-                      <p className="px-2 pt-1 text-[11px] font-extrabold uppercase tracking-[0.15em] text-zinc-200 transition-colors">
+                      <p className="px-2 pt-1 text-center text-[11px] font-extrabold uppercase tracking-[0.15em] text-zinc-200 transition-colors">
                         {loc.subText}
                       </p>
                     )}
