@@ -37,23 +37,8 @@ const fadeUp = {
 };
 
 const services = [
-  {
+   {
     eyebrow: "Service 01",
-    title: "In-Store Promotions & Product Sampling",
-    desc: "We help FMCG, food, beverage, beauty, and wellness brands drive sales at the point of purchase. We provide trained and licensed promoters, sampling uniforms, tasting counters, and POS displays for all major retail chains including Carrefour, Lulu, Spinneys, Union Coop, Choithrams, and pharmacies across Dubai, Abu Dhabi, Sharjah, and Northern Emirates.",
-    icon: FaBullseye,
-    gradient: "from-orange-500 to-amber-500",
-    tag: "Retail · Sampling",
-    highlights: [
-      "Trained & licensed promoters for every activation",
-      "Sampling uniforms, tasting counters & POS displays",
-      "Coverage across Carrefour, Lulu, Spinneys, Union Coop, Choithrams & pharmacies",
-      "Dubai, Abu Dhabi, Sharjah & Northern Emirates",
-    ],
-    chips: ["FMCG", "Food & Bev", "Beauty", "Wellness"],
-  },
-  {
-    eyebrow: "Service 02",
     title: "Mall Activations & Pop-Up Promotions",
     desc: "For brands that want high visibility, we design and execute mall activations in Dubai Mall, Mall of the Emirates, City Centre, Yas Mall, and across Saudi malls. Services include custom-built kiosks, pop-up shops, interactive games, spin-the-wheel, photo booths, product demos, and instant redemption setups that attract crowds and generate leads.",
     icon: FaStoreAlt,
@@ -63,27 +48,13 @@ const services = [
       "Custom-built kiosks & pop-up shops designed in-house",
       "Interactive games, spin-the-wheel & photo booths",
       "Product demos & instant redemption setups",
-      "Dubai Mall, MOE, City Centre, Yas Mall & Saudi malls",
+      "Coverage across all the malls in Dubai, Abu Dhabi and Sharjah",
     ],
-    chips: ["Dubai Mall", "Yas Mall", "KSA Malls", "Lead Gen"],
+    chips: [],
   },
+ 
   {
-    eyebrow: "Service 03",
-    title: "Product Launches & Brand Events",
-    desc: "Launching a new product or service? We handle end-to-end launch management — venue booking, stage and backdrop design, AV and lighting, guest management, influencer outreach, and live event coverage. Whether it is a corporate launch for 50 guests or a public launch for 500, we ensure your brand gets maximum attention.",
-    icon: FaRocket,
-    gradient: "from-violet-500 to-fuchsia-500",
-    tag: "Launches · Events",
-    highlights: [
-      "Venue booking, stage & backdrop design",
-      "AV, lighting & full production support",
-      "Guest management & influencer outreach",
-      "Live event coverage (photo + video)",
-    ],
-    chips: ["Corporate (50)", "Public (500)", "Influencers", "End-to-End"],
-  },
-  {
-    eyebrow: "Service 04",
+    eyebrow: "Service 02",
     title: "Roadshows & Community Activations",
     desc: "We take your brand beyond malls to where your audience lives, works, and studies. We organize promotions at business towers, residential communities, universities, beaches, and corporate offices. We manage all permissions from Dubai Municipality, DTCM, and mall authorities, plus logistics and storage.",
     icon: FaBriefcase,
@@ -97,6 +68,37 @@ const services = [
     ],
     chips: ["B2C Outreach", "Permissions", "Logistics", "Storage"],
   },
+   {
+    eyebrow: "Service 03",
+    title: "In-Store Promotions & Product Sampling",
+    desc: "We help FMCG, food, beverage, beauty, and wellness brands drive sales at the point of purchase. We provide trained and licensed promoters, sampling uniforms, tasting counters, and POS displays for all major retail chains including Carrefour, Lulu, Spinneys, Union Coop, Choithrams, and pharmacies across Dubai, Abu Dhabi, Sharjah, and Northern Emirates.",
+    icon: FaBullseye,
+    gradient: "from-orange-500 to-amber-500",
+    tag: "Retail · Sampling",
+    highlights: [
+      "Trained & licensed promoters for every activation",
+      "Sampling uniforms, tasting counters & POS displays",
+      "Coverage across all major retail chains in Dubai, Abu Dhabi, Sharjah, and Northern Emirates",
+      "Dubai, Abu Dhabi, Sharjah & Northern Emirates",
+    ],
+    chips: ["FMCG", "Food & Bev", "Beauty", "Wellness"],
+  },
+  {
+    eyebrow: "Service 04",
+    title: "Product Launches & Brand Events",
+    desc: "Launching a new product or service? We handle end-to-end launch management — venue booking, stage and backdrop design, AV and lighting, guest management, influencer outreach, and live event coverage. Whether it is a corporate launch for 50 guests or a public launch for 500, we ensure your brand gets maximum attention.",
+    icon: FaRocket,
+    gradient: "from-violet-500 to-fuchsia-500",
+    tag: "Launches · Events",
+    highlights: [
+      "Venue booking, stage & backdrop design",
+      "AV, lighting & full production support",
+      "Guest management & influencer outreach",
+      "Live event coverage (photo + video)",
+    ],
+    chips: ["Corporate (50)", "Public (500)", "Influencers", "End-to-End"],
+  },
+  
   {
     eyebrow: "Service 05",
     title: "Exhibition Promotions & Staffing",
@@ -108,9 +110,9 @@ const services = [
       "Hostesses, promoters, sales staff, emcees & models",
       "Multilingual: English, Arabic, Hindi, Tagalog, Russian",
       "Fully brand-trained with your message & KPI brief",
-      "DWTC, Expo City Dubai, ADNEC & Riyadh events",
+      " Expo City Dubai, ADNEC & Riyadh events",
     ],
-    chips: ["DWTC", "Expo City", "ADNEC", "Riyadh"],
+    chips: ["Fast", "Reliable"],
   },
 ];
 
@@ -121,8 +123,8 @@ const whyChooseUs = [
     icon: FaWarehouse,
   },
   {
-    title: "500+ Trained Staff",
-    desc: "Over 500 trained promoters and hostesses speaking English, Arabic, Hindi, Tagalog, and Russian.",
+    title: "50+ Trained Staff",
+    desc: "Over 50 trained promoters and hostesses speaking English, Arabic, Hindi, Tagalog, and Russian.",
     icon: FaUsers,
   },
   {
@@ -141,17 +143,17 @@ const whyChooseUs = [
     icon: FaBuilding,
   },
   {
-    title: "UAE & GCC Wide",
-    desc: "From small weekend promotions with 2 promoters to month-long UAE-wide campaigns with 100+ staff.",
+    title: "GCC, MENA & Middle East Wide",
+    desc: "From small weekend promotions with 2 promoters to month-long region-wide campaigns with 50+ staff across GCC, MENA and the entire Middle East.",
     icon: FaGlobe,
   },
 ];
 
-const locations = ["UAE", "KSA", "Oman", "Qatar", "Bahrain", "Kuwait"];
+const locations = ["UAE", "KSA", "Oman", "Qatar", "Bahrain", "Kuwait", "Egypt", "Jordan", "Lebanon", "Iraq", "Morocco"];
 
 export default function PromotionsPage() {
   return (
-    <main className="bg-white min-h-screen selection:bg-[var(--primary)] selection:text-white overflow-x-hidden">
+    <main className="bg-[#EAF4E1] min-h-screen selection:bg-[var(--primary)] selection:text-white overflow-x-hidden">
       <Navbar />
 
       {/* HERO SECTION */}
@@ -164,8 +166,18 @@ export default function PromotionsPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-[var(--primary)]/20 rounded-full px-4 py-2 mb-6 shadow-sm">
-                <span className="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse" />
+              <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-md border border-zinc-900/15 rounded-full px-5 py-2.5 mb-6 shadow-sm">
+                <Image
+                  src="/proact.jpeg"
+                  alt="ProAct Logo"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 rounded-full object-cover shadow-sm ring-1 ring-zinc-900/10"
+                />
+                <span className="text-sm font-black text-black tracking-wider uppercase" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.15)" }}>
+                  Proact
+                </span>
+                <span className="w-px h-4 bg-zinc-300" />
                 <span className="text-xs md:text-sm font-bold uppercase tracking-wider text-zinc-700">
                   Promotions · Staffing · Activations
                 </span>
@@ -180,8 +192,16 @@ export default function PromotionsPage() {
               </div>
 
               <div className="max-w-3xl">
+                <p className="text-lg text-zinc-600 leading-relaxed mb-3">
+                  <span className="font-black text-xl md:text-xl text-black" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.12)" }}>PROACT</span>
+                  <span className="font-semibold text-zinc-800">, part of Expo Digital Group </span>
+                  is a full service Promotions and live Events Agency based in Dubai UAE, Servicing GCC, MENA &amp; Entire Middle East.
+                </p>
+                <p className="text-lg text-zinc-600 leading-relaxed mb-2">
+                  Supporting local and International brands with on ground Marketing that creates real Connections with Customers across the Region.
+                </p>
                 <p className="text-lg text-zinc-600 leading-relaxed mb-8">
-                  Expo Digital Group LLC is a full-service promotions and event staffing agency based in Dubai, supporting local and international brands with on-ground marketing that creates real connections with customers across the UAE and GCC.
+                  With our Fleet and Production facility in Dubai.
                 </p>
               </div>
 
@@ -235,9 +255,7 @@ export default function PromotionsPage() {
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)] to-orange-600 flex items-center justify-center shadow-xl">
                       <FaHandshake className="text-white text-xl" />
                     </div>
-                    <div className="bg-white/80 backdrop-blur px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-zinc-700 shadow-sm">
-                      Al Quoz, Dubai
-                    </div>
+                   
                   </div>
 
                   <div className="relative z-10 space-y-5">
@@ -249,7 +267,7 @@ export default function PromotionsPage() {
                       </div>
                       <div className="bg-zinc-950 text-white rounded-2xl p-4 shadow-xl">
                         <FaUsers className="text-[var(--primary)] mb-2" />
-                        <p className="text-2xl font-black">500+</p>
+                        <p className="text-2xl font-black">50+</p>
                         <p className="text-xs font-semibold text-zinc-400">Trained Staff</p>
                       </div>
                     </div>
@@ -271,7 +289,7 @@ export default function PromotionsPage() {
       </section>
 
       {/* GLOBAL REACH TICKER BANNER */}
-      <div className="border-y border-white/40 bg-[#EAF4E1] py-5">
+      {/* <div className="border-y border-white/40 bg-[#EAF4E1] py-5">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-xs md:text-sm font-bold tracking-widest uppercase text-zinc-500">
             <span className="text-zinc-900 flex items-center gap-2">
@@ -285,10 +303,10 @@ export default function PromotionsPage() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* INTRO / ABOUT SECTION */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div
             className="grid lg:grid-cols-12 gap-12 items-center"
@@ -306,7 +324,7 @@ export default function PromotionsPage() {
                 <span className="gradient-text">from concept to reporting.</span>
               </h2>
               <p className="text-lg leading-relaxed text-zinc-600 mb-6">
-                With our head office and production facility in Al Quoz, Dubai (WH 2–4 &amp; 7), we manage everything in-house — from concept and design to building promotion kiosks, printing, staffing, permissions, and reporting.
+                Coverage across all the malls in Dubai, Abu Dhabi and Sharjah.
               </p>
               <p className="text-base leading-relaxed text-zinc-500">
                 This gives you faster execution, better quality, and lower cost. No middlemen, no surprises, just reliable on-ground delivery.
@@ -424,7 +442,7 @@ export default function PromotionsPage() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
@@ -475,7 +493,7 @@ export default function PromotionsPage() {
                   Scale according to your needs.
                 </h3>
                 <p className="text-lg text-zinc-300 leading-relaxed max-w-3xl font-semibold">
-                  From small weekend promotions with 2 promoters to month-long UAE-wide campaigns with 100+ staff, we scale seamlessly. If you are looking for a reliable promotions partner who understands the UAE market, can get approvals quickly, and can execute flawlessly on the ground — we are ready.
+                  From small weekend promotions with 2 promoters to month-long region-wide campaigns with 50+ staff across GCC, MENA and the entire Middle East, we scale seamlessly. If you are looking for a reliable promotions partner who understands the Dubai market, has a fleet and production facility locally, can get approvals quickly, and can execute flawlessly on the ground — we are ready.
                 </p>
               </div>
               <div className="lg:col-span-4 flex lg:justify-end">
