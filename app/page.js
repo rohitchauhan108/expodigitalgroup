@@ -301,7 +301,7 @@ export default function Home() {
       <Navbar />
 
       {/* 1. Hero Section with Carousel */}
-      <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-[#EAF4E1] pt-20 pb-24 md:pt-16 md:pb-28">
+      <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-[#EAF4E1] pt-10 pb-24 md:pt-8 md:pb-28">
         <div className="site-shell relative z-10 w-full">
           <AnimatePresence mode="wait">
             <motion.div
@@ -310,7 +310,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mx-auto max-w-6xl text-center text-zinc-950"
+              className="mx-auto max-w-7xl text-center text-zinc-950"
             >
               <p className="mb-4 text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-[var(--primary)]">
                 {heroSlides[currentSlide].tagline} • {displayText}
@@ -322,7 +322,7 @@ export default function Home() {
                   {heroSlides[currentSlide].titleHighlight}
                 </span>
               </h1>
-              <p className="mx-auto mb-10 max-w-3xl text-base leading-relaxed text-zinc-800 md:text-xl font-semibold">
+              <p className="mx-auto mb-10 max-w-4xl text-base leading-relaxed text-zinc-800 md:text-xl font-semibold">
                 {heroSlides[currentSlide].description}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

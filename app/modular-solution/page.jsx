@@ -195,10 +195,10 @@ export default function Page() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-[72px] pb-12 md:pt-16 overflow-hidden bg-[#EAF4E1]">
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
+      <section className="relative pt-10 pb-12 md:pt-12 overflow-hidden bg-[#EAF4E1]">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center w-full">
           <motion.div
-            className="max-w-3xl text-center"
+            className="max-w-none w-full text-center"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -220,7 +220,7 @@ export default function Page() {
               <span className="gradient-text">(SEG Fabric)</span>
             </h1>
 
-            <p className="text-xl text-zinc-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-600 leading-relaxed mb-8 max-w-6xl mx-auto">
               Our Modular SEG fabric booth system revolutionizes exhibition stands with fast installation and stunning visual impact. We provide complete end-to-end solutions—from innovative design and premium fabric graphics to rapid assembly and professional installation. Perfect for conference booths, mall activations, and brand experiences, our modular systems combine versatility with sustainability. Reusable across multiple events, transport-friendly, and organizer-compliant, they deliver consistent ROI while reducing environmental impact. Operating across the Middle East, India, and Europe, we transform your vision into show-stopping experiences in hours, not days.
             </p>
 

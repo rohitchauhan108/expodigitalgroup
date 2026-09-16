@@ -160,12 +160,12 @@ export default function DisplayStandsPage() {
       <Navbar />
 
       {/* 1. HERO SECTION */}
-      <section className="relative pt-[72px] pb-20 md:pt-20 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-10 pb-20 md:pt-12 overflow-hidden bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
 
             <motion.div
-              className="lg:col-span-7 text-left"
+              className="lg:col-span-8 text-left"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -181,7 +181,7 @@ export default function DisplayStandsPage() {
                 <span className="gradient-text">impossible to miss.</span>
               </h1>
 
-              <p className="text-lg text-zinc-600 leading-relaxed mb-8 max-w-xl">
+              <p className="text-lg text-zinc-600 leading-relaxed mb-8 max-w-3xl">
                 <span className="font-bold">Corrugated Display Stands</span>, <span className="font-bold">SEG Light Box Displays</span> &amp; <span className="font-bold">Customized Display Stands</span>. From budget to premium, we create displays that turn visitors into customers and elevate every event.
               </p>
 
@@ -219,7 +219,7 @@ export default function DisplayStandsPage() {
 
             {/* RIGHT — Glass showcase card */}
             <motion.div
-              className="lg:col-span-5 relative"
+              className="lg:col-span-4 relative"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}

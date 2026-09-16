@@ -106,7 +106,7 @@ const Footer = () => {
 
           <div>
             <h4 className="mb-8 text-sm font-bold uppercase tracking-[0.2em] text-white">
-              Our Services
+              Quick Links
             </h4>
             <ul className="space-y-4">
               {[
@@ -165,10 +165,23 @@ const Footer = () => {
                 </div>
                 <a
                   href="mailto:sales@expodigitalgroup.com"
-                  className="text-white font-bold transition-colors hover:text-[var(--primary)] text-sm truncate"
+                  className="text-white font-bold transition-colors hover:text-[var(--primary)] text-[13px] truncate"
                   title="sales@expodigitalgroup.com"
                 >
                   sales@expodigitalgroup.com
+                </a>
+              </div>
+
+              <div className="flex items-center space-x-4 group min-w-0">
+                <div className="h-10 w-10 shrink-0 flex items-center justify-center rounded-lg bg-zinc-900 text-[var(--primary)]">
+                  <Mail size={20} />
+                </div>
+                <a
+                  href="mailto:Anwar@expodigitalgroup.com"
+                  className="text-white font-bold transition-colors hover:text-[var(--primary)] text-[13px] truncate"
+                  title="Anwar@expodigitalgroup.com"
+                >
+                  Anwar@expodigitalgroup.com
                 </a>
               </div>
 
@@ -267,7 +280,7 @@ const Footer = () => {
                 <a
                   href="mailto:sales@expodigitalgroup.com"
                   title="sales@expodigitalgroup.com"
-                  className="flex items-center gap-2 mt-4 pt-3 border-t border-zinc-800/80 text-xs font-bold text-[var(--primary)] hover:text-white transition-colors min-w-0 relative z-10"
+                  className="flex items-center gap-2 mt-4 pt-3 border-t border-zinc-800/80 text-[11px] font-bold text-[var(--primary)] hover:text-white transition-colors min-w-0 relative z-10"
                 >
                   <Mail size={14} className="shrink-0" />
                   <span className="truncate whitespace-nowrap block">

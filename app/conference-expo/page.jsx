@@ -249,7 +249,7 @@ export default function ConferenceExpoPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-20 md:pt-16 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-10 pb-20 md:pt-12 overflow-hidden bg-[#EAF4E1]">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920&q=80&auto=format&fit=crop"
@@ -261,11 +261,11 @@ export default function ConferenceExpoPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#EAF4E1]/95 via-[#EAF4E1]/80 to-[#EAF4E1]/60" />
         </div>
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             
             {/* Left Content */}
             <motion.div 
-              className="lg:col-span-7 text-left"
+              className="lg:col-span-8 text-left"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -284,7 +284,7 @@ export default function ConferenceExpoPage() {
                 </span>
               </h1>
 
-              <p className="text-lg text-zinc-600 leading-relaxed mb-8 max-w-xl">
+              <p className="text-lg text-zinc-600 leading-relaxed mb-8 max-w-3xl">
                 We partner with Organizers and Corporations to engineer premium conference environments. From high-presence <strong>networking pavilions</strong> to <strong>100+ unit plenary expo floors</strong>, we deliver speed and precision.
               </p>
 
@@ -301,7 +301,7 @@ export default function ConferenceExpoPage() {
 
             {/* Right Interactive Structural Visual Mockup Layout */}
             <motion.div 
-              className="lg:col-span-5 relative"
+              className="lg:col-span-4 relative"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}

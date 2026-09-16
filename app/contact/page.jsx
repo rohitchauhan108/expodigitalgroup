@@ -145,10 +145,10 @@ function Page() {
       {/* =============================== */}
       {/* SECTION 1: HERO BANNER */}
       {/* =============================== */}
-      <section className="relative pt-[72px] md:pt-20 pb-24 md:pb-20 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-10 md:pt-12 pb-24 md:pb-20 overflow-hidden bg-[#EAF4E1]">
         <div className="site-shell relative z-10">
           <motion.div
-            className="mx-auto max-w-4xl text-center"
+            className="mx-auto max-w-5xl text-center"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -160,7 +160,7 @@ function Page() {
               Let&apos;s Build Something{" "}
               <span className="gradient-text">Extraordinary</span>
             </h1>
-            <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-zinc-600 md:text-lg">
+            <p className="mx-auto mb-10 max-w-3xl text-base leading-relaxed text-zinc-600 md:text-lg">
               Whether it&apos;s a bespoke exhibition booth, modular system, or
               full conference pavilion — our team delivers precision, speed, and
               brand-accurate execution across the Middle East, India & Europe.

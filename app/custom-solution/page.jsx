@@ -252,10 +252,10 @@ export default function Page() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-[72px] pb-12 md:pt-16 overflow-hidden bg-[#EAF4E1]">
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
+      <section className="relative pt-10 pb-12 md:pt-12 overflow-hidden bg-[#EAF4E1]">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center w-full">
           <motion.div
-            className="max-w-3xl text-center"
+            className="max-w-none w-full text-center"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -277,7 +277,7 @@ export default function Page() {
               <span className="gradient-text">Bespoke Exhibition Stands</span>
             </h1>
 
-            <p className="text-xl text-zinc-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-600 leading-relaxed mb-8 max-w-6xl mx-auto">
               We offer complete end-to-end solutions—from 3D design and premium graphics to in-house fabrication and seamless installation. Our expertise spans bespoke architectural stands, modular systems, and brand activations tailored to your vision. Operating across the Middle East, India, and Europe, we deliver ROI-driven results at premier venues and events. With proven craftsmanship and innovative engineering, we turn concepts into show-stopping experiences that drive foot traffic and lasting impressions.
             </p>
 
