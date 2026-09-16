@@ -195,26 +195,7 @@ export default function DisplayStandsPage() {
                 </Link>
               </div>
 
-              <div className="flex items-center gap-6 mt-10 pt-6 border-t border-zinc-950/5">
-                <div className="flex -space-x-2">
-                  {["bg-gradient-to-br from-orange-400 to-amber-500", "bg-gradient-to-br from-emerald-400 to-teal-500", "bg-gradient-to-br from-violet-400 to-fuchsia-500"].map((c, i) => (
-                    <div key={i} className={`w-9 h-9 rounded-full border-2 border-white ${c} flex items-center justify-center shadow-md`}>
-                      <FaStar className="text-white text-xs" />
-                    </div>
-                  ))}
-                </div>
-                <div>
-                  <div className="flex items-center gap-1 text-sm font-bold text-zinc-950">
-                    <FaStar className="text-[var(--primary)] text-sm" />
-                    <FaStar className="text-[var(--primary)] text-sm" />
-                    <FaStar className="text-[var(--primary)] text-sm" />
-                    <FaStar className="text-[var(--primary)] text-sm" />
-                    <FaStar className="text-[var(--primary)] text-sm" />
-                    <span className="ml-1">5.0</span>
-                  </div>
-                  <p className="text-xs text-zinc-500 mt-0.5 font-semibold">Display builds delivered across the region</p>
-                </div>
-              </div>
+          
             </motion.div>
 
             {/* RIGHT — Glass showcase card */}
