@@ -158,7 +158,7 @@ export default function PromotionsPage() {
       {/* HERO SECTION */}
       <section className="relative pt-10 pb-20 md:pt-12 overflow-hidden bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-start">
             <motion.div
               className="lg:col-span-8 text-left"
               initial={{ opacity: 0, x: -50 }}
@@ -181,17 +181,15 @@ export default function PromotionsPage() {
               </div>
 
               <div className="max-w-3xl">
-                <p className="text-lg text-zinc-600 leading-relaxed mb-3">
+                <p className="text-lg text-zinc-600 leading-relaxed mb-8">
                   <span className="font-black text-xl md:text-xl text-black" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.12)" }}>ProAct</span>
                   <span className="font-semibold text-zinc-800">, part of Expo Digital Group </span>
                   is a full service Promotions and live Events Agency based in Dubai UAE, Servicing GCC, MENA &amp; Entire Middle East.
-                </p>
-                <p className="text-lg text-zinc-600 leading-relaxed mb-2">
                   Supporting local and International brands with on ground Marketing that creates real Connections with Customers across the Region.
-                </p>
-                <p className="text-lg text-zinc-600 leading-relaxed mb-8">
                   With our Fleet and Production facility in Dubai.
                 </p>
+                
+               
               </div>
 
               <div className="flex flex-wrap gap-4">
@@ -204,26 +202,7 @@ export default function PromotionsPage() {
                 </Link>
               </div>
 
-              {/* <div className="flex items-center gap-6 mt-10 pt-6 border-t border-zinc-950/5">
-                <div className="flex -space-x-2">
-                  {["bg-gradient-to-br from-orange-400 to-amber-500", "bg-gradient-to-br from-emerald-400 to-teal-500", "bg-gradient-to-br from-violet-400 to-fuchsia-500"].map((c, i) => (
-                    <div key={i} className={`w-9 h-9 rounded-full border-2 border-white ${c} flex items-center justify-center shadow-md`}>
-                      <FaStar className="text-white text-xs" />
-                    </div>
-                  ))}
-                </div>
-                <div>
-                  <div className="flex items-center gap-1 text-sm font-bold text-zinc-950">
-                    <FaStar className="text-[var(--primary)] text-sm" />
-                    <FaStar className="text-[var(--primary)] text-sm" />
-                    <FaStar className="text-[var(--primary)] text-sm" />
-                    <FaStar className="text-[var(--primary)] text-sm" />
-                    <FaStar className="text-[var(--primary)] text-sm" />
-                    <span className="ml-1">5.0</span>
-                  </div>
-                  <p className="text-xs text-zinc-500 mt-0.5 font-semibold">Promotions delivered across UAE &amp; GCC</p>
-                </div>
-              </div> */}
+          
             </motion.div>
 
             {/* RIGHT — Showcase card */}
@@ -233,39 +212,32 @@ export default function PromotionsPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="relative w-full mx-auto aspect-[4/5] bg-gradient-to-br from-white/60 to-white/20 backdrop-blur-md rounded-[3rem] border border-white p-6 shadow-2xl">
-                <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-inner bg-gradient-to-br from-[var(--primary)]/20 via-orange-500/10 to-amber-500/5 flex flex-col justify-between p-6 md:p-8">
+              <div className="relative w-full max-w-sm mx-auto aspect-square bg-gradient-to-br from-white/60 to-white/20 backdrop-blur-md rounded-[2.5rem] border border-white p-5 shadow-2xl">
+                <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-inner bg-gradient-to-br from-[var(--primary)]/20 via-orange-500/10 to-amber-500/5 flex flex-col justify-center p-5 md:p-6">
                   <div className="absolute inset-0">
-                    <div className="absolute top-8 right-8 w-28 h-28 bg-[var(--primary)]/20 rounded-full blur-3xl" />
-                    <div className="absolute bottom-8 left-8 w-36 h-36 bg-emerald-500/20 rounded-full blur-3xl" />
+                    <div className="absolute top-4 right-4 w-20 h-20 bg-[var(--primary)]/20 rounded-full blur-3xl" />
+                    <div className="absolute bottom-4 left-4 w-24 h-24 bg-emerald-500/20 rounded-full blur-3xl" />
                   </div>
 
-                  <div className="relative z-10 flex items-center justify-between">
-                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[var(--primary)] to-orange-600 flex items-center justify-center shadow-xl">
-                      <FaHandshake className="text-white text-xl md:text-2xl" />
-                    </div>
-                   
-                  </div>
-
-                  <div className="relative z-10 space-y-4 md:space-y-5">
-                    <div className="grid grid-cols-2 gap-3 md:gap-4">
-                      <div className="bg-white/80 backdrop-blur rounded-2xl p-4 md:p-5 shadow-sm border border-white/60">
-                        <FaWarehouse className="text-[var(--primary)] mb-2 text-lg" />
-                        <p className="text-2xl md:text-3xl font-black text-zinc-950">In-House</p>
-                        <p className="text-xs md:text-sm font-semibold text-zinc-500">Production Facility</p>
+                  <div className="relative z-10 space-y-3 md:space-y-4">
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="bg-white/80 backdrop-blur rounded-2xl p-3 md:p-4 shadow-sm border border-white/60">
+                        <FaWarehouse className="text-[var(--primary)] mb-1.5" />
+                        <p className="text-xl md:text-2xl font-black text-zinc-950">In-House</p>
+                        <p className="text-[11px] md:text-xs font-semibold text-zinc-500">Production Facility</p>
                       </div>
-                      <div className="bg-zinc-950 text-white rounded-2xl p-4 md:p-5 shadow-xl">
-                        <FaUsers className="text-[var(--primary)] mb-2 text-lg" />
-                        <p className="text-2xl md:text-3xl font-black">250+</p>
-                        <p className="text-xs md:text-sm font-semibold text-zinc-400">Trained Staff</p>
+                      <div className="bg-zinc-950 text-white rounded-2xl p-3 md:p-4 shadow-xl">
+                        <FaUsers className="text-[var(--primary)] mb-1.5" />
+                        <p className="text-xl md:text-2xl font-black">250+</p>
+                        <p className="text-[11px] md:text-xs font-semibold text-zinc-400">Trained Staff</p>
                       </div>
                     </div>
-                    <div className="bg-white/80 backdrop-blur rounded-2xl p-4 md:p-5 shadow-sm border border-white/60">
-                      <div className="flex items-center justify-between mb-2">
-                        <p className="text-xs md:text-sm font-bold uppercase tracking-wider text-zinc-500">Quotation Turnaround</p>
+                    <div className="bg-white/80 backdrop-blur rounded-2xl p-3 md:p-4 shadow-sm border border-white/60">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <p className="text-[11px] md:text-xs font-bold uppercase tracking-wider text-zinc-500">Quotation Turnaround</p>
                         <FaClock className="text-[var(--primary)]" />
                       </div>
-                      <p className="text-3xl md:text-4xl font-black text-zinc-950">
+                      <p className="text-2xl md:text-3xl font-black text-zinc-950">
                         <span className="gradient-text">4</span> Hours
                       </p>
                     </div>

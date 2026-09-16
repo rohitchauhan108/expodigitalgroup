@@ -25,7 +25,7 @@ const heroSlides = [
     titleStart: "We Bring Your",
     titleHighlight: "Projects To Life",
     description:
-      "From high-end custom bespoke booths to eco-friendly modular structures. We turn original concepts into breathtaking, eye-catching spaces that stand out on competitive show floors.",
+      "From high-end custom bespoke booths to eco-friendly modular structures. We turn original concepts into breathtaking spaces that stand out.",
     bgImage:
       "/banners/banner1.webp",
   },
@@ -35,7 +35,7 @@ const heroSlides = [
     titleStart: "Engineering Unrivaled",
     titleHighlight: "Brand Presence",
     description:
-      "Maximize foot traffic and leave a lasting impression with our engineered Modular Sustainable reusable tech and tailor-made architectural exhibition environments.",
+      "Maximize foot traffic with our engineered Modular Sustainable reusable tech and tailor-made architectural exhibition environments.",
     bgImage:
       "/banners/banner2.webp",
   },
@@ -45,7 +45,7 @@ const heroSlides = [
     titleStart: "Transforming Spatial",
     titleHighlight: "Customer Engagement",
     description:
-      "Complete end-to-end execution directly from our factory compound: fast fabrication, seamless logistics, and strict venue-compliant installation.",
+      "Complete end-to-end execution from our factory: fast fabrication, seamless logistics, and strict venue-compliant installation.",
     bgImage:
       "/banners/banner3.webp",
   },

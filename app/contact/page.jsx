@@ -145,10 +145,10 @@ function Page() {
       {/* =============================== */}
       {/* SECTION 1: HERO BANNER */}
       {/* =============================== */}
-      <section className="relative pt-10 md:pt-12 pb-24 md:pb-20 overflow-hidden bg-[#EAF4E1]">
+      <section className="relative pt-10 md:pt-12 pb-24 md:pb-12 overflow-hidden bg-[#EAF4E1]">
         <div className="site-shell relative z-10">
           <motion.div
-            className="mx-auto max-w-5xl text-center"
+            className="mx-auto max-w-6xl text-center"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -188,7 +188,7 @@ function Page() {
       {/* =============================== */}
       {/* SECTION 2: HOW WE CAN HELP + CLIENT ADVISORY */}
       {/* =============================== */}
-      <section className="relative py-24 md:py-20 overflow-hidden border-t border-zinc-200">
+      <section className="relative py-24 md:py-12  overflow-hidden border-t border-zinc-200">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
         <div className="site-shell relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 lg:items-start">

@@ -162,7 +162,7 @@ export default function DisplayStandsPage() {
       {/* 1. HERO SECTION */}
       <section className="relative pt-10 pb-20 md:pt-12 overflow-hidden bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-start">
 
             <motion.div
               className="lg:col-span-8 text-left"
