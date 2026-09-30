@@ -177,11 +177,11 @@ const Footer = () => {
                   <Mail size={20} />
                 </div>
                 <a
-                  href="mailto:Anwar@expodigitalgroup.com"
+                  href="mailto:admin@expodigitalgroup.com"
                   className="text-white font-bold transition-colors hover:text-[var(--primary)] text-[13px] truncate"
-                  title="Anwar@expodigitalgroup.com"
+                  title="admin@expodigitalgroup.com"
                 >
-                  Anwar@expodigitalgroup.com
+                  admin@expodigitalgroup.com
                 </a>
               </div>
 

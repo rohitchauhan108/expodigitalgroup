@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -34,6 +35,17 @@ const fadeUp = {
   viewport: { once: true, margin: "-100px" },
   transition: { duration: 0.6, ease: "easeOut" },
 };
+
+const GALLERY_IMAGES = [
+  "/promotion/1.jpeg",
+  "/promotion/2.jpeg",
+  "/promotion/3.jpeg",
+  "/promotion/4.jpeg",
+  "/promotion/5.jpeg",
+  "/promotion/6.jpeg",
+];
+
+const IMAGES_PER_LOAD = 9;
 
 const services = [
    {
@@ -151,6 +163,61 @@ const whyChooseUs = [
 const locations = ["UAE", "KSA", "Oman", "Qatar", "Bahrain", "Kuwait", "Egypt", "Jordan", "Lebanon", "Iraq", "Morocco"];
 
 export default function PromotionsPage() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  const itemsPerPage = IMAGES_PER_LOAD;
+  const totalPages = Math.ceil(GALLERY_IMAGES.length / itemsPerPage) || 1;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentImages = GALLERY_IMAGES.slice(indexOfFirstItem, indexOfLastItem);
+
+  const getPaginationNumbers = () => {
+    const pageNumbers = [];
+    if (totalPages <= 5) {
+      for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(i);
+      }
+    } else {
+      if (currentPage <= 3) {
+        pageNumbers.push(1, 2, 3, '...', totalPages);
+      } else if (currentPage >= totalPages - 2) {
+        pageNumbers.push(1, '...', totalPages - 2, totalPages - 1, totalPages);
+      } else {
+        pageNumbers.push(1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages);
+      }
+    }
+    return pageNumbers;
+  };
+
+  const openImage = (globalIndex) => setSelectedIndex(globalIndex);
+  const closeImage = () => setSelectedIndex(null);
+  const nextImage = () => setSelectedIndex((prev) => prev === null || prev === GALLERY_IMAGES.length - 1 ? 0 : prev + 1);
+  const prevImage = () => setSelectedIndex((prev) => prev === null || prev === 0 ? GALLERY_IMAGES.length - 1 : prev - 1);
+  const handleImageRightClick = (e) => { e.preventDefault(); e.stopPropagation(); };
+
+  React.useEffect(() => {
+    if (selectedIndex === null) return;
+    const handleKeyDown = (e) => {
+      switch (e.key) {
+        case "ArrowRight": nextImage(); break;
+        case "ArrowLeft": prevImage(); break;
+        case "Escape": closeImage(); break;
+        default: break;
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedIndex]);
+
+  React.useEffect(() => {
+    if (selectedIndex !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => { document.body.style.overflow = "auto"; };
+  }, [selectedIndex]);
   return (
     <main className="bg-[#EAF4E1] min-h-screen selection:bg-[var(--primary)] selection:text-white overflow-x-hidden">
       <Navbar />
@@ -249,25 +316,9 @@ export default function PromotionsPage() {
         </div>
       </section>
 
-      {/* GLOBAL REACH TICKER BANNER */}
-      {/* <div className="border-y border-white/40 bg-[#EAF4E1] py-5">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-xs md:text-sm font-bold tracking-widest uppercase text-zinc-500">
-            <span className="text-zinc-900 flex items-center gap-2">
-              <FaGlobe className="text-[var(--primary)] text-base" /> Active Coverage Across:
-            </span>
-            {locations.map((loc, idx) => (
-              <React.Fragment key={idx}>
-                <span className="text-zinc-800 tracking-wider hover:text-[var(--primary)] transition-colors cursor-default">{loc}</span>
-                {idx !== locations.length - 1 && <span className="text-zinc-300">|</span>}
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      </div> */}
 
       {/* INTRO / ABOUT SECTION */}
-      <section className="py-20 bg-[#EAF4E1]">
+      <section className="py-12 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div
             className="grid lg:grid-cols-12 gap-12 items-center"
@@ -318,7 +369,7 @@ export default function PromotionsPage() {
       </section>
 
       {/* SERVICES SECTION */}
-      <section id="services" className="py-24 bg-[#EAF4E1]">
+      <section id="services" className="py-12 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
@@ -403,7 +454,7 @@ export default function PromotionsPage() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="py-24 bg-[#EAF4E1]">
+      <section className="py-12 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div className="text-center mb-20" {...fadeUp}>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
@@ -471,8 +522,105 @@ export default function PromotionsPage() {
         </div>
       </section>
 
+      {/* PORTFOLIO GALLERY */}
+      <section id="promotions-portfolio" className="py-12 bg-[#EAF4E1]" >
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <motion.div className="text-center mb-20" {...fadeUp}>
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]">
+              Featured Portfolio
+            </p>
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl">
+              Our Promotions <span className="gradient-text">Portfolio.</span>
+            </h2>
+            <p className="text-lg leading-relaxed text-zinc-600 max-w-xl mx-auto">
+              Mall activations, roadshows, in-store sampling, product launches, and exhibition staffing — delivered for brands across GCC, MENA and the entire Middle East.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {currentImages.map((image, index) => {
+              const globalIndex = indexOfFirstItem + index;
+              return (
+                <motion.button
+                  key={globalIndex}
+                  onClick={() => openImage(globalIndex)}
+                  onContextMenu={handleImageRightClick}
+                  className="overflow-hidden rounded-[2rem] shadow-sm bg-white/40 border border-white/60 aspect-[4/3] cursor-pointer group relative w-full text-left focus:outline-none focus:ring-2 focus:ring-[var(--primary)] hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
+                  <Image
+                    src={image}
+                    alt={`Promotions Portfolio ${globalIndex + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    draggable={false}
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-all duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
+                      <div className="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg ring-4 ring-white/40">
+                        <FaArrowRight className="text-[var(--primary)] text-xl" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  
+                  </div>
+
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-zinc-950 text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    View Activation
+                  </div>
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {GALLERY_IMAGES.length > 0 && totalPages > 1 && (
+            <div className="flex justify-center items-center gap-2 mt-16">
+              <button
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="px-4 py-2 rounded-xl border border-white/60 bg-white/40 backdrop-blur-md text-zinc-700 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-white hover:text-[var(--primary)] transition-all font-semibold shadow-sm"
+              >
+                Prev
+              </button>
+
+              {getPaginationNumbers().map((page, index) => (
+                <button
+                  key={index}
+                  onClick={() => typeof page === 'number' && setCurrentPage(page)}
+                  disabled={page === '...'}
+                  className={`w-10 h-10 rounded-xl font-bold transition-all shadow-sm ${
+                    page === currentPage
+                      ? 'bg-[var(--primary)] text-white border-transparent'
+                      : page === '...'
+                      ? 'text-zinc-500 cursor-default bg-transparent border-none shadow-none'
+                      : 'border border-white/60 bg-white/40 backdrop-blur-md text-zinc-700 hover:bg-white hover:text-[var(--primary)]'
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+
+              <button
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 rounded-xl border border-white/60 bg-white/40 backdrop-blur-md text-zinc-700 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-white hover:text-[var(--primary)] transition-all font-semibold shadow-sm"
+              >
+                Next
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* CLOSING CTA STRIP */}
-      <section className="py-16 pb-32 bg-[#EAF4E1]">
+      <section className="py-16 pb-20 bg-[#EAF4E1]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -514,6 +662,62 @@ export default function PromotionsPage() {
 
       <Footer />
       <FloatingIcons />
+
+      {/* LIGHTBOX MODAL */}
+      {selectedIndex !== null && (
+        <motion.div
+          className="fixed inset-0 bg-zinc-950/95 z-[9999] flex items-center justify-center select-none backdrop-blur-md"
+          onClick={closeImage}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <button
+            onClick={closeImage}
+            className="absolute top-6 right-6 text-white/50 text-4xl hover:text-white z-50 transition-colors w-12 h-12 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 flex items-center justify-center"
+          >
+            &times;
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              prevImage();
+            }}
+            className="absolute left-4 md:left-8 text-white/50 text-5xl hover:text-white hover:scale-110 z-50 p-2 transition-all w-14 h-14 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 flex items-center justify-center"
+          >
+            &#10094;
+          </button>
+
+          <div
+            className="relative w-[92vw] h-[80vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={GALLERY_IMAGES[selectedIndex]}
+              alt={`Promotions Portfolio Image ${selectedIndex + 1}`}
+              fill
+              priority
+              draggable={false}
+              className="object-contain rounded-3xl"
+            />
+          </div>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              nextImage();
+            }}
+            className="absolute right-4 md:right-8 text-white/50 text-5xl hover:text-white hover:scale-110 z-50 p-2 transition-all w-14 h-14 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 flex items-center justify-center"
+          >
+            &#10095;
+          </button>
+
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white bg-white/10 backdrop-blur-md px-6 py-2 text-sm font-bold tracking-widest rounded-full border border-white/20">
+            {selectedIndex + 1} / {GALLERY_IMAGES.length}
+          </div>
+        </motion.div>
+      )}
     </main>
   );
 }
