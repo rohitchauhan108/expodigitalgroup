@@ -57,7 +57,7 @@ const services = [
     tag: "Malls · Pop-Ups",
     highlights: [
       "Custom-built kiosks & pop-up shops designed in-house",
-      "Interactive games, spin-the-wheel & photo booths",
+      "Interactive and tech integrated games",
       "Product demos & instant redemption setups",
       "Coverage across all the malls in Dubai, Abu Dhabi and Sharjah",
     ],
