@@ -37,7 +37,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
     {
-      name: "Solutions",
+      name: "Exhibitions",
       dropdown: [
         { name: "Custom Solutions", href: "/custom-solution" },
         { name: "Modular Solutions", href: "/modular-solution" },
@@ -85,16 +85,16 @@ const Navbar = () => {
                 </button>
 
                 {/* Dropdown Menu */}
-                <div className="absolute left-0 top-full pt-1.5 w-46 xl:w-54 2xl:w-60 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
-                  <div className="rounded-xl bg-zinc-950 border border-zinc-800 shadow-2xl overflow-hidden py-1 xl:py-1.5 2xl:py-2">
+                <div className="absolute left-0 top-full pt-1 w-46 xl:w-54 2xl:w-60 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
+                  <div className="overflow-hidden rounded-xl bg-black shadow-2xl">
                     {link.dropdown.map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
-                        className={`block px-3.5 xl:px-5 2xl:px-6 py-2 xl:py-2.5 2xl:py-3.5 text-[11.5px] xl:text-[13px] 2xl:text-sm font-semibold transition-colors hover:bg-[var(--primary)] hover:text-white ${
+                        className={`block w-full px-3.5 xl:px-5 2xl:px-6 py-2 xl:py-2.5 2xl:py-3.5 text-[11.5px] xl:text-[13px] 2xl:text-sm font-semibold transition-colors hover:bg-[var(--primary)] hover:text-white ${
                           isActive(item.href)
                             ? "bg-[var(--primary)] text-white"
-                            : "text-zinc-200"
+                            : "bg-black text-zinc-200"
                         }`}
                       >
                         {item.name}
@@ -197,15 +197,15 @@ const Navbar = () => {
                             transition={{ duration: 0.2 }}
                             className="overflow-hidden"
                           >
-                            <div className="mt-2.5 sm:mt-3 ml-1.5 sm:ml-2 space-y-2.5 sm:space-y-3 border-l-2 border-[var(--primary)] pl-3.5 sm:pl-4 py-0.5 sm:py-1">
+                            <div className="mt-2.5 sm:mt-3 ml-1.5 sm:ml-2 overflow-hidden rounded-xl border border-zinc-800 bg-black">
                               {link.dropdown.map((item) => (
                                 <Link
                                   key={item.name}
                                   href={item.href}
-                                  className={`block text-[13px] sm:text-sm transition-colors ${
+                                  className={`block w-full px-3.5 py-2.5 text-[13px] sm:text-sm transition-colors hover:bg-[var(--primary)] hover:text-white ${
                                     isActive(item.href)
-                                      ? "text-[var(--primary)] font-semibold"
-                                      : "text-zinc-300 hover:text-white"
+                                      ? "bg-[var(--primary)] text-white font-semibold"
+                                      : "bg-black text-zinc-300"
                                   }`}
                                 >
                                   {item.name}
