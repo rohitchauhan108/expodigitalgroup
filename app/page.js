@@ -206,13 +206,13 @@ export default function Home() {
 
   const services = [
     {
-      title: "Bespoke Exhibition Stand Design & Build",
+      title: "Exhibition Stand Design & Build",
       description:
         "Tailor-made, structurally unique bespoke builds designed entirely in-house from scratch to reflect your precise corporate identity and trade show goals.",
       badge: "Custom Production",
     },
     {
-      title: " Modular & QuickBuild Exhibition Stands",
+      title: "Modular Sustainable Stand System",
       description:
         "Our proprietary premium eco-friendly modular profiles. Engineered with zero wood and zero waste, offering over 50 dynamic combinations for repetitive multi-event use.",
       badge: "Green Modular",
