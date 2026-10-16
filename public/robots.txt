@@ -1,0 +1,9 @@
+User-agent: *
+
+Allow: /
+
+Disallow: /api/
+
+Disallow: /admin/
+
+Sitemap: https://expodigitalgroup.com/sitemap.xml

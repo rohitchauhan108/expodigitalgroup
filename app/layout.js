@@ -1,18 +1,11 @@
 // import { Syne, Karla } from "next/font/google";
 import { Montserrat, Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { icons } from "lucide-react";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 
-// const syne = Syne({
-//   variable: "--font-syne",
-//   subsets: ["latin"],
-// });
 
-// const karla = Karla({
-//   variable: "--font-karla",
-//   subsets: ["latin"],
-// });
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -31,6 +24,13 @@ export const metadata = {
   title: "Exhibition Stand Builders in Dubai & UAE | Expo Digital Group",
   description:
     "Exhibition stand builders in Dubai & UAE. Custom stands, modular booths and exhibition rentals, built in-house in Al Quoz. Get a free design quote.",
+  keywords: [
+    "exhibition stand builders in dubai",
+    "exhibition stand builders in uae",
+    "exhibition stand contractors in dubai",
+    "exhibition stand",
+    "exhibition rentals",
+  ],
   alternates: {
     canonical: "/",
   },
@@ -102,6 +102,18 @@ export default function RootLayout({ children }) {
         className={`${montserrat.variable} ${poppins.variable} font-sans bg-white text-zinc-900 antialiased`}
         // className={`${syne.variable} ${karla.variable} font-sans bg-white text-zinc-900 antialiased`}
       >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZNTMW8B508"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZNTMW8B508');
+          `}
+        </Script>
         <LenisSmoothScroll />
         <script
           type="application/ld+json"

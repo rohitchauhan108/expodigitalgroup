@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 function Services() {
   const originalServices = [
@@ -145,10 +146,13 @@ function Services() {
                   <div className="h-[300px] md:h-[330px] bg-white border border-gray-100 flex flex-col items-center justify-center px-6 py-8 transition-all duration-300">
                     {/* Image */}
                     <div className="w-full h-[150px] flex items-center justify-center mb-5">
-                      <img
+                      <Image
                         src={service.image}
                         alt={service.alt || service.name}
-                        className="max-w-[100px] max-h-[100px] w-auto h-auto object-contain transition-transform duration-300 hover:scale-110"
+                        width={100}
+                        height={100}
+                        sizes="100px"
+                        className="h-auto max-h-[100px] w-auto max-w-[100px] object-contain transition-transform duration-300 hover:scale-110"
                       />
                     </div>
 

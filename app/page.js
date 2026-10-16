@@ -15,6 +15,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import Services from "@/components/Services";
 
 // Hero Slider Data Configuration
@@ -624,10 +625,12 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
               >
-                <img
+                <Image
                   src="/about.png"
                   alt="Exhibition stand builders in Dubai: in-house production team at work"
-                  className="h-full w-full object-cover"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
                 />
               </motion.div>
 
@@ -794,11 +797,13 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
                     src={project.bgImage}
                     alt={project.imageAlt}
-                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-700 hover:scale-105"
                   />
                 </div>
                 <div className="p-7">
