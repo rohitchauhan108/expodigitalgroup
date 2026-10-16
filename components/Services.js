@@ -5,9 +5,24 @@ function Services() {
     { id: 1, name: "Banners", image: "/services/1.png" },
     { id: 2, name: "Photo Booth", image: "/services/2.png" },
     { id: 3, name: "Mall Activation Booth", image: "/services/3.png" },
-    { id: 4, name: "Furniture", image: "/services/4.png" },
-    { id: 5, name: "Bespoke Booth", image: "/services/5.png" },
-    { id: 6, name: "QuickBuild Booths", image: "/services/6.png" },
+    {
+      id: 4,
+      name: "Furniture",
+      image: "/services/4.png",
+      alt: "Exhibition furniture rental in Dubai",
+    },
+    {
+      id: 5,
+      name: "Bespoke Booth",
+      image: "/services/5.png",
+      alt: "Bespoke exhibition stand in Dubai",
+    },
+    {
+      id: 6,
+      name: "QuickBuild Booths",
+      image: "/services/6.png",
+      alt: "QuickBuild modular exhibition booth",
+    },
     { id: 7, name: "Branding", image: "/services/7.png" },
     { id: 8, name: "Promotion Stands", image: "/services/8.png" },
     { id: 9, name: "Back Walls", image: "/services/9.png" },
@@ -82,8 +97,7 @@ function Services() {
         {/* Heading */}
         <div className="mb-8 text-center">
           <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl tracking-tight leading-tight">
-            Our {" "}
-            <span className="gradient-text">Services</span>
+            Our <span className="gradient-text">Services</span>
           </h2>
           <p className="text-gray-600 mt-2">
             Explore our range of professional exhibition and branding solutions.
@@ -133,7 +147,7 @@ function Services() {
                     <div className="w-full h-[150px] flex items-center justify-center mb-5">
                       <img
                         src={service.image}
-                        alt={service.name}
+                        alt={service.alt || service.name}
                         className="max-w-[100px] max-h-[100px] w-auto h-auto object-contain transition-transform duration-300 hover:scale-110"
                       />
                     </div>

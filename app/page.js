@@ -24,6 +24,7 @@ const heroSlides = [
     tagline: "PREMIUM EXHIBITION STAND BUILDERS",
     titleStart: "We Bring Your",
     titleHighlight: "Projects To Life",
+    imageAlt: "Custom exhibition stand built by Expo Digital in Dubai",
     description:
       "From high-end custom bespoke booths to eco-friendly modular structures. We turn original concepts into breathtaking spaces that stand out.",
     bgImage: "/banners/banner1.webp",
@@ -33,6 +34,7 @@ const heroSlides = [
     tagline: "CUSTOM BESPOKE & SUSTAINABLE DESIGNS",
     titleStart: "Engineering Unrivaled",
     titleHighlight: "Brand Presence",
+    imageAlt: "Bespoke exhibition booth design for a UAE trade show",
     description:
       "Maximize foot traffic with our engineered Modular Sustainable reusable tech and tailor-made architectural exhibition environments.",
     bgImage: "/banners/banner2.webp",
@@ -42,6 +44,7 @@ const heroSlides = [
     tagline: "TURNKEY EVENT & MALL ACTIVATIONS",
     titleStart: "Transforming Spatial",
     titleHighlight: "Customer Engagement",
+    imageAlt: "Mall activation booth built in Dubai",
     description:
       "Complete end-to-end execution from our factory: fast fabrication, seamless logistics, and strict venue-compliant installation.",
     bgImage: "/banners/banner3.webp",
@@ -623,7 +626,7 @@ export default function Home() {
               >
                 <img
                   src="/about.png"
-                  alt="Premium Exhibition Stand Build"
+                  alt="Exhibition stand builders in Dubai: in-house production team at work"
                   className="h-full w-full object-cover"
                 />
               </motion.div>
@@ -794,7 +797,7 @@ export default function Home() {
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={project.bgImage}
-                    alt={project.titleHighlight}
+                    alt={project.imageAlt}
                     className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                 </div>
