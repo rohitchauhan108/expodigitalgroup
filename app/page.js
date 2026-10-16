@@ -26,8 +26,7 @@ const heroSlides = [
     titleHighlight: "Projects To Life",
     description:
       "From high-end custom bespoke booths to eco-friendly modular structures. We turn original concepts into breathtaking spaces that stand out.",
-    bgImage:
-      "/banners/banner1.webp",
+    bgImage: "/banners/banner1.webp",
   },
   {
     id: 2,
@@ -36,8 +35,7 @@ const heroSlides = [
     titleHighlight: "Brand Presence",
     description:
       "Maximize foot traffic with our engineered Modular Sustainable reusable tech and tailor-made architectural exhibition environments.",
-    bgImage:
-      "/banners/banner2.webp",
+    bgImage: "/banners/banner2.webp",
   },
   {
     id: 3,
@@ -46,8 +44,7 @@ const heroSlides = [
     titleHighlight: "Customer Engagement",
     description:
       "Complete end-to-end execution from our factory: fast fabrication, seamless logistics, and strict venue-compliant installation.",
-    bgImage:
-      "/banners/banner3.webp",
+    bgImage: "/banners/banner3.webp",
   },
 ];
 
@@ -71,7 +68,7 @@ function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3, once: true }
+      { threshold: 0.3, once: true },
     );
 
     if (ref.current) {
@@ -104,7 +101,12 @@ function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
     requestAnimationFrame(step);
   }, [isVisible, end, duration]);
 
-  return <span ref={ref}>{count}{suffix || String(end).replace(/[0-9.]/g, "")}</span>;
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix || String(end).replace(/[0-9.]/g, "")}
+    </span>
+  );
 }
 
 function FAQCard({ faq }) {
@@ -175,9 +177,7 @@ export default function Home() {
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) =>
-      prev === 0 ? heroSlides.length - 1 : prev - 1
-    );
+    setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
   };
 
   const principles = [
@@ -193,7 +193,8 @@ export default function Home() {
     },
     {
       title: "Accountability",
-      description: "One team, one contract. If it is our stand, it is our responsibility.",
+      description:
+        "One team, one contract. If it is our stand, it is our responsibility.",
       icon: ShieldCheck,
     },
     {
@@ -205,13 +206,13 @@ export default function Home() {
 
   const services = [
     {
-      title: "Exhibition Stand Design & Build",
+      title: "Bespoke Exhibition Stand Design & Build",
       description:
         "Tailor-made, structurally unique bespoke builds designed entirely in-house from scratch to reflect your precise corporate identity and trade show goals.",
       badge: "Custom Production",
     },
     {
-      title: "Modular Sustainable Stand System",
+      title: " Modular & QuickBuild Exhibition Stands",
       description:
         "Our proprietary premium eco-friendly modular profiles. Engineered with zero wood and zero waste, offering over 50 dynamic combinations for repetitive multi-event use.",
       badge: "Green Modular",
@@ -259,10 +260,16 @@ export default function Home() {
     {
       question: "Do you handle the entire exhibition cycle in-house?",
       answer:
-        "Yes, Expo Digital Group is a complete turnkey provider. We handle everything from creative conceptual 3D design renders and in-house manufacturing at our factory compound to shipping, floor assembly, dismantling, and safe storage.",
+        "Yes. Expo Digital Group is a complete turnkey provider, covering 3D design, in-house manufacturing, shipping, on-site assembly, dismantling and storage.",
     },
     {
-      question: "What exactly is the Modular Portable Sustainable Stand System?",
+      question: "Do you offer exhibition stand rentals in Dubai?",
+      answer:
+        "Yes. We rent exhibition furniture, AV equipment and display stands with delivery and setup included.",
+    },
+    {
+      question:
+        "What exactly is the Modular Portable Sustainable Stand System?",
       answer:
         "Modular Sustainable is our innovative, eco-conscious modular profiling setup. It gives you a premium, heavy custom-built appearance but generates absolutely zero waste, skips wood elements, and can be recombined into over 50 unique spatial variations for multiple exhibitions.",
     },
@@ -272,6 +279,19 @@ export default function Home() {
         "While our primary fabrication facility operates locally out of Dubai, we regularly deliver turnkey pavilions, booths, and pop-up activations for premium global brands across major Middle Eastern hubs and premier global exhibition spaces.",
     },
   ];
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   const marqueeItems = [
     "Bespoke Exhibition Booths",
@@ -299,6 +319,12 @@ export default function Home() {
   return (
     <main className="lg:min-h-screen bg-[#EAF4E1]">
       <Navbar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
+        }}
+      />
 
       {/* 1. Hero Section with Carousel */}
       <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-[#EAF4E1] pt-10 pb-24 md:pt-8 md:pb-28">
@@ -326,10 +352,16 @@ export default function Home() {
                 {heroSlides[currentSlide].description}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/custom-solution" className="w-full sm:w-auto rounded-full bg-[var(--primary)] px-10 py-4 font-black text-white transition-transform hover:scale-105 shadow-lg shadow-[var(--primary)]/30">
+                <Link
+                  href="/custom-solution"
+                  className="w-full sm:w-auto rounded-full bg-[var(--primary)] px-10 py-4 font-black text-white transition-transform hover:scale-105 shadow-lg shadow-[var(--primary)]/30"
+                >
                   Explore Our Custom Solutions
                 </Link>
-                <Link href="/contact" className="w-full sm:w-auto rounded-full border border-zinc-300 bg-white/90 backdrop-blur-md px-10 py-4 font-black text-zinc-950 transition-all hover:bg-white hover:border-zinc-950 shadow-md shadow-zinc-900/5">
+                <Link
+                  href="/contact"
+                  className="w-full sm:w-auto rounded-full border border-zinc-300 bg-white/90 backdrop-blur-md px-10 py-4 font-black text-zinc-950 transition-all hover:bg-white hover:border-zinc-950 shadow-md shadow-zinc-900/5"
+                >
                   Request a Design Quote
                 </Link>
               </div>
@@ -370,7 +402,10 @@ export default function Home() {
             transition={{ ease: "linear", duration: 25, repeat: Infinity }}
           >
             {[...marqueeItems, ...marqueeItems].map((title, index) => (
-              <div key={index} className="flex items-center gap-4 flex-shrink-0">
+              <div
+                key={index}
+                className="flex items-center gap-4 flex-shrink-0"
+              >
                 <div className="h-2 w-2 rounded-full bg-orange-500 opacity-80" />
                 <span className="text-xl font-bold uppercase tracking-wider text-zinc-700">
                   {title}
@@ -395,7 +430,9 @@ export default function Home() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className={`relative flex flex-col items-center px-4 ${
-                    idx < principles.length - 1 ? "md:border-r md:border-zinc-200" : ""
+                    idx < principles.length - 1
+                      ? "md:border-r md:border-zinc-200"
+                      : ""
                   }`}
                 >
                   <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
@@ -414,100 +451,106 @@ export default function Home() {
         </div>
       </section>
 
-     {/* 4. Advanced About Section */}
-<section className="relative py-24 md:py-32 overflow-hidden" id="about">
-  <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
-  <div className="site-shell relative z-10">
-    <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
-      <motion.div
-        className="relative lg:col-span-6"
-        initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-      >
-        {/* Adjusted scale-[0.75] and added max-w-md mx-auto */}
-        <div className="relative aspect-[4/5] w-full max-w-md mx-auto origin-center scale-[1.1] overflow-hidden rounded-[2.5rem] border border-zinc-200 bg-zinc-100 shadow-[0_30px_80px_rgba(17,17,17,0.08)] group">
-          <motion.img
-            src="https://videocdn.cdnpk.net/videos/f052324d-675d-5c39-a8e2-2aa87f1c0d0c/vertical/thumbnails/large.jpg?uid=R212285470&ga=GA1.1.1383789883.1786786872&semt=ais_hybrid&item_id=7421719&w=740&q=80"
-            alt="Expo Digital production showroom"
-            className="h-full w-full object-cover"
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.6 }}
-          />
-          <motion.div
-            className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/20 bg-white/70 p-6 backdrop-blur-md hidden sm:block shadow-lg"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <p className="text-sm font-bold uppercase tracking-wider text-zinc-950 mb-1">
-              On-Time & On-Brief Delivery
-            </p>
-            <p className="text-xs text-zinc-600">
-              Managing complete fabrication complexity & strict venue compliance across all major exhibition centres smoothly.
-            </p>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      <div className="lg:col-span-6 lg:pl-6">
-        <motion.p
-          className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]"
-          {...fadeUp}
-        >
-          Excellence in Spatial Branding
-        </motion.p>
-        <motion.h2
-          className="mb-6 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl"
-          {...fadeUp}
-          transition={{ delay: 0.1 }}
-        >
-          We translate creative ideas into{" "}
-          <span className="gradient-text">majestic environments</span>.
-        </motion.h2>
-        <motion.p
-          className="mb-6 text-lg leading-relaxed text-zinc-600"
-          {...fadeUp}
-          transition={{ delay: 0.2 }}
-        >
-          With an unwavering dedication to in-house craftsmanship, strict material selection, and rigorous design execution, Expo Digital Group guarantees that your presence stands out beautifully in any high-traffic exhibition hall.
-        </motion.p>
-
-        <motion.div
-          className="flex flex-wrap gap-2.5"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, staggerChildren: 0.05 }}
-        >
-          {expertiseTags.map((tag, idx) => (
-            <motion.span
-              key={idx}
-              className="rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-xs font-semibold text-zinc-700 cursor-default"
-              whileHover={{
-                scale: 1.05,
-                borderColor: "rgba(24,24,27,0.3)",
-                backgroundColor: "#fff",
-              }}
-            >
-              {tag}
-            </motion.span>
-          ))}
-        </motion.div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      {/* 5. Redesigned Why Expo Digital Section with Integrated Stats */}
-      <section className="relative py-24 lg:py-32 overflow-hidden bg-zinc-50/50" id="why-us">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
-        
+      {/* 4. Advanced About Section */}
+      <section className="relative py-24 md:py-32 overflow-hidden" id="about">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
         <div className="site-shell relative z-10">
           <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
-            
+            <motion.div
+              className="relative lg:col-span-6"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              {/* Adjusted scale-[0.75] and added max-w-md mx-auto */}
+              <div className="relative aspect-[4/5] w-full max-w-md mx-auto origin-center scale-[1.1] overflow-hidden rounded-[2.5rem] border border-zinc-200 bg-zinc-100 shadow-[0_30px_80px_rgba(17,17,17,0.08)] group">
+                <motion.img
+                  src="https://videocdn.cdnpk.net/videos/f052324d-675d-5c39-a8e2-2aa87f1c0d0c/vertical/thumbnails/large.jpg?uid=R212285470&ga=GA1.1.1383789883.1786786872&semt=ais_hybrid&item_id=7421719&w=740&q=80"
+                  alt="Expo Digital production showroom"
+                  className="h-full w-full object-cover"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.6 }}
+                />
+                <motion.div
+                  className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/20 bg-white/70 p-6 backdrop-blur-md hidden sm:block shadow-lg"
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <p className="text-sm font-bold uppercase tracking-wider text-zinc-950 mb-1">
+                    On-Time & On-Brief Delivery
+                  </p>
+                  <p className="text-xs text-zinc-600">
+                    Managing complete fabrication complexity & strict venue
+                    compliance across all major exhibition centres smoothly.
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            <div className="lg:col-span-6 lg:pl-6">
+              <motion.p
+                className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[var(--primary)]"
+                {...fadeUp}
+              >
+                Excellence in Spatial Branding
+              </motion.p>
+              <motion.h2
+                className="mb-6 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl"
+                {...fadeUp}
+                transition={{ delay: 0.1 }}
+              >
+                Custom Exhibition Stand Contractors in Dubai,{" "}
+                <span className="gradient-text">Built In-House</span>.
+              </motion.h2>
+              <motion.p
+                className="mb-6 text-lg leading-relaxed text-zinc-600"
+                {...fadeUp}
+                transition={{ delay: 0.2 }}
+              >
+                With an unwavering dedication to in-house craftsmanship, strict
+                material selection, and rigorous design execution, Expo Digital
+                Group guarantees that your presence stands out beautifully in
+                any high-traffic exhibition hall.
+              </motion.p>
+
+              <motion.div
+                className="flex flex-wrap gap-2.5"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, staggerChildren: 0.05 }}
+              >
+                {expertiseTags.map((tag, idx) => (
+                  <motion.span
+                    key={idx}
+                    className="rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-xs font-semibold text-zinc-700 cursor-default"
+                    whileHover={{
+                      scale: 1.05,
+                      borderColor: "rgba(24,24,27,0.3)",
+                      backgroundColor: "#fff",
+                    }}
+                  >
+                    {tag}
+                  </motion.span>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Redesigned Why Expo Digital Section with Integrated Stats */}
+      <section
+        className="relative py-24 lg:py-32 overflow-hidden bg-zinc-50/50"
+        id="why-us"
+      >
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px)] bg-[size:10%_100%] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+
+        <div className="site-shell relative z-10">
+          <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-6 space-y-8">
               <motion.div {...fadeUp}>
@@ -515,11 +558,15 @@ export default function Home() {
                   Why Choose Expo Digital
                 </p>
                 <h2 className="mb-6 text-3xl font-bold text-zinc-950 md:text-5xl tracking-tight leading-tight">
-                  Designed to the brief. <br className="hidden sm:inline" />
-                  <span className="gradient-text">Engineered to dominate</span> the floor.
+                  Why Choose Expo Digital as Your
+                  {/* <br className="hidden sm:inline" /> */}
+                  <span className="gradient-text"> UAE Exhibition</span> Stand
+                  Builder.
                 </h2>
                 <p className="text-lg leading-relaxed text-zinc-600">
-                  We handle the high-stakes friction of trade show logistics—from initial large format printing design to local fabrication, complex venue clearances, and fast dismantling.
+                  We handle the high-stakes friction of trade show
+                  logistics—from initial large format printing design to local
+                  fabrication, complex venue clearances, and fast dismantling.
                 </p>
               </motion.div>
 
@@ -527,17 +574,17 @@ export default function Home() {
                 {[
                   {
                     icon: <Building2 className="w-5 h-5" />,
-                    title: "In-House Production",
+                    title: "100% In-House Production in Al Quoz, Dubai",
                     text: "100% In-House Production. No middlemen or third-party delays.",
                   },
                   {
                     icon: <Rocket className="w-5 h-5" />,
-                    title: "Turnkey & On-Time",
+                    title: "Turnkey & On-Time Delivery",
                     text: "Navigating strict venue regulations and structural checks for smooth handovers.",
                   },
                   {
                     icon: <Sparkles className="w-5 h-5" />,
-                    title: "Eco Modular & Custom",
+                    title: "Eco-Friendly Modular Stand Systems",
                     text: "Zero-waste modular framework with 100+ layout variations built to fit.",
                   },
                 ].map((item, index) => (
@@ -553,8 +600,12 @@ export default function Home() {
                       {item.icon}
                     </div>
                     <div>
-                      <h4 className="font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">{item.title}</h4>
-                      <p className="text-sm text-zinc-500 leading-relaxed">{item.text}</p>
+                      <h4 className="font-bold text-zinc-950 group-hover:text-[var(--primary)] transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm text-zinc-500 leading-relaxed">
+                        {item.text}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -576,18 +627,20 @@ export default function Home() {
                   className="h-full w-full object-cover"
                 />
               </motion.div>
-              
+
               {/* Decorative elements */}
               <div className="absolute -top-6 -right-6 w-32 h-32 bg-[var(--primary)]/10 rounded-full blur-3xl -z-10" />
               <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-orange-500/10 rounded-full blur-[80px] -z-10" />
             </div>
-
           </div>
         </div>
       </section>
 
       {/* 6. Core Services Section */}
-      <section className="border-y border-zinc-200 py-10 lg:py-24" id="services">
+      <section
+        className="border-y border-zinc-200 py-10 lg:py-24"
+        id="services"
+      >
         <div className="site-shell">
           <motion.div
             className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
@@ -598,11 +651,14 @@ export default function Home() {
                 Our Core Capabilities
               </p>
               <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl">
-                Visual Power. <span className="gradient-text">Flawless Assembly.</span>
+                Our Exhibition Stand Services{" "}
+                <span className="gradient-text">in Dubai.</span>
               </h2>
             </div>
             <p className="max-w-xl text-lg leading-relaxed text-zinc-600">
-              From high-impact bespoke design solutions to eco-conscious modular configurations, we engineer custom spaces that command customer engagement.
+              From high-impact bespoke design solutions to eco-conscious modular
+              configurations, we engineer custom spaces that command customer
+              engagement.
             </p>
           </motion.div>
 
@@ -633,7 +689,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Services/>
+      <Services />
 
       {/* 7. UPDATED: Connected Timeline Production Framework with Matching Gradient Font */}
       <section className="py-24 relative overflow-hidden">
@@ -643,10 +699,8 @@ export default function Home() {
               Production Framework
             </p>
             <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl tracking-tight leading-tight">
-              Our path to{" "}
-              <span className="gradient-text">
-                experiential precision.
-              </span>
+              Our Exhibition Stand{" "}
+              <span className="gradient-text">Building Process.</span>
             </h2>
           </motion.div>
 
@@ -673,8 +727,18 @@ export default function Home() {
                       Phase {step.num}
                     </span>
                     {index < processSteps.length - 1 && (
-                      <svg className="hidden lg:block w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7-7 7" />
+                      <svg
+                        className="hidden lg:block w-4 h-4 text-orange-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2.5"
+                          d="M14 5l7 7-7 7"
+                        />
                       </svg>
                     )}
                   </div>
@@ -707,11 +771,13 @@ export default function Home() {
                 Featured Portfolio
               </p>
               <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl">
-                Spaces built <span className="gradient-text">to captivate.</span>
+                Exhibition Stands We've Built Across{" "}
+                <span className="gradient-text">Dubai & the UAE.</span>
               </h2>
             </div>
             <p className="max-w-xl text-lg leading-relaxed text-zinc-600">
-              A detailed glimpse inside our premium fabrications across Dubai&apos;s primary commercial and retail exhibition hubs.
+              A detailed glimpse inside our premium fabrications across
+              Dubai&apos;s primary commercial and retail exhibition hubs.
             </p>
           </motion.div>
 
@@ -757,7 +823,7 @@ export default function Home() {
               Inquiries & Clarity
             </p>
             <h2 className="text-2xl font-bold text-zinc-950 md:text-3xl">
-              Frequently Asked <span className="gradient-text">Questions</span>
+              Exhibition Stand <span className="gradient-text">FAQs</span>
             </h2>
           </motion.div>
 
@@ -780,14 +846,22 @@ export default function Home() {
         <div className="site-shell relative z-10 text-center">
           <motion.div {...fadeUp}>
             <h2 className="mx-auto mb-12 max-w-4xl text-3xl font-bold leading-tight text-zinc-950 md:text-5xl">
-              Ready to transform your brand <br className="hidden sm:inline" />
-              <span className="gradient-text">into an architectural experience?</span>
+              Get a Free <br className="hidden sm:inline" />
+              <span className="gradient-text">
+                Exhibition Stand Design Quote
+              </span>
             </h2>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/contact" className="rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-xl shadow-[var(--primary)]/30">
+              <Link
+                href="/contact"
+                className="rounded-full bg-[var(--primary)] px-10 py-4 font-bold text-white transition-transform hover:scale-105 shadow-xl shadow-[var(--primary)]/30"
+              >
                 Get Started Today
               </Link>
-              <Link href="/custom-solution" className="rounded-full border border-zinc-300 bg-white px-10 py-4 font-bold text-zinc-900 transition-all hover:bg-zinc-100">
+              <Link
+                href="/custom-solution"
+                className="rounded-full border border-zinc-300 bg-white px-10 py-4 font-bold text-zinc-900 transition-all hover:bg-zinc-100"
+              >
                 View Our Custom Solutions
               </Link>
             </div>

@@ -27,10 +27,72 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Expo Digital Group | Exhibition Stand Builder",
+  metadataBase: new URL("https://expodigitalgroup.com"),
+  title: "Exhibition Stand Builders in Dubai & UAE | Expo Digital Group",
   description:
-    "Expo Digital Group delivers bespoke exhibition stands, modular systems, quick build booths, and turnkey event solutions across the Middle East.",
-    icons :  "/fav-icon.png" 
+    "Exhibition stand builders in Dubai & UAE. Custom stands, modular booths and exhibition rentals, built in-house in Al Quoz. Get a free design quote.",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+  },
+  verification: {
+    google: "ycQL85vYtroSuEWrrPuQdeoBFxY88w2mzc5zrjfjR6w",
+  },
+  openGraph: {
+    title: "Exhibition Stand Builders in Dubai & UAE | Expo Digital Group",
+    description:
+      "Custom & modular exhibition stands, rentals and turnkey event fabrication in Dubai, UAE and the GCC.",
+    type: "website",
+    url: "https://expodigitalgroup.com/",
+    images: ["https://expodigitalgroup.com/banners/banner1.webp"],
+  },
+  icons: "/fav-icon.png",
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://expodigitalgroup.com/#business",
+  name: "Expo Digital Group",
+  url: "https://expodigitalgroup.com/",
+  logo: "https://expodigitalgroup.com/expo-digital-logo.png",
+  image: "https://expodigitalgroup.com/banners/banner1.webp",
+  description:
+    "Exhibition stand builders and contractors in Dubai and the UAE offering custom stands, modular systems, exhibition rentals and turnkey event fabrication.",
+  telephone: "+971563760187",
+  email: "sales@expodigitalgroup.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Capital Compound, Al Quoz Industrial Area 2",
+    addressLocality: "Dubai",
+    addressCountry: "AE",
+  },
+  areaServed: ["Dubai", "United Arab Emirates", "Saudi Arabia", "GCC"],
+  sameAs: [
+    "https://www.facebook.com/ExhibitionsEventsActivationsBespokefurniture/",
+    "https://www.linkedin.com/in/expo-digital-llc-b09950210",
+  ],
+  makesOffer: [
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Exhibition Stand Design & Build",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: "Modular Exhibition Stands" },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: "Exhibition Rentals" },
+    },
+  ],
 };
 
 export default function RootLayout({ children }) {
@@ -41,6 +103,15 @@ export default function RootLayout({ children }) {
         // className={`${syne.variable} ${karla.variable} font-sans bg-white text-zinc-900 antialiased`}
       >
         <LenisSmoothScroll />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema).replace(
+              /</g,
+              "\\u003c",
+            ),
+          }}
+        />
         {children}
       </body>
     </html>
