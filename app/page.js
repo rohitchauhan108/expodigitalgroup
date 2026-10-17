@@ -643,8 +643,8 @@ export default function Home() {
                 <h2 className="mb-6 text-3xl font-bold text-zinc-950 md:text-5xl tracking-tight leading-tight">
                   Why Choose Expo Digital as Your
                   {/* <br className="hidden sm:inline" /> */}
-                  <span className="gradient-text"> UAE Exhibition</span> Stand
-                  Builder.
+                  <span className="gradient-text"> Exhibition</span> Stand
+                  Builder In UAE.
                 </h2>
                 <p className="text-lg leading-relaxed text-zinc-600">
                   There's no shortage of exhibition stand companies in Dubai.
