@@ -345,13 +345,13 @@ export default function Home() {
               <p className="mb-4 text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-[var(--primary)]">
                 {heroSlides[currentSlide].tagline} • {displayText}
               </p>
-              <h1 className="mb-8 text-4xl font-black tracking-tight text-zinc-950 md:text-6xl lg:text-[76px] leading-[1.05]">
+              <h2 className="mb-8 text-4xl font-black tracking-tight text-zinc-950 md:text-6xl lg:text-[76px] leading-[1.05]">
                 {heroSlides[currentSlide].titleStart}
                 <br />
                 <span className="gradient-text">
                   {heroSlides[currentSlide].titleHighlight}
                 </span>
-              </h1>
+              </h2>
               <p className="mx-auto mb-10 max-w-4xl text-base leading-relaxed text-zinc-800 md:text-xl font-semibold">
                 {heroSlides[currentSlide].description}
               </p>
@@ -501,14 +501,14 @@ export default function Home() {
               >
                 Excellence in Spatial Branding
               </motion.p>
-              <motion.h2
+              <motion.h1
                 className="mb-6 text-3xl font-bold leading-tight text-zinc-950 md:text-4xl lg:text-5xl"
                 {...fadeUp}
                 transition={{ delay: 0.1 }}
               >
                 Custom Exhibition Stand Contractors in Dubai,{" "}
                 <span className="gradient-text">Built In-House</span>.
-              </motion.h2>
+              </motion.h1>
               <motion.p
                 className="mb-6 text-lg leading-relaxed text-zinc-600"
                 {...fadeUp}
