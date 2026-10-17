@@ -168,6 +168,9 @@ function FAQCard({ faq }) {
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // just to expand and c;lose the the text using see more button
+
+ const [expanded, setExpanded] = useState(false); 
   // Auto-play timer for hero carousel (12s per slide)
   useEffect(() => {
     const timer = setInterval(() => {
@@ -288,7 +291,8 @@ export default function Home() {
         "The cost depends on your stand size, materials, custom design, graphics, lighting, and AV requirements. Modular stands are usually more affordable, while fully custom-built stands cost more. Share your floor plan and requirements, and we’ll provide a tailored quote.",
     },
     {
-      question: "How long does it take to build an exhibition stand in the UAE?",
+      question:
+        "How long does it take to build an exhibition stand in the UAE?",
       answer:
         "Most exhibition stands take around 4–6 weeks from design approval to installation. Larger or more complex custom stands may need 8–10 weeks. We also offer QuickBuild solutions for certain booths, backdrops, and activations.",
     },
@@ -298,7 +302,8 @@ export default function Home() {
         "Yes, we offer rentals for exhibition furniture, display stands, and AV equipment. Rentals are ideal for one-off events or exhibitors looking for a flexible, cost-effective option. View our rentals page.",
     },
     {
-      question: "What’s the difference between exhibition stand builders and contractors?",
+      question:
+        "What’s the difference between exhibition stand builders and contractors?",
       answer:
         "Stand builders focus on designing and fabricating the booth, while contractors manage logistics, venue approvals, installation, and dismantling. At Expo Digital Group, we provide both as a complete end-to-end service.",
     },
@@ -493,7 +498,7 @@ export default function Home() {
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
               {/* Adjusted scale-[0.75] and added max-w-md mx-auto */}
-              <div className="relative w-ful max-w-md mx-auto origin-center scale-[1.1] overflow-hidden rounded-[2.5rem] border border-zinc-200 bg-zinc-100 shadow-[0_30px_80px_rgba(17,17,17,0.08)] group">
+              <div className="relative w-ful aspect-[3/4] max-w-md mx-auto origin-center scale-[1.1] overflow-hidden rounded-[2.5rem] border border-zinc-200 bg-zinc-100 shadow-[0_30px_80px_rgba(17,17,17,0.08)] group">
                 <motion.img
                   src="https://videocdn.cdnpk.net/videos/f052324d-675d-5c39-a8e2-2aa87f1c0d0c/vertical/thumbnails/large.jpg?uid=R212285470&ga=GA1.1.1383789883.1786786872&semt=ais_hybrid&item_id=7421719&w=740&q=80"
                   alt="Expo Digital production showroom"
@@ -534,7 +539,7 @@ export default function Home() {
                 Custom Exhibition Stand Contractors in Dubai,{" "}
                 <span className="gradient-text">Built In-House</span>.
               </motion.h1>
-              <motion.p
+              {/* <motion.p
                 className="mb-6 text-lg leading-relaxed text-zinc-600"
                 {...fadeUp}
                 transition={{ delay: 0.2 }}
@@ -542,8 +547,58 @@ export default function Home() {
               If you're exhibiting in Dubai, you know how fast a show date arrives. One week you're signing off the booking, and the next you're wondering whether your stand will be built, approved and standing before the doors open. That's the worry we take off your plate.<br/>
               Expo Digital Group is an exhibition stand contractor in Dubai with its own factory in Al Quoz. Our designers, carpenters, metal workers, painters and print team all work in the same place, so your stand never gets handed to a third party. We design it, build it, deliver it, set it up on site, take it down after the show and, if you'd like, store it for next time.<br/>
               Some clients come to us for a one-off bespoke stand. Others want a reusable modular booth for a busy show calendar, or a quick pop-up for a mall. Whatever the brief, we work backwards from your show date and your budget. Four ideas guide everything we build: precision, speed, accountability and craft. Get those right, and the stand does its real job, which is bringing the right people through your door.
+              </motion.p> */}
+              <motion.p
+                className="mb-6 text-lg leading-relaxed text-zinc-600"
+                {...fadeUp}
+                transition={{ delay: 0.2 }}
+              >
+                If you're exhibiting in Dubai, you know how fast a show date
+                arrives. One week you're signing off the booking, and the next
+                you're wondering whether your stand will be built, approved and
+                standing before the doors open. That's the worry we take off
+                your plate.
+                <br />
+                <br />
+                Expo Digital Group is an exhibition stand contractor in Dubai
+                with its own factory in Al Quoz. Our designers, carpenters,
+                metal workers, painters and print team all work in the same
+                place, so your stand never gets handed to a third party. We
+                design it, build it, deliver it, set it up on site, take it down
+                after the show and, if you'd like, store it for next time.
+                {!expanded && (
+                  <>
+                    {" "}
+                    <button
+                      type="button"
+                      onClick={() => setExpanded(true)}
+                      className="font-normal cursor-pointer text-zinc-600 underline underline-offset-4 hover:text-zinc-500"
+                    >
+                      See More
+                    </button>
+                  </>
+                )}
+                {expanded && (
+                  <>
+                    <br />
+                    <br />
+                    Some clients come to us for a one-off bespoke stand. Others
+                    want a reusable modular booth for a busy show calendar, or a
+                    quick pop-up for a mall. Whatever the brief, we work
+                    backwards from your show date and your budget. Four ideas
+                    guide everything we build: precision, speed, accountability
+                    and craft. Get those right, and the stand does its real job,
+                    which is bringing the right people through your door.{" "}
+                    <button
+                      type="button"
+                      onClick={() => setExpanded(false)}
+                      className="font-normal cursor-pointer text-zinc-600 underline underline-offset-4 hover:text-zinc-500"
+                    >
+                      See Less
+                    </button>
+                  </>
+                )}
               </motion.p>
-
               <motion.div
                 className="flex flex-wrap gap-2.5"
                 initial={{ opacity: 0 }}
@@ -592,7 +647,8 @@ export default function Home() {
                   Builder.
                 </h2>
                 <p className="text-lg leading-relaxed text-zinc-600">
-                  There's no shortage of exhibition stand companies in Dubai. Here's why brands keep coming back to us.
+                  There's no shortage of exhibition stand companies in Dubai.
+                  Here's why brands keep coming back to us.
                 </p>
               </motion.div>
 
@@ -684,7 +740,8 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-xl text-lg leading-relaxed text-zinc-600">
-             Whether you need a small display stand or a full custom pavilion, you'll find it all under one roof.
+              Whether you need a small display stand or a full custom pavilion,
+              you'll find it all under one roof.
             </p>
           </motion.div>
 
@@ -730,11 +787,12 @@ export default function Home() {
               </p>
               <h2 className="text-3xl font-bold text-zinc-950 md:text-5xl">
                 Our Exhibition Stand{" "}
-              <span className="gradient-text">Building Process.</span>
+                <span className="gradient-text">Building Process.</span>
               </h2>
             </div>
             <p className="max-w-xl text-lg leading-relaxed text-zinc-600">
-             From first conversation to finished stand, we keep the process simple, so you always know what happens next.
+              From first conversation to finished stand, we keep the process
+              simple, so you always know what happens next.
             </p>
           </motion.div>
 
@@ -810,7 +868,9 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-xl text-lg leading-relaxed text-zinc-600">
-              Every stand starts with a brief and ends with a space that has to work on a busy show floor. Here's a look at some of our recent builds in Dubai's main exhibition and retail venues.
+              Every stand starts with a brief and ends with a space that has to
+              work on a busy show floor. Here's a look at some of our recent
+              builds in Dubai's main exhibition and retail venues.
             </p>
           </motion.div>
 
