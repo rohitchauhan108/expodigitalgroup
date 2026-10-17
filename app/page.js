@@ -626,7 +626,7 @@ export default function Home() {
                 transition={{ duration: 0.7 }}
               >
                 <Image
-                  src="/about.png"
+                  src="/about.webp"
                   alt="Exhibition stand builders in Dubai: in-house production team at work"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
