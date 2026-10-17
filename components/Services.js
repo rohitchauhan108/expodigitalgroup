@@ -27,6 +27,8 @@ function Services() {
     { id: 7, name: "Branding", image: "/services/7.png" },
     { id: 8, name: "Promotion Stands", image: "/services/8.png" },
     { id: 9, name: "Back Walls", image: "/services/9.png" },
+    { id: 10, name: "Exhibition Rentals", image: "/services/12.png" },
+    { id: 11, name: "Modular Exhibition Stands", image: "/services/13.png" },
   ];
 
   // Helper to determine items per view based on window width
