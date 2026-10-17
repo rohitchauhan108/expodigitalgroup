@@ -514,10 +514,7 @@ export default function Home() {
                 {...fadeUp}
                 transition={{ delay: 0.2 }}
               >
-                With an unwavering dedication to in-house craftsmanship, strict
-                material selection, and rigorous design execution, Expo Digital
-                Group guarantees that your presence stands out beautifully in
-                any high-traffic exhibition hall.
+               As exhibition stand contractors in Dubai, we manage every stage of your trade show presence: 3D concept design, in-house manufacturing, venue approvals, on-site installation and dismantling. Whether you're exhibiting at Dubai World Trade Centre, Expo City Dubai, ADNEC in Abu Dhabi or Riyadh venues, our UAE exhibition stand builders deliver to the millimetre and to the show deadline. Choose a fully bespoke stand, a reusable eco-modular system, or flexible exhibition rentals for shorter budgets and tighter timelines.
               </motion.p>
 
               <motion.div
