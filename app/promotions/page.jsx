@@ -37,12 +37,12 @@ const fadeUp = {
 };
 
 const GALLERY_IMAGES = [
-  "/promotion/1.jpeg",
-  "/promotion/2.jpeg",
-  "/promotion/3.jpeg",
-  "/promotion/4.jpeg",
-  "/promotion/5.jpeg",
-  "/promotion/6.jpeg",
+  "/promotion/1.webp",
+  "/promotion/2.webp",
+  "/promotion/3.webp",
+  "/promotion/4.webp",
+  "/promotion/5.webp",
+  "/promotion/6.webp",
 ];
 
 const IMAGES_PER_LOAD = 9;
