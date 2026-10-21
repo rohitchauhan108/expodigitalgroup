@@ -34,10 +34,10 @@ const fadeUp = {
 
 // Add placeholder images here later
 const GALLERY_IMAGES = [
-  "/conference/1.jpeg",
-  "/conference/2.jpeg",
-  "/conference/3.jpeg",
-  "/conference/4.jpeg",
+  "/conference/1.webp",
+  "/conference/2.webp",
+  "/conference/3.webp",
+  "/conference/4.webp",
   "/conference/ppt/1.webp",
   "/conference/ppt/2.webp",
   "/conference/ppt/3.webp",
